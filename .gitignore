@@ -1,0 +1,41 @@
+#ignore Tex aux files and pdf
+*.aux
+*.bbl
+*.blg
+*.log
+*.pdf
+
+#ignore kile project files
+*.kilepr
+
+#ignore folder settings
+.directory
+
+# ignore emacs autosaves
+\#*#
+*~
+
+# ignore vim autosaves
+.*.swp
+*.cc.swo
+
+# ignore kate autosave
+*kate-swp
+
+# ignore git mergetool backup files
+*.orig
+
+# ignore archives
+*.zip
+*.rar
+*.7z
+*.gz
+*.tar*
+
+# ignore OS files
+Thumbs.db
+*.lnk
+
+#ignore certain template files
+src/template.cc
+testdata/*

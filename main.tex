@@ -1,0 +1,72 @@
+\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage{geometry}
+\geometry{a4paper,left=24mm,right=24mm, top=2.0cm, bottom=3.2cm}
+
+\usepackage{graphics}           % Unterstuetzung fuer Grafiken (extended)
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphics}           % Unterstuetzung fuer Grafiken (extended)
+\usepackage[load-configurations=abbreviations,tight-spacing=true,separate-uncertainty,bracket-numbers = false]{siunitx}
+\usepackage{nicefrac}
+\usepackage[english]{babel}
+\usepackage{color}
+\usepackage{lineno}
+\usepackage{epstopdf}
+\usepackage{stfloats}
+
+\newcommand{\e}{\ensuremath{\mathnormal{e}}}
+\newcommand{\h}{\ensuremath{\mathnormal{h}}}
+\newcommand{\Datura}{\ensuremath{\mathnormal{DATURA}}}
+
+\DeclareSIUnit\e{\ensuremath{\mathnormal{e}}}
+\DeclareSIUnit\sample{\ensuremath{\mathrm{S}}}
+\DeclareSIUnit\ppb{\ensuremath{\mathrm{ppb}}}
+
+\begin{document}
+ \setpagewiselinenumbers
+\modulolinenumbers[5]
+\linenumbers
+
+
+\title{Status of the DATURA Telescope 2015}
+\author{A. Author${}^{\textrm{a},}$\thanks{corresponding author, \textit{Email:} my.mail@desy.cde}, B. Author${}^{\textrm{b}}$}
+\date{\today}
+\maketitle
+
+
+%\small
+\hspace{0.85cm}${}^{\textrm{a}}$ DESY, Hamburg, Germany, ${}^{\textrm{b}}$ Institute for Telescopocy, bla, blubb
+
+
+\normalsize
+
+\begin{abstract}
+\noindent 
+The status of the $\Datura$ Telescope at DESY is summarised and the performance is shown with two example studies. 
+The pointing resolution using a $\SI{6}{\GeV}$ $\e$-beam at the centre of the telescope is $\SI{5}{\micro\m}$.
+
+\end{abstract}
+
+
+\section{Introduction}
+\input{content/intro}
+
+\section{Desciprion of the Telescope Hardware}
+%\input{HW}
+
+\section{Desciprion of the Telescope Software}
+%\input{SW}
+
+\section{Conclusion}
+
+\section*{Acknowledgement}
+
+\small
+\bibliographystyle{elsarticle-num}
+\bibliography{./bibtex/refs}
+
+\end{document}
+
+
