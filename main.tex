@@ -1,10 +1,9 @@
-\documentclass[a4paper,10pt]{scrartcl}
-
-\usepackage{geometry}
-\geometry{a4paper,left=24mm,right=24mm, top=2.0cm, bottom=3.2cm}
+\pdfoutput=1 % only if pdf/png/jpg images are used
+\documentclass{JINST}
 
 \usepackage{graphics}           % Unterstuetzung fuer Grafiken (extended)
 \usepackage{graphicx}
+\usepackage{subfigure}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphics}           % Unterstuetzung fuer Grafiken (extended)
@@ -23,6 +22,16 @@
 \DeclareSIUnit\e{\ensuremath{\mathnormal{e}}}
 \DeclareSIUnit\sample{\ensuremath{\mathrm{S}}}
 \DeclareSIUnit\ppb{\ensuremath{\mathrm{ppb}}}
+\DeclareSIUnit\GeV{\ensuremath{\mathrm{GeV}}}
+
+
+\title{Status of the DATURA Telescope 2015}
+\author{A. Author${}^{\textrm{a},}$\thanks{corresponding author, \textit{Email:} my.mail@desy.cde}, B. Author${}^{\textrm{b}}$}
+
+\abstract{
+The status of the $\Datura$ Telescope at DESY is summarised and the performance is shown with two example studies. 
+The pointing resolution using a $\SI{6}{\GeV}$ $\e$-beam at the centre of the telescope is $\SI{5}{\micro\m}$.}
+
 
 \begin{document}
  \setpagewiselinenumbers
@@ -30,8 +39,6 @@
 \linenumbers
 
 
-\title{Status of the DATURA Telescope 2015}
-\author{A. Author${}^{\textrm{a},}$\thanks{corresponding author, \textit{Email:} my.mail@desy.cde}, B. Author${}^{\textrm{b}}$}
 \date{\today}
 \maketitle
 
@@ -41,14 +48,6 @@
 
 
 \normalsize
-
-\begin{abstract}
-\noindent 
-The status of the $\Datura$ Telescope at DESY is summarised and the performance is shown with two example studies. 
-The pointing resolution using a $\SI{6}{\GeV}$ $\e$-beam at the centre of the telescope is $\SI{5}{\micro\m}$.
-
-\end{abstract}
-
 
 \section{Introduction}
 \input{content/intro}
