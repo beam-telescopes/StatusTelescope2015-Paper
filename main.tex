@@ -5,31 +5,30 @@
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{graphics}           % Unterstuetzung fuer Grafiken (extended)
-\usepackage[load-configurations=abbreviations,tight-spacing=true,separate-uncertainty,bracket-numbers = false]{siunitx}
+\usepackage[amssymb]{SIunits}
+%\usepackage[load-configurations=abbreviations,tight-spacing=true,separate-uncertainty,bracket-numbers = false]{siunitx}
 \usepackage{nicefrac}
 \usepackage[english]{babel}
 \usepackage{lineno}
 \usepackage{epstopdf}
 \usepackage{stfloats}
+\usepackage{upgreek}
 
 \newcommand{\e}{\ensuremath{\mathnormal{e}}}
 \newcommand{\h}{\ensuremath{\mathnormal{h}}}
 \newcommand{\Datura}{\ensuremath{\mathnormal{DATURA}}}
+\newcommand{\eV}{\ensuremath{\mathnormal{eV}}}
 
-\DeclareSIUnit\e{\ensuremath{\mathnormal{e}}}
-\DeclareSIUnit\sample{\ensuremath{\mathrm{S}}}
-\DeclareSIUnit\ppb{\ensuremath{\mathrm{ppb}}}
-\DeclareSIUnit\GeV{\ensuremath{\mathrm{GeV}}}
-
+ \setpagewiselinenumbers
+\modulolinenumbers[5]
+\linenumbers
 
 \title{Status of the DATURA Telescope 2015}
 \author{A. Author${}^{\textrm{a},}$\thanks{corresponding author, \textit{Email:} my.mail@desy.cde}, B. Author${}^{\textrm{b}}$}
 
 \abstract{
 The status of the $\Datura$ Telescope at DESY is summarised and the performance is shown with two example studies. 
-The pointing resolution using a $\SI{6}{\GeV}$ $\e$-beam at the centre of the telescope is $\SI{5}{mm}$.}
+The pointing resolution using a 6\,GeV $\e$-beam at the centre of the telescope is $\unit{5}{\upmu\meter}$.}
 
 
 \begin{document}
