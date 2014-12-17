@@ -3,6 +3,7 @@
 *.bbl
 *.blg
 *.log
+*.toc
 *.pdf
 
 #ignore kile project files
