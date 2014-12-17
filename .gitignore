@@ -5,6 +5,7 @@
 *.log
 *.toc
 *.pdf
+*.tex.backup
 
 #ignore kile project files
 *.kilepr
@@ -36,7 +37,3 @@
 # ignore OS files
 Thumbs.db
 *.lnk
-
-#ignore certain template files
-src/template.cc
-testdata/*
