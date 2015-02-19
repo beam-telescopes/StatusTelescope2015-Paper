@@ -1,12 +1,15 @@
 \pdfoutput=1 % only if pdf/png/jpg images are used
-\documentclass{JINST}
+%\documentclass[cits]{JINST}
+\documentclass[a4paper,10pt]{scrartcl}
+\usepackage{geometry}
+\geometry{a4paper,left=26mm,right=26mm, top=2.2cm, bottom=3.4cm}
 
 \usepackage{graphics}           % Unterstuetzung fuer Grafiken (extended)
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{amsmath}
 \usepackage[amssymb]{SIunits}
-%\usepackage[load-configurations=abbreviations,tight-spacing=true,separate-uncertainty,bracket-numbers = false]{siunitx}
+%\usepackage[load-configurations=abbreviations,tight-spacing=true,separate-uncertainty,bracket-numbers = false]{siunitx} % JINST cannnot handle siunitx !!
 \usepackage{nicefrac}
 \usepackage[english]{babel}
 \usepackage{lineno}
@@ -19,27 +22,36 @@
 \newcommand{\Datura}{\ensuremath{\mathnormal{DATURA}}}
 \newcommand{\eV}{\ensuremath{\mathnormal{eV}}}
 
- \setpagewiselinenumbers
+\setpagewiselinenumbers
 \modulolinenumbers[5]
 \linenumbers
 
 \title{Status of the DATURA Telescope 2015}
-\author{A. Author${}^{\textrm{a},}$, B. Author${}^{\textrm{b}}$\\
+\author{A. Author\thanks{Corresponding author: bla@bla.de}${}^{\,\,\,,\textrm{a}}$, B. Author${}^{\textrm{b}}$\\
 ${}^{\textrm{a}}$ Deutsches Elektronen-Synchrotron DESY, Hamburg, Germany,\\
 ${}^{\textrm{b}}$ Institute for Telescopocy, bla, blubb
 }
 
-\abstract{
-The status of the $\Datura$ Telescope at DESY is summarised and the performance is shown with two example studies. 
-The pointing resolution using a 6\,GeV $\e$-beam at the centre of the telescope is $\unit{5}{\upmu\meter}$.}
+% \abstract{
+% The status of the $\Datura$ Telescope at DESY is summarised and the performance is shown with two example studies. 
+% The pointing resolution using a 6\,GeV $\e$-beam at the centre of the telescope is $\unit{5}{\upmu\meter}$.
+% }
+
+%\keywords{Pixel, CMOS, Beam telescope, resolution, tracker} % need to be specified during submission
 
 
 \begin{document}
- \setpagewiselinenumbers
-\modulolinenumbers[5]
-\linenumbers
+\maketitle
 
-\normalsize
+\abstract{
+The status of the $\Datura$ Telescope at DESY is summarised and the performance is shown with two example studies. 
+The pointing resolution using a 6\,GeV $\e$-beam at the centre of the telescope is $\unit{5}{\upmu\meter}$.
+}
+
+\tableofcontents
+\newpage
+
+
 
 \section{Introduction}
 \label{sec:intro}
@@ -52,6 +64,10 @@ The pointing resolution using a 6\,GeV $\e$-beam at the centre of the telescope 
 \section{The DATURA telescope}
 \label{sec:aida}
 \input{content/tscope}
+
+\section{EuDAQ}
+\label{sec:eudaq}
+\input{content/eudaq}
 
 \section{Offline analysis and reconstruction using EUTelescope}
 \label{sec:offline}
