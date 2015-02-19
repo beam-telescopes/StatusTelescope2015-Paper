@@ -59,12 +59,13 @@ From a hardware point of view, the Mimosa26 sensors provide the spatial, zero-su
 A 52-pin cable then transports the data and the TLU information in parallel into a FlexRIO board, which is equipped with analogue-to-digital converters and an FPGA. 
 If a trigger is seen by the FPGA, the data is send further to a so-called data collector, collecting the data from different DUTs. 
 
-From a software point of view, the software integration of the DAQ systems and the TLU, together with a run control GUI, logging, data storing, and online monitoring systems are provided within the EUDAQ framework. 
+From a software point of view, the software integration of the DAQ systems and the TLU, together with a run control GUI, logging, data storing, and online monitoring systems are provided within the EUDAQ framework,
+ which is explained in detail in Chap.~\ref{sec:eudaq}. 
 EUDAQ serves as a tool set and an integration layer for DAQ systems, providing the communication protocols for them to participate in a common DAQ. 
 The design of the TLU and of EUDAQ explicitly requires each DAQ system to issue a data packet readout by its detector electronics, and send it to a central data collector. 
 This scheme results in only one EUDAQ event per trigger signal issued by the TLU, with no subsequent triggers recorded until all DAQ systems indicate to the TLU their availability to accept new triggers.
 Therefore, this architecture limits the overall trigger rate by the DAQ system with the slowest readout cycle, which in practical applications leads to a maximum rate of few thousand particles per second. 
-The variety of beam lines at CERN (PS, SPS), DESY, SLAC, Fermilab, brings also differences in the beam spill structure. 
-This limits the average particle rate to below 1 kHz. 
+Due to actual spill structures and duty cycles of the different available beam lines at e.g.~CERN, DESY, SLAC, and Fermilab, the average trigger rate is practically limited to below 1\,kHz. 
+
 
 % $\unit{}{\upmu\meter}$
