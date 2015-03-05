@@ -26,8 +26,8 @@ Support for tracking in presence of magnetic fields and a more fine-grained dete
 	\label{fig:offline:strategy}
 \end{figure}
 
-\subsection{The \texttt{datura-noDUT} example
-processors}\label{sec:datura-nodut}
+\subsection{The \texttt{datura-noDUT} example processors}
+\label{sec:datura-nodut}
 
 Within EUTelescope, an example set of processors and configurations were created
 as an introduction for new users to EUTelescope. Two GEAR files are provided,
@@ -37,56 +37,56 @@ goal of the \texttt{datura-noDUT} example is to get from raw detector data to
 unbiased track residuals of each telescope plane. A definition of the unbiased
 residual distribution will be given in section~\ref{sec:telescoperesolution}. In
 the \texttt{datura-noDUT} directory, there are several subdirectories and
-configuration files:\\
+configuration files:
 
 \begin{itemize}
 
-\item \texttt{output/}\\ This folder contains all output from EUTelescope. The
+\item \texttt{output/} This folder contains all output from EUTelescope. The
 LCIO files are stored here, along with log output, \texttt{ROOT} histograms and
-alignment constants.\\
+alignment constants.
 
-\item \texttt{steering-files/}\\ The steering files are located in this folder.
+\item \texttt{steering-files/} The steering files are located in this folder.
 Each step used within the example has its own steering file containing Marlin
-processors.\\
+processors.
 
-\item\texttt{config.cfg}\\ In this file all configuration settings are stored.
+\item\texttt{config.cfg} In this file all configuration settings are stored.
 Global settings, such as the path to the raw data, as well as optional
-parameters for the processor steering files are located here.\\
+parameters for the processor steering files are located here.
 
-\item \texttt{runlist.csv}\\ The runlist contains the run numbers of the raw
+\item \texttt{runlist.csv} The runlist contains the run numbers of the raw
 data and can include parameters for each run, such as geometry used, or
-threshold applied, which are passed to the Marlin processor.\\
+threshold applied, which are passed to the Marlin processor.
 
 \end{itemize}
 
 The \texttt{datura-noDUT} example is constructed such, that a certain sequence
 of steering files is called. After all steps have been applied on a run, the
 unbiased residuals for this run should have been successfully calculated. An
-overview of the steps is shown in figure~\ref{fig:datura-nodutsequence}.\\
+overview of the steps is shown in figure~\ref{fig:datura-nodutsequence}.
 
 \begin{figure}[hbt]
-\centering
-\includegraphics[width=\textwidth]{figures/datura-noDUT.pdf}
-\caption[Steps performed in the \texttt{datura-noDUT} example]{Sequence of the
+  \centering
+  \includegraphics[width=0.9\textwidth]{figures/datura-noDUT.pdf}
+  \caption[Steps performed in the \texttt{datura-noDUT} example]{Sequence of the
 steps performed in the \texttt{datura-noDUT} example. Data states are indicated
 blue, external files green.}
-\label{fig:datura-nodutsequence}
+  \label{fig:datura-nodutsequence}
 \end{figure}
 
 The first steering file called is the converter. Its goal is to convert the raw
 MIMOSA 26 detector data into the LCIO format and remove any noisy pixels. For
 this, it calls two Marlin processors: the \texttt{EUTelNativeReader} and the
-\texttt{EUTelAutoPede\-stalNoiseProcessor}.\\
+\texttt{EUTelAutoPede\-stalNoiseProcessor}.
 
 Following the converter, the clustering is performed. The processor used for
 this is \texttt{EUTelClusteringProcessor}. Clusters are searched on each
 telescope plane and written to an LCIO collection. A preliminary correlation is
-calculated and can be used for debugging purposes.\\
+calculated and can be used for debugging purposes.
 
 The \texttt{EUTelHitMaker} processor called in the hitmaker step transforms the
 clusters from two-dimensional entities on a telescope plane into hits in a
 global three-dimensional frame. A rough pre-alignment is calculated and stored
-in a database file.\\
+in a database file.
 
 For the alignment two separate methods are available - either a simple straight
 line tracking with \texttt{EUTelMille} or an implementation of the deterministic
@@ -94,7 +94,7 @@ annealing filter (DAF) fitter~\cite{ref:daffitter} \texttt{EUTelDafFitter}. In
 both cases, the pre-alignment is loaded and applied to the hit data. Tracks are
 searched and passed to \texttt{MillepedeII}~\cite{ref:millepede} to determine
 the alignment constants. These constants are then stored in another database
-file.\\
+file.
 
 The final fitter step calculates the unbiased residual distribution for each
 telescope plane with the \texttt{EUTelDUTHistograms} processor. The prealignment
@@ -102,6 +102,6 @@ and alignment are loaded and applied to the hit collections. Once again, tracks
 are searched, but with one telescope plane considered passive, thus not
 contributing to the track fit. Instead, the track is extrapolated to this plane,
 and the residual distance to this plane's hits is calculated. This is repeated
-for each telescope plane, with histograms written to \texttt{ROOT} files.\\
+for each telescope plane, with histograms written to \texttt{ROOT} files.
 
 
