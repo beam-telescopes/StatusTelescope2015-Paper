@@ -7,6 +7,9 @@
 *.pdf
 *.tex.backup
 
+#doc files 
+*.docx
+
 #ignore kile project files
 *.kilepr
 
