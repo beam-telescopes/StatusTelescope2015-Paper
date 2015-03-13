@@ -4,6 +4,7 @@
 *.blg
 *.log
 *.toc
+*.pdf
 *.tex.backup
 
 #doc files 
