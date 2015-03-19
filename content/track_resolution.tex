@@ -1,4 +1,5 @@
 
+\subsection{Geometry and multiplce scattering}
 %The telescope performance has been validated at CERN (120\,GeV pions) and DESY (1 to 6\,GeV positrons). 
 %In order to get realistic data description at DESY beam energies all scattering material between sensitive planes has to be taken into account. 
 %The precision of the track prediction at the DUT (plane \#3) based on five other telescope planes is shown in Figure\,\ref{fig:resolution}. 
@@ -19,7 +20,7 @@ The expression
 \sigma_{\textrm{MS}}^2
 \end{equation}
 
-shows the contributing terms that have to be considered~\cite{ref:eudetreport200902}. 
+\noindent shows the contributing terms that have to be considered~\cite{ref:eudetreport200902}. 
 The measured residual width on a DUT sensor plane is expressed by $\sigma_{\textrm{meas}}$, $\sigma_{\textrm{DUT}}$ is the actual achievable resolution on the DUT plane, $\sigma_{\textrm{Tel}}$ is the resolution of the telescope and $\sigma_{\textrm{MS}}$ represents the contribution from multiple scattering.
 In the following, all terms will be discussed.
 
@@ -30,14 +31,14 @@ The resolution of a telescope $\sigma_{\textrm{Tel}}$ can be expressed by
 \sigma_{\textrm{Tel}}^2 = k \cdot \sigma_{\textrm{Intrinsic}}^2
 \end{equation}
 
-with the geometric scaling factor $k$ in turn written as
+\noindent with the geometric scaling factor $k$ in turn written as
 
 \begin{equation}
 k = \frac{\sum_i^N z_i^2}{N \cdot \sum_i^N z_i^2 - \left( \sum_i^N z_i
 \right)^2}
 \end{equation}
 
-assuming all $N$ telescope planes have the same intrinsic resolution $\sigma_{\textrm{Intrinsic}}$. 
+\noindent assuming all $N$ telescope planes have the same intrinsic resolution $\sigma_{\textrm{Intrinsic}}$. 
 $z_i$ is then the distance of the $i$-th telescope plane to the DUT positioned at $z=0$.
 Multiple scattering is the term used to describe the deflection of a charged particle traversing any medium.
 It depends on the particle energy and type and the radiation length of the matter traversed~\cite{ref:scatteringhighland}.
@@ -57,6 +58,8 @@ Equation~\ref{eq:multiplescattering} shows, that the angular distortion due to m
 Therefore, at low-energy beams, such as the $6\,\giga\electronvolt$ DESY-II test beam, it is advantageous to have very thin telescope sensors. 
 As the beam particles also interact with the atoms in the air, a contribution to the amount of multiple scattering depending on the distance between sensor planes has to be considered. 
 At high-energy hadron beams ($> 100\,\giga\electronvolt$), which for example are avaibale at the SPS facility at CERN, the contribution from multiple scattering can be neglected.
+
+\subsection{Measurements with \Datura}
 
 To verify the performance of the \Datura~telescope, measurements of the achievable resolution were performed in $2012$, for different settings of beam momentum, sensor threshold and sensor spacing~\cite{ref:thomas}.
 With the \texttt{datura-noDUT} example included in the {EUTelescope} framework, which is described in detail in section~\ref{sec:datura-nodut}, straight line tracks with hits in all six telescope planes were sought. From these tracks, the unbiased residual distribution of each sensor plane was calculated.
@@ -118,11 +121,11 @@ By using a $\chi^{2}$ minimization method, the intrinsic resolution of the {MIMO
 \left( \frac{\theta_{i,j} - \theta_{i-1,j}}{\Delta \theta_{i,j}} \right)^2 \,.
 \end{equation}
 
-The measured hit position is denoted by $y_{i,j}$, the position extrapolated from the track by $p_{i,j}$. $\theta_{i-1,j}$ and $\theta_{i,j}$ are the angles between the nominal beam direction and the track direction. The former is the track angle entering plane $i$, the latter the angle of the outbound track segment.
+\noindent The measured hit position is denoted by $y_{i,j}$, the position extrapolated from the track by $p_{i,j}$. $\theta_{i-1,j}$ and $\theta_{i,j}$ are the angles between the nominal beam direction and the track direction. The former is the track angle entering plane $i$, the latter the angle of the outbound track segment.
 $\sigma_{i,j}$ and $\Delta \theta_{i,j}$ are the intrinsic resolution of sensor plane $i$ in dimension $j$ and the width of the multiple scattering distribution, according to equation~\ref{eq:multiplescattering}, respectively.
 The results for both a tighter plane spacing of $20\,\milli\meter$ and a wider spacing of $150\,\milli\meter$ are shown in figure~\ref{fig:smiley}.\\
 
-\begin{figure}[hbtp]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/thin_smiley.pdf}
 \includegraphics[width=\textwidth]{figures/wide_smiley.pdf}
@@ -152,7 +155,7 @@ The particle momentum assumed is the nominal beam momentum.
 Inclined tracks, or a deflection of tracks in planes or scattering material, are not considered.
 \end{itemize}
 
-\begin{figure}[hbtp]
+\begin{figure}[tbp]
 \centering
 
 \includegraphics[width=\textwidth]{figures/resi_thresh_errors.pdf}
@@ -167,7 +170,6 @@ The minimum of the MIMOSA 26 sensors' intrinsic resolution is reached for a thre
 While the measured residual width for wider sensor spacings or lower beam momenta is higher, as can be seen in figure~\ref{fig:smiley}, these effects are accounted for in equation~\ref{eq:telescoperesolutionequation} by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$.
 Because of this, the difference in intrinsic sensor resolution between configurations at any given threshold is only approximately $\pm\,0.15\,\micro\meter$, which is well within the errors.
 From equation~\ref{eq:telescopepointing} the optimal track pointing resolution $\sigma_{\textrm{Tel}}$ of the DATURA telescope without multiple scattering can therefore be given as $\left( 1.40 \pm 0.05 \right)\,\micro\meter$.\\
-
 Measurements by Behr~\cite{ref:j.behrmeasurements}, taken at high thresholds $>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$.
 
 The signal-to-noise threshold applied to each telescope sensor is a critical parameter for a telescope's performance.
@@ -182,7 +184,7 @@ A noisy pixel column at $\approx Y = -8\,\milli\meter$ can be observed.
 This column was masked during the converter step in the \texttt{datura-noDUT} example and subsequently is not used during the analysis.
 Disregarding this area, an overall average efficiency over $98\,\%$ is observed.
 
-\begin{figure}[hbtp]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/plane3_effi_run37.pdf}
 \caption[Telescope sensor efficiency~\cite{ref:thomas}]{Efficiency of telescope sensor plane $3$ at a threshold of $7$ and $5\,\giga\electronvolt$ beam momentum.
@@ -196,7 +198,7 @@ In all cases, the efficiency is $\ge\,98\,\%$ up to a threshold setting of 7.
 With increasing threshold, the efficiency declines, until an efficiency of $86\,\%$ for threshold $12$ is reached.
 The difference between momenta and plane spacings is due to multiple scattering and increased telescope resolution.
 
-\begin{figure}[hbtp]
+\begin{figure}[tbp]
 \centering
 \includegraphics[width=\textwidth]{figures/effi_thresh.pdf}
 \caption[Overall telescope sensor efficiency vs. threshold for different beam momenta and sensor spacings~\cite{ref:thomas}]{Average efficiency of all telescope sensors in both dimensions for different beam momenta and sensor spacing vs. applied threshold.
@@ -205,6 +207,8 @@ Some values are shifted on the $x$ axis for improved legibility.
 Image from~\cite{ref:thomas}.}
 \label{fig:effi_thresh}
 \end{figure}
+
+\subsection{Resolution predictions using General Broken Lines}
 
 
 \noindent Check: What is the resolution at the centre of the telescope when extrapolated / interpolated using 6 planes as the telescope (users point of view)\\
