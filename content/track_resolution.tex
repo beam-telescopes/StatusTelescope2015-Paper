@@ -223,9 +223,21 @@ Image from~\cite{ref:thomas}.}
 \label{fig:effi_thresh}
 \end{figure}
 
+
+
 \subsection{Resolution predictions using General Broken Lines}
 
-First impression
+With the measured intrinsic resolution at hand, and the knowledge about the amount of material of the sensor planes, predictions of the expected pointing resolution at the actual DUT position can be made. 
+Therefore, it is possible to calculate a priori the optimal telescope geometry for a certain measurement. 
+Using the GBL formalism \cite{Kleinwort-2012,Blobel-2006}, the resolution is analytically calculated at desired points of interest along the particle trajectory. 
+Assuming the parameter summarised in Table~\ref{tab:parameters}, the pointing resolution at the DUT for three different DUT material budgets is plotted as a function of the spacing $dz_2$ between
+ the closest planes up- and downstream of the DUT.
+ 
+Some considerations:\\
+7 dimensions: dz, dz2, dz3, $\sigma_{reso}$, $\epsilon_{\textrm{M26}} = \frac{X_{\textrm{M26}}}{X_0}$, $\epsilon_{\textrm{DUT}} = \frac{X_{\textrm{DUT}}}{X_0}$,  p in GeV\\
+assume symmetric set-up: dz2 = dz3, $\sigma_{reso}$ and $\epsilon_{\textrm{M26}}$ are fixed, p is 5\,GeV and 120\,GeV, so only 3 dimensions left.
+
+
 
 \begin{figure}[tbp]
   \centering
@@ -234,10 +246,7 @@ First impression
   \includegraphics[width=0.49\textwidth]{figures/CalcResoAtDesy_loglog}
   \includegraphics[width=0.49\textwidth]{figures/CalcResoAtSPS_loglog}
   \caption[Pointing resolution for various DUTs as a function of the distance between DUT and neighbouring planes]{
-  The pointing resolution for various DUTs is shown as a function of the equidistant distance between DUT and neighbouring planes.}
+  The pointing resolution for various DUTs is shown as a function of the equidistant distance between DUT and neighbouring planes.
+  Left: at 5\,GeV, Right: at 120\,GeV. }
 \label{fig:CalcResos}
 \end{figure}
-
-\noindent Check: What is the resolution at the centre of the telescope when extrapolated / interpolated using 6 planes as the telescope (users point of view)\\
-Check: Daniel's script/ Domminik's web thingy again, compare with above\\
-Check: Compare with paper Akiba NIMA 661 (213) 31-49
