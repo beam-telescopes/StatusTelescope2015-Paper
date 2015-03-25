@@ -1,5 +1,38 @@
+\subsection{Data Analysis Flow}
+
+Data of DATURA has been analyzed using EUTelescope, see section before...
+
+\label{sec:datura-nodut}
+Within EUTelescope, an example set of processors and configurations were created as an introduction for new users to EUTelescope.
+This example is called \texttt{datura-noDUT}, since no user DUT is included.
+Two GEAR files are provided, for different telescope geometries.
+No external device under test is used, only the six MIMOSA 26 telescope planes are included.
+The goal of the \texttt{datura-noDUT} example is to get from raw detector data to unbiased track residuals of each telescope plane.
+
+The \texttt{datura-noDUT} example is constructed such, that a certain sequence of steering files is called.
+After all steps have been applied on a run, the unbiased residuals for this run should have been successfully calculated.
+
+The first steering file called is the converter.
+Its goal is to convert the raw MIMOSA 26 detector data into the LCIO format and remove any noisy pixels.
+Following the converter, the clustering is performed.
+Clusters are searched on each telescope plane and written to an LCIO collection.
+A preliminary correlation is calculated and can be used for debugging purposes.
+The hitmaker step transforms the clusters from two-dimensional entities on a telescope plane into hits in a global three-dimensional frame.
+A rough pre-alignment is calculated and stored in a database file.
+
+For the alignment two separate methods are available - either a simple straight line tracking or an implementation of the deterministic annealing filter (DAF) fitter~\cite{ref:daffitter}.
+In both cases, the pre-alignment is loaded and applied to the hit data.
+Tracks are searched and passed to \texttt{MillepedeII}~\cite{Blobel-2006} to determine the alignment constants.
+These constants are then stored in another database file.
+
+The final fitter step calculates the unbiased residual distribution for each telescope plane.
+The prealignment and alignment are loaded and applied to the hit collections.
+Once again, tracks are searched, but with one telescope plane considered passive, thus not contributing to the track fit.
+Instead, the track is extrapolated to this plane, and the residual distance to this plane's hits is calculated.
+This is repeated for each telescope plane, with histograms written to \texttt{ROOT} files.
 
 \subsection{Geometry and multiple scattering}
+\label{sec:multiplescattering}
 %The telescope performance has been validated at CERN (120\,GeV pions) and DESY (1 to 6\,GeV positrons). 
 %In order to get realistic data description at DESY beam energies all scattering material between sensitive planes has to be taken into account. 
 %The precision of the track prediction at the DUT (plane \#3) based on five other telescope planes is shown in Figure\,\ref{fig:resolution}. 
