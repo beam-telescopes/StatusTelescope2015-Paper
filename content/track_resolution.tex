@@ -6,14 +6,14 @@ Data of DATURA has been analyzed using EUTelescope, see section before...
 Within EUTelescope, an example set of processors and configurations were created as an introduction for new users to EUTelescope.
 This example is called \texttt{datura-noDUT}, since no user DUT is included.
 Two GEAR files are provided, for different telescope geometries.
-No external device under test is used, only the six MIMOSA 26 telescope planes are included.
+No external device under test is used, only the six \Mimosa telescope planes are included.
 The goal of the \texttt{datura-noDUT} example is to get from raw detector data to unbiased track residuals of each telescope plane.
 
 The \texttt{datura-noDUT} example is constructed such, that a certain sequence of steering files is called.
 After all steps have been applied on a run, the unbiased residuals for this run should have been successfully calculated.
 
 The first steering file called is the converter.
-Its goal is to convert the raw MIMOSA 26 detector data into the LCIO format and remove any noisy pixels.
+Its goal is to convert the raw \Mimosa detector data into the LCIO format and remove any noisy pixels.
 Following the converter, the clustering is performed.
 Clusters are searched on each telescope plane and written to an LCIO collection.
 A preliminary correlation is calculated and can be used for debugging purposes.
@@ -54,7 +54,7 @@ The expression
 \end{equation}
 
 \noindent shows the contributing terms that have to be considered~\cite{ref:eudetreport200902}. 
-The measured residual width on a DUT sensor plane is expressed by $\sigma_{\textrm{meas}}$, $\sigma_{\textrm{DUT}}$ is the actual achievable resolution on the DUT plane,
+The measured residual width on a DUT sensor plane is expressed by $\sigma_{\textrm{meas}}$, $\sigma_{\textrm{DUT}}$ is the intrinsic resolution of the DUT itself,
  $\sigma_{\textrm{Tel}}$ is the resolution of the telescope and $\sigma_{\textrm{MS}}$ represents the contribution from multiple scattering.
 In the following, all terms will be discussed.
 
@@ -62,7 +62,7 @@ The resolution of a telescope $\sigma_{\textrm{Tel}}$ can be expressed by
 
 \begin{equation}
 \label{eq:telescopepointing}
-\sigma_{\textrm{Tel}}^2 = k \cdot \sigma_{\textrm{Intrinsic}}^2
+\sigma_{\textrm{Tel}}^2 = k \cdot \sigma_{\textrm{intrinsic}}^2
 \end{equation}
 
 \noindent with the geometric scaling factor $k$ in turn written as
@@ -72,8 +72,9 @@ k = \frac{\sum_i^N z_i^2}{N \cdot \sum_i^N z_i^2 - \left( \sum_i^N z_i
 \right)^2}
 \end{equation}
 
-\noindent assuming all $N$ telescope planes have the same intrinsic resolution $\sigma_{\textrm{Intrinsic}}$. 
+\noindent assuming all $N$ telescope planes have the same intrinsic resolution $\sigma_{\textrm{intrinsic}}$. 
 $z_i$ is then the distance of the $i$-th telescope plane to the DUT positioned at $z=0$.
+For a symmetric set-up with the DUT at the centre of the telescope and the up- and downstream planes equally spaced, $k$ reduces to $k = 1/N$. 
 Multiple scattering is the term used to describe the deflection of a charged particle traversing any medium.
 It depends on the particle energy and type and the radiation length of the matter traversed~\cite{ref:scatteringhighland}.
 The width of the angular scattering distribution can be expressed by
@@ -85,9 +86,9 @@ The width of the angular scattering distribution can be expressed by
 \cdot \left( 1 + 0.038 \ln{\left( x \per X_0\right) } \right)
 \end{equation}
 
-according to~\cite{ref:PDG-2014}, with the particle velocity $\beta c$, momentum $p$ and charge number $z$. 
+according to Ref.~\cite{ref:PDG-2014}, with the particle velocity $\beta c$, momentum $p$ and charge number $z$. 
 The expression $x/X_0$ defines the thickness of the scattering medium in radiation lengths,
- with values of $X_0 = 21.82\,\allowbreak\gram\per\centi\meter^2$ for silicon and $X_0 = 36.62\,\gram\per\centi\meter^2$ for dry air, according to~\cite{ref:x0values}.
+ with values of $X_0 = 21.82\,\allowbreak\gram\per\centi\meter^2$ for silicon and $X_0 = 36.62\,\gram\per\centi\meter^2$ for dry air, according to Ref.~\cite{ref:x0values}.
 
 Equation~\ref{eq:multiplescattering} shows, that the angular distortion due to multiple scattering increases with the material budget and the inverse energy.
 Therefore, at low-energy beams, such as the $6\,\giga\electronvolt$ DESY-II test beam, it is advantageous to have very thin telescope sensors. 
@@ -104,7 +105,7 @@ From these tracks, the unbiased residual distribution of each sensor plane was c
 To calculate this distribution, each of the six telescope planes was iteratively considered as a DUT.
 Within each iteration, tracks were calculated from the five non-DUT planes.
 The unbiased residual distribution was then filled by the distance between the hit position and the track extrapolation in the DUT plane.
-By using each telescope plane as a DUT, equation~\ref{eq:telescoperesolutionequation} is modified under the assumption that $\sigma_{\textrm{Intrinsic}} = \sigma_{\textrm{DUT}} = \sigma_{\textrm{M26}}$,
+By using each telescope plane as a DUT, equation~\ref{eq:telescoperesolutionequation} is modified under the assumption that $\sigma_{\textrm{intrinsic}} = \sigma_{\textrm{DUT}} = \sigma_{\textrm{M26}}$,
  leading to
 
 \begin{equation}
@@ -139,6 +140,8 @@ The residual distributions for the outer planes $0$ and $5$ are wider than the d
 This is due to the fact that the track extrapolation to the inner sensors is done from both sides, hence will be comparatively more precise than for the outer sensors,
  where the extrapolation can only be performed from one direction. 
 In all cases, the distributions are fitted with a Gaussian, from which the residual width $\sigma_{\textrm{meas}}$ is determined.
+It is noted, that the residuals feature non-Gaussian tails, as is expected from the underlying physics of the scattering mechanism. 
+The measured resolution is defined here as the width of a Gaussian fit on middle 90\,\% of the residuals. 
 
 
 
@@ -154,7 +157,7 @@ In all cases, the distributions are fitted with a Gaussian, from which the resid
 % \label{fig:residualexample2}
 % \end{figure}
 
-By using a $\chi^{2}$ minimization method, the intrinsic resolution of the {MIMOSA 26} telescope sensors was calculated, with the contribution $\Delta \chi^2_{i,j}$ from plane $i$ in dimension $j$ defined as
+By using a $\chi^{2}$ minimization method, the intrinsic resolution of the \Mimosa telescope sensors was calculated, with the contribution $\Delta \chi^2_{i,j}$ from plane $i$ in dimension $j$ defined as
 
 \begin{equation}
 \Delta \chi^2_{i,j} = \left( \frac{y_{i,j} - p_{i,j}}{\sigma_{i,j}} \right)^2 +
@@ -165,31 +168,34 @@ By using a $\chi^{2}$ minimization method, the intrinsic resolution of the {MIMO
  and the track direction. The former is the track angle entering plane $i$, the latter the angle of the outbound track segment.
 $\sigma_{i,j}$ and $\Delta \theta_{i,j}$ are the intrinsic resolution of sensor plane $i$ in dimension $j$ and the width of the multiple scattering distribution,
  according to equation~\ref{eq:multiplescattering}, respectively.
-The results for both a tighter plane spacing of $20\,\milli\meter$ and a wider spacing of $150\,\milli\meter$ are shown in figure~\ref{fig:smiley}.\\
-
-\begin{figure}[tbp]
-\centering
-\includegraphics[width=\textwidth]{figures/thin_smiley.pdf}
-\includegraphics[width=\textwidth]{figures/wide_smiley.pdf}
-\caption[Intrinsic telescope sensor resolution at $20\,\milli\meter$ and $150\,\milli\meter$ plane spacing~\cite{ref:thomas}]{Intrinsic telescope sensor resolution at $20\,\milli\meter$ (top)
- and $150\,\milli\meter$ (bottom) plane spacing.
-The measured residual widths of each telescope plane are shown, for both the $x$ and $y$ axis. Dotted and dashed lines indicate the expected measurements, if a different intrinsic resolution is assumed.
-The yellow band indicates the resulting intrinsic telescope sensor resolution including errors.
-For both telescope geometries, data was taken at a sensor threshold setting of $6$ and with $5\,\giga\electronvolt$ electrons.
-Images from~\cite{ref:thomas}.}
-\label{fig:smiley}
-\end{figure}
-
+Resulting from this minimization, the intrinsic resolution $\sigma_{\textrm{M26}}$ of the \Mimosa sensors is \allowbreak$\left( 3.42\,\pm\, \allowbreak 0.12 \right)\,\micro\meter$
+ and $\left( 3.44\,\pm\,0.10 \right)\,\micro\meter$ for a plane spacing of $20\,\milli\meter$ and $150\,\milli\meter$, respectively.
+The results for both a tighter plane spacing of $20\,\milli\meter$ and a wider spacing of $150\,\milli\meter$ are shown in figure~\ref{fig:smiley} for each plane separately. 
 In both cases, an error of $2.5\,\milli\meter$ on the plane distance $\Delta_{\textrm{z}}$ was assumed.
-The predicted intrinsic resolution $\sigma_{\textrm{M26}} = \sigma_{\textrm{Intrinsic}}$ of the MIMOSA 26 sensors is \allowbreak$\left( 3.42\,\pm\, \allowbreak 0.12 \right)\,\micro\meter$ for a plane spacing of
-$20\,\milli\meter$, $\left( 3.44\,\pm\,0.10 \right)\,\micro\meter$ for a plane spacing of $150\,\milli\meter$.
-For both geometries, the expected resolution of $\approx\,3.5\,\micro\meter$, according to~\cite{ref:mimosa26}, can be confirmed.
+For both geometries, the expected resolution of $\approx\,3.5\,\micro\meter$, according to Ref.~\cite{ref:mimosa26}, is confirmed.
 The underlying assumptions in the method presented here are:
 
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=\textwidth]{figures/thin_smiley.pdf}
+  \includegraphics[width=\textwidth]{figures/wide_smiley.pdf}
+  %\caption[Intrinsic telescope sensor resolution at $20\,\milli\meter$ and $150\,\milli\meter$ plane spacing~\cite{ref:thomas}]{Intrinsic telescope sensor resolution at $20\,\milli\meter$ (top)
+  % and $150\,\milli\meter$ (bottom) plane spacing.
+  \caption[The measured residual widths of each telescope plane.]{The measured residual widths of each telescope plane are shown in both the $x$ and $y$ direction for the $20\,\milli\meter$ (top)
+   and $150\,\milli\meter$ (bottom) plane spacing.
+  Dotted and dashed lines indicate the expected measured widths, if the intrinsic resolution is assumed to differ upward or downward from the real one. 
+  The yellow band indicates the resulting intrinsic telescope sensor resolution including errors.
+  For both telescope geometries, data was taken at a sensor threshold setting of $6$ and with $5\,\giga\electronvolt$ electrons.
+  Images from~\cite{ref:thomas}.}
+  \label{fig:smiley}
+\end{figure}
+
+
+
 \begin{itemize}
-\item The intrinsic resolution $\sigma_{\textrm{Intrinsic}}$ of all sensor planes is assumed to be equal.
+\item The intrinsic resolution $\sigma_{\textrm{intrinsic}}$ of all sensor planes is assumed to be equal.
 As the discriminator thresholds are set for subframes of each plane individually, however, this is not necessarily true.
-Figure~\ref{fig:resivsenergy} shows the dependence of $\sigma_{\textrm{Intrinsic}}$ on the applied threshold.
+Figure~\ref{fig:resivsenergy} shows the dependence of $\sigma_{\textrm{intrinsic}}$ on the applied threshold.
 
 \item The multiple scattering term in equation~\ref{eq:telescoperesolutionequation_2} is only calculated considering the nominal sensor thicknesses, the air between sensor planes,
  and a $25\,\micro\meter$ thick capton foil on either side of each sensor.
@@ -204,30 +210,30 @@ Inclined tracks, or a deflection of tracks in planes or scattering material, are
 
 \includegraphics[width=\textwidth]{figures/resi_thresh_errors.pdf}
 \caption[Telescope intrinsic sensor resolution for different threshold settings, beam momenta and geometries~\cite{ref:thomas}]{
- The measured intrinsic resolution of the \Datura telescope's MIMOSA 26 sensors $\sigma_{\textrm{M26}}$ for different beam momenta $p$, sensor spacing $\Delta_{\textrm{z}}$ and applied sensor threshold.
+ The measured intrinsic resolution of the \Datura telescope's \Mimosa sensors $\sigma_{\textrm{M26}}$ for different beam momenta $p$, sensor spacing $\Delta_{\textrm{z}}$ and applied sensor threshold.
 Some values are shifted on the x-axis for improved legibility.
 Image from~\cite{ref:thomas}.}
 \label{fig:resivsenergy}
 \end{figure}
 
 Figure~\ref{fig:resivsenergy} shows the calculated intrinsic telescope sensor resolution for different beam energies, plane distances and applied sensor thresholds.
-The minimum of the MIMOSA 26 sensors' intrinsic resolution is reached for a threshold setting of $6$.
+The minimum of the \Mimosa sensors' intrinsic resolution is reached for a threshold setting of $6$.
 While the measured residual width for wider sensor spacings or lower beam momenta is higher, as can be seen in figure~\ref{fig:smiley},
  these effects are accounted for in equation~\ref{eq:telescoperesolutionequation} by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$.
 Because of this, the difference in intrinsic sensor resolution between configurations at any given threshold is only approximately $\pm\,0.15\,\micro\meter$, which is well within the errors.
 From equation~\ref{eq:telescopepointing} the optimal track pointing resolution $\sigma_{\textrm{Tel}}$ of the \Datura telescope without multiple scattering
- can therefore be given as $\left( 1.40 \pm 0.05 \right)\,\micro\meter$.\\
+ can therefore be given as $\left( 1.40 \pm 0.05 \right)\,\micro\meter$.
 Measurements by Behr~\cite{ref:j.behrmeasurements}, taken at high thresholds $>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$.
 
 The signal-to-noise threshold applied to each telescope sensor is a critical parameter for a telescope's performance.
-A higher threshold will cut into the signal, thus reducing the amount of clusters found on each plane and therefore reducing the amount of reconstructable tracks.
+A higher threshold will cut into the signal, thus reducing the amount of clusters found on each plane and therefore reducing the amount of re-constructable tracks.
 This reduces a sensor's efficiency.
 A lower threshold will allow an increasing amount of noise hits to be wrongly identified as clusters.
 This again will also lead to a broadening of the residual distributions.
 Figure~\ref{fig:effi} shows the efficiency distribution over a sensor plane.
 The efficiency is defined as the ratio of hits being measured in the vicinity of a traversing track to the overall number of tracks.
-$100\,\micro\meter$ was considered as maximum distance.
-A noisy pixel column at $\approx Y = -8\,\milli\meter$ can be observed.
+As maximum distance $100\,\micro\meter$ were considered.
+A noisy pixel column at $Y \approx -8\,\milli\meter$ can be observed.
 This column was masked during the converter step in the \texttt{datura-noDUT} example and subsequently is not used during the analysis.
 Disregarding this area, an overall average efficiency over $98\,\%$ is observed.
 
@@ -240,7 +246,7 @@ Image from~\cite{ref:thomas}.}
 \end{figure}
 
 In figure~\ref{fig:effi_thresh}, the efficiency dependence on the sensor threshold is shown, for various beam momenta and sensor spacings.
-Efficiencies are averaged for all six sensor planes and both spatial coordinates.
+Efficiencies are averaged for all six sensor planes and both spatial coordinates, resulting in negligible statistical errors. 
 In all cases, the efficiency is $\ge\,98\,\%$ up to a threshold setting of 7.
 With increasing threshold, the efficiency declines, until an efficiency of $86\,\%$ for threshold $12$ is reached.
 The difference between momenta and plane spacings is due to multiple scattering and increased telescope resolution.
