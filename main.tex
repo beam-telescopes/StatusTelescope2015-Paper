@@ -21,9 +21,11 @@
 
 \newcommand{\e}{\ensuremath{\mathnormal{e}}}
 \newcommand{\h}{\ensuremath{\mathnormal{h}}}
-\newcommand{\Datura}{\ensuremath{\mathnormal{DATURA}}}
 \newcommand{\eV}{\ensuremath{\mathnormal{eV}}}
+\newcommand{\cspeed}{\ensuremath{\mathnormal{c}}}
 
+\newcommand{\Datura}{DATURA }
+\newcommand{\Mimosa}{MIMOSA 26 }
 \newcommand{\eudet}{EUDET }
 \newcommand{\rawdataevent}{RawDataEvent }
 \newcommand{\rawdataevents}{RawDataEvents }
@@ -33,7 +35,7 @@
 \modulolinenumbers[5]
 \linenumbers
 
-\title{The DESY beam telescopes}
+\title{The DESY-type beam telescopes}
 \author{A. Author\thanks{Corresponding author: bla@bla.de}${}^{\,\,\,,\textrm{a}}$, B. Author${}^{\textrm{b}}$\\
 ${}^{\textrm{a}}$ Deutsches Elektronen-Synchrotron DESY, Hamburg, Germany,\\
 ${}^{\textrm{b}}$ Institute for Telescopocy, bla, blubb
@@ -66,10 +68,10 @@ ToDo: Need to fix corresponding author
 
 
 \abstract{
-The status of the $\Datura$ beam telescope at DESY is summarised and the performance with respect to resolution as a function of the position along the beam, the beam energy and other parameters is shown. 
-The pointing resolution using a 6\,GeV $\e$-beam at the centre of the telescope is $\unit{3.4}{\upmu\meter}$. %FIXME check number
+The status of the \Datura beam telescope at DESY is summarised and the performance with respect to resolution as a function of the position along the beam, the beam energy and other parameters is shown. 
+The pointing resolution using a 6\,GeV/$\cspeed$ $\e$-beam at the centre of the telescope is $(3.4 \pm 0.1)\,\upmu\meter$. %FIXME check number
 As expected, the resolution improves with increasing beam energies. 
-An optimal threshold of the used MIMOSA26 sensors is found at a signal-to-noise figure of about six, with noise hits deteriorating the resolution towards lower and inefficiencies towards higher thresholds. 
+An optimal threshold of the used \Mimosa sensors is found at a signal-to-noise figure of about six, with noise hits deteriorating the resolution towards lower and inefficiencies towards higher thresholds. 
 }
 
 \tableofcontents
@@ -84,7 +86,7 @@ An optimal threshold of the used MIMOSA26 sensors is found at a signal-to-noise 
 \label{sec:beamlines}
 \input{content/beam_lines}
 
-\section{The DESY-type telescopes}
+\section{The DESY-type beam telescopes}
 \label{sec:aida}
 \input{content/tscope}
 
