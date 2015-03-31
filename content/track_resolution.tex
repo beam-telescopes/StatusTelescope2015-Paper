@@ -11,6 +11,7 @@ The goal of the \texttt{datura-noDUT} example is to get from raw detector data t
 
 The \texttt{datura-noDUT} example is constructed such, that a certain sequence of steering files is called.
 After all steps have been applied on a run, the unbiased residuals for this run should have been successfully calculated.
+\\{comment hj: datura-noDUT is jargon}\\
 
 The first steering file called is the converter.
 Its goal is to convert the raw \Mimosa detector data into the LCIO format and remove any noisy pixels.
@@ -101,6 +102,7 @@ To verify the performance of the \Datura~telescope, measurements of the achievab
  sensor threshold and sensor spacing~\cite{ref:thomas}.
 With the \texttt{datura-noDUT} example included in the {EUTelescope} framework, which is described in detail in section~\ref{sec:datura-nodut},
  straight line tracks with hits in all six telescope planes were sought. 
+ \\{comment hj: datura-noDUT is jargon}\\
 From these tracks, the unbiased residual distribution of each sensor plane was calculated.
 To calculate this distribution, each of the six telescope planes was iteratively considered as a DUT.
 Within each iteration, tracks were calculated from the five non-DUT planes.
@@ -234,7 +236,8 @@ Figure~\ref{fig:effi} shows the efficiency distribution over a sensor plane.
 The efficiency is defined as the ratio of hits being measured in the vicinity of a traversing track to the overall number of tracks.
 As maximum distance $100\,\micro\meter$ were considered.
 A noisy pixel column at $Y \approx -8\,\milli\meter$ can be observed.
-This column was masked during the converter step in the \texttt{datura-noDUT} example and subsequently is not used during the analysis.
+This column was masked during the converter step in the \texttt{datura-noDUT} example and subsequently is not used during the analysis. 
+\\{comment hj: datura-noDUT is jargon}\\
 Disregarding this area, an overall average efficiency over $98\,\%$ is observed.
 
 \begin{figure}[tbp]
