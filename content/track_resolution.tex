@@ -163,13 +163,28 @@ By using a $\chi^{2}$ minimization method, the intrinsic resolution of the \Mimo
 
 \begin{equation}
 \Delta \chi^2_{i,j} = \left( \frac{y_{i,j} - p_{i,j}}{\sigma_{i,j}} \right)^2 +
-\left( \frac{\theta_{i,j} - \theta_{i-1,j}}{\Delta \theta_{i,j}} \right)^2 \,.
+\left( \frac{\theta_{\textrm{i,j}} - \theta_{i-1,j}}{\Delta \Theta_{i,j}} \right)^2 \,.
 \end{equation}
 
 \noindent The measured hit position is denoted by $y_{i,j}$, the position extrapolated from the track by $p_{i,j}$. $\theta_{i-1,j}$ and $\theta_{i,j}$ are the angles between the nominal beam direction
  and the track direction. The former is the track angle entering plane $i$, the latter the angle of the outbound track segment.
 $\sigma_{i,j}$ and $\Delta \theta_{i,j}$ are the intrinsic resolution of sensor plane $i$ in dimension $j$ and the width of the multiple scattering distribution,
  according to equation~\ref{eq:multiplescattering}, respectively.
+\\comments hj: \\
+- Is this done after track fitting? so tracks are not altered during this process?\\
+- Are you really using $\sigma_{i,j}$? Or just one $\sigma_{\textrm{intrinsic}}$?\\
+- same for $\Delta \Theta_{i,j}$. Shouldnt it be just one $\Theta_0$ from Eq.~(4) ?\\
+- difference in theta for straight tracks ?!
+- What about the actual summing? Is the chi2 summed over many tracks? And then over n planes leaving out the $i$-th? so something like:
+
+\begin{equation}
+\Delta \chi^2_{i,j} = \sum_{k = 1; k \neq i}^{n}\left( \frac{y_{k,j} - p_{k,j}}{\sigma_{\textrm{intrinsic}}} \right)^2 +
+\left( \frac{\theta_{k,j} - \theta_{k-1,j}}{\Theta_0} \right)^2 \, ??
+\end{equation}
+
+\noindent
+- Ich verstehe den chi2-Teil leider noch nicht :/\\
+
 Resulting from this minimization, the intrinsic resolution $\sigma_{\textrm{M26}}$ of the \Mimosa sensors is \allowbreak$\left( 3.42\,\pm\, \allowbreak 0.12 \right)\,\micro\meter$
  and $\left( 3.44\,\pm\,0.10 \right)\,\micro\meter$ for a plane spacing of $20\,\milli\meter$ and $150\,\milli\meter$, respectively.
 The results for both a tighter plane spacing of $20\,\milli\meter$ and a wider spacing of $150\,\milli\meter$ are shown in figure~\ref{fig:smiley} for each plane separately. 
@@ -276,31 +291,35 @@ Assuming the parameter summarised in Table~\ref{tab:parameters}, the pointing re
  the closest planes up- and downstream of the DUT.
  
 Some considerations:\\
-7 dimensions: dz, dz2, dz3, $\sigma_{reso}$, $\epsilon_{\textrm{M26}} = \frac{X_{\textrm{M26}}}{X_0}$, $\epsilon_{\textrm{DUT}} = \frac{X_{\textrm{DUT}}}{X_0}$,  p in GeV\\
+7 dimensions: dz, dz2, dz3, $\sigma_{reso}$, $\epsmimo = \frac{X_{\textrm{M26}}}{X_0}$, $\epsdut = \frac{X_{\textrm{DUT}}}{X_0}$,  p in GeV\\
 assume symmetric set-up: dz2 = dz3, $\sigma_{reso}$ and $\epsilon_{\textrm{M26}}$ are fixed, p is 5\,GeV and 120\,GeV, so only 3 dimensions left.
 
 
 
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoAtDesy}
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoAtSPS}\\
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoAtDesy_loglog}
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoAtSPS_loglog}
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy_2}
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern_2}\\
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy_loglog_2}
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern_loglog_2}
   \caption[Pointing resolution for various DUTs as a function of the distance between DUT and neighbouring planes]{
   The pointing resolution for various DUTs is shown as a function of the equidistant distance between DUT and neighbouring planes.
   Left: at 5\,GeV, Right: at 120\,GeV. }
-\label{fig:CalcResos}
+\label{fig:CalcResos_dzdut}
 \end{figure}
 
+comment hj:\\
+apply energy correction (Ref Summer Student 2013) , then re-do reso vs energy plot
 
-comment: add derived pointing resos from measurements from thomas
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.9\textwidth]{figures/CalcResoVsP_1600800}
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsP}     \put(-125,175){(A)}
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsEpsdut}\put(-125,175){(B)}
   \caption[Pointing resolution as a function of the beam energy]{
-  The pointing resolution for the wide (red) and the narrow (black) set-up is shown as a function of the beam energy.
+  (A) The pointing resolution for the wide (red) and the narrow (black) set-up is shown as a function of the beam energy for a 5-plane set-up for comparison with data. 
   The theoretical limit of about $1.6\,\upmu\meter$ for plane\,3 is indicated as a dashed line.
-  Pointing resolutions derived from the measured resolutions at plane 3 for various energies and plane spacings are shown as crosses.}
-\label{fig:CalcResos}
+  Pointing resolutions derived from the measured resolutions at plane 3 for various energies and plane spacings are shown as crosses.
+  (B) The pointing resolution for 5\,GeV (red) and 120\,GeV (black) is shown as a function of $\epsdut$ for a 6-plane set-up.}
+\label{fig:CalcResoP_DUT}
 \end{figure}
+
