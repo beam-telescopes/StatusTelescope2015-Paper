@@ -1,7 +1,24 @@
- 
-This is an introduction.
-This is a citation of the PDG.\,\cite{PhysRevD.86.010001}
-And this is text.
 
+%History of DESY beam telescopes, from Eudet to the present
 
-History of DESY beam telescopes, from Eudet to the present
+Also in future high-energy physics experiments pixel detectors will be used in the inner layers of the tracking devices. 
+The demands are challenging and range from high speed and high radiation-hardness for the high-luminosity LHC (HL-LHC)
+ experiments\,\cite{Nurnberg:2014aya, Garcia-Argos:2015zda} to high resolution and low mass at the International Linear Collider (ILC)\,\cite{ILC} or at the Compact Linear Collider (CLIC)\,\cite{CLIC}. 
+Test beam measurements are required in order to evaluate the performance of detector prototypes developed within the various R\&D projects. 
+In order to facilitate these measurements a high-resolution pixel beam telescope was developed within the \eudet project.\,\cite{ref:eudetreport200902}
+It provides the necessary infrastructure, i.e.~the beam telescope with six planes equipped with precise \Mimosa sensors,
+ the mechanics to position the device under test (DUT) in the beam between the two telescope arms, trigger capabilities, and the \eudaq data acquisition system. 
+The telescope planes are designed and built to keep the material budget as small as possible in order to achieve an excellent pointing resolution
+ even at the rather low DESY test beam energies of less than 6\,GeV/$\cspeed$.
+
+Several replicas of the beam telescope have been built in the meantime, e.g.~the AIDA telescope at CERN as well as the ATLAS copy ACONITE, ANEMONE at Bonn University, CALADIUM at Carlton University, 
+ DATURA and, currently under construction, DURANTA at DESY. 
+They are all kept alike in order to ease the maintenance. 
+The results reported here, refer to data taken with $\Datura$ beam telescope, the device installed in test beam\,21 at DESY, but are applicable to all other copies. 
+
+The paper is organized as follows. 
+The beamlines are introduced in Sec.~\ref{sec:beamlines}, followed by the description of the telescope layout and the EUDAQ framework in Secs.~\ref{sec:tscope} and~\ref{sec:eudaq}, respectively.
+Section~\ref{sec:offline} details the offline analysis and reconstruction flow as collected in the EUTelescope software. 
+Finally, in Sec.~\ref{sec:trackres} results are presented of the $\Datura$ telescope performance and pointing resolution for different telescope configurations at the DESY test beam. 
+Additionally, measurements at SLAC and SPS taken with ACONITE are added and compared to theoretical predictions using the concept of general broken lines (GBL).
+With these GBL predictions at hand, the optimal telescope geometry can be calculated for a given set-up (DUT, cooling, ...) prior to the test beam.
