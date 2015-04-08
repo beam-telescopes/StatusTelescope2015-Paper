@@ -26,9 +26,12 @@
 \newcommand{\noise}{\ensuremath{\sigma_{\textrm{noise}}}}
 \newcommand{\epsdut}{\ensuremath{\mathnormal{\epsilon_{\textrm{DUT}}}}}
 \newcommand{\epsmimo}{\ensuremath{\mathnormal{\epsilon_{\textrm{M26}}}}}
+\newcommand{\dz}{\ensuremath{\textrm{d}z}}
+\newcommand{\dzdut}{\ensuremath{\textrm{d}z_{\textrm{DUT}}}}
 
-\newcommand{\Datura}{DATURA }
-\newcommand{\Mimosa}{MIMOSA\,26 }
+\newcommand{\Datura}{\ensuremath{\textrm{DATURA}}}
+\newcommand{\Duranta}{\ensuremath{\textrm{DURANTA}}}
+\newcommand{\Mimosa}{\ensuremath{\textrm{MIMOSA\,26}}}
 \newcommand{\eudet}{EUDET }
 \newcommand{\rawdataevent}{RawDataEvent }
 \newcommand{\rawdataevents}{RawDataEvents }
@@ -73,14 +76,14 @@ ${}^{\textrm{b}}$ Institute for Telescopocy, bla, blubb
 %Additionally, the trigger and data acquisition 
 Test beam measurements at the DESY test beam facilities have been used to characterise the performance of the DESY-type beam telescopes using the example of \Datura. 
 The performance with respect to the measured resolution as a function of the position along the beam, as a function of the beam energy and other of other key parameters is studied. 
-The measured unbiased residual using a 5\,GeV/$\cspeed$ $\e$-beam at the fourth pixel plane using three upstream and two downstream planes for tracking is $(3.96 \pm 0.03)\,\upmu\meter$, 
- when averaged over the $x$- and $y$-direction. %FIXME check number, 5 or 5.4 GeV ??
-Using the residuals at each plane in each direction, the intrinsic resolution of the used \Mimosa sensors is extracted via a $\chi^2$-minimisation to be $(3.43 \pm 0.08)\,\upmu\meter$
+A Gaussian fit to the measured unbiased residuals at the fourth pixel plane using three upstream and two downstream planes for tracking and a 5\,GeV/$\cspeed$ $\e$-beam
+ results in a width of $(3.96 \pm 0.03)\,\upmu\meter$, when averaged over the $x$- and $y$-direction. %FIXME check number, 5 or 5.4 GeV ??
+Using the residuals at each plane in each direction, the intrinsic resolution of the used $\Mimosa$ sensors is extracted via a $\chi^2$-minimisation to be $(3.43 \pm 0.08)\,\upmu\meter$
  averaging over two measured set-ups comprising different plane spacings. 
 With the extracted intrinsic resolution the pointing resolution - a key feature of the beam telescope - can be quantified to $(2.04 \pm 0.)\,\upmu\meter$, which includes multiple scattering effects.
 With higher beam energies, the pointing resolution decreases due to diminishing multiple scattering. 
-Calculations using the concept of General Broken Lines are compared to the measurements and are found to agree well within the statistical uncertainty. 
-Additionally, threshold studies with the \Mimosa sensors were performed. 
+Calculations using the concept of General Broken Lines are compared to the measurements and are found to agree well within the statistical uncertainties. 
+Additionally, threshold studies with the $\Mimosa$ sensors were performed. 
 An optimal threshold is found at a signal-to-noise figure of about six, with noise hits deteriorating the resolution towards lower and inefficiencies towards higher thresholds.
 }
 
