@@ -78,7 +78,7 @@ $z_i$ is then the distance of the $i$-th telescope plane to the DUT positioned a
 For a symmetric set-up with the DUT at the centre of the telescope and the up- and downstream planes equally spaced, $k$ reduces to $k = 1/N$. 
 
 Multiple scattering is the term used to describe the deflection of a charged particle traversing any medium.
-It depends on the particle energy and type and the radiation length of the matter traversed~\cite{ref:scatteringhighland}.
+It depends on the particle energy and type and the radiation length of the matter traversed.\,~\cite{ref:scatteringhighland}
 The width of the angular scattering distribution can be expressed by
 
 \begin{equation}
@@ -89,18 +89,18 @@ The width of the angular scattering distribution can be expressed by
 \end{equation}
 
 \noindent
-according to Ref.~\cite{ref:PDG-2014}, with the particle velocity $\beta c$, momentum $p$ and charge number $z$. 
+according to reference~\cite{ref:PDG-2014}, with the particle velocity $\beta c$, momentum $p$ and charge number $z$. 
 The expression $x/X_0$ defines the thickness of the scattering medium in radiation lengths,
- with values of $X_0 = 21.82\,\allowbreak\gram\per\centi\meter^2$ for silicon and $X_0 = 36.62\,\gram\per\centi\meter^2$ for dry air, according to Ref.~\cite{ref:x0values}.
+ with values of $X_0 = 21.82\,\allowbreak\gram\per\centi\meter^2$ for silicon and $X_0 = 36.62\,\gram\per\centi\meter^2$ for dry air, according to reference~\cite{ref:x0values}.
 
-Equation~\ref{eq:multiplescattering} shows, that the angular distortion due to multiple scattering increases with the material budget and the inverse energy.
+Equation~(\ref{eq:multiplescattering}) shows, that the angular distortion due to multiple scattering increases with the material budget and the inverse energy.
 Therefore, at low-energy beams, such as the $6\,\giga\electronvolt$ DESY-II test beam, it is advantageous to have very thin telescope sensors. 
 As the beam particles also interact with the atoms in the air, a contribution to the amount of multiple scattering depending on the distance between sensor planes has to be considered. 
 At high-energy hadron beams ($> 100\,\giga\electronvolt$), which for example are available at the SPS facility at CERN, the contribution from multiple scattering can be neglected.
 
-\subsection{Measurements with \Datura}
+\subsection{Measurements with $\Datura$}
 
-To verify the performance of the \Datura~telescope, measurements of the achievable resolution were performed in $2012$, for different settings of beam momentum,
+To verify the performance of the $\Datura$ telescope, measurements of the achievable resolution were performed in $2012$, for different settings of beam momentum,
  sensor threshold and sensor spacing~\cite{ref:thomas}.
 With the \texttt{datura-noDUT} example included in the {EUTelescope} framework, which is described in detail in section~\ref{sec:datura-nodut},
  straight line tracks with hits in all six telescope planes were sought. 
@@ -109,7 +109,7 @@ From these tracks, the unbiased residual distribution of each sensor plane was c
 To calculate this distribution, each of the six telescope planes was iteratively considered as a DUT.
 Within each iteration, tracks were calculated from the five non-DUT planes.
 The unbiased residual distribution was then filled by the distance between the hit position and the track extrapolation in the DUT plane.
-By using each telescope plane as a DUT, equation~\ref{eq:telescoperesolutionequation} is modified under the assumption that $\sigma_{\textrm{intrinsic}} = \sigma_{\textrm{DUT}} = \sigma_{\textrm{M26}}$,
+By using each telescope plane as a DUT, equation~(\ref{eq:telescoperesolutionequation}) is modified under the assumption that $\sigma_{\textrm{intrinsic}} = \sigma_{\textrm{DUT}} = \sigma_{\textrm{M26}}$,
  leading to
 
 \begin{equation}
@@ -132,7 +132,7 @@ By using each telescope plane as a DUT, equation~\ref{eq:telescoperesolutionequa
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/4y.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5x.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5y.pdf}
-  \caption[Residual examples to determine the \Datura telescope's resolution~\cite{ref:thomas}]{Residual examples to determine the \Datura telescope's resolution from the upstream lever arm.
+  \caption[Residual examples to determine the $\Datura$ telescope's resolution~\cite{ref:thomas}]{Residual examples to determine the $\Datura$ telescope's resolution from the upstream lever arm.
 From top to bottom: The measured residuals for planes $0$ and $3$, left for $x$ direction, right for $y$ direction.
 Each sensor plane was considered as a passive layer during the track reconstruction. Images from~\cite{ref:thomas}.}
   \label{fig:residualexample1}
@@ -164,34 +164,27 @@ The measured resolution is defined here as the width of a Gaussian fit on middle
 By using a $\chi^{2}$ minimization method, the intrinsic resolution of the $\Mimosa$ telescope sensors was calculated, with the contribution $\Delta \chi^2_{i,j}$ from plane $i$ in dimension $j$ defined as
 
 \begin{equation}
-\Delta \chi^2_{i,j} = \left( \frac{y_{i,j} - p_{i,j}}{\sigma_{i,j}} \right)^2 +
-\left( \frac{\theta_{\textrm{i,j}} - \theta_{i-1,j}}{\Delta \Theta_{i,j}} \right)^2 \,.
+\Delta \chi^2_{i,j} = \left( \frac{y_{i,j} - p_{i,j}}{\sigma_{\textrm{intrinsic}}} \right)^2 +
+\left( \frac{\theta_{\textrm{i,j}} - \theta_{i-1,j}}{\Theta_{0}} \right)^2 \,.
 \end{equation}
 
 \noindent The measured hit position is denoted by $y_{i,j}$, the position extrapolated from the track by $p_{i,j}$. $\theta_{i-1,j}$ and $\theta_{i,j}$ are the angles between the nominal beam direction
  and the track direction. The former is the track angle entering plane $i$, the latter the angle of the outbound track segment.
 $\sigma_{i,j}$ and $\Delta \theta_{i,j}$ are the intrinsic resolution of sensor plane $i$ in dimension $j$ and the width of the multiple scattering distribution,
- according to equation~\ref{eq:multiplescattering}, respectively.
+ according to equation~(\ref{eq:multiplescattering}), respectively.
 \\comments hj: \\
-- Is this done after track fitting? so tracks are not altered during this process?\\
-- Are you really using $\sigma_{i,j}$? Or just one $\sigma_{\textrm{intrinsic}}$?\\
-- same for $\Delta \Theta_{i,j}$. Shouldnt it be just one $\Theta_0$ from Eq.~(4) ?\\
-- difference in theta for straight tracks ?!
-- What about the actual summing? Is the chi2 summed over many tracks? And then over n planes leaving out the $i$-th? so something like:
+- chi2 minimisation needs better explanations. 
+% - Is this done after track fitting? so tracks are not altered during this process? -> No \\
+%- Are you really using $\sigma_{i,j}$? Or just one $\sigma_{\textrm{intrinsic}}$? -> Just sigma intrinsic\\
+%- same for $\Delta \Theta_{i,j}$. Shouldnt it be just one $\Theta_0$ from Eq.~(4) ? YES\\
+%- difference in theta for straight tracks ?!
+%- What about the actual summing? Is the chi2 summed over many tracks? And then over n planes leaving out the $i$-th? so something like:
 
-\begin{equation}
-\Delta \chi^2_{i,j} = \sum_{k = 1; k \neq i}^{n}\left( \frac{y_{k,j} - p_{k,j}}{\sigma_{\textrm{intrinsic}}} \right)^2 +
-\left( \frac{\theta_{k,j} - \theta_{k-1,j}}{\Theta_0} \right)^2 \, ??
-\end{equation}
-
-\noindent
-- Ich verstehe den chi2-Teil leider noch nicht :/\\
-
-Resulting from this minimization, the intrinsic resolution $\sigma_{\textrm{M26}}$ of the $\Mimosa$ sensors is \allowbreak$\left( 3.42\,\pm\, \allowbreak 0.12 \right)\,\micro\meter$
+Resulting from this minimisation, the intrinsic resolution $\sigma_{\textrm{M26}}$ of the $\Mimosa$ sensors is \allowbreak$\left( 3.42\,\pm\, \allowbreak 0.12 \right)\,\micro\meter$
  and $\left( 3.44\,\pm\,0.10 \right)\,\micro\meter$ for a plane spacing of $20\,\milli\meter$ and $150\,\milli\meter$, respectively.
 The results for both a tighter plane spacing of $20\,\milli\meter$ and a wider spacing of $150\,\milli\meter$ are shown in figure~\ref{fig:smiley} for each plane separately. 
 In both cases, an error of $2.5\,\milli\meter$ on the plane distance $\Delta_{\textrm{z}}$ was assumed.
-For both geometries, the expected resolution of $\approx\,3.5\,\micro\meter$, according to Ref.~\cite{ref:mimosa26}, is confirmed.
+For both geometries, the expected resolution of $\approx\,3.5\,\micro\meter$, according to reference~\cite{ref:mimosa26}, is confirmed.
 The underlying assumptions in the method presented here are:
 
 \begin{figure}[tbp]
@@ -214,9 +207,9 @@ The underlying assumptions in the method presented here are:
 \begin{itemize}
 \item The intrinsic resolution $\sigma_{\textrm{intrinsic}}$ of all sensor planes is assumed to be equal.
 As the discriminator thresholds are set for subframes of each plane individually, however, this is not necessarily true.
-Figure~\ref{fig:resivsenergy} shows the dependence of $\sigma_{\textrm{intrinsic}}$ on the applied threshold.
+Figure~\ref{fig:resivsenergy_thresh} shows the dependence of $\sigma_{\textrm{intrinsic}}$ on the applied threshold.
 
-\item The multiple scattering term in equation~\ref{eq:telescoperesolutionequation_2} is only calculated considering the nominal sensor thicknesses, the air between sensor planes,
+\item The multiple scattering term in equation~(\ref{eq:telescoperesolutionequation_2}) is only calculated considering the nominal sensor thicknesses, the air between sensor planes,
  and a $25\,\micro\meter$ thick capton foil on either side of each sensor.
 The particle momentum assumed is the nominal beam momentum.
 
@@ -225,78 +218,88 @@ Inclined tracks, or a deflection of tracks in planes or scattering material, are
 \end{itemize}
 
 \begin{figure}[tbp]
-\centering
-
-\includegraphics[width=\textwidth]{figures/resi_thresh_errors.pdf}
-\caption[Telescope intrinsic sensor resolution for different threshold settings, beam momenta and geometries~\cite{ref:thomas}]{
- The measured intrinsic resolution of the \Datura telescope's $\Mimosa$ sensors $\sigma_{\textrm{M26}}$ for different beam momenta $p$, sensor spacing $\Delta_{\textrm{z}}$ and applied sensor threshold.
+  \centering
+  \includegraphics[width=0.49\textwidth]{figures/resi_thresh_errors}	\put(-175,100){(A)}
+  \includegraphics[width=0.49\textwidth]{figures/effi_thresh}		\put(-175,100){(B)}
+  \caption[Telescope intrinsic sensor resolution for different threshold settings, beam momenta and geometries~\cite{ref:thomas}]{
+(A) The measured intrinsic resolution of the $\Datura$ telescope's $\Mimosa$ sensors $\sigma_{\textrm{M26}}$ for different beam momenta $p$, sensor spacing $\Delta_{\textrm{z}}$ and applied sensor threshold.
 Some values are shifted on the x-axis for improved legibility.
-Image from~\cite{ref:thomas}.}
-\label{fig:resivsenergy}
+(B) Average efficiency of all telescope sensors in both dimensions for different beam momenta and sensor spacing vs. applied threshold.
+An efficiency decline with increasing threshold can be observed.
+Some values are shifted on the $x$ axis for improved legibility. 
+Images from~\cite{ref:thomas}.}
+  \label{fig:resivsenergy_thresh}
 \end{figure}
 
-Figure~\ref{fig:resivsenergy} shows the calculated intrinsic telescope sensor resolution for different beam energies, plane distances and applied sensor thresholds.
+Figure~\ref{fig:resivsenergy_thresh} (A) shows the calculated intrinsic telescope sensor resolution for different beam energies, plane distances and applied sensor thresholds.
 The minimum of the $\Mimosa$ sensors' intrinsic resolution is reached for a threshold setting of $6$.
 While the measured residual width for wider sensor spacings or lower beam momenta is higher, as can be seen in figure~\ref{fig:smiley},
- these effects are accounted for in equation~\ref{eq:telescoperesolutionequation} by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$.
+ these effects are accounted for in equation~(\ref{eq:telescoperesolutionequation}) by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$.
 Because of this, the difference in intrinsic sensor resolution between configurations at any given threshold is only approximately $\pm\,0.15\,\micro\meter$, which is well within the errors.
-From equation~\ref{eq:telescopepointing} the optimal track pointing resolution $\sigma_{\textrm{Tel}}$ of the \Datura telescope without multiple scattering
+From equation~(\ref{eq:telescopepointing}) the optimal track pointing resolution $\sigma_{\textrm{Tel}}$ of the $\Datura$ telescope without multiple scattering
  can therefore be given as $\left( 1.40 \pm 0.05 \right)\,\micro\meter$.
-Measurements by Behr~\cite{ref:j.behrmeasurements}, taken at high thresholds $>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$.
+Measurements by Behr\,\cite{ref:j.behrmeasurements}, taken at high thresholds $>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$.
 
 The signal-to-noise threshold applied to each telescope sensor is a critical parameter for a telescope's performance.
-A higher threshold will cut into the signal, thus reducing the amount of clusters found on each plane and therefore reducing the amount of re-constructable tracks.
+A higher threshold cuts into the signal, thus reducing the amount of clusters found on each plane and therefore reducing the amount of re-constructable tracks.
 This reduces a sensor's efficiency.
-A lower threshold will allow an increasing amount of noise hits to be wrongly identified as clusters.
-This again will also lead to a broadening of the residual distributions.
-Figure~\ref{fig:effi} shows the efficiency distribution over a sensor plane.
-The efficiency is defined as the ratio of hits being measured in the vicinity of a traversing track to the overall number of tracks.
-As maximum distance $100\,\micro\meter$ were considered.
-A noisy pixel column at $Y \approx -8\,\milli\meter$ can be observed.
-This column was masked during the converter step in the \texttt{datura-noDUT} example and subsequently is not used during the analysis. 
-\\{comment hj: datura-noDUT is jargon}\\
-Disregarding this area, an overall average efficiency over $98\,\%$ is observed.
-
-\begin{figure}[tbp]
-  \centering
-  \includegraphics[width=\textwidth]{figures/plane3_effi_run37.pdf}
-  \caption[Telescope sensor efficiency~\cite{ref:thomas}]{Efficiency of telescope sensor plane $3$ at a threshold of $7$ and $5\,\giga\electronvolt$ beam momentum.
-Image from~\cite{ref:thomas}.}
-\label{fig:effi}
-\end{figure}
-
-In figure~\ref{fig:effi_thresh}, the efficiency dependence on the sensor threshold is shown, for various beam momenta and sensor spacings.
+A lower threshold allows for an increasing amount of noise hits to be wrongly identified as clusters.
+This also leads to a broadening of the residual distributions and hence a worse resolution. 
+%Figure~\ref{fig:effi} shows the efficiency distribution over a sensor plane.
+The efficiency is defined as the ratio of tracks that have at least one hit above threshold in the vicinity of a reconstructed track on the DUT to the overall number of tracks.
+As maximum distance $100\,\micro\meter$ is considered.
+%A noisy pixel column at $Y \approx -8\,\milli\meter$ can be observed.
+%This column was masked during the converter step in the \texttt{datura-noDUT} example and subsequently is not used during the analysis. 
+%\\{comment hj: datura-noDUT is jargon}\\
+%Disregarding this area, an overall average efficiency over $98\,\%$ is observed.
+In figure~\ref{fig:resivsenergy_thresh} (B), the efficiency dependence on the sensor threshold is shown, for various beam momenta and sensor spacings.
 Efficiencies are averaged for all six sensor planes and both spatial coordinates, resulting in negligible statistical errors. 
 In all cases, the efficiency is $\ge\,98\,\%$ up to a threshold setting of 7.
 With increasing threshold, the efficiency declines, until an efficiency of $86\,\%$ for threshold $12$ is reached.
 The difference between momenta and plane spacings is due to multiple scattering and increased telescope resolution.
 
-\begin{figure}[tbp]
-  \centering
-  \includegraphics[width=\textwidth]{figures/effi_thresh.pdf}
-  \caption[Overall telescope sensor efficiency vs. threshold for different beam momenta and sensor spacings~\cite{ref:thomas}]{
- Average efficiency of all telescope sensors in both dimensions for different beam momenta and sensor spacing vs. applied threshold.
-An efficiency decline with increasing threshold can be observed.
-Some values are shifted on the $x$ axis for improved legibility.
-Image from~\cite{ref:thomas}.}
-\label{fig:effi_thresh}
-\end{figure}
+%\begin{figure}[tbp]
+%  \centering
+%  \includegraphics[width=\textwidth]{figures/plane3_effi_run37.pdf}
+%  \caption[Telescope sensor efficiency~\cite{ref:thomas}]{Efficiency of telescope sensor plane $3$ at a threshold of $7$ and $5\,\giga\electronvolt$ beam momentum.
+%Image from~\cite{ref:thomas}.}
+%\label{fig:effi}
+%\end{figure}
+
+
+
+%\begin{figure}[tbp]
+%  \centering
+%  \includegraphics[width=\textwidth]{figures/effi_thresh.pdf}
+%  \caption[Overall telescope sensor efficiency vs. threshold for different beam momenta and sensor spacings~\cite{ref:thomas}]{
+%Average efficiency of all telescope sensors in both dimensions for different beam momenta and sensor spacing vs. applied threshold.
+%An efficiency decline with increasing threshold can be observed.
+%Some values are shifted on the $x$ axis for improved legibility.
+%Image from~\cite{ref:thomas}.}
+%\label{fig:effi_thresh}
+%\end{figure}
 
 
 
 \subsection{Resolution predictions using General Broken Lines}
 
 With the measured intrinsic resolution at hand, and the knowledge about the amount of material of the sensor planes, predictions of the expected pointing resolution at the actual DUT position can be made. 
-Therefore, it is possible to calculate a priori the optimal telescope geometry for a certain measurement. 
-Using the GBL formalism \cite{Kleinwort-2012,Blobel-2006}, the resolution is analytically calculated at desired points of interest along the particle trajectory. 
-Assuming the parameter summarised in Table~\ref{tab:parameters}, the pointing resolution at the DUT for three different DUT material budgets is plotted as a function of the spacing $dz_2$ between
- the closest planes up- and downstream of the DUT.
- 
-Some considerations:\\
-7 dimensions: dz, dz2, dz3, $\sigma_{reso}$, $\epsmimo = \frac{X_{\textrm{M26}}}{X_0}$, $\epsdut = \frac{X_{\textrm{DUT}}}{X_0}$,  p in GeV\\
-assume symmetric set-up: dz2 = dz3, $\sigma_{reso}$ and $\epsilon_{\textrm{M26}}$ are fixed, p is 5\,GeV and 120\,GeV, so only 3 dimensions left.
-
-
+Therefore, it is possible to calculate a priori the optimal telescope geometry for a certain measurement set-up. 
+Pointing resolutions in this section therefore therefore refer to the achievable pointing resolution using a ``symmetric six planes plus DUT'' configuration,
+ c.f.~figure~\ref{fig:datura_sketch}, if not stated otherwise.
+Using the GBL formalism \cite{Kleinwort-2012,Blobel-2006}, the pointing resolution is analytically calculated at desired points of interest along the particle trajectory. 
+Assuming $\epsmimo = 0.00071$, the pointing resolution at the DUT for four different DUT material budgets $\epsdut$ is plotted as a function of the spacing $\dzdut$
+ for two fixed values of $\dz = 20\,\milli\meter$ and $50\,\milli\meter$ in figure~\ref{fig:CalcResos_dzdut}. 
+Plots are provided for DESY\,II beam energies (left) and SPS energies (right). 
+All plotted resolution functions are monotonically increasing with increasing $\dzdut$. 
+Therefore, the optimal position of the $\Mimosa$ planes nearest to the DUT need to always be installed as close to the DUT as possible in order to achieve the best possible resolution. 
+Also from figure~\ref{fig:CalcResos_dzdut} it can be seen, that the optimal plane spacing $\dz$ depends on the actual material budget of the DUT and the actual space needed for the DUT, hence $\dzdut$.
+E.g.~for a DUT with a material budget of $\epsdut = 0.001$ (black and red solid line) at 5\,GeV/$\cspeed$, a narrow configuration is preferred for $\dzdut < 70\,\milli\meter$,
+ but a wide configuration for $\dzdut > 70\,\milli\meter$.
+The position of the intersection depends on the material budget of the DUT and decreases with increasing material budget. 
+In a wide configuration, the pointing resolution is limited to about $2.3\,\upmu\meter$, whereas in a narrow configuration a pointing resolution around $2.0\,\upmu\meter$ is achievable for thin DUTs.
+At SPS energies, the resolution functions for the wide and the narrow configuration do not cross, with the narrow configuration being slightly better than the wide one.
+However, the difference e.g.~for $\epsdut = 0.01$ is less than 300\,\nano\meter for $\dzdut = 100\,\milli\meter$.
 
 \begin{figure}[tbp]
   \centering
@@ -310,8 +313,24 @@ assume symmetric set-up: dz2 = dz3, $\sigma_{reso}$ and $\epsilon_{\textrm{M26}}
 \label{fig:CalcResos_dzdut}
 \end{figure}
 
-comment hj:\\
-apply energy correction (Ref Summer Student 2013) , then re-do reso vs energy plot
+A comparison between the measured resolution at the DUT with the calculated pointing resolution $\sigmapGBL$ is only possible, if the measured resolution is corrected by the DUT's resolution
+
+\begin{equation}
+ \sigmap = \sqrt{\sigmames^2 - \sigmadut^2}.
+ \label{eq:sigmap}
+\end{equation}
+
+\noindent
+This is shown in figure~\ref{fig:CalcResoP_DUT} (A) as a function of the beam momentum. 
+Here, the pointing resolution is calculated for a ``five planes plus DUT'' configuration, where the DUT is a $\Mimosa$ sensor, in order to match the measurements undertaken. 
+The solid lines represent GBL calculations, the crosses are the $\sigmap$ corresponding to equation~(\ref{eq:sigmap}). 
+A nice agreement between the GBL calculations and the pointing resolution derived from the measured resolution is found.
+
+In figure~\ref{fig:CalcResoP_DUT} (B) the achievable pointing resolution as a function of the material budget is plotted from a user's point of view, i.e.~ for a ``six planes plus DUT'' configuration. 
+Again it can be seen, that a minimal $\dzdut$ allows for the best possible resolution. 
+The intersection for equally coloured lines mark the amount of material budget, where a change in the optimal plane spacing $\dz$ happens.
+For budgets below (above) the intersection, a narrow (wide) configuration is preferred.
+The position of the intersection shifts to smaller material budgets with increasing $\dzdut$. 
 
 \begin{figure}[tbp]
   \centering
@@ -321,7 +340,9 @@ apply energy correction (Ref Summer Student 2013) , then re-do reso vs energy pl
   (A) The pointing resolution for the wide (red) and the narrow (black) set-up is shown as a function of the beam energy for a 5-plane set-up for comparison with data. 
   The theoretical limit of about $1.6\,\upmu\meter$ for plane\,3 is indicated as a dashed line.
   Pointing resolutions derived from the measured resolutions at plane 3 for various energies and plane spacings are shown as crosses.
-  (B) The pointing resolution for 5\,GeV (red) and 120\,GeV (black) is shown as a function of $\epsdut$ for a 6-plane set-up.}
+  (B) The pointing resolution for various geometries is shown as a function of $\epsdut$ for a 6-plane set-up.}
 \label{fig:CalcResoP_DUT}
 \end{figure}
 
+comment hj:\\
+apply energy correction (Ref Summer Student 2013) , then re-do reso vs energy plot
