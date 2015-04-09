@@ -1,17 +1,18 @@
- 
-Successful telescope, in 2013 bla amount of users.
-highly flexible and versatile set-up.
-with \eudaq and \EUTelescope a powerful software package for data taking and data analysis has been developed. 
-At DESY beam energies, a measured resolution of ... is achievable, and the intrinsic resolution of the \Mimosa sensors have been measured to 3.4 pm ...
-Calculations predict a pointing resolution of 1.85 um on the DUT in a six planes set-up with X mm plane spacing, which well agrees wit a measured pointing resolution of 2.x pm .. um.
- 
-Then:\\ 
 
-Future Eutel:
-Support for tracking in presence of magnetic fields and a more fine-grained detector geometry description interface using ROOT::TGeo are currently under development.
+Test beam measurements with high precision pixel beam telescopes have proven to be a versatile tool for a wide range of semiconductor sensor studies. 
+Among other beam telescopes, also DESY-type beam telescopes is a key ingredient to sensors R\&D for many future collider experiments. 
+Developed within $\eudet$ and JRA1 (and AIDA ?!), X users used a DESY-type beam telescope only in 2013 for a total of n weeks in the various available beam lines. 
+The highly flexible and versatile instrument comes not only with a complete and modular data acquisition software package, time stamping capabilities, and a clearly defined interface for user daq integration,
+ but it also provides a powerful software package, \EUTelescope, for data analysis. 
+At 5\,GeV beam momentum, a measured unbiased residual width of $(4.0 \pm 0.1)\,\upmu\meter$ is achievable,
+ and the intrinsic resolution of the $\Mimosa$ sensors have been measured to $(3.42 \pm 0.03)\,\upmu\meter$.
+General Broken Lines calculations predict a pointing resolution of $1.89\,\upmu\meter$ on the DUT in a ``five planes plus DUT'' set-up with 20\,mm plane spacing,
+ which well agrees wit a measured pointing resolution of $(2.04 \pm 0.)\,\upmu\meter$.
 
-Future EuDAQ:
-New event format supporting multiple triggers per mimosa frame
+A continuous development is ongoing to upgrade and enhance the data acquisition systems and the analysis frameworks.  
+The maximal achievable rate will be increased by a the successor of the TLU, the miniTLU, which reduces the dead time between two event to ...,  which allows for a trigger rate of about 1\,MHz.
+This is only possible with the implementation of parallel data streams for the telescope planes and the DUT, which will be available with \eudaq\,{2.0},
+ which will incorporate a new event format supporting multiple triggers per $\Mimosa$ read-out frame. 
+The development of the analysis software is driven by the large and diverse user community. 
+A new release of \EUTelescope will allow for tracking in presence of magnetic fields and a more fine-grained detector geometry description interface using ROOT::TGeo, which are currently under development.
 
-Future TLU:
-miniTLU supporting many other great things

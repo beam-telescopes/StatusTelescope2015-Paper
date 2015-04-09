@@ -63,17 +63,16 @@ The resolution of a telescope $\sigma_{\textrm{Tel}}$ can be expressed by
 
 \begin{equation}
 \label{eq:telescopepointing}
-\sigma_{\textrm{Tel}}^2 = k \cdot \sigma_{\textrm{intrinsic}}^2
+\sigma_{\textrm{Tel}}^2 = k \cdot \sigmai^2
 \end{equation}
 
 \noindent with the geometric scaling factor $k$ in turn written as
 
 \begin{equation}
-k = \frac{\sum_i^N z_i^2}{N \cdot \sum_i^N z_i^2 - \left( \sum_i^N z_i
-\right)^2}
+k = \frac{\sum_i^N z_i^2}{N \cdot \sum_i^N z_i^2 - \left( \sum_i^N z_i \right)^2}
 \end{equation}
 
-\noindent assuming all $N$ telescope planes have the same intrinsic resolution $\sigma_{\textrm{intrinsic}}$. 
+\noindent assuming all $N$ telescope planes have the same intrinsic resolution $\sigmai$. 
 $z_i$ is then the distance of the $i$-th telescope plane to the DUT positioned at $z=0$.
 For a symmetric set-up with the DUT at the centre of the telescope and the up- and downstream planes equally spaced, $k$ reduces to $k = 1/N$. 
 
@@ -109,7 +108,7 @@ From these tracks, the unbiased residual distribution of each sensor plane was c
 To calculate this distribution, each of the six telescope planes was iteratively considered as a DUT.
 Within each iteration, tracks were calculated from the five non-DUT planes.
 The unbiased residual distribution was then filled by the distance between the hit position and the track extrapolation in the DUT plane.
-By using each telescope plane as a DUT, equation~(\ref{eq:telescoperesolutionequation}) is modified under the assumption that $\sigma_{\textrm{intrinsic}} = \sigma_{\textrm{DUT}} = \sigma_{\textrm{M26}}$,
+By using each telescope plane as a DUT, equation~(\ref{eq:telescoperesolutionequation}) is modified under the assumption that $\sigmai = \sigma_{\textrm{DUT}} = \sigma_{\textrm{M26}}$,
  leading to
 
 \begin{equation}
@@ -164,7 +163,7 @@ The measured resolution is defined here as the width of a Gaussian fit on middle
 By using a $\chi^{2}$ minimization method, the intrinsic resolution of the $\Mimosa$ telescope sensors was calculated, with the contribution $\Delta \chi^2_{i,j}$ from plane $i$ in dimension $j$ defined as
 
 \begin{equation}
-\Delta \chi^2_{i,j} = \left( \frac{y_{i,j} - p_{i,j}}{\sigma_{\textrm{intrinsic}}} \right)^2 +
+\Delta \chi^2_{i,j} = \left( \frac{y_{i,j} - p_{i,j}}{\sigmai} \right)^2 +
 \left( \frac{\theta_{\textrm{i,j}} - \theta_{i-1,j}}{\Theta_{0}} \right)^2 \,.
 \end{equation}
 
@@ -205,9 +204,9 @@ The underlying assumptions in the method presented here are:
 
 
 \begin{itemize}
-\item The intrinsic resolution $\sigma_{\textrm{intrinsic}}$ of all sensor planes is assumed to be equal.
+\item The intrinsic resolution $\sigmai$ of all sensor planes is assumed to be equal.
 As the discriminator thresholds are set for subframes of each plane individually, however, this is not necessarily true.
-Figure~\ref{fig:resivsenergy_thresh} shows the dependence of $\sigma_{\textrm{intrinsic}}$ on the applied threshold.
+Figure~\ref{fig:resivsenergy_thresh} shows the dependence of $\sigmai$ on the applied threshold.
 
 \item The multiple scattering term in equation~(\ref{eq:telescoperesolutionequation_2}) is only calculated considering the nominal sensor thicknesses, the air between sensor planes,
  and a $25\,\micro\meter$ thick capton foil on either side of each sensor.
@@ -286,7 +285,7 @@ The difference between momenta and plane spacings is due to multiple scattering 
 With the measured intrinsic resolution at hand, and the knowledge about the amount of material of the sensor planes, predictions of the expected pointing resolution at the actual DUT position can be made. 
 Therefore, it is possible to calculate a priori the optimal telescope geometry for a certain measurement set-up. 
 Pointing resolutions in this section therefore therefore refer to the achievable pointing resolution using a ``symmetric six planes plus DUT'' configuration,
- c.f.~figure~\ref{fig:datura_sketch}, if not stated otherwise.
+ cf.~figure~\ref{fig:datura_sketch}, if not stated otherwise.
 Using the GBL formalism \cite{Kleinwort-2012,Blobel-2006}, the pointing resolution is analytically calculated at desired points of interest along the particle trajectory. 
 Assuming $\epsmimo = 0.00071$, the pointing resolution at the DUT for four different DUT material budgets $\epsdut$ is plotted as a function of the spacing $\dzdut$
  for two fixed values of $\dz = 20\,\milli\meter$ and $50\,\milli\meter$ in figure~\ref{fig:CalcResos_dzdut}. 
@@ -299,7 +298,7 @@ E.g.~for a DUT with a material budget of $\epsdut = 0.001$ (black and red solid 
 The position of the intersection depends on the material budget of the DUT and decreases with increasing material budget. 
 In a wide configuration, the pointing resolution is limited to about $2.3\,\upmu\meter$, whereas in a narrow configuration a pointing resolution around $2.0\,\upmu\meter$ is achievable for thin DUTs.
 At SPS energies, the resolution functions for the wide and the narrow configuration do not cross, with the narrow configuration being slightly better than the wide one.
-However, the difference e.g.~for $\epsdut = 0.01$ is less than 300\,\nano\meter for $\dzdut = 100\,\milli\meter$.
+However, the difference e.g.~for $\epsdut = 0.01$ is less than $300\,\nano\meter$ for $\dzdut = 100\,\milli\meter$.
 
 \begin{figure}[tbp]
   \centering
@@ -322,11 +321,11 @@ A comparison between the measured resolution at the DUT with the calculated poin
 
 \noindent
 This is shown in figure~\ref{fig:CalcResoP_DUT} (A) as a function of the beam momentum. 
-Here, the pointing resolution is calculated for a ``five planes plus DUT'' configuration, where the DUT is a $\Mimosa$ sensor, in order to match the measurements undertaken. 
+Here, the pointing resolution is analytically calculated for a ``five planes plus DUT'' configuration, where the DUT is a $\Mimosa$ sensor, in order to match the measurements undertaken. 
 The solid lines represent GBL calculations, the crosses are the $\sigmap$ corresponding to equation~(\ref{eq:sigmap}). 
+The band formed by the solid lines represent the calculated pointing resolution assuming $\sigmai = (3.42 \pm 0.10)\,\upmu\meter$ for the wide and the narrow configuration. 
 A nice agreement between the GBL calculations and the pointing resolution derived from the measured resolution is found.
-
-In figure~\ref{fig:CalcResoP_DUT} (B) the achievable pointing resolution as a function of the material budget is plotted from a user's point of view, i.e.~ for a ``six planes plus DUT'' configuration. 
+In figure~\ref{fig:CalcResoP_DUT} (B) the achievable pointing resolution as a function of the material budget is plotted from a user's point of view, i.e.~for a ``six planes plus DUT'' configuration. 
 Again it can be seen, that a minimal $\dzdut$ allows for the best possible resolution. 
 The intersection for equally coloured lines mark the amount of material budget, where a change in the optimal plane spacing $\dz$ happens.
 For budgets below (above) the intersection, a narrow (wide) configuration is preferred.
@@ -343,6 +342,14 @@ The position of the intersection shifts to smaller material budgets with increas
   (B) The pointing resolution for various geometries is shown as a function of $\epsdut$ for a 6-plane set-up.}
 \label{fig:CalcResoP_DUT}
 \end{figure}
+
+Take note, that if straight line fitting is used, the inclusion of downstream planes might significantly deteriorate the unbiased residual widths,
+ as kinks at the possibly thick DUT (and also the $\Mimosa$ planes themselves) are not allowed for in the fit.
+Therefore, using GBL is always recommended. 
+If straight line fitting is used nonetheless, a fit using the upstream planes only might result in a better unbiased residual width, compared to a fit that includes the downstream planes.
+However, in a narrow ``six planes plus DUT'' set-up using a 5\,GeV beam, the pointing resolution at the DUT using GBL is $1.83\,\upmu\meter$, compared to more than $3.88\,\upmu\meter$ using only the upstream planes.
+N.B., that in the ``upstream only'' case, the optimal plane distance is the wide configuration.
+
 
 comment hj:\\
 apply energy correction (Ref Summer Student 2013) , then re-do reso vs energy plot
