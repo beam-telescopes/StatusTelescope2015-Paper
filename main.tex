@@ -2,7 +2,10 @@
 %\documentclass[cits]{JINST}
 \documentclass[a4paper,10pt]{scrartcl}
 \usepackage{geometry}
-\geometry{a4paper,left=26mm,right=26mm, top=2.2cm, bottom=3.4cm}
+\geometry{a4paper,left=26mm,right=26mm, top=22mm, bottom=34mm}
+\raggedbottom
+\widowpenalty=10000
+\clubpenalty=10000 
 
 \usepackage{graphics}           % Unterstuetzung fuer Grafiken (extended)
 \usepackage{graphicx}
@@ -29,14 +32,22 @@
 \newcommand{\dz}{\ensuremath{\textrm{d}z}}
 \newcommand{\dzdut}{\ensuremath{\textrm{d}z_{\textrm{DUT}}}}
 
+\newcommand{\sigmap}{\ensuremath{\sigma_{\textrm{p}}}}
+\newcommand{\sigmapGBL}{\ensuremath{\sigma_{\textrm{p,GBL}}}}
+\newcommand{\sigmames}{\ensuremath{\sigma_{\textrm{m}}}}
+\newcommand{\sigmadut}{\ensuremath{\sigma_{\textrm{DUT}}}}
+\newcommand{\sigmai}{\ensuremath{\sigma_{\textrm{intrinsic}}}}
+
+
 \newcommand{\Datura}{\ensuremath{\textrm{DATURA}}}
 \newcommand{\Duranta}{\ensuremath{\textrm{DURANTA}}}
 \newcommand{\Mimosa}{\ensuremath{\textrm{MIMOSA\,26}}}
-\newcommand{\eudet}{EUDET }
+\newcommand{\eudet}{\ensuremath{\textrm{EUDET}}}
 \newcommand{\rawdataevent}{RawDataEvent }
 \newcommand{\rawdataevents}{RawDataEvents }
-\newcommand{\eudaq}{EUDAQ }
+\newcommand{\eudaq}{\ensuremath{\textrm{EUDAQ}}}
 \newcommand{\EUTelescope}{EUTelescope }
+
 
 
 \setpagewiselinenumbers
@@ -64,17 +75,16 @@ ${}^{\textrm{b}}$ Institute for Telescopocy, bla, blubb
 
 %D. Eckstein, 
 %T. Eichhorn, 
+%I. Gregor,
 %H. Jansen, 
 %H. Perrey, 
 %R. Peschke, 
 %I. Rubinskiy, 
 %S. Spannagel,
-%I. Gregor,
 
-\abstract{
-%The key feature of a beam telescope is the achievable pointing resolution at a device under test and its time resolution. 
-%Additionally, the trigger and data acquisition 
-Test beam measurements at the DESY test beam facilities have been used to characterise the performance of the DESY-type beam telescopes using the example of \Datura. 
+
+\abstract{\noindent
+Test beam measurements at the DESY test beam facilities have been used to characterise the performance of the DESY-type beam telescopes using the example of $\Datura$. 
 The performance with respect to the measured resolution as a function of the position along the beam, as a function of the beam energy and other of other key parameters is studied. 
 A Gaussian fit to the measured unbiased residuals at the fourth pixel plane using three upstream and two downstream planes for tracking and a 5\,GeV/$\cspeed$ $\e$-beam
  results in a width of $(3.96 \pm 0.03)\,\upmu\meter$, when averaged over the $x$- and $y$-direction. %FIXME check number, 5 or 5.4 GeV ??
@@ -121,6 +131,7 @@ An optimal threshold is found at a signal-to-noise figure of about six, with noi
 
 
 \section*{Acknowledgement}
+The academy, god, and our families.
 
 \small
 \bibliographystyle{unsrt}

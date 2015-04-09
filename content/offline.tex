@@ -15,7 +15,9 @@ This way the Marlin/Processor architecture gives a lot of flexibility to the end
 EUTelescope provides several processors for Marlin implementing algorithms necessary for a full track reconstruction and data analysis of beam test experiments. 
 Figure~\ref{fig:offline:strategy} shows the analysis strategy of the framework starting from the recorded detector response to the final aligned particle tracks. 
 %An overview of the processor range provided by EUTelescope is given in \cite{EUDET-2007-20}.
-For low-energy beams such as the DESY-II test beam facility multiple scattering is the dominating source of track resolution uncertainties (cf.\,Sec.~\ref{sec:multiplescattering})
+For low-energy beams such as the DESY-II test beam facility multiple scattering is the dominating source of track resolution uncertainties is
+ the intrinsic resolution of the $\Mimosa$ sensors, when operated in a configuration with a small $\dzdut$ and $\sim 5$\,GeV/$\cspeed$ beam momentum, cf.\,Sec.~\ref{sec:multiplescattering}.
+Towards larger $\dzdut$ and lower energies, the multiple scattering term starts to dominate.
 Therefore EUTelescope provides advanced algorithms such as General Broken Lines (GBL) \cite{Kleinwort-2012} for tracking which accounts for scattering in all material present in the beam. 
 In addition, precise software alignment can be performed using the Millipede-II algorithm \cite{Blobel-2006}.
 
