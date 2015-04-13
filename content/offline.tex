@@ -1,31 +1,30 @@
 
 
-The EUTelescope package \cite{ref:eutelwebsite} provides software tools for offline analysis and reconstruction of telescope test beam data. 
-EUTelescope is embedded into the ILCSoft framework~\cite{ref:eudetmemo_2009_12} which provides the basic building blocks for offline analysis such as a data model (Linear Collider I/O, \emph{LCIO}),
+For offline analysis and reconstruction of telescope test beam data the EUTelescope software package \cite{ref:eutelwebsite} is available with close integration of the EUDAQ software framework (cf.~Section~\ref{sec:eudaq}).
+EUTelescope builds on the ILCSoft framework~\cite{ref:eudetmemo_2009_12} which provides the basic building blocks for offline analysis such as a generic data model (Linear Collider I/O, \emph{LCIO}),
 a geometry description language (\emph{GEAR}) and the central event processor (\emph{Marlin}).
 
-% thomas: this should be a reference to ilcsoft, not: \cite{EUDET-2008-48}.
+%\cite{EUDET-2008-48}.
+Marlin allows the modular composition of analysis chains for various applications since every task is implemented as an independent \emph{processor} that is called by Marlin for every event. 
+Every processor exposes a set of parameters to the user which can be configured and loaded at runtime via so-called \emph{steering files} in XML format.
+This way the Marlin/Processor architecture gives maximum flexibility to the user.
 
-EUTelescope comes with its own job submission framework \emph{jobsub} that allows to run analysis jobs locally or to submit them to larger computing clusters such as NAF.
-
-Marlin allows the modular composition of analysis chains for various applications since every task is implemented as an independent \emph{processor} that is called by Marlin. 
-The processors expose a set of parameters to the user which can be configured and loaded at runtime via so-called \emph{steering files} in XML format.
-This way the Marlin/Processor architecture gives a lot of flexibility to the end user. 
-
-EUTelescope provides several processors for Marlin implementing algorithms necessary for a full track reconstruction and data analysis of beam test experiments. 
+EUTelescope provides several processors for Marlin implementing algorithms necessary for a full track reconstruction and data analysis of test beam experiments. 
 Figure~\ref{fig:offline:strategy} shows the analysis strategy of the framework starting from the recorded detector response to the final aligned particle tracks. 
 %An overview of the processor range provided by EUTelescope is given in \cite{EUDET-2007-20}.
-For low-energy beams such as the DESY-II test beam facility multiple scattering is the dominating source of track resolution uncertainties is
- the intrinsic resolution of the $\Mimosa$ sensors, when operated in a configuration with a small $\dzdut$ and $\sim 5$\,GeV/$\cspeed$ beam momentum, cf.\,Sec.~\ref{sec:multiplescattering}.
-Towards larger $\dzdut$ and lower energies, the multiple scattering term starts to dominate.
-Therefore EUTelescope provides advanced algorithms such as General Broken Lines (GBL) \cite{Kleinwort-2012} for tracking which accounts for scattering in all material present in the beam. 
-In addition, precise software alignment can be performed using the Millipede-II algorithm \cite{Blobel-2006}.
+At low-energy beam lines such as the DESY-II test beam facility multiple scattering is an important contribution to the overall track resolution uncertainty, especially in measurements with non-negligible DUT material budget (cf.\ Sec.~\ref{sec:multiplescattering}).
+Therefore EUTelescope provides processors implementing advanced algorithms for tracking such as Deterministic Annealing Filter (DAF)~\cite{ref:daffitter} or General Broken Lines (GBL) \cite{Kleinwort-2012} which account for scattering in all material present in the beam.
+For high-energy beam lines a simple straight line fit provides maximum performance.
+In addition, precise offline detector alignment can be performed by minimising track residuals using the EUTelescope alignment processor which implements the Millipede-II algorithm \cite{Blobel-2006}.
+
+EUTelescope comes with its own job submission framework \emph{jobsub} that allows to run analysis jobs on local machines or to submit them to larger computing clusters such as NAF for bulk reconstruction.
+Using its flexible configuration file concept and the global run database storing user defined variables \emph{jobsub} eases the implementation of per-run variables for reconstruction such as beam energy or detector alignment.
 
 \begin{figure}[tbp]
 \center
 \includegraphics[width=.9\textwidth]{figures/eutel-strategy.png}
 \caption[The EUTelescope data analysis strategy]{Schematic of the overall telescope data reconstruction and analysis strategy of the EUTelescope framework.
-EUTelescope provides processors for all steps except for the ones with dashed outline; these have to be implemented by the user.}
+EUTelescope provides processors for all steps except for the conversion of the DUT raw data marked with dashed outline; these have to be implemented by the user.}
 \label{fig:offline:strategy}
 \end{figure}
 
