@@ -1,16 +1,17 @@
+The results presented in this section have been obtained using the EUTelescope software (cf.\ Section~\ref{sec:offline}).
+The setup does not include any additional DUT, only six $\Mimosa$ telescope planes are included and unbiased track residuals for each telescope plane are calculated.
+
 \subsection{Data Analysis Flow}
 \label{sec:datura-nodut}
-
-The results presented in this section have been obtaines using the EUTelescope software (cf.\ Section~\ref{sec:offline}).
-The setup does not include and additional DUT, only the six $\Mimosa$ telescope planes are included and unbiased track residuals for each telescope plane are calculated.
 
 After conversion from raw $\Mimosa$ detector data a hot pixel search is performed excluding pixels with firing frequencies above a certain threshold from the subsequent analysis.
 Clusters of adjacent pixels are formed and translated from two-dimensional entities on the individual telescope planes into hits in a global three-dimensional frame of reference.
 
 For offline alignment the tracks found by the DAF processor are passed to Millepede-II to determine shift and rotation alignment constants for every telescope plane.
 
-Finally the unbiased residual distributions for every telescope plane are calculated from the precisely aligned telescope hits by excluding the plane under investigation and thus only using the other five planes for tracking.
-The track is then extrapolated to the plane under investigation, and the residual distance to its hits is calculated.
+Finally the unbiased residual distributions for every telescope plane are calculated from the precisely aligned telescope hits.
+In a separate iteration for every telescope plane a track fit is performed excluding the plane under investigation and thus only using data from the five remaining planes for tracking.
+The tracks are extrapolated to the plane under investigation, and the residual distance to its hits as well as its tracking efficiency are calculated.
 
 \subsection{Geometry and multiple scattering}
 \label{sec:multiplescattering}
