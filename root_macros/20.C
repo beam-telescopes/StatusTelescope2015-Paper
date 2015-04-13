@@ -10,22 +10,23 @@
    smilie->SetFrameBorderMode(0);
    smilie->SetFrameBorderMode(0);
    
-   TH1D *h_axis__1 = new TH1D("h_axis__1","h_axis__1",1,-10,110);
-   h_axis__1->SetMinimum(0);
-   h_axis__1->SetMaximum(10);
-   h_axis__1->SetDirectory(0);
-   h_axis__1->SetStats(0);
-   h_axis__1->SetTitle("");
+   //TH1D *h_axis__1 = new TH1D("h_axis__1","h_axis__1");
+   //h_axis__1->SetMinimum(0);
+   //h_axis__1->SetMaximum(10);
+   //h_axis__1->GetXaxis()->SetRangeUser(-10,110);
+   //h_axis__1->SetDirectory(0);
+   //h_axis__1->SetStats(0);
+   //h_axis__1->SetTitle("");
 
 
    Int_t ci;   // for color index setting
    ci = TColor::GetColor("#000099");
-   h_axis__1->SetLineColor(ci);
+   /*h_axis__1->SetLineColor(ci);
    h_axis__1->GetXaxis()->SetTitle("z [mm]");
    h_axis__1->GetYaxis()->SetTitle("#sigma_{meas} [#mum]");
    h_axis__1->GetXaxis()->SetTitleOffset(1.14);
    h_axis__1->GetYaxis()->SetTitleOffset(1.14);
-   /*h_axis__1->GetXaxis()->SetLabelFont(42);
+   h_axis__1->GetXaxis()->SetLabelFont(42);
    h_axis__1->GetXaxis()->SetLabelSize(0.035);
    h_axis__1->GetXaxis()->SetTitleSize(0.035);
    h_axis__1->GetXaxis()->SetTitleFont(42);
@@ -37,15 +38,18 @@
    h_axis__1->GetZaxis()->SetLabelSize(0.035);
    h_axis__1->GetZaxis()->SetTitleSize(0.035);
    h_axis__1->GetZaxis()->SetTitleFont(42);*/
-   h_axis__1->Draw("hist");
+   //h_axis__1->Draw("hist");
+
+   TMultiGraph *mg = new TMultiGraph();
    
    TGraphErrors *gre = new TGraphErrors(6);
    gre->SetName("Graph");
    gre->SetTitle("Graph");
    gre->SetLineWidth(1);
 
+
    ci = TColor::GetColor("#ffcc00");
-   gre->SetFillColor(ci);
+   gre->SetFillColor(kTeal+10);
    gre->SetPoint(0,0,5.374777);
    gre->SetPointError(0,2.5,0.1559374);
    gre->SetPoint(1,20,4.125067);
@@ -81,7 +85,8 @@
    Graph_Graph1->GetZaxis()->SetTitleFont(42);*/
    gre->SetHistogram(Graph_Graph1);
    
-   gre->Draw("le3 ");
+   //gre->Draw("ale3 ");
+   mg->Add(gre,"le3");
    
    TGraphErrors *gre2 = new TGraphErrors(6);
    gre2->SetName("Graph");
@@ -123,7 +128,8 @@
    Graph_Graph2->GetZaxis()->SetTitleFont(42);*/
    gre2->SetHistogram(Graph_Graph2);
    
-   gre2->Draw("l ");
+   //gre2->Draw("l ");
+   mg->Add(gre2,"l");
    
    TGraphErrors *gre3 = new TGraphErrors(6);
    gre3->SetName("Graph");
@@ -135,17 +141,17 @@
    gre3->SetMarkerStyle(21);
    gre3->SetMarkerSize(2.5);
    gre3->SetPoint(0,0,5.542286);
-   gre3->SetPointError(0,2.5,0.0342696);
+   gre3->SetPointError(0,0.5,0.0342696);
    gre3->SetPoint(1,20,4.0092);
-   gre3->SetPointError(1,2.5,0.02372965);
+   gre3->SetPointError(1,0.5,0.02372965);
    gre3->SetPoint(2,40,3.90252);
-   gre3->SetPointError(2,2.5,0.02261493);
+   gre3->SetPointError(2,0.5,0.02261493);
    gre3->SetPoint(3,60,3.98954);
-   gre3->SetPointError(3,2.5,0.0233608);
+   gre3->SetPointError(3,0.5,0.0233608);
    gre3->SetPoint(4,80,4.01543);
-   gre3->SetPointError(4,2.5,0.02376225);
+   gre3->SetPointError(4,0.5,0.02376225);
    gre3->SetPoint(5,100,5.593077);
-   gre3->SetPointError(5,2.5,0.03437484);
+   gre3->SetPointError(5,0.5,0.03437484);
    
    TH1F *Graph_Graph3 = new TH1F("Graph_Graph3","Graph",100,-13,113);
    Graph_Graph3->SetMinimum(3.705151);
@@ -169,7 +175,8 @@
    Graph_Graph3->GetZaxis()->SetTitleFont(42);*/
    gre3->SetHistogram(Graph_Graph3);
    
-   gre3->Draw("p ");
+   //gre3->Draw("p ");
+   mg->Add(gre3,"p");
    
    TGraphErrors *gre4 = new TGraphErrors(6);
    gre4->SetName("Graph");
@@ -181,17 +188,17 @@
    gre4->SetMarkerStyle(22);
    gre4->SetMarkerSize(2.5);
    gre4->SetPoint(0,0,5.500301);
-   gre4->SetPointError(0,2.5,0.03302971);
+   gre4->SetPointError(0,0.5,0.03302971);
    gre4->SetPoint(1,20,3.966497);
-   gre4->SetPointError(1,2.5,0.02294315);
+   gre4->SetPointError(1,0.5,0.02294315);
    gre4->SetPoint(2,40,3.95945);
-   gre4->SetPointError(2,2.5,0.02320243);
+   gre4->SetPointError(2,0.5,0.02320243);
    gre4->SetPoint(3,60,3.934582);
-   gre4->SetPointError(3,2.5,0.02281785);
+   gre4->SetPointError(3,0.5,0.02281785);
    gre4->SetPoint(4,80,4.063437);
-   gre4->SetPointError(4,2.5,0.02425211);
+   gre4->SetPointError(4,0.5,0.02425211);
    gre4->SetPoint(5,100,5.525706);
-   gre4->SetPointError(5,2.5,0.03352693);
+   gre4->SetPointError(5,0.5,0.03352693);
    
    TH1F *Graph_Graph4 = new TH1F("Graph_Graph4","Graph",100,-13,113);
    Graph_Graph4->SetMinimum(3.747018);
@@ -215,7 +222,8 @@
    Graph_Graph4->GetZaxis()->SetTitleFont(42);*/
    gre4->SetHistogram(Graph_Graph4);
    
-   gre4->Draw("p ");
+   //gre4->Draw("p ");
+   mg->Add(gre4,"p");
    
    TGraph *graph = new TGraph(6);
    graph->SetName("Graph");
@@ -252,7 +260,8 @@
    Graph_Graph1->GetZaxis()->SetTitleFont(42);*/
    graph->SetHistogram(Graph_Graph1);
    
-   graph->Draw("l ");
+   //graph->Draw("l ");
+   mg->Add(graph,"l");
    
    TGraph *graph2 = new TGraph(6);
    graph2->SetName("Graph");
@@ -289,7 +298,8 @@
    Graph_Graph2->GetZaxis()->SetTitleFont(42);*/
    graph2->SetHistogram(Graph_Graph2);
    
-   graph2->Draw("l ");
+   //graph2->Draw("l ");
+   mg->Add(graph2,"l");
    
    TGraph *graph3 = new TGraph(6);
    graph3->SetName("Graph");
@@ -326,7 +336,8 @@
    Graph_Graph3->GetZaxis()->SetTitleFont(42);*/
    graph3->SetHistogram(Graph_Graph3);
    
-   graph3->Draw("l ");
+   //graph3->Draw("l ");
+   mg->Add(graph3,"l");
    
    TGraph *graph4 = new TGraph(6);
    graph4->SetName("Graph");
@@ -363,7 +374,19 @@
    Graph_Graph4->GetZaxis()->SetTitleFont(42);*/
    graph4->SetHistogram(Graph_Graph4);
    
-   graph4->Draw("l ");
+   //graph4->Draw("l ");
+   mg->Add(graph4,"l");
+
+   mg->Draw("al");
+   mg->SetMinimum(0);
+   mg->SetMaximum(10);
+   mg->GetXaxis()->SetLimits(-10,110);
+   mg->SetTitle("");
+   mg->GetXaxis()->SetTitle("z [mm]");
+   mg->GetYaxis()->SetTitle("#sigma_{meas} [#mum]");
+   mg->GetXaxis()->SetTitleOffset(1.14);
+   mg->GetYaxis()->SetTitleOffset(1.14);
+
    
    TLegend *leg = new TLegend(.15,0.8,0.40,0.89,NULL,"brNDC");
    /*leg->SetBorderSize(0);

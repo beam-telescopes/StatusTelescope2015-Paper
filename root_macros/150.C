@@ -45,7 +45,7 @@
    gre->SetLineWidth(1);
 
    ci = TColor::GetColor("#ffcc00");
-   gre->SetFillColor(ci);
+   gre->SetFillColor(kTeal+10);
    gre->SetPoint(0,0,11.53439);
    gre->SetPointError(0,2.5,0.4697776);
    gre->SetPoint(1,150,5.918947);
@@ -135,17 +135,17 @@
    gre3->SetMarkerStyle(21);
    gre3->SetMarkerSize(2.5);
    gre3->SetPoint(0,0,12.12585);
-   gre3->SetPointError(0,2.5,0.04134164);
+   gre3->SetPointError(0,0.5,0.04134164);
    gre3->SetPoint(1,150,5.815572);
-   gre3->SetPointError(1,2.5,0.02023871);
+   gre3->SetPointError(1,0.5,0.02023871);
    gre3->SetPoint(2,300,5.816308);
-   gre3->SetPointError(2,2.5,0.0203127);
+   gre3->SetPointError(2,0.5,0.0203127);
    gre3->SetPoint(3,450,5.68517);
-   gre3->SetPointError(3,2.5,0.01916383);
+   gre3->SetPointError(3,0.5,0.01916383);
    gre3->SetPoint(4,600,5.908709);
-   gre3->SetPointError(4,2.5,0.02009219);
+   gre3->SetPointError(4,0.5,0.02009219);
    gre3->SetPoint(5,750,12.3498);
-   gre3->SetPointError(5,2.5,0.0414135);
+   gre3->SetPointError(5,0.5,0.0414135);
    
    TH1F *Graph_Graph3 = new TH1F("Graph_Graph3","Graph",100,-13,113);
    Graph_Graph3->SetMinimum(3.705151);
@@ -181,17 +181,17 @@
    gre4->SetMarkerStyle(22);
    gre4->SetMarkerSize(2.5);
    gre4->SetPoint(0,0,12.01209);
-   gre4->SetPointError(0,2.5,0.04042964);
+   gre4->SetPointError(0,0.5,0.04042964);
    gre4->SetPoint(1,150,5.715829);
-   gre4->SetPointError(1,2.5,0.01942187);
+   gre4->SetPointError(1,0.5,0.01942187);
    gre4->SetPoint(2,300,5.771635);
-   gre4->SetPointError(2,2.5,0.01986309);
+   gre4->SetPointError(2,0.5,0.01986309);
    gre4->SetPoint(3,450,5.688525);
-   gre4->SetPointError(3,2.5,0.01922173);
+   gre4->SetPointError(3,0.5,0.01922173);
    gre4->SetPoint(4,600,5.82132);
-   gre4->SetPointError(4,2.5,0.02026625);
+   gre4->SetPointError(4,0.5,0.02026625);
    gre4->SetPoint(5,750,12.20303);
-   gre4->SetPointError(5,2.5,0.04104527);
+   gre4->SetPointError(5,0.5,0.04104527);
    
    TH1F *Graph_Graph4 = new TH1F("Graph_Graph4","Graph",100,-13,113);
    Graph_Graph4->SetMinimum(3.747018);
