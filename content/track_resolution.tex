@@ -23,9 +23,9 @@ The tracks are extrapolated to the plane under investigation, and the residual d
 %More stuff:
 
 % (comment hjansen: actually pointing resolution! comment te: pointing only in space :) )
-The figure of merit for a beam telescope is its resolution  - both in time and in space, as this defines the precision with which each track can be measured. 
-The timing resolution is largely dependent on the readout speed of the used sensors, their buffer sizes and the data acquisition system. 
-Spatial resolution depends on the individual intrinsic sensor resolution, the number of planes in each track and their position, as well as the multiple scattering of the beam particles. 
+The figure of merit for beam telescopes is their resolution, as this defines the precision with which each particle trajectory can be measured. 
+%The timing resolution is largely dependent on the readout speed of the used sensors, their buffer sizes and the data acquisition system. 
+Spatial resolution depends on the individual intrinsic sensor resolution, the number of measurements for each trajectory and their position, as well as the multiple scattering of the beam particles.
 The expression
 
 \begin{equation}
@@ -34,11 +34,10 @@ The expression
 \sigma_{\textrm{MS}}^2
 \end{equation}
 
-\noindent shows the contributing terms that have to be considered~\cite{ref:eudetreport200902}. 
+\noindent shows the contributing terms to be considered~\cite{ref:eudetreport200902}. 
 The measured residual width on a DUT sensor plane is expressed by $\sigma_{\textrm{meas}}$, $\sigma_{\textrm{DUT}}$ is the intrinsic resolution of the DUT itself,
  $\sigma_{\textrm{Tel}}$ is the resolution of the telescope and $\sigma_{\textrm{MS}}$ represents the contribution from multiple scattering.
-In the following, all terms will be discussed.
-
+In the following, all terms are discussed.
 The resolution of a telescope $\sigma_{\textrm{Tel}}$ can be expressed by
 
 \begin{equation}
@@ -49,51 +48,43 @@ The resolution of a telescope $\sigma_{\textrm{Tel}}$ can be expressed by
 \noindent with the geometric scaling factor $k$ in turn written as
 
 \begin{equation}
-k = \frac{\sum_i^N z_i^2}{N \cdot \sum_i^N z_i^2 - \left( \sum_i^N z_i \right)^2}
+k = \frac{\sum_i^N z_i^2}{N \cdot \sum_i^N z_i^2 - \left( \sum_i^N z_i \right)^2} \,,
 \end{equation}
 
 \noindent assuming all $N$ telescope planes have the same intrinsic resolution $\sigmai$. 
-$z_i$ is then the distance of the $i$-th telescope plane to the DUT positioned at $z=0$.
+The distance of the $i$-th telescope plane to the DUT positioned at $z=0$ is then $z_i$ .
 For a symmetric set-up with the DUT at the centre of the telescope and the up- and downstream planes equally spaced, $k$ reduces to $k = 1/N$. 
 
 Multiple scattering is the term used to describe the deflection of a charged particle traversing any medium.
-It depends on the particle energy and type and the radiation length of the matter traversed.\,~\cite{ref:scatteringhighland}
-The width of the angular scattering distribution can be expressed by
+It depends on the particle energy, particle type and the radiation length of the matter traversed~\cite{ref:scatteringhighland}.
+The angular scattering distribution is centred around $0$, with a width that can be expressed by~\cite{ref:PDG-2014}
 
 \begin{equation}
 \label{eq:multiplescattering}
-\Theta_{0} = \frac{13.6\,\mega\electronvolt}{\beta c p} \cdot z
-\sqrt{x \per X_0}
-\cdot \left( 1 + 0.038 \ln{\left( x \per X_0\right) } \right)
+\Theta_{0} = \frac{13.6\,\mega\electronvolt}{\beta c p} \cdot Z
+\sqrt{\epsilon}
+\cdot \left( 1 + 0.038 \ln{\left( \epsilon \right) } \right) \,,
 \end{equation}
 
-\noindent
-according to reference~\cite{ref:PDG-2014}, with the particle velocity $\beta c$, momentum $p$ and charge number $z$. 
-The expression $x/X_0$ defines the thickness of the scattering medium in radiation lengths,
- with values of $X_0 = 21.82\,\allowbreak\gram\per\centi\meter^2$ for silicon and $X_0 = 36.62\,\gram\per\centi\meter^2$ for dry air, according to reference~\cite{ref:x0values}.
+\noindent with the particle velocity $\beta c$, momentum $p$ and charge number $Z$. 
+The expression $\epsilon = x \per X_0$ is the material budget, as defined in section~\ref{radiationlengths}.
 
-Equation~(\ref{eq:multiplescattering}) shows, that the angular distortion due to multiple scattering increases with the material budget and the inverse energy.
-Therefore, at low-energy beams, such as the $6\,\giga\electronvolt$ DESY-II test beam, it is advantageous to have very thin telescope sensors. 
-As the beam particles also interact with the atoms in the air, a contribution to the amount of multiple scattering depending on the distance between sensor planes has to be considered. 
-At high-energy hadron beams ($> 100\,\giga\electronvolt$), which for example are available at the SPS facility at CERN, the contribution from multiple scattering can be neglected.
+Equation~(\ref{eq:multiplescattering}) shows, that since the angular deflection due to multiple scattering increases with material budget, it is advantageous to use thin sensors.
+This is especially important at low-energy beams, such as the DESY-II test beam, as the distortion increases towards lower energies.
+As the beam particles also interact with the air, an additional contribution to the amount of multiple scattering depending on the distance between sensor planes has to be considered. 
+At high-energy hadron beams, the contribution from multiple scattering can be neglected in general.
 
-\subsection{Measurements with $\Datura$}
+\subsection{Measurements with DATURA}
 
-To verify the performance of the $\Datura$ telescope, measurements of the achievable resolution were performed in $2012$, for different settings of beam momentum,
- sensor threshold and sensor spacing~\cite{ref:thomas}.
-With the \texttt{datura-noDUT} example included in the {EUTelescope} framework, which is described in detail in section~\ref{sec:datura-nodut},
- straight line tracks with hits in all six telescope planes were sought. {comment hj: datura-noDUT is jargon}\\
-From these tracks, the unbiased residual distribution of each sensor plane was calculated.
-To calculate this distribution, each of the six telescope planes was iteratively considered as a DUT.
-Within each iteration, tracks were calculated from the five non-DUT planes.
-The unbiased residual distribution was then filled by the distance between the hit position and the track extrapolation in the DUT plane.
+Measurements of the achievable resolution were performed in $2012$ to verify the performance of the $\Datura$ telescope, for different settings of beam momentum, sensor SNR threshold and sensor spacing~\cite{ref:thomas}.
+The track residual distributions have been reconstructed as described in section~\ref{sec:datura-nodut}.
 By using each telescope plane as a DUT, equation~(\ref{eq:telescoperesolutionequation}) is modified under the assumption that $\sigmai = \sigma_{\textrm{DUT}} = \sigma_{\textrm{M26}}$,
  leading to
 
 \begin{equation}
 \label{eq:telescoperesolutionequation_2}
-\sigma_{\textrm{meas}}^2 = \sigma_{\textrm{M26}}^2 \cdot \left( 1 + k \right) +
-\sigma_{\textrm{MS}}^2\,.
+\sigma_{\textrm{meas}}^2 = \sigma_{\textrm{M26}}^2 \cdot \left( 1 + k_5 \right) +
+\sigma_{\textrm{MS}}^2\,,
 \end{equation}
 
 \begin{figure}[tb]
@@ -110,20 +101,23 @@ By using each telescope plane as a DUT, equation~(\ref{eq:telescoperesolutionequ
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/4y.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5x.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5y.pdf}
-  \caption[Residual examples to determine the $\Datura$ telescope's resolution~\cite{ref:thomas}]{Residual examples to determine the $\Datura$ telescope's resolution from the upstream lever arm.
+  \caption[Residual examples to determine the $\Datura$ telescope's resolution~\cite{ref:thomas}]{Unbiased residual distributions measured with the $\Datura$ telescope.
 From top to bottom: The measured residuals for planes $0$ and $3$, left for $x$ direction, right for $y$ direction.
-Each sensor plane was considered as a passive layer during the track reconstruction. Images from~\cite{ref:thomas}.}
+Images from~\cite{ref:thomas}.}
   \label{fig:residualexample1}
 \end{figure}
 
-Figure~\ref{fig:residualexample1} shows an example of residual distributions for a telescope sensor spacing of $20\,\milli\meter$,
- a beam momentum of $5\,\giga\electronvolt$ and a sensor threshold setting of $6$.
-The residual distributions for the outer planes $0$ and $5$ are wider than the distributions obtained from the inner sensors.
-This is due to the fact that the track extrapolation to the inner sensors is done from both sides, hence will be comparatively more precise than for the outer sensors,
- where the extrapolation can only be performed from one direction. 
-In all cases, the distributions are fitted with a Gaussian, from which the residual width $\sigma_{\textrm{meas}}$ is determined.
-It is noted, that the residuals feature non-Gaussian tails, as is expected from the underlying physics of the scattering mechanism. 
-The measured resolution is defined here as the width of a Gaussian fit on middle 90\,\% of the residuals. 
+with $k_5$ the geometrical scaling factor for a telescope consisting of five planes.
+Figure~\ref{fig:residualexample1} shows an example of unbiased residual distributions for a telescope sensor spacing of $20\,\milli\meter$,
+ a beam momentum of $5\,\giga\electronvolt$ and a sensor SNR threshold setting of $6$.
+The distributions are fitted with a Gaussian, from which the residual width $\sigma_{\textrm{meas}}$ is determined.
+It is noted, that the residuals feature non-Gaussian tails, as is expected from the underlying physics of the scattering mechanism~\cite{ref:PDG-2014}. 
+The measured resolution used in this work is defined as the width of a Gaussian fit on the centre $90\,\%$ of the residuals. 
+The residual width for the outer plane $0$ is larger than the width obtained from plane $3$.
+This is expected due to the fact that the track extrapolation to the inner sensors is done from both sides, hence is comparatively more precise than for the outer sensors, where the extrapolation can only be performed from one direction. 
+
+
+
 
 
 
