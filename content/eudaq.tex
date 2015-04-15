@@ -23,7 +23,14 @@
 \newcommand{\logcollector}{Log-Collector }
 
 
-Pasting  from other another section:
+Pasting  from other another section:\\
+
+The software integration of the DAQ systems and the TLU, together with a run control GUI, logging, data storing, and online monitoring systems are provided within the EUDAQ framework.
+The design of the TLU and of EUDAQ explicitly requires each DAQ system to issue a data packet readout by its detector electronics, and send it to a central data collector. 
+This scheme results in only one EUDAQ event per trigger signal issued by the TLU, with no subsequent triggers recorded until all DAQ systems indicate to the TLU their availability to accept new triggers.
+Therefore, within this DAQ architecture the overall trigger rate of the DAQ system is limited by the slowest readout cycle,
+ which in practical applications leads to a maximum rate of few thousand particles per second. 
+Due to actual spill structures and duty cycles of the different available beam lines, the reachable trigger rate is also dependent on machine parameters. \\
 
 \eudaq serves as a tool set and an integration layer for the user DAQ system(s), providing the communication protocols for them to participate in a common DAQ. 
 
