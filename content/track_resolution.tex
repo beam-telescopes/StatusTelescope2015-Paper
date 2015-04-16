@@ -1,5 +1,5 @@
 The results presented in this section have been obtained using the EUTelescope software described in section~\ref{sec:offline}.
-The setup does not include any additional DUT, only six $\Mimosa$ telescope planes are used and unbiased track residuals for each telescope plane are calculated.
+The set-up does not include any additional DUT, only six $\Mimosa$ telescope planes are used and unbiased track residuals for each telescope plane are calculated.
 
 \subsection{Data Analysis Flow}
 \label{sec:datura-nodut}
@@ -178,10 +178,10 @@ with coefficients $\alpha_i$ and $\beta_i$ defined as~\cite{ref:eudetmemo_2007_0
 \end{equation}
 
 The minimum of equation~\ref{eq:globalchi2} is then calculated to find the intrinsic sensor resolution $\sigma_i = \sigmai$.
-The results for both a tighter plane spacing of $20\,\milli\meter$ and a wider spacing of $150\,\milli\meter$ are shown in figure~\ref{fig:smiley}.\\
-
-In both cases, an error of $2.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed.
-The calculated intrinsic resolution $\sigma_{\textrm{M26}} = \sigmai$ of the $\Mimosa$ sensors is \allowbreak$\left( 3.42\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$ for a plane spacing of $\textrm{d}z =  20\,\milli\meter$ and $\left( 3.44\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$ for $\textrm{d}z = 150\,\milli\meter$.
+The results for both a tighter plane spacing of $20\,\milli\meter$ and a wider spacing of $150\,\milli\meter$ are shown in figure~\ref{fig:smiley}.
+In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed.
+The calculated intrinsic resolution $\sigma_{\textrm{M26}} = \sigmai$ of the $\Mimosa$ sensors is \allowbreak$\left( 3.42\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$
+ for a plane spacing of $\textrm{d}z =  20\,\milli\meter$ and $\left( 3.44\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$ for $\textrm{d}z = 150\,\milli\meter$.
 For both geometries, the expected resolution of $\sigmai \approx\,3.5\,\micro\meter$, according to~\cite{ref:mimosa26}, can be confirmed.
 The underlying assumptions in the method presented here are:\\
 
@@ -203,12 +203,12 @@ As the discriminator SNR thresholds are set for subframes of each plane individu
 
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/20} % was thin_smiley.pdf
-  \includegraphics[width=0.49\textwidth]{figures/150} % was wide_smiley.pdf
+  \includegraphics[width=0.49\textwidth]{figures/20}  \put(-50,40){(A)} % was thin_smiley.pdf
+  \includegraphics[width=0.49\textwidth]{figures/150} \put(-50,40){(B)} % was wide_smiley.pdf
   %\caption[Intrinsic telescope sensor resolution at $20\,\milli\meter$ and $150\,\milli\meter$ plane spacing~\cite{ref:thomas}]{Intrinsic telescope sensor resolution at $20\,\milli\meter$ (top)
   % and $150\,\milli\meter$ (bottom) plane spacing.
-  \caption[The measured residual widths of each telescope plane.]{The measured residual widths of each telescope plane are shown in both the $x$ and $y$ direction for the $20\,\milli\meter$ (top)
-   and $150\,\milli\meter$ (bottom) plane spacing.
+  \caption[The measured residual widths of each telescope plane.]{The measured residual widths of each telescope plane are shown in both the $x$ and $y$ direction for the $\dz = 20\,\milli\meter$ (A)
+   and $\dz = 150\,\milli\meter$ (B) plane spacing.
   Dotted and dashed lines indicate the predicted measurements, if a different intrinsic resolution is assumed.
   The black line shows the calculated intrinsic telescope sensor resolution, the green band the measurement variance.
   For both telescope geometries, data was taken at a sensor SNR threshold setting of $6$ and with $5\,\giga\electronvolt$ electrons at DESY-II.
@@ -231,8 +231,8 @@ Measurements by Behr\,\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ sho
 
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/resi_vs_thresh}	\put(-40,170){(A)} % was resi_thresh_errors
-  \includegraphics[width=0.49\textwidth]{figures/effi_thresh.eps}	\put(-40,170){(B)}
+  \includegraphics[width=0.49\textwidth]{figures/resi_vs_thresh}	\put(-40,166){(A)} % was resi_thresh_errors
+  \includegraphics[width=0.49\textwidth]{figures/effi_thresh.eps}	\put(-40,166){(B)}
   \caption[Telescope intrinsic sensor resolution for different threshold settings, beam momenta and geometries~\cite{ref:thomas}]{
 (A) The measured intrinsic resolution of the $\Datura$ telescope's $\Mimosa$ sensors $\sigma_{\textrm{M26}}$ for different beam momenta $p$, sensor spacing $\textrm{d}z$ and applied sensor threshold.
 (B) Average efficiency of all telescope sensors in both dimensions for different beam momenta and sensor spacing vs. applied threshold.
@@ -304,10 +304,10 @@ However, the difference e.g.~for $\epsdut = 0.01$ is less than $300\,\nano\meter
 
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy_2}
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern_2}\\
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy_loglog_2}
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern_loglog_2}
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy}
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern}\\
+  %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy_loglog_2}
+  %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern_loglog_2}
   \caption[Pointing resolution for various DUTs as a function of the distance between DUT and neighbouring planes]{
   The pointing resolution for various DUTs is shown as a function of the equidistant distance between DUT and neighbouring planes.
   Left: at 5\,GeV, Right: at 120\,GeV. }
