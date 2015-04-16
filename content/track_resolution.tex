@@ -145,8 +145,8 @@ with the telescope plane numbering beginning at $0$.
 The measured hit position is denoted by $y_{i}$, the position extrapolated from the track by $p_{i}$.
 The angles between the nominal beam direction and the track direction are $\theta_{i-1}$ and $\theta_{i}$.
 The former is the track angle entering plane $i$, the latter the angle of the outbound track segment.
-$\sigma_{i}$ and $\theta_{i}$ are the intrinsic resolution of sensor plane $i$ and the width of the multiple scattering distribution, according to equation~(\ref{eq:multiplescattering}), respectively.
-In the following, it is assumed that $\sigma_{i}$ does not differ between planes and is also equal for both measurement dimensions.
+$\sigmai$ and $\theta_{i}$ are the intrinsic resolution of sensor plane $i$ and the width of the multiple scattering distribution, according to equation~(\ref{eq:multiplescattering}), respectively.
+In the following, it is assumed that $\sigmai$ does not differ between planes and is also equal for both measurement dimensions.
 If the beam axis is denoted by $z$, then $\theta_i$ can be expressed as:
 
 \begin{equation}
@@ -186,18 +186,20 @@ For both geometries, the expected resolution of $\sigmai \approx\,3.5\,\micro\me
 The underlying assumptions in the method presented here are:\\
 
 \begin{itemize}
+
+\item The multiple scattering terms described in equation~(\ref{eq:telescoperesolutionequation_2}) are calculated considering the nominal sensor thicknesses, the air between sensor planes, and a $25\,\micro\meter$
+thick Kapton foil on either side of each sensor.
+The particle energy initially assumed prior to minimisation is the nominal beam energy.
+
 \item The intrinsic resolution $\sigmai$ of all sensor planes is assumed to be equal.
 As the discriminator SNR thresholds are set for subframes of each plane individually, however, this is not necessarily true.
-Figure~\ref{fig:resivsenergy_thresh} shows the dependence of $\sigmai$ on the applied SNR threshold.
+%Figure~\ref{fig:resivsenergy_thresh} shows the dependence of $\sigmai$ on the applied SNR threshold.
 
-\item The multiple scattering terms in equation~(\ref{eq:telescoperesolutionequation_2}) are calculated considering the nominal sensor thicknesses, the air between sensor planes, and a $25\,\micro\meter$
-thick Kapton foil on either side of each sensor.
-The particle momentum initially assumed prior to minimisation is the nominal beam momentum.
-
-\item Residual widths are calculated using straight line tracks only.
-Inclined tracks, or a deflection of tracks in planes or scattering material, are not taken into account.
-However, as shown in~\cite{ref:lutzpaper}, angular deflections are then considered for the later $\chi^2$ minimisation.
 \end{itemize}
+
+%\item Residual widths are calculated using straight line tracks only.
+%Inclined tracks, or a deflection of tracks in planes or scattering material, are not taken into account.
+%However, as shown in~\cite{ref:lutzpaper}, angular deflections are then considered for the later $\chi^2$ minimisation.
 
 \begin{figure}[tbp]
   \centering
@@ -214,11 +216,11 @@ However, as shown in~\cite{ref:lutzpaper}, angular deflections are then consider
   \label{fig:smiley}
 \end{figure}
 
-Figure~\ref{fig:resivsenergy_thresh} (A) shows the calculated intrinsic telescope sensor resolution for different beam energies, plane distances and applied sensor thresholds.
-The minimum of the $\Mimosa$ sensors' intrinsic resolution is reached for a threshold setting of $6$.
-While the measured residual width for wider sensor spacings or lower beam momenta is higher, as can be seen in figure~\ref{fig:smiley},
- these effects are accounted for in equation~(\ref{eq:telescoperesolutionequation}) by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$.
-Measurements by Behr\,\cite{ref:j.behrmeasurements}, taken at high thresholds $>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$.\\
+Figure~\ref{fig:resivsenergy_thresh} (A) shows the calculated intrinsic telescope sensor resolution $\sigmai$ for different beam energies and plane distances as a function of applied sensor threshold.
+The minimum of $\sigmai$ is reached for a threshold setting of $6$.
+The measured residual width for wider sensor spacings or lower beam energies is higher as can be seen in figure~\ref{fig:smiley}.
+These effects are accounted for in equation~(\ref{eq:telescoperesolutionequation}) by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$.
+Measurements by Behr\,\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$.\\
 
 
 % Thomas: sigma tel is different from the pointing resolution.
@@ -239,23 +241,23 @@ In both images, taken from~\cite{ref:thomas}, some values are shifted on the $x$
   \label{fig:resivsenergy_thresh}
 \end{figure}
 
-The signal-to-noise threshold applied to each telescope sensor is a critical parameter for a telescope's performance.
-A higher threshold cuts into the signal, thus reducing the amount of clusters found on each plane and therefore reducing the amount of re-constructable tracks.
-This reduces a sensor's efficiency.
-A lower threshold allows for an increasing amount of noise hits to be wrongly identified as clusters.
-This also leads to a broadening of the residual distributions and hence a worse resolution. 
+The threshold applied to each telescope sensor is a critical parameter for the telescope performance.
+A higher threshold cuts into the signal, reducing the amount of clusters found on each plane and thus limiting the number of reconstructible tracks.
+This reduces sensor efficiency.
+A lower threshold allows for an increasing number of noise induced signals to be pass the zero-supression on the chip.
+This leads to a broadening of the residual distributions and hence a worse resolution. 
 %Figure~\ref{fig:effi} shows the efficiency distribution over a sensor plane.
-The efficiency is defined as the ratio of tracks that have at least one hit above threshold in the vicinity of a reconstructed track on the DUT to the overall number of tracks.
-As maximum distance $100\,\micro\meter$ is considered.
+The efficiency is defined as the ratio of reconstructed tracks that have at least one hit on the DUT within $100\,\micro\meter$ to the overall number of tracks.
+%As maximum distance $100\,\micro\meter$ is considered.
 %A noisy pixel column at $Y \approx -8\,\milli\meter$ can be observed.
 %This column was masked during the converter step in the \texttt{datura-noDUT} example and subsequently is not used during the analysis. 
 %\\{comment hj: datura-noDUT is jargon}\\
 %Disregarding this area, an overall average efficiency over $98\,\%$ is observed.
-In figure~\ref{fig:resivsenergy_thresh} (B), the efficiency dependence on the sensor threshold is shown, for various beam momenta and sensor spacings.
-Efficiencies are averaged for all six sensor planes and both spatial coordinates, resulting in negligible statistical errors. 
-In all cases, the efficiency is $\ge\,98\,\%$ up to a threshold setting of 7.
-With increasing threshold, the efficiency declines, until an efficiency of $86\,\%$ for threshold $12$ is reached.
-The difference between momenta and plane spacings is due to multiple scattering and increased telescope resolution.
+In figure~\ref{fig:resivsenergy_thresh} (B) the efficiency dependence on the sensor threshold is shown for various beam energies and sensor spacings.
+Efficiencies are averaged over all six sensor planes and both spatial coordinates, resulting in negligible statistical errors. 
+In all cases, the efficiency is above $98\,\%$ up to a threshold of $7$.
+With increasing threshold, the efficiency declines until an efficiency of $86\,\%$ at $\noise = 12$ is reached.
+The difference between energy and plane spacings stems from multiple scattering and increased telescope resolution.
 
 %\begin{figure}[tbp]
 %  \centering
