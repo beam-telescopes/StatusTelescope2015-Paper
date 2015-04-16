@@ -47,7 +47,7 @@
 
   TGraphErrors *gre2 = new TGraphErrors(10);
   gre2->SetName("Graph");
-  gre2->SetTitle("p =    3 GeV, #Delta_{z} = 150 mm");
+  gre2->SetTitle("p =    3 GeV, dz = 150 mm");
   gre2->SetLineColor(2);
   gre2->SetMarkerColor(2);
   gre2->SetMarkerStyle(21);
@@ -78,7 +78,7 @@
 
   TGraphErrors *gre3 = new TGraphErrors(10);
   gre3->SetName("Graph");
-  gre3->SetTitle("p = 4.4 GeV, #Delta_{z} = 150 mm");
+  gre3->SetTitle("p = 4.4 GeV, dz = 150 mm");
   gre3->SetLineColor(3);
   gre3->SetMarkerColor(3);
   gre3->SetMarkerStyle(22);
@@ -109,7 +109,7 @@
 
   TGraphErrors *gre4 = new TGraphErrors(10);
   gre4->SetName("Graph");
-  gre4->SetTitle("p =    5 GeV, #Delta_{z} = 150 mm");
+  gre4->SetTitle("");
   gre4->SetLineColor(4);
   gre4->SetMarkerColor(4);
   gre4->SetMarkerStyle(23);
@@ -140,7 +140,7 @@
 
   TGraphErrors *gre5 = new TGraphErrors(10);
   gre5->SetName("Graph");
-  gre5->SetTitle("p =    2 GeV, #Delta_{z} =   20 mm");
+  gre5->SetTitle("");
   gre5->SetMarkerStyle(24);
   gre5->SetMarkerSize(2.5);
   gre5->SetPoint(0,3.05,0.9917317);
@@ -169,7 +169,7 @@
 
   TGraphErrors *gre6 = new TGraphErrors(10);
   gre6->SetName("Graph");
-  gre6->SetTitle("p =    3 GeV, #Delta_{z} =   20 mm");
+  gre6->SetTitle("");
   gre6->SetLineColor(2);
   gre6->SetMarkerColor(2);
   gre6->SetMarkerStyle(25);
@@ -200,7 +200,7 @@
 
   TGraphErrors *gre7 = new TGraphErrors(10);
   gre7->SetName("Graph");
-  gre7->SetTitle("p =    5 GeV, #Delta_{z} =   20 mm");
+  gre7->SetTitle("");
   gre7->SetLineColor(4);
   gre7->SetMarkerColor(4);
   gre7->SetMarkerStyle(32);
@@ -230,31 +230,31 @@
   mg->Add(gre7,"p");
 
   mg->Draw("al");
-  mg->SetMinimum(0.85);
-  mg->SetMaximum(1.01);
-  mg->GetXaxis()->SetLimits(0,14);
+  mg->SetMinimum(0.82);
+  mg->SetMaximum(1.02);
+  mg->GetXaxis()->SetLimits(2,13);
 
-  mg->GetXaxis()->SetTitle("Mimosa threshold [#sigma_{noise}]");
+  mg->GetXaxis()->SetTitle("M26 threshold [#xi_{n}]");
   mg->GetXaxis()->SetNoExponent();
-  mg->GetYaxis()->SetTitle("Mimosa efficiency");
+  mg->GetYaxis()->SetTitle("M26 efficiency");
   mg->GetXaxis()->SetTitleOffset(1.14);
   mg->GetYaxis()->SetTitleOffset(1.74);
 
 
 
-  TLegend *leg = new TLegend(0.25,0.30,0.55,0.65,NULL,"brNDC");
+  TLegend *leg = new TLegend(0.25,0.29,0.55,0.62,NULL,"brNDC");
   leg->SetBorderSize(0);
   leg->SetTextSize(0.03);
-  leg->SetFillStyle(4000);
+  leg->SetFillStyle(1001);
   leg->SetShadowColor(0);
   leg->SetLineColor(0);
   leg->SetFillColor(kWhite);
-  entry=leg->AddEntry("NULL","#Delta_{z} = 20 mm","h");
+  entry=leg->AddEntry("NULL","dz = 20 mm","h");
   entry=leg->AddEntry(gre5,"p =    2 GeV","p");
   entry=leg->AddEntry(gre6,"p =    3 GeV","p");
   entry=leg->AddEntry(gre7,"p =    5 GeV","p");
   entry=leg->AddEntry("NULL","","");
-  entry=leg->AddEntry("NULL","#Delta_{z} = 150 mm","h");
+  entry=leg->AddEntry("NULL","dz = 150 mm","h");
   entry=leg->AddEntry(gre ,"p =    2 GeV","p");
   entry=leg->AddEntry(gre2,"p =    3 GeV","p");
   entry=leg->AddEntry(gre3,"p =  4.4 GeV","p");

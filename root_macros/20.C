@@ -49,7 +49,7 @@
 
 
    ci = TColor::GetColor("#ffcc00");
-   gre->SetFillColor(kTeal+10);
+   gre->SetFillColor(kGreen);
    gre->SetPoint(0,0,5.374777);
    gre->SetPointError(0,2.5,0.1559374);
    gre->SetPoint(1,20,4.125067);
@@ -388,7 +388,7 @@
    mg->GetYaxis()->SetTitleOffset(1.14);
 
    
-   TLegend *leg = new TLegend(.15,0.8,0.40,0.89,NULL,"brNDC");
+   TLegend *leg = new TLegend(.15,0.14,0.40,0.27,NULL,"brNDC");
    /*leg->SetBorderSize(0);
    leg->SetTextSize(0.03);
    leg->SetLineColor(1);
@@ -402,53 +402,35 @@
    leg->SetShadowColor(0);
    leg->SetLineColor(0);
    leg->SetFillColor(kWhite);
-   TLegendEntry *entry=leg->AddEntry(gre2,"#sigma_{M26} = (3.42 #pm 0.03) #mum","l");
+   TLegendEntry *entry=leg->AddEntry("NULL","dz = 20 mm","");
+   leg->AddEntry(gre2,"#sigma_{M26} = (3.42 #pm 0.03) #mum","l");
    //entry->SetLineColor(1);
    //entry->SetLineStyle(1);
-   entry->SetLineWidth(7);
+   //entry->SetLineWidth(7);
    //entry->SetMarkerColor(1);
    //entry->SetMarkerStyle(21);
    //entry->SetMarkerSize(1);
    entry=leg->AddEntry(gre,"68\% confidence","f");
    entry->SetLineWidth(3);
-//   entry=leg->AddEntry("NULL","Prediction for intrinsic resolution:","h");
-   entry->SetLineColor(1);
-   entry->SetLineStyle(1);
-   entry->SetLineWidth(1);
-   entry->SetMarkerColor(1);
-   entry->SetMarkerStyle(21);
-   entry->SetMarkerSize(1);
-//   entry=leg->AddEntry(graph,"#sigma_{M26} = 2.0 #mum","l");
-   /*entry->SetLineColor(1);
-   entry->SetLineStyle(2);
-   entry->SetLineWidth(1);
-   entry->SetMarkerColor(1);
-   entry->SetMarkerStyle(21);
-   entry->SetMarkerSize(1);*/
-//   entry=leg->AddEntry(graph2,"#sigma_{M26} = 3.0 #mum","l");
-   /*entry->SetLineColor(1);
-   entry->SetLineStyle(3);
-   entry->SetLineWidth(1);
-   entry->SetMarkerColor(1);
-   entry->SetMarkerStyle(21);
-   entry->SetMarkerSize(1);*/
-//   entry=leg->AddEntry(graph3,"#sigma_{M26} = 4.0 #mum","l");
-   /*entry->SetLineColor(1);
-   entry->SetLineStyle(4);
-   entry->SetLineWidth(1);
-   entry->SetMarkerColor(1);
-   entry->SetMarkerStyle(21);
-   entry->SetMarkerSize(1);*/
-//   entry=leg->AddEntry(graph4,"#sigma_{M26} = 5.0 #mum","l");
-   /*entry->SetLineColor(1);
-   entry->SetLineStyle(5);
-   entry->SetLineWidth(1);
-   entry->SetMarkerColor(1);
-   entry->SetMarkerStyle(21);
-   entry->SetMarkerSize(1);*/
+
    leg->Draw();
-   
-   TLegend *leg2 = new TLegend(0.55,0.7,0.8,0.89,NULL,"brNDC");
+
+   TLegend *leg3 = new TLegend(.25,0.64,0.45,0.89,NULL,"brNDC");
+   leg3->SetBorderSize(0);
+   leg3->SetTextSize(0.03);
+   leg3->SetFillStyle(4000);
+   leg3->SetShadowColor(0);
+   leg3->SetLineColor(0);
+   leg3->SetFillColor(kWhite);
+   entry=leg3->AddEntry("NULL","Predictions:","h");
+   entry=leg3->AddEntry(graph4,"#sigma_{M26} = 5.0 #mum","l");
+   entry=leg3->AddEntry(graph3,"#sigma_{M26} = 4.0 #mum","l");
+   entry=leg3->AddEntry(graph2,"#sigma_{M26} = 3.0 #mum","l");
+   entry=leg3->AddEntry(graph,"#sigma_{M26} = 2.0 #mum","l");
+   leg3->Draw();
+
+
+   TLegend *leg2 = new TLegend(0.5,0.69,0.75,0.89,NULL,"brNDC");
    leg2->SetBorderSize(0);
    leg2->SetTextSize(0.03);
    leg2->SetLineColor(1);
@@ -457,38 +439,10 @@
    leg2->SetFillColor(0);
    leg2->SetFillStyle(0);
    entry=leg2->AddEntry("NULL","DESY 5 GeV e^{-}","");
-   entry->SetLineColor(1);
-   entry->SetLineStyle(1);
-   entry->SetLineWidth(1);
-   entry->SetMarkerColor(1);
-   entry->SetMarkerStyle(21);
-   entry->SetMarkerSize(1);
+
    entry=leg2->AddEntry("NULL","M26 threshold: 6","");
-   //entry->SetLineColor(1);
-   //entry->SetLineStyle(1);
-   //entry->SetLineWidth(1);
-   //entry->SetMarkerColor(1);
-   //entry->SetMarkerStyle(21);
-   //entry->SetMarkerSize(1);
-
    entry=leg2->AddEntry(gre3,"x direction","p");
-   //entry->SetLineColor(1);
-   //entry->SetLineStyle(1);
-   //entry->SetLineWidth(1);
-
-   ci = TColor::GetColor("#ff0000");
-   //entry->SetMarkerColor(ci);
-   //entry->SetMarkerStyle(21);
-   entry->SetMarkerSize(2.5);
    entry=leg2->AddEntry(gre4,"y direction","p");
-   //entry->SetLineColor(1);
-   //entry->SetLineStyle(1);
-   //entry->SetLineWidth(1);
-
-   ci = TColor::GetColor("#0000ff");
-   entry->SetMarkerColor(ci);
-   entry->SetMarkerStyle(22);
-   entry->SetMarkerSize(2.5);
    leg2->Draw();
    
    /*TPaveText *pt = new TPaveText(0.15,0.9362587,0.85,0.995,"blNDC");

@@ -233,9 +233,9 @@
   mg->Draw("al");
   mg->SetMinimum(3);
   mg->SetMaximum(5);
-  mg->GetXaxis()->SetLimits(0,14);
+  mg->GetXaxis()->SetLimits(2,13);
 
-  mg->GetXaxis()->SetTitle("Mimosa threshold [#sigma_{noise}]");
+  mg->GetXaxis()->SetTitle("M26 threshold [#xi_{n}]");
   mg->GetXaxis()->SetNoExponent();
   mg->GetYaxis()->SetTitle("#sigma_{M26} [#mum]");
   mg->GetXaxis()->SetTitleOffset(1.14);
@@ -243,19 +243,19 @@
 
 
 
-  TLegend *leg = new TLegend(0.20,0.50,0.5,0.85,NULL,"brNDC");
+  TLegend *leg = new TLegend(0.22,0.52,0.52,0.87,NULL,"brNDC");
   leg->SetBorderSize(0);
   leg->SetTextSize(0.03);
-  leg->SetFillStyle(4000);
+  leg->SetFillStyle(1001);
   leg->SetShadowColor(0);
   leg->SetLineColor(0);
   leg->SetFillColor(kWhite);
-  entry=leg->AddEntry("NULL","#Delta_{z} = 20 mm","h");
+  entry=leg->AddEntry("NULL","dz = 20 mm","h");
   entry=leg->AddEntry(gre5,"p =    2 GeV","p");
   entry=leg->AddEntry(gre6,"p =    3 GeV","p");
   entry=leg->AddEntry(gre7,"p =    5 GeV","p");
   entry=leg->AddEntry("NULL","","");
-  entry=leg->AddEntry("NULL","#Delta_{z} = 150 mm","h");
+  entry=leg->AddEntry("NULL","dz = 150 mm","h");
   entry=leg->AddEntry(gre ,"p =    2 GeV","p");
   entry=leg->AddEntry(gre2,"p =    3 GeV","p");
   entry=leg->AddEntry(gre3,"p =  4.4 GeV","p");
