@@ -145,7 +145,7 @@ with the telescope plane numbering beginning at $0$.
 The measured hit position is denoted by $y_{i}$, the position extrapolated from the track by $p_{i}$.
 The angles between the nominal beam direction and the track direction are $\theta_{i-1}$ and $\theta_{i}$.
 The former is the track angle entering plane $i$, the latter the angle of the outbound track segment.
-$\sigmai$ and $\theta_{i}$ are the intrinsic resolution of sensor plane $i$ and the width of the multiple scattering distribution, according to equation~(\ref{eq:multiplescattering}), respectively.
+$\sigmai$ and $\Theta_{i}$ are the intrinsic resolution of sensor plane $i$ and the width of the multiple scattering distribution, according to equation~(\ref{eq:multiplescattering}), respectively.
 In the following, it is assumed that $\sigmai$ does not differ between planes and is also equal for both measurement dimensions.
 If the beam axis is denoted by $z$, then $\theta_i$ can be expressed as:
 
@@ -161,7 +161,7 @@ This results in the global $\chi^2$ expression:
 \begin{equation}
 \label{eq:globalchi2}
 \chi^2 = \sum_{i=0}^{N} \alpha_i \left( y_i - p_i \right)^2 + \sum_{i=1}^{N-1}
-\left( \frac{p_{i + 1} \beta_i + p_{i-1} \beta_{i-1} - p_i \left( \beta_i + \beta_{i-1} \right)}{\Delta \theta_i} \right)^2 \,,
+\left( \frac{p_{i + 1} \beta_i + p_{i-1} \beta_{i-1} - p_i \left( \beta_i + \beta_{i-1} \right)}{\Theta_i} \right)^2 \,,
 \end{equation}
 
 with coefficients $\alpha_i$ and $\beta_i$ defined as~\cite{ref:eudetmemo_2007_01}:
