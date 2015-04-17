@@ -284,10 +284,10 @@ The difference between energy and plane spacings stems from multiple scattering 
 
 \subsection{Resolution predictions using General Broken Lines}
 
-With the measured intrinsic resolution at hand, and the knowledge about the amount of material of the sensor planes, predictions of the expected pointing resolution at the actual DUT position can be made. 
+Using the measured intrinsic resolution and the material budget of the sensor planes, predictions of the expected pointing resolution at the actual DUT position can be made. 
 Therefore, it is possible to calculate a priori the optimal telescope geometry for a certain measurement set-up. 
-Pointing resolutions in this section therefore therefore refer to the achievable pointing resolution using a ``symmetric six planes plus DUT'' configuration,
- cf.~figure~\ref{fig:datura_sketch}, if not stated otherwise.
+Pointing resolutions in this section therefore refer to the achievable pointing resolution using a \textit{symmetric six planes plus DUT} configuration referred to as \textit{user} configuration, 
+ cf.~figure~\ref{fig:datura_sketch}, the set-up used in section~\ref{sec:datura-nodut} is referred to as \textit{gauging} configuration. 
 Using the GBL formalism \cite{Kleinwort-2012,Blobel-2006}, the pointing resolution is analytically calculated at desired points of interest along the particle trajectory. 
 Assuming $\epsmimo = 0.00071$, the pointing resolution at the DUT for four different DUT material budgets $\epsdut$ is plotted as a function of the spacing $\dzdut$
  for two fixed values of $\dz = 20\,\milli\meter$ and $50\,\milli\meter$ in figure~\ref{fig:CalcResos_dzdut}. 
@@ -322,14 +322,14 @@ A comparison between the measured resolution at the DUT with the calculated poin
 
 \noindent
 This is shown in figure~\ref{fig:CalcResoP_DUT} (A) as a function of the beam energy. 
-Here, the pointing resolution is analytically calculated for a ``five planes plus DUT'' configuration, where the DUT is a $\Mimosa$ sensor, in order to match the measurements undertaken. 
+Here, the pointing resolution is analytically calculated for the \textit{gauging} configuration, where the DUT is a $\Mimosa$ sensor, in order to match the measurements undertaken. 
 The solid lines represent GBL calculations, the crosses are the $\sigmap$ corresponding to equation~(\ref{eq:sigmap}). 
 The band formed by the solid lines represent the calculated pointing resolution assuming $\sigmai = (3.42 \pm 0.10)\,\upmu\meter$ for the wide and the narrow configuration. 
 A nice agreement between the GBL calculations and the pointing resolution derived from the measured resolution is found.
-In figure~\ref{fig:CalcResoP_DUT} (B) the achievable pointing resolution as a function of the material budget is plotted from a user's point of view, i.e.~for a ``six planes plus DUT'' configuration. 
+In figure~\ref{fig:CalcResoP_DUT} (B) the achievable pointing resolution as a function of the material budget is plotted from a user's point of view, i.e.~for a \textit{user} configuration. 
 Again it can be seen, that a minimal $\dzdut$ allows for the best possible resolution. 
 The intersection for equally coloured lines mark the amount of material budget, where a change in the optimal plane spacing $\dz$ happens.
-For budgets below (above) the intersection, a narrow (wide) configuration is preferred.
+For budgets below (above) the intersection, a narrow (wide) configuration is preferable. 
 The position of the intersection shifts to smaller material budgets with increasing $\dzdut$. 
 
 \begin{figure}[tbp]
@@ -345,16 +345,9 @@ The position of the intersection shifts to smaller material budgets with increas
 \end{figure}
 
 Take note, that if straight line fitting is used, the inclusion of downstream planes might significantly deteriorate the unbiased residual widths,
- as kinks at the possibly thick DUT (and also the $\Mimosa$ planes themselves) are not allowed for in the fit.
-Therefore, using GBL is always recommended. 
+ as kinks at the possibly thick DUT --- and also at the $\Mimosa$ planes themselves --- are not allowed for in the fit.
+Therefore, using GBL for track fitting is recommended. 
 If straight line fitting is used nonetheless, a fit using the upstream planes only might result in a better unbiased residual width, compared to a fit that includes the downstream planes.
-However, in a narrow ``six planes plus DUT'' set-up using a 5\,GeV beam, the pointing resolution at the DUT using GBL is $1.83\,\upmu\meter$, compared to more than $3.88\,\upmu\meter$ using only the upstream planes.
-N.B., that in the ``upstream only'' case, the optimal plane distance is the wide configuration.
-A web tool is available with compatible results in comparison with the GBL calculations is available.\,\cite{webtool}
-
-
-comment hj:\\
-apply energy correction (Ref Summer Student 2013) , then re-do reso vs energy plot
-comment te:\\
-this is reflected somewhat in the energy positions from minimisation...
-btw: quotation marks looks really ugly -> textit?
+However, in a narrow \textit{user} configuration using a 5\,GeV beam, the pointing resolution at the DUT using GBL is $1.83\,\upmu\meter$, compared to more than $3.88\,\upmu\meter$ using only the upstream planes.
+N.B., that in later case, the optimal plane distance is a wide configuration with $\dz = 150\,\milli\meter$.
+A web tool comprising compatible results in comparison with the GBL calculations is available.\,\cite{webtool}
