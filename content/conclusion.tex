@@ -1,18 +1,22 @@
 
-Test beam measurements with high precision pixel beam telescopes have proven to be a versatile tool for a wide range of semiconductor sensor studies. 
-Among other beam telescopes, also DESY-type beam telescopes is a key ingredient to sensors R\&D for many future collider experiments. 
-Developed within $\eudet$ and JRA1 (and AIDA ?!), X users used a DESY-type beam telescope only in 2013 for a total of n weeks in the various available beam lines. 
-The highly flexible and versatile instrument comes not only with a complete and modular data acquisition software package, time stamping capabilities, and a clearly defined interface for user daq integration,
- but it also provides a powerful software package, \EUTelescope, for data analysis. 
-At 5\,GeV beam momentum, a measured unbiased residual width of $(4.0 \pm 0.1)\,\upmu\meter$ is achievable,
- and the intrinsic resolution of the $\Mimosa$ sensors have been measured to $(3.42 \pm 0.03)\,\upmu\meter$.
-General Broken Lines calculations predict a pointing resolution of $1.89\,\upmu\meter$ on the DUT in a ``five planes plus DUT'' set-up with 20\,mm plane spacing,
- which well agrees wit a measured pointing resolution of $(2.04 \pm 0.)\,\upmu\meter$.
+%Test beam measurements with high precision pixel beam telescopes have proven to be a versatile tool for a wide range of semiconductor sensor studies. 
+%Among other beam telescopes, also the DESY-type beam telescopes are used as a key ingredient for many sensors R\&D projects. 
 
-A continuous development is ongoing to upgrade and enhance the data acquisition systems and the analysis frameworks.  
-The maximal achievable rate will be increased by a the successor of the TLU, the miniTLU, which reduces the dead time between two event to ...,  which allows for a trigger rate of about 1\,MHz.
-This is only possible with the implementation of parallel data streams for the telescope planes and the DUT, which will be available with \eudaq\,{2.0},
- which will incorporate a new event format supporting multiple triggers per $\Mimosa$ read-out frame. 
-The development of the analysis software is driven by the large and diverse user community. 
-A new release of \EUTelescope will allow for tracking in presence of magnetic fields and a more fine-grained detector geometry description interface using ROOT::TGeo, which are currently under development.
+The highly flexible and versatile DESY-type beam telescopes come with a complete data acquisition system, a Trigger Logic Unit with time stamping capabilities
+ and a clearly defined interface for an integration of user data acquisition systems.
+It also provides the powerful software packages $\eudaq$, a modular data acquisition framework, and $\EUTelescope$ for data analysis. 
+% to intro X users used a DESY-type beam telescopes only in 2013 for a total of n weeks alone at the DESY-II test beam areas. 
+This work the performance of the  DESY-type beam telescopes has been investigated. 
+At 5\,GeV beam energy, a measured unbiased residual width of $(3.96 \pm 0.03)\,\upmu\meter$ is achievable
+ and the intrinsic resolution of the $\Mimosa$ sensors have been measured to $(3.43 \pm 0.03)\,\upmu\meter$.
+General Broken Lines calculations predict a pointing resolution of $1.89\,\upmu\meter$ on the DUT in a \textit{five planes plus DUT} configuration with 20\,mm plane spacing,
+ which well agrees wit a measured pointing resolution of $(1.94 \pm 0.08)\,\upmu\meter$.
+
+A continuous development is ongoing to upgrade and enhance the data acquisition system itself, and also the data acquisition and analysis framework.  
+The maximum achievable rate will be increased by the successor of the TLU, allowing for a trigger rate of up to 1\,MHz.
+%This is only possible with the implementation of parallel data streams for the telescope planes and the DUT, which will be available with \eudaq\,{2.0},
+% which will incorporate a new event format supporting multiple triggers per $\Mimosa$ read-out frame. 
+ A new data format will support multiple triggers per mimosa read-out frame facilitating asynchronous data acquisition. 
+The development of the $\EUTelescope$ analysis software is driven by the large and diverse user community. 
+Features currently under development include tracking in magnetic fields and more accurate detector geometry descriptions. 
 

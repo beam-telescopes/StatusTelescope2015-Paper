@@ -20,6 +20,7 @@
 \usepackage{upgreek}
 \usepackage{verbatim}
 \usepackage{url}
+\usepackage{xcolor}
 
 %general stuff 
 \newcommand{\e}{\ensuremath{\mathnormal{e}}}
@@ -40,16 +41,17 @@
 %resolutions
 \newcommand{\sigmap}{\ensuremath{\sigma_{\textrm{p}}}}
 \newcommand{\sigmapGBL}{\ensuremath{\sigma_{\textrm{p,GBL}}}}
-\newcommand{\sigmames}{\ensuremath{\sigma_{\textrm{m}}}}
+\newcommand{\sigmames}{\ensuremath{\sigma_{\textrm{meas}}}}
 \newcommand{\sigmadut}{\ensuremath{\sigma_{\textrm{DUT}}}}
 \newcommand{\sigmai}{\ensuremath{\sigma_{\textrm{int}}}}
+\newcommand{\sigmam}{\ensuremath{\sigma_{\textrm{M26}}}}
 
 %software
 \newcommand{\eudet}{\ensuremath{\textrm{EUDET}}}
 \newcommand{\rawdataevent}{RawDataEvent }
 \newcommand{\rawdataevents}{RawDataEvents }
 \newcommand{\eudaq}{\ensuremath{\textrm{EUDAQ}}}
-\newcommand{\EUTelescope}{EUTelescope }
+\newcommand{\EUTelescope}{\ensuremath{\textrm{EUTelescope}}}
 
 %linenumbers
 \setpagewiselinenumbers
@@ -135,6 +137,10 @@ Calculations using the concept of General Broken Lines are compared to the measu
 \section{Track resolution}
 \label{sec:trackres}
 \input{content/track_resolution}
+
+\section{Considerations for the DUT integration}
+\label{sec:dutintegration}
+\input{content/dutintegration}
 
 \section{Conclusion}
 \label{sec:conclusion}

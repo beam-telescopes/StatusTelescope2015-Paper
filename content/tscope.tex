@@ -17,9 +17,10 @@ In the Cartesian, right-handed coordinate system chosen, the $x$-direction point
 \end{figure}
  
 \subsection{Sensors and mechanics}
+\label{sec:sensors}
 
 The $\Mimosa$ detectors used for precise spacial measurement of particle trajectories are manufactured with the 350\,nm CMOS technology. 
-Each $\Mimosa$ detector consists of pixels sized $\unit{18.4}{\upmu\meter} \times \unit{18.4}{\upmu\meter}$, which are arranged in 1152 columns and 576 rows.\,\cite{HuGuo2010480}
+Each $\Mimosa$ detector consists of pixels sized $\unit{18.4}{\upmu\meter} \times \unit{18.4}{\upmu\meter}$, which are arranged in 1152 columns and 576 rows.
 This adds to a total of about four million readout channels covering an active area of about $\unit{10.6}{\milli\meter} \times \unit{21.1}{\milli\meter}$. 
 The $\Mimosa$ sensors have been thinned down to $\unit{50}{\upmu\meter}$ and are protected on each side by $\unit{25}{\upmu\meter}$ lightproof Kapton foil. 
 Free charge carriers produced in the underlying \unit{14}{\upmu\meter} epitaxial layer are mainly collected via diffusion. 
@@ -32,7 +33,7 @@ This allows for correlated double sampling and zero suppression on-chip with the
 At this clock frequency, the $\Mimosa$ integration time equals $\unit{115.2}{\upmu\second}$ and allowing for about 8680 frames to be read out per second. 
 The expected maximum rate of detectable particles through the active area estimates to be about $\unit{1}{\mega\hertz/\centi\meter^2}$ due to the limited on-chip buffer size. 
 The detection threshold is programmable via so-called JTAG files. 
-These provide configurations with different threshold levels in integer multiples of the RMS noise $\noise$ of the individual planes. 
+These provide configurations with different threshold levels in integer multiples $\noise$ of the RMS noise of the individual planes. 
 A sensor threshold setting of six therefore corresponds to a collected charge in a single pixel of at least six times the noise. 
 The average noise occupancy per read-out frame is measured to be smaller than $2\cdot10^{-5}$ at room temperature and a signal-to-noise threshold of six.
 
@@ -49,13 +50,8 @@ Important parameters are compiled in figure~\ref{fig:datura_sketch}.
 The distance between $\Mimosa$ planes is denoted as $\dz$, the distance between the DUT and its nearest neighbouring $\Mimosa$ planes $\dzdut$. 
 The expression $\epsilon = \sum_i x_{i}/X_{0,i}$ defines the material budget of the scattering medium as the material thickness normalised to its radiation lengths,
  with values of $X_0 = 93.65\,\milli\meter$ for silicon, $X_0 = 3.042\cdot 10^{5}\,\milli\meter$ for dry air, and $X_0 = 285.6\,\milli\meter$ for Kapton.\,\cite{ref:x0values}
-The material budget of a $\Mimosa$ plane including a protecting Kapton foil on each side is $\epsmimo = 0.00071$. 
+The material budget of a $\Mimosa$ plane including a protecting Kapton foil on each side is $\epsmimo = 7.1\cdot10^{-4}$. 
 Likewise, the DUT's material budget is called $\epsdut$ and includes the DUT itself and other material such as PCBs and cooling boxes.
-
-
-te edit: something about radiation lengths here...
-\label{sec:radiationlengths}
-with values of $X_0 = 21.82\,\allowbreak\gram\per\centi\meter^2$ for silicon and $X_0 = 36.62\,\gram\per\centi\meter^2$ for dry air, according to reference~\cite{ref:x0values}.
 
 
 \begin{figure}[tb]
@@ -90,9 +86,3 @@ A 52-pin cable then transports the data and the TLU trigger/busy lines in parall
 The $\Mimosa$ data from the rolling-shutter readout is written continuously to RAM without taking into account the trigger information. 
 The data is then available via direct memory access to the DAQ software framework and an event is written to disk in normal handshake mode, only if a trigger has been raised for a certain telescope readout frame. 
 
-\subsection{DUT integration}
-
-DUTs are integrated the same way as the telescope itself using either the RJ45 or the LEMO interface. 
-An $xy\upphi$-stage is available for translation over the acceptance region and rotation of the DUT. 
-The maximum DUT size when placed between the telescope arms is 500\,mm ?!.
-was noch ?

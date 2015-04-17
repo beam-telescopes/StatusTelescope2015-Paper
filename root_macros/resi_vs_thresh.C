@@ -235,7 +235,7 @@
   mg->SetMaximum(5);
   mg->GetXaxis()->SetLimits(2,13);
 
-  mg->GetXaxis()->SetTitle("M26 threshold [#xi_{n}]");
+  mg->GetXaxis()->SetTitle("M26 threshold #xi_{n}");
   mg->GetXaxis()->SetNoExponent();
   mg->GetYaxis()->SetTitle("#sigma_{M26} [#mum]");
   mg->GetXaxis()->SetTitleOffset(1.14);

@@ -66,7 +66,7 @@ The angular scattering distribution is centred around $0$, with a width that can
 \end{equation}
 
 \noindent with the particle velocity $\beta c$, momentum $p$ and charge number $Z$. 
-The expression $\epsilon = x \per X_0$ is the material budget, as defined in section~\ref{sec:radiationlengths}.
+The expression $\epsilon = x \per X_0$ is the material budget, as defined in section~\ref{sec:sensors}.
 
 Equation~(\ref{eq:multiplescattering}) shows, that since the angular deflection due to multiple scattering increases with material budget, it is advantageous to use thin sensors.
 This is especially important at low-energy beams, such as the DESY-II test beam, as the distortion increases towards lower energies.
@@ -74,6 +74,7 @@ As the beam particles also interact with the air, an additional contribution to 
 At high-energy hadron beams, the contribution from multiple scattering can in general be neglected.
 
 \subsection{Measurements with DATURA}
+\label{sec:measurements}
 
 Measurements of the achievable resolution were performed in $2012$ to verify the performance of the $\Datura$ telescope, for different settings of beam energies, sensor threshold and sensor spacing~\cite{ref:thomas}.
 The track residual distributions have been reconstructed as described in section~\ref{sec:datura-nodut}.
@@ -180,8 +181,8 @@ The results for both a tighter plane spacing of $\dz = 20\,\milli\meter$ and a w
 In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed.
 The calculated intrinsic resolution $\sigma_{\textrm{M26}} = \sigmai$ of the $\Mimosa$ sensors is \allowbreak$\left( 3.42\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$
  for a plane spacing of $\textrm{d}z =  20\,\milli\meter$ and $\left( 3.44\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$ for $\textrm{d}z = 150\,\milli\meter$.
-For both geometries, the expected resolution of $\sigmai \approx\,3.5\,\micro\meter$, according to~\cite{ref:mimosa26}, can be confirmed.
-The underlying assumptions in the method presented here are:\\
+For both geometries, the expected resolution of $\sigmai \approx\,3.5\,\micro\meter$\,\cite{ref:mimosa26} can be confirmed.
+The underlying assumptions in the method presented here are:
 
 \begin{itemize}
 
@@ -218,7 +219,7 @@ Figure~\ref{fig:resivsenergy_thresh} (A) shows the calculated intrinsic telescop
 The minimum of $\sigmai$ is reached for a threshold setting of $6$.
 The measured residual width for wider sensor spacings or lower beam energies is higher as can be seen in figure~\ref{fig:smiley}.
 These effects are described in equation~(\ref{eq:telescoperesolutionequation}) by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$.
-Measurements by Behr\,\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$.\\
+Measurements by Behr\,\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$.
 
 
 % Thomas: sigma tel is different from the pointing resolution.
@@ -229,8 +230,8 @@ Measurements by Behr\,\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ sho
 
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/resi_vs_thresh}	\put(-40,166){(A)} % was resi_thresh_errors
-  \includegraphics[width=0.49\textwidth]{figures/effi_thresh.eps}	\put(-40,166){(B)}
+  \includegraphics[width=0.49\textwidth]{figures/resi_vs_thresh}	\put(-175,35){(A)} % was resi_thresh_errors
+  \includegraphics[width=0.49\textwidth]{figures/effi_thresh.eps}	\put(-175,35){(B)}
   \caption[Telescope intrinsic sensor resolution for different threshold settings, beam energies and geometries~\cite{ref:thomas}]{
 (A) The measured intrinsic resolution of the $\sigma_{\textrm{M26}}$ for different beam energies $p$ and sensor spacing $\textrm{d}z$ as a function of applied sensor threshold.
 (B) Average efficiency of all telescope sensors for different beam energies and sensor spacing vs. applied threshold.
@@ -249,7 +250,7 @@ The efficiency is defined as the ratio of reconstructed tracks that have at leas
 %As maximum distance $100\,\micro\meter$ is considered.
 %A noisy pixel column at $Y \approx -8\,\milli\meter$ can be observed.
 %This column was masked during the converter step in the \texttt{datura-noDUT} example and subsequently is not used during the analysis. 
-%\\{comment hj: datura-noDUT is jargon}\\
+%\\{comment hj: datura-noDUT is jargon}
 %Disregarding this area, an overall average efficiency over $98\,\%$ is observed.
 In figure~\ref{fig:resivsenergy_thresh} (B) the efficiency dependence on the sensor threshold is shown for various beam energies and sensor spacings.
 Efficiencies are averaged over all six sensor planes and both spatial coordinates, resulting in negligible statistical errors. 
@@ -282,23 +283,26 @@ The difference between in efficiency for different energies and for different pl
 
 \subsection{Resolution predictions using General Broken Lines}
 
-Using the measured intrinsic resolution and the material budget of the sensor planes, predictions of the expected pointing resolution at the actual DUT position can be made. 
-Therefore, it is possible to calculate a priori the optimal telescope geometry for a certain measurement set-up. 
-Pointing resolutions in this section therefore refer to the achievable pointing resolution using a \textit{symmetric six planes plus DUT} configuration referred to as \textit{user} configuration, 
- cf.~figure~\ref{fig:datura_sketch}, the set-up used in section~\ref{sec:datura-nodut} is referred to as \textit{gauging} configuration. 
-Using the GBL formalism \cite{Kleinwort-2012,Blobel-2006}, the pointing resolution is analytically calculated at desired points of interest along the particle trajectory. 
-Assuming $\epsmimo = 0.00071$, the pointing resolution at the DUT for four different DUT material budgets $\epsdut$ is plotted as a function of the spacing $\dzdut$
- for two fixed values of $\dz = 20\,\milli\meter$ and $50\,\milli\meter$ in figure~\ref{fig:CalcResos_dzdut}. 
-Plots are provided for DESY\,II beam energies (left) and SPS energies (right). 
-All plotted resolution functions are monotonically increasing with increasing $\dzdut$. 
-Therefore, the optimal position of the $\Mimosa$ planes nearest to the DUT need to always be installed as close to the DUT as possible in order to achieve the best possible resolution. 
-Also from figure~\ref{fig:CalcResos_dzdut} it can be seen, that the optimal plane spacing $\dz$ depends on the actual material budget of the DUT and the actual space needed for the DUT, hence $\dzdut$.
-E.g.~for a DUT with a material budget of $\epsdut = 0.001$ (black and red solid line) at 5\,GeV, a narrow configuration is preferred for $\dzdut < 70\,\milli\meter$,
- but a wide configuration for $\dzdut > 70\,\milli\meter$.
-The position of the intersection depends on the material budget of the DUT and decreases with increasing material budget. 
-In a wide configuration, the pointing resolution is limited to about $2.3\,\upmu\meter$, whereas in a narrow configuration a pointing resolution around $2.0\,\upmu\meter$ is achievable for thin DUTs.
-At SPS energies, the resolution functions for the wide and the narrow configuration do not cross, with the narrow configuration being slightly better than the wide one.
-However, the difference e.g.~for $\epsdut = 0.01$ is less than $300\,\nano\meter$ for $\dzdut = 100\,\milli\meter$.
+Using the measured intrinsic resolution, the known material budget $\epsmimo = 7.1\cdot 10^{-4}$ of the sensor planes, and $\epsdut$,
+ predictions of the expected pointing resolution at the actual DUT position can be made. 
+Therefore, it is possible to perform an a priori calculation of the optimal telescope geometry for a certain measurement set-up. 
+Pointing resolutions in this section refer to the achievable pointing resolution using a \textit{symmetric six M26 planes plus DUT} configuration. 
+This is referred to as \textit{user configuration}, also shown in figure~\ref{fig:datura_sketch}, while the set-up used in section~\ref{sec:measurements} is referred to as \textit{gauge configuration}. 
+
+Using the GBL formalism, the pointing resolution is analytically calculated at desired points of interest along the particle trajectory. 
+The pointing resolution at the DUT for four different DUT material budgets $\epsdut$ is plotted as a function of the spacing $\dzdut$ in figure~\ref{fig:CalcResos_dzdut}.
+Exemplified are two values of $\dz = 20\,\milli\meter$ and $\dz = 50\,\milli\meter$. 
+Plots are provided for DESY-II beam energies (A) and SPS energies (B). 
+All plotted resolution functions monotonically increase with increasing $\dzdut$. 
+To achieve the best possible resolution, the inner $\Mimosa$ planes should be positioned as close as possible to the DUT, i.e.~$\dzdut$ is to be minimised. 
+In addition figure~\ref{fig:CalcResos_dzdut} shows, that the optimal plane spacing $\dz$ depends on the actual DUT material budget.
+For instance for a DUT with a material budget of $\epsdut = 0.001$ (black and red solid lines) at 5\,GeV, a narrow configuration shows a higher resolution for $\dzdut < 70\,\milli\meter$,
+ while a wide configuration is best for $\dzdut > 70\,\milli\meter$.
+The position of the intersection of the the lines depends on the material budget of the DUT and decreases with increasing material budget. 
+In the wide configuration, the predicted pointing resolution on the DUT is limited to about $2.3\,\upmu\meter$,
+ whereas in a narrow configuration a pointing resolution of around $2.0\,\upmu\meter$ is achievable for thin DUTs.
+At SPS energies the resolution functions for the wide and the narrow configuration do not intersect, with the narrow configuration performing slightly better than the wide one.
+However, the difference is less than $500\,\nano\meter$ for $\dzdut = 100\,\milli\meter$ even for $\epsdut = 0.03$. 
 
 \begin{figure}[tbp]
   \centering
@@ -311,7 +315,8 @@ However, the difference e.g.~for $\epsdut = 0.01$ is less than $300\,\nano\meter
 \label{fig:CalcResos_dzdut}
 \end{figure}
 
-A comparison between the measured resolution at the DUT with the calculated pointing resolution $\sigmapGBL$ is only possible, if the measured resolution is corrected by the DUT's resolution
+Using the \textit{gauge configuration}, a comparison between the GBL calculations and the measurements can be performed.
+For this, the measured resolution has to be converted to the pointing resolution $\sigmap$ by correcting for the intrinsic resolution of the DUT $\sigmadut = \sigmam$
 
 \begin{equation}
  \sigmap = \sqrt{\sigmames^2 - \sigmadut^2}.
@@ -320,32 +325,31 @@ A comparison between the measured resolution at the DUT with the calculated poin
 
 \noindent
 This is shown in figure~\ref{fig:CalcResoP_DUT} (A) as a function of the beam energy. 
-Here, the pointing resolution is analytically calculated for the \textit{gauging} configuration, where the DUT is a $\Mimosa$ sensor, in order to match the measurements undertaken. 
-The solid lines represent GBL calculations, the crosses are the $\sigmap$ corresponding to equation~(\ref{eq:sigmap}). 
-The band formed by the solid lines represent the calculated pointing resolution assuming $\sigmai = (3.42 \pm 0.10)\,\upmu\meter$ for the wide and the narrow configuration. 
-A nice agreement between the GBL calculations and the pointing resolution derived from the measured resolution is found.
-In figure~\ref{fig:CalcResoP_DUT} (B) the achievable pointing resolution as a function of the material budget is plotted from a user's point of view, i.e.~for a \textit{user} configuration. 
-Again it can be seen, that a minimal $\dzdut$ allows for the best possible resolution. 
-The intersection for equally coloured lines mark the amount of material budget, where a change in the optimal plane spacing $\dz$ happens.
-For budgets below (above) the intersection, a narrow (wide) configuration is preferable. 
+The solid lines represent GBL calculations, while the triangles show the derived $\sigmap$ obtained from equation~(\ref{eq:sigmap}). 
+The hatched bands represent the calculated pointing resolution assuming $\sigmam = (3.43 \pm 0.10)\,\upmu\meter$ for the wide and the narrow configuration. 
+An excellent agreement between GBL calculations and the measurements is found.
+
+In figure~\ref{fig:CalcResoP_DUT} (B) the achievable pointing resolution as a function of the material budget is plotted for the \textit{user configuration}. 
+It can be seen that a minimal $\dzdut$ allows for the best possible resolution. 
+Dashed and solid lines represent calculations for $\dz = 20\,\milli\meter$ and $\dz = 150\,\milli\meter$, respectively. 
+Their intersections mark the material budget, at which optimal plane spacing $\dz$ changes.
+For $\epsdut$ below (above) the intersection, a narrow (wide) configuration is preferable. 
 The position of the intersection shifts to smaller material budgets with increasing $\dzdut$. 
 
 \begin{figure}[tbp]
   \centering
   \includegraphics[width=0.49\textwidth]{figures/energy_plot}     \put(-125,175){(A)} % was CalcResoVsP
   \includegraphics[width=0.49\textwidth]{figures/CalcResoVsEpsdut}\put(-125,175){(B)}
-  \caption[Pointing resolution as a function of the beam energy]{
-  (A) The pointing resolution for the wide (red) and the narrow (black) set-up is shown as a function of the beam energy for a 5-plane set-up for comparison with data. 
-  The theoretical limit of about $1.6\,\upmu\meter$ for plane\,3 is indicated as a dashed line.
-  Pointing resolutions derived from the measured resolutions at plane 3 for various energies and plane spacings are shown as crosses.
-  (B) The pointing resolution for various geometries is shown as a function of $\epsdut$ for a 6-plane set-up.}
-\label{fig:CalcResoP_DUT}
+               \put(-175,107.5){$\bigcirc$}
+  \color{blue} \put(-161,102.5){$\bigcirc$}
+  \color{green}\put(-143,96.5){$\bigcirc$}
+  \color{red}  \put(-113,90){$\bigcirc$}
+  \color{black}
+   \caption[Pointing resolution as a function of the beam energy]{
+   (A) The pointing resolution for the wide (red) and the narrow (black) set-up is shown as a function of the beam energy for the \textit{gauge configuration}. 
+   %The theoretical limit of about $1.6\,\upmu\meter$ for plane\,3 is indicated as a dashed line.
+   %Pointing resolutions derived from the measured resolutions at plane 3 for various energies and plane spacings are shown as crosses.
+   (B) The pointing resolutions for two geometries are shown as a function of $\epsdut$ for the \textit{user configuration}.
+   }
+ \label{fig:CalcResoP_DUT}
 \end{figure}
-
-Take note, that if straight line fitting is used, the inclusion of downstream planes might significantly deteriorate the unbiased residual widths,
- as kinks at the possibly thick DUT --- and also at the $\Mimosa$ planes themselves --- are not allowed for in the fit.
-Therefore, using GBL for track fitting is recommended. 
-If straight line fitting is used nonetheless, a fit using the upstream planes only might result in a better unbiased residual width, compared to a fit that includes the downstream planes.
-However, in a narrow \textit{user} configuration using a 5\,GeV beam, the pointing resolution at the DUT using GBL is $1.83\,\upmu\meter$, compared to more than $3.88\,\upmu\meter$ using only the upstream planes.
-N.B., that in later case, the optimal plane distance is a wide configuration with $\dz = 150\,\milli\meter$.
-A web tool comprising compatible results in comparison with the GBL calculations is available.\,\cite{webtool}

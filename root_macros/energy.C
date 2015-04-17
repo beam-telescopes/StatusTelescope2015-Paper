@@ -47,7 +47,7 @@
    TGraph *graph = new TGraph(500);
    graph->SetName("Graph");
    graph->SetTitle("");
-   graph->SetFillColor(4);
+   graph->SetFillColor(1);
    graph->SetFillStyle(3013);
    graph->SetPoint(0,1,3.583314761);
    graph->SetPoint(1,1.5,2.967358436);
@@ -552,13 +552,14 @@
    
    //graph->Draw("f");
    
-   mg->Add(graph,"f"); // blue cross
+   mg->Add(graph,"f"); // black filled
 
    TGraphErrors *gre = new TGraphErrors(260);
    gre->SetName("Graph");
    gre->SetTitle("Graph");
    gre->SetFillColor(1);
    gre->SetMarkerStyle(0);
+   gre->SetLineWidth(2);
    gre->SetPoint(0,1,3.461664);
    gre->SetPointError(0,0,0);
    gre->SetPoint(1,1.5,2.853034);
@@ -1088,6 +1089,7 @@
    gre2->SetName("Graph");
    gre2->SetTitle("");
    gre2->SetFillColor(1);
+   gre2->SetLineWidth(2);
    gre2->SetMarkerStyle(0);
    gre2->SetPoint(0,1,3.583315);
    gre2->SetPointError(0,0,0);
@@ -1613,7 +1615,7 @@
 
 
    //gre->Draw("l");
-   mg->Add(gre2,"l"); // upper blue border
+   mg->Add(gre2,"l"); // upper black border
 
    TGraph *graph2 = new TGraph(500);
    graph2->SetName("Graph");
@@ -2133,6 +2135,7 @@
    gre3->SetTitle("");
    gre3->SetFillColor(1);
    gre3->SetMarkerStyle(0);
+   gre3->SetLineWidth(2);
    gre3->SetPoint(0,1,18.14497);
    gre3->SetPointError(0,0,0);
    gre3->SetPoint(1,1.5,12.34277);
@@ -2664,6 +2667,7 @@
    gre4->SetTitle("");
    gre4->SetFillColor(1);
    gre4->SetMarkerStyle(0);
+   gre4->SetLineWidth(2);
    gre4->SetPoint(0,1,18.19038);
    gre4->SetPointError(0,0,0);
    gre4->SetPoint(1,1.5,12.40771);
@@ -3213,7 +3217,7 @@
    TGraphErrors *gre6 = new TGraphErrors(3);
    gre6->SetName("Graph");
    gre6->SetTitle("");//20 mm
-   gre6->SetMarkerColor(4);
+   gre6->SetMarkerColor(1);
    gre6->SetMarkerStyle(22);
    gre6->SetMarkerSize(3);
    gre6->SetPoint(0,2.03,2.728459);
@@ -3247,7 +3251,7 @@
    leg->SetLineColor(0);
    leg->SetFillColor(kWhite);
    TLegendEntry *entry=leg->AddEntry("NULL","dz = 150 mm","h");
-   leg->AddEntry(gre5,"Measurement","p");
+   leg->AddEntry(gre5,"measurement","p");
    leg->AddEntry(graph2, "68% conf. (GBL)","f");
 
    leg->AddEntry("NULL","","h");
@@ -3256,8 +3260,6 @@
    leg->AddEntry(graph,"68% conf. (GBL)","f");
 
    leg->Draw();
-   
-
    
 
    c1->Modified();

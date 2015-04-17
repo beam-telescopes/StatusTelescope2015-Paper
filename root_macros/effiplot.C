@@ -230,11 +230,11 @@
   mg->Add(gre7,"p");
 
   mg->Draw("al");
-  mg->SetMinimum(0.82);
-  mg->SetMaximum(1.02);
+  mg->SetMinimum(0.85);
+  mg->SetMaximum(1.01);
   mg->GetXaxis()->SetLimits(2,13);
 
-  mg->GetXaxis()->SetTitle("M26 threshold [#xi_{n}]");
+  mg->GetXaxis()->SetTitle("M26 threshold #xi_{n}");
   mg->GetXaxis()->SetNoExponent();
   mg->GetYaxis()->SetTitle("M26 efficiency");
   mg->GetXaxis()->SetTitleOffset(1.14);
