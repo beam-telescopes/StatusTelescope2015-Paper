@@ -76,7 +76,7 @@ At high-energy hadron beams, the contribution from multiple scattering can be ne
 
 \subsection{Measurements with DATURA}
 
-Measurements of the achievable resolution were performed in $2012$ to verify the performance of the $\Datura$ telescope, for different settings of beam momentum, sensor SNR threshold and sensor spacing~\cite{ref:thomas}.
+Measurements of the achievable resolution were performed in $2012$ to verify the performance of the $\Datura$ telescope, for different settings of beam energies, sensor SNR threshold and sensor spacing~\cite{ref:thomas}.
 The track residual distributions have been reconstructed as described in section~\ref{sec:datura-nodut}.
 By using each telescope plane as a DUT, equation~(\ref{eq:telescoperesolutionequation}) is modified under the assumption that $\sigmai = \sigma_{\textrm{DUT}} = \sigma_{\textrm{M26}}$,
  leading to
@@ -109,7 +109,7 @@ Images from~\cite{ref:thomas}.}
 
 with $k_5$ the geometrical scaling factor for a telescope consisting of five planes.
 Figure~\ref{fig:residualexample1} shows an example of unbiased residual distributions for a telescope sensor spacing of $20\,\milli\meter$,
- a beam momentum of $5\,\giga\electronvolt$ and a sensor SNR threshold setting of $6$.
+ a beam energy of $5\,\giga\electronvolt$ and a sensor SNR threshold setting of $6$.
 The distributions are fitted with a Gaussian, from which the residual width $\sigma_{\textrm{meas}}$ is determined.
 It is noted, that the residuals feature non-Gaussian tails, as is expected from the underlying physics of the scattering mechanism~\cite{ref:PDG-2014}. 
 The measured resolution used in this work is defined as the width of a Gaussian fit on the centre $90\,\%$ of the residuals. 
@@ -233,9 +233,9 @@ Measurements by Behr\,\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ sho
   \centering
   \includegraphics[width=0.49\textwidth]{figures/resi_vs_thresh}	\put(-40,166){(A)} % was resi_thresh_errors
   \includegraphics[width=0.49\textwidth]{figures/effi_thresh.eps}	\put(-40,166){(B)}
-  \caption[Telescope intrinsic sensor resolution for different threshold settings, beam momenta and geometries~\cite{ref:thomas}]{
-(A) The measured intrinsic resolution of the $\Datura$ telescope's $\Mimosa$ sensors $\sigma_{\textrm{M26}}$ for different beam momenta $p$, sensor spacing $\textrm{d}z$ and applied sensor threshold.
-(B) Average efficiency of all telescope sensors in both dimensions for different beam momenta and sensor spacing vs. applied threshold.
+  \caption[Telescope intrinsic sensor resolution for different threshold settings, beam energies and geometries~\cite{ref:thomas}]{
+(A) The measured intrinsic resolution of the $\Datura$ telescope's $\Mimosa$ sensors $\sigma_{\textrm{M26}}$ for different beam energies $p$, sensor spacing $\textrm{d}z$ and applied sensor threshold.
+(B) Average efficiency of all telescope sensors in both dimensions for different beam energies and sensor spacing vs. applied threshold.
 An efficiency decline with increasing threshold can be observed.
 In both images, taken from~\cite{ref:thomas}, some values are shifted on the $x$ axis for improved legibility.}
   \label{fig:resivsenergy_thresh}
@@ -295,7 +295,7 @@ Plots are provided for DESY\,II beam energies (left) and SPS energies (right).
 All plotted resolution functions are monotonically increasing with increasing $\dzdut$. 
 Therefore, the optimal position of the $\Mimosa$ planes nearest to the DUT need to always be installed as close to the DUT as possible in order to achieve the best possible resolution. 
 Also from figure~\ref{fig:CalcResos_dzdut} it can be seen, that the optimal plane spacing $\dz$ depends on the actual material budget of the DUT and the actual space needed for the DUT, hence $\dzdut$.
-E.g.~for a DUT with a material budget of $\epsdut = 0.001$ (black and red solid line) at 5\,GeV/$\cspeed$, a narrow configuration is preferred for $\dzdut < 70\,\milli\meter$,
+E.g.~for a DUT with a material budget of $\epsdut = 0.001$ (black and red solid line) at 5\,GeV, a narrow configuration is preferred for $\dzdut < 70\,\milli\meter$,
  but a wide configuration for $\dzdut > 70\,\milli\meter$.
 The position of the intersection depends on the material budget of the DUT and decreases with increasing material budget. 
 In a wide configuration, the pointing resolution is limited to about $2.3\,\upmu\meter$, whereas in a narrow configuration a pointing resolution around $2.0\,\upmu\meter$ is achievable for thin DUTs.
@@ -304,13 +304,12 @@ However, the difference e.g.~for $\epsdut = 0.01$ is less than $300\,\nano\meter
 
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy}
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern}\\
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy}\put(-185,35){(A)}
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern}\put(-185,35){(B)}
   %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy_loglog_2}
   %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern_loglog_2}
   \caption[Pointing resolution for various DUTs as a function of the distance between DUT and neighbouring planes]{
-  The pointing resolution for various DUTs is shown as a function of the equidistant distance between DUT and neighbouring planes.
-  Left: at 5\,GeV, Right: at 120\,GeV. }
+  The pointing resolution for various DUTs is shown as a function of the equidistant distance between DUT and neighbouring planes at 5\,GeV (A), and 120\,GeV (B).}
 \label{fig:CalcResos_dzdut}
 \end{figure}
 
@@ -322,7 +321,7 @@ A comparison between the measured resolution at the DUT with the calculated poin
 \end{equation}
 
 \noindent
-This is shown in figure~\ref{fig:CalcResoP_DUT} (A) as a function of the beam momentum. 
+This is shown in figure~\ref{fig:CalcResoP_DUT} (A) as a function of the beam energy. 
 Here, the pointing resolution is analytically calculated for a ``five planes plus DUT'' configuration, where the DUT is a $\Mimosa$ sensor, in order to match the measurements undertaken. 
 The solid lines represent GBL calculations, the crosses are the $\sigmap$ corresponding to equation~(\ref{eq:sigmap}). 
 The band formed by the solid lines represent the calculated pointing resolution assuming $\sigmai = (3.42 \pm 0.10)\,\upmu\meter$ for the wide and the narrow configuration. 
