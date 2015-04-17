@@ -36,8 +36,7 @@ The expression
 
 \noindent shows the contributing terms to be considered~\cite{ref:eudetreport200902}. 
 The measured residual width on a DUT sensor plane is expressed by $\sigma_{\textrm{meas}}$, $\sigma_{\textrm{DUT}}$ is the intrinsic resolution of the DUT itself,
- $\sigma_{\textrm{Tel}}$ is the resolution of the telescope and $\sigma_{\textrm{MS}}$ represents the contribution from multiple scattering.
-In the following, all terms are discussed.
+ $\sigma_{\textrm{Tel}}$ is the resolution of the telescope, and $\sigma_{\textrm{MS}}$ represents the contribution from multiple scattering.
 The resolution of a telescope $\sigma_{\textrm{Tel}}$ can be expressed by
 
 \begin{equation}
@@ -56,7 +55,7 @@ The distance of the $i$-th telescope plane to the DUT positioned at $z=0$ is the
 For a symmetric set-up with the DUT at the centre of the telescope and the up- and downstream planes equally spaced, $k$ reduces to $k = 1/N$. 
 
 Multiple scattering is the term used to describe the deflection of a charged particle traversing any medium.
-It depends on the particle energy, particle type and the radiation length of the matter traversed~\cite{ref:scatteringhighland}.
+It depends on the particle energy, particle type, and the radiation length of the matter traversed~\cite{ref:scatteringhighland}.
 The angular scattering distribution is centred around $0$, with a width that can be expressed by~\cite{ref:PDG-2014}
 
 \begin{equation}
@@ -72,11 +71,11 @@ The expression $\epsilon = x \per X_0$ is the material budget, as defined in sec
 Equation~(\ref{eq:multiplescattering}) shows, that since the angular deflection due to multiple scattering increases with material budget, it is advantageous to use thin sensors.
 This is especially important at low-energy beams, such as the DESY-II test beam, as the distortion increases towards lower energies.
 As the beam particles also interact with the air, an additional contribution to the amount of multiple scattering depending on the distance between sensor planes has to be considered. 
-At high-energy hadron beams, the contribution from multiple scattering can be neglected in general.
+At high-energy hadron beams, the contribution from multiple scattering can in general be neglected.
 
 \subsection{Measurements with DATURA}
 
-Measurements of the achievable resolution were performed in $2012$ to verify the performance of the $\Datura$ telescope, for different settings of beam energies, sensor SNR threshold and sensor spacing~\cite{ref:thomas}.
+Measurements of the achievable resolution were performed in $2012$ to verify the performance of the $\Datura$ telescope, for different settings of beam energies, sensor threshold and sensor spacing~\cite{ref:thomas}.
 The track residual distributions have been reconstructed as described in section~\ref{sec:datura-nodut}.
 By using each telescope plane as a DUT, equation~(\ref{eq:telescoperesolutionequation}) is modified under the assumption that $\sigmai = \sigma_{\textrm{DUT}} = \sigma_{\textrm{M26}}$,
  leading to
@@ -107,9 +106,9 @@ Images from~\cite{ref:thomas}.}
   \label{fig:residualexample1}
 \end{figure}
 
-with $k_5$ the geometrical scaling factor for a telescope consisting of five planes.
-Figure~\ref{fig:residualexample1} shows an example of unbiased residual distributions for a telescope sensor spacing of $20\,\milli\meter$,
- a beam energy of $5\,\giga\electronvolt$ and a sensor SNR threshold setting of $6$.
+with $k_5$ being the geometrical scaling factor for a telescope consisting of five planes.
+Figure~\ref{fig:residualexample1} shows an example of unbiased residual distributions for a telescope sensor spacing of $\dz = 20\,\milli\meter$,
+ a beam energy of $5\,\giga\electronvolt$ and a sensor threshold setting of $6$.
 The distributions are fitted with a Gaussian, from which the residual width $\sigma_{\textrm{meas}}$ is determined.
 It is noted, that the residuals feature non-Gaussian tails, as is expected from the underlying physics of the scattering mechanism~\cite{ref:PDG-2014}. 
 The measured resolution used in this work is defined as the width of a Gaussian fit on the centre $90\,\%$ of the residuals. 
@@ -133,52 +132,51 @@ This is expected due to the fact that the track extrapolation to the inner senso
 % \label{fig:residualexample2}
 % \end{figure}
 
-By using a $\chi^{2}$ minimisation method, as shown in~\cite{ref:eudetmemo_2007_01}, which in turn is based on~\cite{ref:lutzpaper}, the intrinsic resolution of the $\Mimosa$ telescope sensors is calculated from the unbiased residual widths. For each telescope sensor dimension, the individual contribution $\Delta \chi^2_{i}$ from plane $i$ is defined as:
+By using a $\chi^{2}$ minimisation method~\cite{ref:eudetmemo_2007_01,ref:lutzpaper}, the intrinsic resolution of the $\Mimosa$ telescope sensors is calculated from the unbiased residual widths.
+For each telescope sensor dimension, the individual contribution $\Delta \chi^2_{i}$ from plane $i$ is defined as
 
 \begin{equation}
 \label{eq:chi2contrib}
 \Delta \chi^2_{i} = \left( \frac{y_{i} - p_{i}}{\sigmai} \right)^2 \Bigg|_{i \ne i_{\textrm{DUT}}} +
-\left( \frac{\theta_{\textrm{i}} - \theta_{i-1}}{\Theta_{i}} \right)^2 \Bigg|_{i \ne 0,N} \,,
+\left( \frac{\theta_{\textrm{i}} - \theta_{i-1}}{\Theta_{0}} \right)^2 \Bigg|_{i \ne 0,N-1} \,,
 \end{equation}
 
-with the telescope plane numbering beginning at $0$.
+with the telescope plane numbering beginning at zero.
 The measured hit position is denoted by $y_{i}$, the position extrapolated from the track by $p_{i}$.
 The angles between the nominal beam direction and the track direction are $\theta_{i-1}$ and $\theta_{i}$.
 The former is the track angle entering plane $i$, the latter the angle of the outbound track segment.
-$\sigmai$ and $\Theta_{i}$ are the intrinsic resolution of sensor plane $i$ and the width of the multiple scattering distribution, according to equation~(\ref{eq:multiplescattering}), respectively.
-In the following, it is assumed that $\sigmai$ does not differ between planes and is also equal for both measurement dimensions.
-If the beam axis is denoted by $z$, then $\theta_i$ can be expressed as:
+$\sigmai$ and $\Theta_{0}$ are the intrinsic resolution of sensor plane $i$ and the width of the multiple scattering distribution, according to equation~(\ref{eq:multiplescattering}), respectively.
+It is assumed that $\sigmai$ and $\Theta_{0}$ do not differ between planes and that $\sigmai$ is also equal for both measurement dimensions.
+If the beam axis is denoted by $z$, then $\theta_i$ can be expressed as
 
 \begin{equation}
 \theta_i = \frac{p_{i+1} - p_i}{z_{i+1} - z_i} \,.
 \end{equation}
 
 
-In equation~\ref{eq:chi2contrib} the first term, resulting from the hit measurement, is not included in the $\chi^2$ calculation if the plane concerned is the DUT.
-Similar, for the first and last planes the second term in equation~\ref{eq:chi2contrib} is omitted, since the scattering angle can not be determined.
+In equation~(\ref{eq:chi2contrib}) the first term, resulting from the hit measurement, is excluded in the $\chi^2$ calculation if the considered plane is the DUT.
+Similar, for the first and last planes the second term in equation~(\ref{eq:chi2contrib}) is omitted, since the scattering angle can not be determined.
 This results in the global $\chi^2$ expression:
 
 \begin{equation}
 \label{eq:globalchi2}
 \chi^2 = \sum_{i=0}^{N} \alpha_i \left( y_i - p_i \right)^2 + \sum_{i=1}^{N-1}
-\left( \frac{p_{i + 1} \beta_i + p_{i-1} \beta_{i-1} - p_i \left( \beta_i + \beta_{i-1} \right)}{\Theta_i} \right)^2 \,,
+\left( \frac{p_{i + 1} \beta_i + p_{i-1} \beta_{i-1} - p_i \left( \beta_i + \beta_{i-1} \right)}{\Theta_0} \right)^2 \,,
 \end{equation}
 
-with coefficients $\alpha_i$ and $\beta_i$ defined as~\cite{ref:eudetmemo_2007_01}:
+\noindent
+with coefficients $\alpha_i$ and $\beta_i$ defined as~\cite{ref:eudetmemo_2007_01}
 
 \begin{equation}
-\begin{aligned}
-\alpha_i &= \left\{
+\alpha_i = \left\{
   \begin{array}{l l}
     \sigma_{i}^{-2} & \quad \text{for $i \neq i_{\textrm{DUT}}$}\\
     0 & \quad \text{for $i = i_{\textrm{DUT}}$}
-  \end{array} \right. \\
-\beta_i &= \frac{1}{z_{i + 1} - z_i} \,.
-\end{aligned}
+  \end{array} \right. \quad \text{and} \quad \beta_i = \frac{1}{z_{i + 1} - z_i} \,.
 \end{equation}
 
-The minimum of equation~\ref{eq:globalchi2} is then calculated to find the intrinsic sensor resolution $\sigma_i = \sigmai$.
-The results for both a tighter plane spacing of $20\,\milli\meter$ and a wider spacing of $150\,\milli\meter$ are shown in figure~\ref{fig:smiley}.
+The minimum of equation~(\ref{eq:globalchi2}) is then calculated to find the intrinsic sensor resolution $\sigmai$.
+The results for both a tighter plane spacing of $\dz = 20\,\milli\meter$ and a wider spacing of $dz = 150\,\milli\meter$ are shown in figure~\ref{fig:smiley}.
 In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed.
 The calculated intrinsic resolution $\sigma_{\textrm{M26}} = \sigmai$ of the $\Mimosa$ sensors is \allowbreak$\left( 3.42\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$
  for a plane spacing of $\textrm{d}z =  20\,\milli\meter$ and $\left( 3.44\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$ for $\textrm{d}z = 150\,\milli\meter$.
@@ -192,7 +190,7 @@ thick Kapton foil on either side of each sensor.
 The particle energy initially assumed prior to minimisation is the nominal beam energy.
 
 \item The intrinsic resolution $\sigmai$ of all sensor planes is assumed to be equal.
-As the discriminator SNR thresholds are set for subframes of each plane individually, however, this is not necessarily true.
+As the discriminator thresholds are set for subframes of each plane individually, this is not necessarily true.
 %Figure~\ref{fig:resivsenergy_thresh} shows the dependence of $\sigmai$ on the applied SNR threshold.
 
 \end{itemize}
@@ -211,7 +209,7 @@ As the discriminator SNR thresholds are set for subframes of each plane individu
    and $\dz = 150\,\milli\meter$ (B) plane spacing.
   Dotted and dashed lines indicate the predicted measurements, if a different intrinsic resolution is assumed.
   The black line shows the calculated intrinsic telescope sensor resolution, the green band the measurement variance.
-  For both telescope geometries, data was taken at a sensor SNR threshold setting of $6$ and with $5\,\giga\electronvolt$ electrons at DESY-II.
+  For both telescope geometries, data was taken at a sensor threshold setting of $6$ and with $5\,\giga\electronvolt$ electrons at DESY-II.
   Images from~\cite{ref:thomas}.}
   \label{fig:smiley}
 \end{figure}
@@ -219,7 +217,7 @@ As the discriminator SNR thresholds are set for subframes of each plane individu
 Figure~\ref{fig:resivsenergy_thresh} (A) shows the calculated intrinsic telescope sensor resolution $\sigmai$ for different beam energies and plane distances as a function of applied sensor threshold.
 The minimum of $\sigmai$ is reached for a threshold setting of $6$.
 The measured residual width for wider sensor spacings or lower beam energies is higher as can be seen in figure~\ref{fig:smiley}.
-These effects are accounted for in equation~(\ref{eq:telescoperesolutionequation}) by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$.
+These effects are described in equation~(\ref{eq:telescoperesolutionequation}) by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$.
 Measurements by Behr\,\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$.\\
 
 
@@ -243,8 +241,8 @@ In both images, taken from~\cite{ref:thomas}, values are shifted on the $x$ axis
 
 The threshold applied to each telescope sensor is a critical parameter for the telescope performance.
 A higher threshold cuts into the signal, reducing the amount of clusters found on each plane and thus limiting the number of reconstructible tracks.
-This reduces sensor efficiency.
-A lower threshold allows for an increasing number of noise induced signals to be pass the zero-supression on the chip.
+This reduces the sensor efficiency.
+A lower threshold allows for an increasing number of noise induced signals to pass the zero-supression on the chip.
 This leads to a broadening of the residual distributions and hence a worse resolution. 
 %Figure~\ref{fig:effi} shows the efficiency distribution over a sensor plane.
 The efficiency is defined as the ratio of reconstructed tracks that have at least one hit on the DUT within $100\,\micro\meter$ to the overall number of tracks.
@@ -257,7 +255,7 @@ In figure~\ref{fig:resivsenergy_thresh} (B) the efficiency dependence on the sen
 Efficiencies are averaged over all six sensor planes and both spatial coordinates, resulting in negligible statistical errors. 
 In all cases, the efficiency is above $98\,\%$ up to a threshold of $7$.
 With increasing threshold, the efficiency declines until an efficiency of $86\,\%$ at $\noise = 12$ is reached.
-The difference between energy and plane spacings stems from multiple scattering and increased telescope resolution.
+The difference between in efficiency for different energies and for different plane spacings stems from multiple scattering and increased telescope resolution.
 
 %\begin{figure}[tbp]
 %  \centering
