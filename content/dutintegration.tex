@@ -1,12 +1,31 @@
+%mechanic
+Mechanically, a DUT can be integrated into the DESY-type beam telescope at various positions. 
+However, a micrometer precision $xy\phi$-stage, placed between the up- and downstream arm, is available for translation over the acceptance region and rotation of the DUT~\cite{Mimosa-twiki}.
+At this position, the maximum DUT size is 500\,mm.
 
-DUTs are integrated the same way as the telescope itself using either the RJ45 or the LEMO interface. 
-An $xy\upphi$-stage is available for translation over the acceptance region and rotation of the DUT. 
-The maximum DUT size when placed between the telescope arms is 500\,mm ?!.
-was noch ?
-Take note, that if straight line fitting is used, the inclusion of downstream planes might significantly deteriorate the unbiased residual widths,
- as kinks at the possibly thick DUT --- and also at the $\Mimosa$ planes themselves --- are not allowed for in the fit.
+%trigger and daq sw
+User DAQ systems are integrated the same way as the beam telescope DAQ itself using either the RJ45 or the LEMO interface, cf.~section~\ref{sec:tdaq}.
+All integrated systems use the same handshake mode.
+Therefore, all systems have to de-assert their busy before the next trigger is issued in case the simple or the normal handshake mode is employed. 
+For the integration of the DUT data stream with EUDAQ, a producer capable of receiving commands by the Run Control and sending data to the $\eudaq$ Data Collector is necessary,
+ as described in section~\ref{sec:eudaq}.
+A dedicated alignment run prior to the installation of the DUT is advantageous during the data reconstruction, especially for larger $\epsdut$.
+
+%eutelescope
+The data stemming from the alignment run is used for the alignment of the telescope planes in the early stage of the reconstruction. 
+With a proper alignment at hand, runs including a DUT are to be analysed subsequently in order to align the DUT with respect to the beam telescope. 
+The reconstructed tracks are then used to characterise the DUT, i.e.\ measure its intrinsic resolution or its detection efficiency. 
+
+With increasing $\epsdut$, and thus multiple scattering within the DUT, the choice of the tracking processor needs further consideration. 
+In general, a GBL fit produces tracks with a lower $\chi^2$ compared to straight line fits,
+ as kinks at the possibly thick DUT and also at the $\Mimosa$ planes themselves are not allowed for in the straight line fit.
 Therefore, using GBL for track fitting is recommended. 
-If straight line fitting is used nonetheless, a fit using the upstream planes only might result in a better unbiased residual width, compared to a fit that includes the downstream planes.
-However, in a narrow \textit{user} configuration using a 5\,GeV beam, the pointing resolution at the DUT using GBL is $1.83\,\upmu\meter$, compared to more than $3.88\,\upmu\meter$ using only the upstream planes.
-N.B., that in later case, the optimal plane distance is a wide configuration with $\dz = 150\,\milli\meter$.
+% The inclusion of downstream planes using straight line fits might significantly deteriorate the resolution,
+If straight line fitting is used nonetheless, a fit using only the upstream planes might result in a narrower unbiased residual width, compared to a fit that includes the downstream planes. 
+This is due to a bias of the extrapolated tracks at the DUT by the downstream planes after passing traversing material. 
+For comparison, in a narrow \textit{user configuration} using a 5\,GeV electron/positron beam, the pointing resolution of the DESY-type beam telescope at the DUT using GBL is $1.83\,\upmu\meter$. 
+The optimal configuration using only the upstream planes is a wide configuration with $\dz = 150\,\milli\meter$,
+ and the achievable pointing resolution is above $3.88\,\upmu\meter$. 
+Hence, using only the upstream planes deteriorates the resolution by more than $2\,\upmu\meter$.
+
 A web tool comprising compatible results in comparison with the GBL calculations is available~\cite{webtool}.

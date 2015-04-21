@@ -2,24 +2,21 @@
 %Test beam measurements with high precision pixel beam telescopes have proven to be a versatile tool for a wide range of semiconductor sensor studies. 
 %Among other beam telescopes, also the DESY-type beam telescopes are used as a key ingredient for many sensors R\&D projects. 
 
-The highly flexible and versatile DESY-type beam telescopes come with a complete data acquisition system, a Trigger Logic Unit with time stamping capabilities
- and a clearly defined interface for an integration of user data acquisition systems.
-It also provides the powerful software packages $\eudaq$, a modular data acquisition framework, and $\EUTelescope$ for data analysis. 
-% to intro X users used a DESY-type beam telescopes only in 2013 for a total of n weeks alone at the DESY-II test beam areas. 
-This work the performance of the  DESY-type beam telescopes has been investigated. 
-At 5\,GeV beam energy, a measured unbiased residual width of $(3.96 \pm 0.03)\,\upmu\meter$ is achievable
- and the intrinsic resolution of the $\Mimosa$ sensors have been measured to $(3.43 \pm 0.03)\,\upmu\meter$.
-General Broken Lines calculations predict a pointing resolution of $1.89\,\upmu\meter$ on the DUT in a \textit{five planes plus DUT} configuration with 20\,mm plane spacing,
- which well agrees wit a measured pointing resolution of $(1.94 \pm 0.08)\,\upmu\meter$.
+This work the DESY-type beam telescopes have been described and their performance has been investigated. 
+The highly flexible and versatile DESY-type beam telescopes come with a Trigger Logic Unit with time stamping capabilities and a clearly defined interface for an integration of user data acquisition systems.
+It is complemented by a data acquisition system for the telescope planes, and the powerful software packages $\eudaq$ and $\EUTelescope$
+ ---  a modular data acquisition framework and an offline reconstruction software, respectively. 
+At a 5\,GeV electron/positron beam, a measured unbiased residual width of $(3.96 \pm 0.03)\,\upmu\meter$ is achievable
+ and the intrinsic resolution of the $\Mimosa$ sensors have been measured to be $(3.43 \pm 0.03)\,\upmu\meter$.
+General Broken Lines calculations predict a pointing resolution of $1.89\,\upmu\meter$ on the DUT in a \textit{five planes plus DUT (gauge) configuration} with 20\,mm plane spacing,
+ which agrees well with a measured pointing resolution of $(1.94 \pm 0.08)\,\upmu\meter$.
 
-A continuous development is ongoing to upgrade and enhance the data acquisition system itself, and also the data acquisition and analysis framework.  
-The maximum achievable rate will be increased by the successor of the TLU, allowing for a trigger rate of up to 1\,MHz.
+Continuous development efforts are ongoing to upgrade and enhance the Trigger Logic Unit, the data acquisition system, and offline reconstruction framework.  
+The maximum achievable rate will be increased by the successor of the TLU. 
+A quad plane comprising four Mimosa\,28 planes will enlarge the acceptance window. 
 %This is only possible with the implementation of parallel data streams for the telescope planes and the DUT, which will be available with \eudaq\,{2.0},
 % which will incorporate a new event format supporting multiple triggers per $\Mimosa$ read-out frame. 
- A new data format will support multiple triggers per mimosa read-out frame facilitating asynchronous data acquisition. 
-The development of the $\EUTelescope$ analysis software is driven by the large and diverse user community. 
-Features currently under development include tracking in magnetic fields and more accurate detector geometry descriptions. 
-
 Future versions of \eudaq\ will provide support for asynchronous data streams allowing to operate certain devices at a much higher trigger frequency than others
  and thus making full use of the the beams available in the various beam lines.
-
+The development of the $\EUTelescope$ analysis software is driven by the large and diverse user community. 
+Features currently under development include tracking in magnetic fields and more accurate detector geometry descriptions. 
