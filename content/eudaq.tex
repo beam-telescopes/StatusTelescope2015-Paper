@@ -1,17 +1,29 @@
 
-The flexible and modular cross platform data acquisition framework \eudaq\ has been designed and implemented to serve as data taking software for the DESY-type telescopes and other devices. It consist of completely independent modules such as Run Control, Data Collector and Producers described below. The communication between individual modules is implemented as TCP/IP which allows for running them on separate machines, only linked by an Ethernet network.
+The modular cross platform data acquisition framework \eudaq~\cite{ref:eudaqwebsite} has been designed and developed to serve as flexible and simple to use data taking software for the DESY-type telescopes, allowing easy integration of other devices. 
+It consist of completely independent modules communicating via TCP/IP enabling a distributed data acquisition with modules running on separate machines. 
+Currently, \eudaq\ is designed for synchronous DAQ systems requiring one event per trigger per attached subdetector system before building the global event. 
+Thus, the trigger rate is always limited by the slowest device.
 
-\eudaq\ is a synchronous DAQ system requiring one event per trigger per attached subdetector system before building the global event. Thus, the trigger rate is always limited by the slowest device.
+The central interaction point for users with the framework is the Run Control and its graphical user interface (GUI). 
+All other modules connect to the Run Control at startup and receive additional information from there during operation such as the commands for starting and stopping a DAQ run. 
+The GUI provides all controls necessary to the user on shift. 
+Another important user interface is the Log Collector, gathering logging information from all modules displaying them in one unified logging window. 
+Log files are stored with recorded data files for later reference.
 
-The central interaction point for users is the Run Control and its graphical user interface (GUI). All producers connect to the Run Control at startup and get additional information from there during operation (such as the commands for starting and stopping a DAQ run). The GUI provides all controls necessary to the user on shift. 
+The actual detector data is delivered to the framework by so-called Producers.
+Producers are the links between the EUDAQ framework and the subdetector systems such as the telescope, the TLU, or the user DAQ system.
+They interface with the EUDAQ library and provide a set of commands to be called by the Run Control. This simple interface scheme eases the integration of user DAQ systems into the software framework.
+The data read out from the detectors by the individual producers is sent to the so-called Data Collector. This Data Collector is repsonsible for the event building, i.e.\ the correlation of events from all subdetector systems to single global events comprising all data belonging to one trigger. Basic sanity checks such as the event numbers from the individual subdetectors are executed.
 
-Producers are the links between the EUDAQ framework and the subdetector systems such as the telescope, the TLU, or the user DAQ system. They interfaces with the EUDAQ library and have to provide a certain set of functions to be called by the Run Control. The data read out form user DAQ systems by the individual producer is sent to the so-called Data Collector. This Data Collector is repsonsible for the event building, i.e.\ the correlation of events from all subdetector systems to single global events comprising all data belonging to one trigger. Basic sanity checks such as the event numbers from the individual subdetectors are executed.
+To ensure data quality during data acquisition the Online Monitor tool is avaliabe. It connects to the Data Collector requesting a fixed fraction of the recorded events (e.g.\ one out of a hundered) to fully decode all subdetector data and build basic plots such as hit maps or correlation plots showing that the different devices are synchronized in time and are all within the geometrical trigger acceptance.
 
-In order to ensure data quality during data acquisition the Online Monitor tool is avaliabe. It connects to the Data Collector requesting some of the recorded events (e.g.\ one out of a hundered) to fully decode all subdetector data and build basic plots such as hit maps or correlation plots showing that the different devices are synchronized in time and are all within the geometrical trigger acceptance.
+The data decoding is done using Data Converter plugins for every detector type attached to the Run Control. 
+The plugin to be called for a specific sub event can be deducted from the event type transmitted by the producer and written to the data stream by the Data Collector. Each Data Converter plugin can implement several data format end points to allow e.g.\ the conversion to an internal EUDAQ format for the Online Monitor, to simple ROOT trees, or to LCIO which is used by the offline reconstruction software described in the following section.
 
-The data decoding is done using Data Converter plugins for every detector type attached to the Run Control. The plugin to call can be deducted from the event type transmitted by the producer and written to the data stream by the Data Collector. Each Data Converter plugin can implement several data format end points to allow e.g.\ both the conversion to an internal EUDAQ format for the Online Monitor, and to LCIO which is used by the offline reconstruction software described in the following section.
-
-The configuration parameters for every producer are read from a global configuration file by EUDAQ and distributed to the producers. The configuration file is a plain text file which contains one section for each producer. Each sections consists of tag-value pairs for the configuration of this producer. The full content of the configuration file including comment lines is stored in the so-called Begin-Of-Run Event (BORE) and is thus available later for offline analysis and reference. This greatly simplifies logging during test beam shifts since all parameters such as chip settings are stored automatically.
+Configuration of the data acquisition framework is performed via global configuration files. 
+The information for every individual module is parsed and distributed by the Run Control. 
+The configuration file is a plain text file divided into sections for the individual modules, which contain a list of parameter-value pairs defined by the module.
+The full content of the configuration file including commented lines is stored in the so-called Begin-Of-Run Event (BORE) of every run and is thus available later for offline analysis and reference. This greatly simplifies book keeping of detector parameters during test beam shifts since all settings are stored automatically.
 
 
 Future versions of \eudaq\ will provide support for asynchronous data streams allowing to operate certain devices at a much higher trigger frequency than others and thus making full use of the the beams available in the various beam lines.
