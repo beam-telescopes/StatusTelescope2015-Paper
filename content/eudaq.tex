@@ -21,7 +21,7 @@ It connects to the Data Collector requesting some of the recorded events (e.g.\ 
  to fully decode all subdetector data and build basic plots such as hit maps or correlation plots showing
   that the different devices are synchronized in time and are all within the geometrical trigger acceptance.
 
-The data decoding is done using Data Converter plugins for every detector type attached to the Run Control. 
+The data decoding is done using Data Converter plug ins for every detector type attached to the Run Control. 
 The plug-in to call can be deducted from the event type transmitted by the producer and written to the data stream by the Data Collector. 
 Each Data Converter plug-in can implement several data format end points to allow e.g.\ both the conversion to an internal EUDAQ format for the Online Monitor,
  and to LCIO which is used by the offline reconstruction software described in the following section.
