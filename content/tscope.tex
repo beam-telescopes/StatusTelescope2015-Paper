@@ -69,8 +69,8 @@ The TLU, based on a commercial Spartan\,3 board, features a coincidence unit wit
 Additionally, it is equipped with several custom-made add-on PCBs allowing for an easy integration of user DAQ systems. 
 Providing a programmable logic, the TLU  takes a trigger decision and distributes the trigger signal to all DAQ systems.
 As interface to the beam telescope DAQ and other DUTs, the TLU provides RJ45 connectors with four LVDS pairs carrying the trigger clock, the busy line, the reset line, and a trigger line. 
-The data clock and the busy line are inputs to the TLU, whereas the reset and the trigger line are outputs. 
-Also a LEMO interface is available accepting busy, reset, and trigger. 
+The data clock and the busy line are inputs to the TLU, whereas the reset and the trigger line are outputs. In addition, a LEMO interface is available providing trigger output and inputs for the busy and reset signals.
+
 The TLU accepts a busy signal from each integrated device individually halting the issue of the next trigger if the busy signal is high. 
 The handling of the trigger/busy signals can be done in three handshake modes, one being the ``no-handshake'' mode,
  in which the TLU issues a fixed-length pulse on the trigger line with the busy line being disregarded. 

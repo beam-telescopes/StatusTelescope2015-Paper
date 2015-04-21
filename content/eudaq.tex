@@ -1,144 +1,17 @@
 
-\newcommand{\subeventtype}{Sub-Event-Type }
-\newcommand{\tcp}{TCP/IP }
-\newcommand{\dataconverterplugin}{Data-Converter-Plugin }
-\newcommand{\eventid}{Event-ID }
-\newcommand{\cpp}{C++ }
-\newcommand{\producer}{producer }
-\newcommand{\eventtype}{Event-Type }
-\newcommand{\event}{Event }
-\newcommand{\eventheader}{Event-Header }
-\newcommand{\timestamp}{Time-Stamp }
-\newcommand{\rawdata}{Raw-Data }
-\newcommand{\datablock}{Data-Block }
-\newcommand{\da}{Data-Acquisition }
-\newcommand{\dc}{Data-Collector }
-\newcommand{\onlinemon}{Online-Monitor }
-\newcommand{\hitmaps}{Hit-Maps }
-\newcommand{\corplots}{Correlation-Plots }
-\newcommand{\offlineana}{Offline-Analysis }
-\newcommand{\filewriter}{File-Writer }
-\newcommand{\rc}{Run-Control }
-\newcommand{\testrc}{TestRunControl }
-\newcommand{\logcollector}{Log-Collector }
+The flexible and modular cross platform data acquisition framework \eudaq\ has been designed and implemented to serve as data taking software for the DESY-type telescopes and other devices. It consist of completely independent modules such as Run Control, Data Collector and Producers described below. The communication between individual modules is implemented as TCP/IP which allows for running them on separate machines, only linked by an Ethernet network.
+
+\eudaq\ is a synchronous DAQ system requiring one event per trigger per attached subdetector system before building the global event. Thus, the trigger rate is always limited by the slowest device.
+
+The central interaction point for users is the Run Control and its graphical user interface (GUI). All producers connect to the Run Control at startup and get additional information from there during operation (such as the commands for starting and stopping a DAQ run). The GUI provides all controls necessary to the user on shift. 
+
+Producers are the links between the EUDAQ framework and the subdetector systems such as the telescope, the TLU, or the user DAQ system. They interfaces with the EUDAQ library and have to provide a certain set of functions to be called by the Run Control. The data read out form user DAQ systems by the individual producer is sent to the so-called Data Collector. This Data Collector is repsonsible for the event building, i.e.\ the correlation of events from all subdetector systems to single global events comprising all data belonging to one trigger. Basic sanity checks such as the event numbers from the individual subdetectors are executed.
+
+In order to ensure data quality during data acquisition the Online Monitor tool is avaliabe. It connects to the Data Collector requesting some of the recorded events (e.g.\ one out of a hundered) to fully decode all subdetector data and build basic plots such as hit maps or correlation plots showing that the different devices are synchronized in time and are all within the geometrical trigger acceptance.
+
+The data decoding is done using Data Converter plugins for every detector type attached to the Run Control. The plugin to call can be deducted from the event type transmitted by the producer and written to the data stream by the Data Collector. Each Data Converter plugin can implement several data format end points to allow e.g.\ both the conversion to an internal EUDAQ format for the Online Monitor, and to LCIO which is used by the offline reconstruction software described in the following section.
+
+The configuration parameters for every producer are read from a global configuration file by EUDAQ and distributed to the producers. The configuration file is a plain text file which contains one section for each producer. Each sections consists of tag-value pairs for the configuration of this producer. The full content of the configuration file including comment lines is stored in the so-called Begin-Of-Run Event (BORE) and is thus available later for offline analysis and reference. This greatly simplifies logging during test beam shifts since all parameters such as chip settings are stored automatically.
 
 
-Pasting  from other another section:\\
-
-The software integration of the DAQ systems and the TLU, together with a run control GUI, logging, data storing, and online monitoring systems are provided within the EUDAQ framework.
-The design of the TLU and of EUDAQ explicitly requires each DAQ system to issue a data packet readout by its detector electronics, and send it to a central data collector. 
-This scheme results in only one EUDAQ event per trigger signal issued by the TLU, with no subsequent triggers recorded until all DAQ systems indicate to the TLU their availability to accept new triggers.
-Therefore, within this DAQ architecture the overall trigger rate of the DAQ system is limited by the slowest readout cycle,
- which in practical applications leads to a maximum rate of few thousand particles per second. 
-Due to actual spill structures and duty cycles of the different available beam lines, the reachable trigger rate is also dependent on machine parameters. \\
-
-\eudaq serves as a tool set and an integration layer for the user DAQ system(s), providing the communication protocols for them to participate in a common DAQ. 
-
-
-The functionality is contains three separated areas. 
-
-- Data-Acquisition
-- Data-Quality-Monitoring 
-- Data Conversion (LCIO)
-
-\subsection{Data-Acquisition}
-
-
-\eudaq is a modular cross platform data Acquisition System designed in the context of the \eudet project. 
-It consist of completely independent modules such as \rc, \logcollector, \dc and \producer. 
-The communication between individual modules is done via \tcp therefore it is possible to run each module on a separate PC. 
-
-
-\begin{figure}[tb]
-	\center
-	\includegraphics[width=.55\textwidth]{figures/eudaq}
-	\includegraphics[width=.38\textwidth]{figures/rawdataevent.png}
-	\caption[DAQ_System]{(A) Hardware and software layout of the DAQ system. (B) \rawdataevent}
-	\label{fig:todo}
-\end{figure}
-
-% \begin{figure}[tb]
-% 	\center
-% 	
-% 	\caption[DAQ_System]{\rawdataevent}
-% 	\label{fig:todo}
-% \end{figure}
-
-
-% RunControl
-The \rc is the central point for human interactions. 
-From it the producer are configured, started, stopped and terminated. 
-Currently there are two implementation of the \rc one command line version called \testrc and one GUI version Called euRun. 
-Both have the about same functionality. The \testrc is scriptable which allows the users to run fully automated. 
-
-% Log collector 
-The \logcollector receives all status/error messages that are produced by any of the \producer. 
-It has the possibility to filter for different warning levels. 
-
-%data Collector 
-The \dc has a direct connection do all the producer. 
-\eudaq 1.x is an event based DAQ system, therefore the \dc expects that all \producer send one \event per trigger that they have received from the TLU. 
-And that all events from different \producer share a common trigger number by which they get merged into one container event called Detector-Event. 
-The \dc has the possibility to do some basic sanity checks on the events like event number mismatch. 
-The \dc is able to handle unknown event types, therefore it is possible to run a new \producer with an old \dc. It is not necessary to recompile the \dc to tun it with a new \producer. 
-
-%producer 
-The \producer handles the communication between the \eudaq framework and the user DAQ system. 
-The user has to write its own \producer class which inherits from the abstract class producer. 
-This base class encapsulates the \tcp communication. The \producer has three states: unconfigured, configured and running. 
-The \producer packs the data readout by the users DAQ system in an \eudaq \event and sends it over \tcp to the \dc. 
-
-%data converter plugin 
-The \dataconverterplugin is used to convert the \rawdata send by the \producer to hit information. 
-
-
-%config files 
-The configuration file is a plain text file which contains a section for each producer. 
-Each sections contains tag-value pairs for the configuration of the producer. 
-Sections for producer that are currently not connected are ignored. 
-
-% Event format 
-The idea behind the \event class in \eudaq is that the it is used as data container with only a very limited set of functionality. 
-All the advanced functionality is part of the \dataconverterplugin. 
-The basic \event type that is used for user's data is the \rawdataevent. 
-Its structure is shown in figure ??. It consist of an \eventheader and a \datablock. 
-
-% Event header 
-In the \eventheader the \eventtype is stored. 
-The \eventtype is used to determine which \dataconverterplugin to call for the this \event. 
-The \eventtype consist of two part the \eventid and the \subeventtype. 
-The \eventid indicates the \cpp class. 
-The \subeventtype is used to uniquely identify the \event. 
-It is set in the \producer by the user. 
-In the \eventheader is also a field to store flags to indicate some speciality of this \event. 
-This can for example be the information if it is a Begin-Of-Run-Event (BORE) or End-Of-Run-Event (EOFE). 
-In addition the \eventheader can store a \timestamp. 
- 
-%event body
-The \datablock contains the \rawdata from the detector. The serialization/de-serialization is the users responsibility. 
-\eudaq provides some functionality for this but the user is free to use its own more elevated mechanisms. 
- 
-
-\subsection{Data-Quality-Monitoring}
-
-\eudaq has basic functionality to check during the run the quality of the data. 
-One is that already the \dc checks if the data arrive in the right order and checks for possible mismatches. 
-The second more elevated mechanisms is the \onlinemon, which collects during run the data from the \dc and produces \hitmaps and \corplots
-In addition this  plots can also be saved in a ROOT file. 
-To make this work the \onlinemon needs to have the \dataconverterplugin for all devices in use. 
-The \onlinemon can also run offline using files on disk.
-
-
-\subsection{Data-Conversion}
-For the \offlineana it is necessary to convert the data from the RAW format \eudaq uses internally to a format that is use by the reconstruction software the user uses for their analysis. 
-\eudaq gives the possibility to implement user specific \filewriter. 
-Among many others the \filewriter which are most important at the moment are the following three 
-
-- Plain text
-- ROOT TTRee 
-- LCIO 
-
-
-
-
-
+Future versions of \eudaq\ will provide support for asynchronous data streams allowing to operate certain devices at a much higher trigger frequency than others and thus making full use of the the beams available in the various beam lines.
