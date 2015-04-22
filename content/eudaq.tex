@@ -1,7 +1,7 @@
 
-The modular cross platform data acquisition framework \eudaq~\cite{ref:eudaqwebsite} has been designed and developed to serve as flexible and simple to use data taking software for the DESY-type telescopes,
- allowing easy integration of other devices. 
-It consist of completely independent modules communicating via TCP/IP enabling a distributed data acquisition with modules running on separate machines. 
+The modular cross platform data acquisition framework \eudaq~\cite{ref:eudaqwebsite} has been designed and developed to serve as flexible and simple to use data taking software for the DESY-type beam telescopes,
+ allowing for easy integration of other devices. 
+It consists of completely independent modules communicating via TCP/IP enabling a distributed data acquisition with modules running on separate machines. 
 Currently, \eudaq\ is designed for synchronous DAQ systems requiring one event per trigger per attached subdetector system before building the global event. 
 Thus, the trigger rate is always limited by the slowest device.
 
@@ -12,7 +12,7 @@ Another important user interface is the Log Collector, gathering logging informa
 Log files are stored with recorded data files for later reference.
 
 The actual detector data is delivered to the framework by so-called Producers.
-Producers are the links between the EUDAQ framework and the subdetector systems such as the telescope, the TLU, or the user DAQ system.
+Producers are the links between the EUDAQ framework and the subdetector systems such as the beam telescope, the TLU, or user DAQ systems.
 They interface with the EUDAQ library and provide a set of commands to be called by the Run Control. 
 This simple interface scheme eases the integration of user DAQ systems into the software framework.
 The data read out from the detectors by the individual producers is sent to the so-called Data Collector. 
@@ -21,11 +21,12 @@ Basic sanity checks such as the event numbers from the individual subdetectors a
 
 To ensure data quality during data acquisition the Online Monitor tool is avaliabe. 
 It connects to the Data Collector requesting a fixed fraction of the recorded events (e.g.\ one out of a hundered) to fully decode all subdetector data
- and build basic plots such as hit maps or correlation plots showing that the different devices are synchronized in time and are all within the geometrical trigger acceptance.
+ and build basic plots such as hit maps or correlation plots.
+Thereby, data quality monitoring verifying that the different devices are synchronized in time and all within the geometrical trigger acceptance, is rendered possible.
 
-The data decoding is done using Data Converter plugins for every detector type attached to the Run Control. 
-The plugin to be called for a specific sub event can be deducted from the event type transmitted by the producer and written to the data stream by the Data Collector. 
-Each Data Converter plugin can implement several data format end points to allow e.g.\ the conversion to an internal EUDAQ format for the Online Monitor, to simple ROOT trees, or to LCIO
+The data decoding is done using Data Converter plug-ins for every detector type attached to the Run Control. 
+The plug-in to be called for a specific subevent is deducted from the event type transmitted by the Producer and written to the data stream by the Data Collector. 
+Each Data Converter plug-in can implement several data format end points to allow e.g.\ the conversion to an internal EUDAQ format for the Online Monitor, to simple ROOT trees, or to LCIO
  which is used by the offline reconstruction software described in the following section.
 
 Configuration of the data acquisition framework is performed via global configuration files. 
