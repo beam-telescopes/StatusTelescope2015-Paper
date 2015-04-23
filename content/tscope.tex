@@ -64,23 +64,24 @@ Likewise, the DUT's material budget is called $\epsdut$ and includes the DUT its
 \subsection{Trigger and DAQ system}
 \label{sec:tdaq}
 
-Four Hamamatsu PMT assemblies with scintillators and lightguides, two in front and two in the back of the telescope, define the spatial acceptance window for triggers. 
+Four Hamamatsu PMT assemblies with scintillators and lightguides, two in front and two in the back of the telescope, define the spatial acceptance for triggers. 
 The crossed scintillators on either side of the beam telescope define a rectangular acceptance window of $10\,\milli\meter \times 20\,\milli\meter$ matching the $\Mimosa$ acceptance area. 
 The TLU, based on a commercial Spartan\,3 board, features a coincidence unit with discriminator boards accepting up to four PMT inputs signals. 
 Additionally, it is equipped with several custom-made add-on PCBs allowing for an easy integration of user DAQ systems. 
 Providing a programmable logic, the TLU  takes a trigger decision based on its four input channels. 
-As interface to the beam telescope DAQ and other user DAQs, the TLU provides RJ45 connectors with four LVDS pairs carrying the trigger clock, the busy line, the reset line, and a trigger line. 
-The trigger clock and the busy line are inputs to the TLU, whereas the reset and the trigger line are outputs. 
+As interface to the beam telescope DAQ and other user DAQs, the TLU provides RJ45 connectors with four LVDS pairs carrying the trigger clock, busy line, reset line, and trigger line. 
+The trigger clock and the busy line are inputs to the TLU, whereas the reset and the trigger line are signals produced by the TLU. 
 The trigger signal is distributed to all DAQ systems on the trigger line. 
-A busy signal is accepted by the TLU from each integrated DAQ individually halting the issue of the next trigger if the busy signal is high. 
-The reset line transmits the signal to reset the timestamp counter.
-The rising edges of the trigger clock are used as clock enable for the shift register holding the trigger data. 
+A busy signal is accepted by the TLU from each integrated DAQ individually vetoing the issue of the next trigger if the busy signal is high. 
+More details are available in Ref.~\cite{TLU,EUDET-2007-20}.
+%The reset line transmits the signal to reset the timestamp counter.
+%The rising edges of the trigger clock are used as clock enable for the shift register holding the trigger data. 
 In addition, a LEMO interface is available providing trigger output and inputs for the busy and reset signals.
 
 The handling of the trigger/busy signals can be done in three handshake modes, one being the \textit{no-handshake mode},
  in which the TLU issues a fixed-length pulse on the trigger line with the busy line being disregarded. 
 In \textit{simple handshake mode}, the assertion of a trigger is replied by the integrated DAQ systems by asserting a signal on the busy line. 
-The TLU then de-asserts the trigger, and waits for busy going low on the busy line in order to be able to issue a subsequent trigger.
+The TLU then de-asserts the trigger, and waits for busy going low on the busy line.
 The \textit{normal handshake mode} uses the same scheme as in the \textit{simple handshake mode}, but additionally trigger data is transferred on the trigger line:
 After the trigger has been de-asserted, the trigger number is clocked out via this line. 
 
