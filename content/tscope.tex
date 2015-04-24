@@ -5,7 +5,7 @@ Figure\,\ref{fig:datura-tscope} shows the beam telescope with its sensor jigs, w
  sensor configuration, clock signals, and data transmission. 
 The planes are organised in two telescope arms holding three sensors each. 
 A DUT can be inserted between the arms or at either end of the beam telescope. 
-In the Cartesian, right-handed coordinate system chosen, the $x$-direction points horizontally and $z$-direction along the beam.
+In the Cartesian, right-handed coordinate system chosen, the $x$-direction points horizontally and the $z$-direction along the beam.
 
 \begin{figure}[tb]
 	\center
@@ -19,10 +19,10 @@ In the Cartesian, right-handed coordinate system chosen, the $x$-direction point
 \subsection{Sensors and mechanics}
 \label{sec:sensors}
 
-The $\Mimosa$ detectors used for precise spacial measurement of particle trajectories are manufactured with the 350\,nm CMOS technology. 
-Each $\Mimosa$ detector consists of pixels sized $\unit{18.4}{\upmu\meter} \times \unit{18.4}{\upmu\meter}$, which are arranged in 1152 columns and 576 rows.
+The $\Mimosa$ sensors used for precise spacial measurements of particle trajectories are manufactured with the 350\,nm CMOS technology~\cite{HuGuo2010480}. 
+Each $\Mimosa$ sensor consists of pixels sized $\unit{18.4}{\upmu\meter} \times \unit{18.4}{\upmu\meter}$, which are arranged in 1152 columns and 576 rows.
 This adds to a total of about four million readout channels covering an active area of about $\unit{10.6}{\milli\meter} \times \unit{21.1}{\milli\meter}$. 
-The $\Mimosa$ sensors have been thinned down to $\unit{50}{\upmu\meter}$ and are protected on each side by $\unit{25}{\upmu\meter}$ lightproof Kapton foil. 
+The $\Mimosa$ sensors have been thinned down to $\unit{50}{\upmu\meter}$ and are protected on each side by a $\unit{25}{\upmu\meter}$ lightproof Kapton foil. 
 Free charge carriers produced in the underlying \unit{14}{\upmu\meter} epitaxial layer are mainly collected via diffusion. 
 The binary resolution of $\unit{5.3}{\upmu\meter}$ can be improved by charge sharing, as will be shown in section~\ref{sec:trackres}.
 %With the rising industrial interest in high resistivity epitaxial silicon for CMOS detectors the production cost of improved noise and radiation hardness parameters
@@ -34,32 +34,32 @@ At this clock frequency, the $\Mimosa$ integration time equals $\unit{115.2}{\up
 The expected maximum rate of detectable particles through the active area estimates to be about $\unit{1}{\mega\hertz/\centi\meter^2}$ due to the limited on-chip buffer size. 
 The detection threshold is programmable via so-called JTAG files. 
 These provide configurations with different threshold levels in integer multiples $\noise$ of the RMS noise of the individual planes. 
-A sensor threshold setting of six therefore corresponds to a collected charge in a single pixel of at least six times the noise. 
-The average noise occupancy per read-out frame is measured to be smaller than $2\cdot10^{-5}$ at room temperature and a signal-to-noise threshold of six.
+A sensor threshold setting of $\noise = 6$ therefore corresponds to a collected charge in a single pixel of at least six times the noise. 
+At this threshold, the average noise occupancy is measured to be smaller than $2\cdot10^{-5}$ pixel per read-out frame at room temperature.
 
 Every pixel sensor is mounted within an aluminium jig, three jigs are in turn mounted on each of the two aluminium arms. 
 The jigs feature a beam window around the position of the sensor location, minimising the material budget. 
 The overall material of the beam telescope thus amounts to $\unit{300}{\upmu\meter}$ of silicon and $\unit{300}{\upmu\meter}$ of Kapton. 
 The two telescope arms, usually one up- and one downstream of the DUT, is movable along the direction of the beam in order to allow for variably sized DUTs to be fitted into the set-up. 
 The minimal distance between two sensors is given by the jig thickness of 20\,mm, the maximal distance is restricted by the length of the aluminium arms to 150\,mm at equidistant spacing.
-Furthermore, the jigs are cooled keeping the $\Mimosa$ sensors at a constant temperature allowing for stable operation.
+Furthermore, the jigs are cooled keeping the $\Mimosa$ sensors at a constant temperature for stable operation.
 The entire beam telescope is placed on a rotatable frame easing adjustment of its orientation parallel to the beam. 
 Additionally, this frame is mounted on a sturdy structure providing stability over time and wheels for easy transportation. 
+
+\begin{figure}[tb]
+	\center
+	\includegraphics[width=.9\textwidth]{figures/sketch_tscope4}
+	\caption[Sketch of the DESY-type telescope set-up]{Sketch of the DESY-type telescope set-up and its important parameters.
+	Planes 0 to 2 and planes 3 to 5 are referred to as upstream and downstream planes, respectively.}
+	\label{fig:datura_sketch}
+\end{figure}
 
 Important parameters are compiled in figure~\ref{fig:datura_sketch}. 
 The distance between $\Mimosa$ planes is denoted as $\dz$, the distance between the DUT and its nearest neighbouring $\Mimosa$ planes $\dzdut$. 
 The expression $\epsilon = \sum_i x_{i}/X_{0,i}$ defines the material budget of the scattering medium as the material thickness normalised to its radiation lengths,
  with values of $X_0 = 93.65\,\milli\meter$ for silicon, $X_0 = 3.042\cdot 10^{5}\,\milli\meter$ for dry air, and $X_0 = 285.6\,\milli\meter$ for Kapton, cf.~reference \cite{ref:x0values}.
 The material budget of a $\Mimosa$ plane including a protecting Kapton foil on each side is $\epsmimo = 7.1\cdot10^{-4}$. 
-Likewise, the DUT's material budget is called $\epsdut$ and includes the DUT itself and other material such as PCBs and cooling boxes.
-
-
-\begin{figure}[tb]
-	\center
-	\includegraphics[width=.9\textwidth]{figures/sketch_tscope4}
-	\caption[Sketch of the DESY-type telescope set-up]{Sketch of the DESY-type telescope set-up and its important parameters.}
-	\label{fig:datura_sketch}
-\end{figure}
+Likewise, $\epsdut$ represents the DUT's material budget which includes the DUT itself and other material such as PCBs and cooling boxes.
 
 \subsection{Trigger and DAQ system}
 \label{sec:tdaq}
@@ -72,21 +72,21 @@ Providing a programmable logic, the TLU  takes a trigger decision based on its f
 As interface to the beam telescope DAQ and other user DAQs, the TLU provides RJ45 connectors with four LVDS pairs carrying the trigger clock, busy line, reset line, and trigger line. 
 The trigger clock and the busy line are inputs to the TLU, whereas the reset and the trigger line are signals produced by the TLU. 
 The trigger signal is distributed to all DAQ systems on the trigger line. 
-A busy signal is accepted by the TLU from each integrated DAQ individually vetoing the issue of the next trigger if the busy signal is high. 
-More details are available in Ref.~\cite{TLU,EUDET-2007-20}.
+A busy signal is accepted by the TLU from each integrated DAQ individually vetoing subsequent triggers as long as the busy signal is high. 
+More details are available in Ref.~\cite{TLU,ref:TLUproc}.
 %The reset line transmits the signal to reset the timestamp counter.
 %The rising edges of the trigger clock are used as clock enable for the shift register holding the trigger data. 
 In addition, a LEMO interface is available providing trigger output and inputs for the busy and reset signals.
 
-The handling of the trigger/busy signals can be done in three handshake modes, one being the \textit{no-handshake mode},
+Three different handshake modes handling the trigger/busy signals are available, one of them being the \textit{no-handshake mode},
  in which the TLU issues a fixed-length pulse on the trigger line with the busy line being disregarded. 
 In \textit{simple handshake mode}, the assertion of a trigger is replied by the integrated DAQ systems by asserting a signal on the busy line. 
-The TLU then de-asserts the trigger, and waits for busy going low on the busy line.
-The \textit{normal handshake mode} uses the same scheme as in the \textit{simple handshake mode}, but additionally trigger data is transferred on the trigger line:
-After the trigger has been de-asserted, the trigger number is clocked out via this line. 
+The TLU then de-asserts the trigger and waits for the busy line going low.
+The \textit{normal handshake mode} uses the same scheme as in the \textit{simple handshake mode}, but additionally the current trigger data is transferred on the trigger line:
+After the trigger has been de-asserted, the trigger number is clocked out. 
 
 
-The $\Mimosa$ sensors provide zero-suppressed hit data over a flat ribbon cable to the auxiliary boards, which provide RJ45 connectors to connect them with the
+The $\Mimosa$ sensors provide zero-suppressed hit data over a ribbon cable to the auxiliary boards, which provide RJ45 connectors to connect with the
  data concentrator board collecting the data from all six sensors and the trigger/busy lines from the TLU. 
 A 52-pin cable then transports the data and the TLU trigger/busy lines in parallel into a FlexRIO board, which is equipped with analogue-to-digital converters and an FPGA. 
 The $\Mimosa$ data from the rolling-shutter readout is written continuously to RAM without taking into account the trigger information. 
