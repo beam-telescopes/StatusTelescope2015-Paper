@@ -3236,8 +3236,8 @@
    mg->SetMaximum(10);
    mg->GetXaxis()->SetLimits(1,140);
    mg->SetTitle("");
-   mg->GetXaxis()->SetTitle("Beam energy [GeV]");
-   mg->GetYaxis()->SetTitle("#sigma_{Point, Pl. 3} [#mum]");
+   mg->GetXaxis()->SetTitle("beam energy [GeV]");
+   mg->GetYaxis()->SetTitle("pointing res. (plane 3) [#mum]");
    mg->GetXaxis()->SetTitleOffset(1.14);
    mg->GetYaxis()->SetTitleOffset(1.14);   
    mg->GetXaxis()->SetNoExponent();
