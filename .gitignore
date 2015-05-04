@@ -6,6 +6,7 @@
 *.toc
 *.pdf
 *.tex.backup
+*bib.backup
 
 #doc files 
 *.docx
