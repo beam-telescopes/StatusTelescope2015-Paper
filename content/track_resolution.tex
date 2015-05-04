@@ -1,4 +1,4 @@
-Data was taken in $2012$ using the DESY-type beam telescopes, cf.~section~3, which were operated with EUDAQ, cf.~section~4. 
+Data was taken in $2012$ using the $\DESY$-type beam telescopes, cf.~section~3, which were operated with EUDAQ, cf.~section~4. 
 The results presented in this section have been obtained using the EUTelescope software described in section~\ref{sec:offline}.
 The set-up does not include any additional DUT, only six $\Mimosa$ telescope planes are used and unbiased track residuals for each telescope plane are calculated.
 
@@ -88,28 +88,28 @@ By considering one telescope plane as a DUT, equation~(\ref{eq:telescoperesoluti
 \sigma_{\textrm{MS}}^2\,,
 \end{equation}
 
-\begin{figure}[tb]
+\begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.45\textwidth]{figures/resis_upstream/0x.pdf} \put(-40,35){(A)}
-  \includegraphics[width=0.45\textwidth]{figures/resis_upstream/0y.pdf} \put(-40,35){(B)}\\
+  \includegraphics[width=0.49\textwidth]{figures/0x} \put(-50,155){(A)}
+  \includegraphics[width=0.49\textwidth]{figures/3x} \put(-50,155){(B)}\\
   %\includegraphics[width=0.45\textwidth]{figures/resis_upstream/1x.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_upstream/1y.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_upstream/2x.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_upstream/2y.pdf}
-  \includegraphics[width=0.45\textwidth]{figures/resis_downstream/3x.pdf} \put(-40,35){(C)}
-  \includegraphics[width=0.45\textwidth]{figures/resis_downstream/3y.pdf} \put(-40,35){(D)}
+  %\includegraphics[width=0.49\textwidth]{figures/3x} \put(-50,155){(C)}
+  %\includegraphics[width=0.49\textwidth]{figures/3y} \put(-50,155){(D)}
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/4x.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/4y.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5x.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5y.pdf}
   \caption[Residual examples to determine the $\Datura$ telescope's resolution~\cite{ref:thomas}]{
   Unbiased residual distributions measured with the $\Datura$ telescope.
-  The measured residuals for planes $0$ in the $x$-direction (A), and in the $y$-direction (B).
-  (C) and (D): As above for plane $3$. 
-  Images from~\cite{ref:thomas}.}
+  The measured residuals in the $x$-direction for plane $0$ (A) and plane $3$ (B) are shown.
+  According results in the $y$-direction and further planes are omitted. (reproduced from~\cite{ref:thomas})}
   \label{fig:residualexample1}
 \end{figure}
 
+\noindent
 with $k_5$ being the geometrical scaling factor for a telescope consisting of five planes. 
 The value of $k_5$ depends on the geometry itself and on which telescope plane is considered as DUT. 
 Figure~\ref{fig:residualexample1} shows an example of unbiased residual distributions for a telescope sensor spacing of $\dz = 20\,\milli\meter$,
@@ -148,6 +148,7 @@ For each telescope sensor dimension ($x$- and $y$), the individual contribution 
 \left( \frac{\theta_{\textrm{i}} - \theta_{i-1}}{\Theta_{0}} \right)^2 \Bigg|_{i \ne 0,N-1} \,,
 \end{equation}
 
+\noindent
 with the telescope plane numbering beginning at zero.
 The measured hit position on one dimension is denoted by $r$, the position extrapolated from the track in the same dimension by $p_{i}$.
 The angles between the nominal beam direction and the track direction are $\theta_{i-1}$ and $\theta_{i}$.
@@ -167,7 +168,7 @@ This results in the global $\chi^2$ expression:
 
 \begin{equation}
 \label{eq:globalchi2}
-\chi^2 = \sum_{i=0}^{N} \alpha_i \left( y_i - p_i \right)^2 + \sum_{i=1}^{N-1}
+\chi^2 = \sum_{i=0}^{N} \alpha_i \left( r - p_i \right)^2 + \sum_{i=1}^{N-1}
 \left( \frac{p_{i + 1} \beta_i + p_{i-1} \beta_{i-1} - p_i \left( \beta_i + \beta_{i-1} \right)}{\Theta_0} \right)^2 \,,
 \end{equation}
 
@@ -182,6 +183,22 @@ with coefficients $\alpha_i$ and $\beta_i$ defined as~\cite{ref:eudetmemo_2007_0
   \end{array} \right. \quad \text{and} \quad \beta_i = \frac{1}{z_{i + 1} - z_i} \,.
 \end{equation}
 
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=0.49\textwidth]{figures/20}  \put(-50,40){(A)} % was thin_smiley.pdf
+  \includegraphics[width=0.49\textwidth]{figures/150} \put(-50,40){(B)} % was wide_smiley.pdf
+  %\caption[Intrinsic telescope sensor resolution at $20\,\milli\meter$ and $150\,\milli\meter$ plane spacing~\cite{ref:thomas}]{Intrinsic telescope sensor resolution at $20\,\milli\meter$ (top)
+  % and $150\,\milli\meter$ (bottom) plane spacing.
+  \caption[The measured residual widths of each telescope plane.]{
+  The measured residual widths of each telescope plane are shown in both the $x$- and $y$-direction for a plane spacing of $\dz = 20\,\milli\meter$ (A) and $\dz = 150\,\milli\meter$ (B).
+  The black line shows the predicted residual width at $\sigmames = 3.43\,\upmu\meter$, the green band the measurement standard deviation.
+  Dotted and dashed lines indicate the predicted residuals width, in case differing intrinsic resolutions are assumed.
+  Data was taken at a sensor threshold of $\noise = 6$ and using $5\,\giga\electronvolt$ electrons at DESY-II.
+  (reproduced from~\cite{ref:thomas})}
+  \label{fig:smiley}
+\end{figure}
+
+\noindent
 The minimum of equation~(\ref{eq:globalchi2}) is then calculated to find the intrinsic sensor resolution $\sigmai$.
 The results for both a tighter plane spacing of $\dz = 20\,\milli\meter$ and a wider spacing of $dz = 150\,\milli\meter$ are shown in figure~\ref{fig:smiley}.
 In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed.
@@ -208,21 +225,6 @@ As the discriminator thresholds are set for subframes of each plane individually
 %Inclined tracks, or a deflection of tracks in planes or scattering material, are not taken into account.
 %However, as shown in~\cite{ref:lutzpaper}, angular deflections are then considered for the later $\chi^2$ minimisation.
 
-\begin{figure}[tbp]
-  \centering
-  \includegraphics[width=0.49\textwidth]{figures/20}  \put(-50,40){(A)} % was thin_smiley.pdf
-  \includegraphics[width=0.49\textwidth]{figures/150} \put(-50,40){(B)} % was wide_smiley.pdf
-  %\caption[Intrinsic telescope sensor resolution at $20\,\milli\meter$ and $150\,\milli\meter$ plane spacing~\cite{ref:thomas}]{Intrinsic telescope sensor resolution at $20\,\milli\meter$ (top)
-  % and $150\,\milli\meter$ (bottom) plane spacing.
-  \caption[The measured residual widths of each telescope plane.]{The measured residual widths of each telescope plane are shown in both the $x$ and $y$ direction for the $\dz = 20\,\milli\meter$ (A)
-   and $\dz = 150\,\milli\meter$ (B) plane spacing.
-  The black line shows the calculated intrinsic telescope sensor resolution, the green band the measurement variance.
-  Dotted and dashed lines indicate the predicted measurements, if a different intrinsic resolution is assumed.
-  For both telescope geometries, data was taken at a sensor threshold setting of $\noise = 6$ and with $5\,\giga\electronvolt$ electrons at DESY-II.
-  Images from~\cite{ref:thomas}.}
-  \label{fig:smiley}
-\end{figure}
-
 Furthermore, the above described method has been repeated for various sensor thresholds, each resulting in an estimate for $\sigmai$ as a function of the set threshold $\noise$. 
 Figure~\ref{fig:resivsenergy_thresh} (A) shows the intrinsic sensor resolutions $\sigmai$ derived from the measurements for different beam energies and plane distances as a function of the applied sensor threshold.
 The minimum of $\sigmai$ is reached for a threshold setting of $\noise = 6$.
@@ -246,7 +248,8 @@ Previous measurements~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ sho
 (A) The measured intrinsic resolution of the $\sigma_{\textrm{M26}}$ for different beam energies $p$ and sensor spacing $\textrm{d}z$ as a function of the applied sensor threshold $\noise$.
 (B) Average efficiency of all telescope sensors for different beam energies and sensor spacing vs.~applied threshold.
 An efficiency decline with increasing threshold can be observed.
-In both images, taken from~\cite{ref:thomas}, values are shifted on the $x$-axis for improved legibility.}
+In both images values are shifted on the $x$-axis for improved legibility.
+(reproduced from~\cite{ref:thomas})}
   \label{fig:resivsenergy_thresh}
 \end{figure}
 
@@ -299,7 +302,7 @@ Therefore, it is possible to perform an a priori calculation of the optimal tele
 Pointing resolutions in this section refer to the achievable pointing resolution using a \textit{symmetric six M26 planes plus DUT} configuration. 
 This is referred to as \textit{user configuration}, also shown in figure~\ref{fig:datura_sketch}, while the set-up used in section~\ref{sec:measurements} is referred to as \textit{gauge configuration}. 
 
-Using the GBL formalism, the pointing resolution is analytically calculated at desired points of interest along the particle trajectory. 
+Using the GBL~\cite{Blobel20111760,Kleinwort-2012} formalism, the pointing resolution is analytically calculated at desired points of interest along the particle trajectory. 
 The pointing resolution at the DUT for four different DUT material budgets $\epsdut$ is plotted as a function of the spacing $\dzdut$ in figure~\ref{fig:CalcResos_dzdut}.
 Exemplified are two values of $\dz = 20\,\milli\meter$ and $\dz = 50\,\milli\meter$. 
 Plots are provided for DESY-II beam energies (A) and SPS energies (B). 
@@ -320,8 +323,8 @@ However, the difference is less than $500\,\nano\meter$ for $\dzdut = 100\,\mill
   \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern}\put(-185,35){(B)}
   %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy_loglog_2}
   %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern_loglog_2}
-  \caption[Pointing resolution for various DUTs as a function of the distance between DUT and neighbouring planes]{
-  The pointing resolution for various DUTs is shown as a function of the equidistant distance between DUT and neighbouring planes at 5\,GeV (A), and 120\,GeV (B) in the \textit{user configuration}.}
+  \caption[Pointing resolution for various material budgets as a function of the distance between DUT and neighbouring planes]{
+  The pointing resolution for various material budgets is shown as a function of the equidistant spacing between DUT and neighbouring planes at 5\,GeV (A), and 120\,GeV (B) in the \textit{user configuration}.}
 \label{fig:CalcResos_dzdut}
 \end{figure}
 
@@ -348,13 +351,13 @@ The position of the intersection shifts to smaller material budgets with increas
 
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/energy_plot}     \put(-125,175){(A)} % was CalcResoVsP
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsEpsdut}\put(-125,175){(B)}
-               \put(-175,107.5){$\bigcirc$}
-  \color{blue} \put(-161,102.5){$\bigcirc$}
-  \color{green}\put(-143,96.5){$\bigcirc$}
-  \color{red}  \put(-113,90){$\bigcirc$}
-  \color{black}
+  \includegraphics[width=0.49\textwidth]{figures/energy_plot}     \put(-175,40){(A)} % was CalcResoVsP
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsEpsdut}\put(-155,40){(B)}
+%               \put(-175,107.5){$\bigcirc$}
+%  \color{blue} \put(-161,102.5){$\bigcirc$}
+%  \color{green}\put(-143,96.5){$\bigcirc$}
+%  \color{red}  \put(-113,90){$\bigcirc$}
+%  \color{black}
    \caption[Pointing resolution as a function of the beam energy]{
    (A) The measured (triangles) and calculated (lines) pointing resolution at plane $3$
     for the wide (red) and the narrow (black) set-up is shown as a function of the beam energy for the \textit{gauge configuration}~\cite{ref:thomas}. 

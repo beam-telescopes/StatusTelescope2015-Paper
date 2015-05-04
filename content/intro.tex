@@ -1,36 +1,40 @@
 
 %History of DESY beam telescopes, from Eudet to the present
 
-Beam telescopes are vital tools for sensor R\&D projects. 
+Beam telescopes are vital tools for R\&D projects focused on particle detection sensors. 
 These range from collider-specific detectors with high radiation tolerance~\cite{1748-0221-9-12-C12001,1748-0221-9-12-C12029},
- high resolution and low mass requirements~\cite{1748-0221-10-03-C03044}, and medical applications~\cite{Ballabriga2011S15} to HV-CMOS studies~\cite{1748-0221-7-08-C08002}, among others.
-Complementary to sensor simulations using finite element analysis tools, test beams studies are used at various stages including the development of either the sensor or the readout chip,
+ high resolution and low mass requirements~\cite{1748-0221-10-03-C03044}, and medical applications~\cite{Ballabriga2011S15} to HV-CMOS based sensors~\cite{1748-0221-7-08-C08002}, among others.
+Complementary to sensor simulations using finite element analysis tools, test beam studies are used at various stages including the development of either the sensor or the readout chip,
  and subsequently when testing a complete demonstrator with a full data acquisition system. 
 %Also in future high-energy physics experiments pixel detectors will be used in the inner layers of the tracking devices. 
 %The demands are challenging and range from high speed and high radiation-hardness for the high-luminosity LHC (HL-LHC)
 % experiments\,\cite{Nurnberg:2014aya, Garcia-Argos:2015zda} to high resolution and low mass at the International Linear Collider (ILC)\,\cite{ILC} or at the Compact Linear Collider (CLIC)\,\cite{CLIC}. 
 These studies are well suitable and often used for the evaluation of the performance of a detector prototype. % developed within the various R\&D projects. 
 In order to facilitate these measurements a high-resolution pixel beam telescope was developed within the $\eudet$ project~\cite{ref:eudetreport200902},
- with the clear guideline to allow for the integration of user data acquisition systems for a wide range of read-out schemes, latencies, and frequencies. 
-Fast LHC-type devices need to be integrable in the same manner as slow calorimetric or rolling-shutter readout devices. 
+ with the clear guideline to allow for an easy integration of user data acquisition systems for a wide range of read-out schemes, latencies, and frequencies. 
+Fast LHC-type tracking devices need to be integrable in the same manner as slow calorimetric or rolling-shutter readout devices. 
 
-Consisting of six pixel detector planes equipped with small-pitch $\Mimosa$ sensors~\cite{HuGuo2010480},
+Consisting of six pixel detector planes equipped with fine-pitch $\Mimosa$ sensors~\cite{HuGuo2010480},
  the mechanics for precise positioning of the device under test (DUT) and the telescope planes in the beam, trigger capabilities, and its data acquisition system, 
- the DESY-type beam telescopes meet the requirements in terms of easy integration capabilities, spatial resolution, and trigger rates. 
+ the $\DESY$-type beam telescopes meet the requirements in terms of easy integration capabilities, spatial resolution, and trigger rates. 
 The telescope planes are designed and built to keep the material budget as low as possible in order to achieve an excellent pointing resolution
  even at the rather low DESY test beam energies of up to 6\,GeV.
 
-Several replicas of the DESY-type beam telescope have been built:
- the AIDA telescope residing at the SPS~H6 (CERN), the ATLAS copy ACONITE, which will also be operated at H6, ANEMONE at ELSA (University of Bonn), the copy for the Carlton University called CALADIUM, 
+The original EUDET beam telescope, which was modified slightly to become the AIDA telescope, is operated at SPS~H6 (CERN).
+Several $\DESY$-type replicas have been built since then:
+ the ATLAS copy ACONITE, which will also be operated at H6, ANEMONE at ELSA (University of Bonn), the copy for the Carlton University called CALADIUM, 
  $\Datura$ at DESY, and --- currently under construction --- $\Duranta$, which will also be operated at DESY. 
 All replicas are build on the $\Mimosa$ sensors and use the same data acquisition system and framework. 
-The results reported here are based on data taken with $\Datura$ at test beam area\,21 at {DESY-II} and with ACONITE at SLAC~ESTB and SPS~H6, but are applicable to all other copies. 
+The EUDET telescope is used since 2007 in various staged of development by hundreds of users. 
+Alone from January 2013 until March 2014 about 300 users used a $\DESY$-type beam telescope at DESY for a total of 80 user weeks. 
+The results reported here are based on data taken with $\Datura$ at test beam area~21 at {DESY-II} and with ACONITE at SLAC~ESTB and SPS~H6, but are applicable to all other copies. 
+
 
 The paper is organised as follows: 
 The beamlines relevant for the data analysed in this work are introduced in section~\ref{sec:beamlines}, followed by the description of the beam telescope
  and the data acquisition framework in sections~\ref{sec:tscope} and~\ref{sec:eudaq}, respectively.
 Section~\ref{sec:offline} details the offline analysis and reconstruction software. 
-Results of the DESY-type beam telescope performance are presented in section~\ref{sec:trackres}. % and the pointing resolution for different telescope configurations at various beam momenta is shown. 
+Results of the $\DESY$-type beam telescope performance are presented in section~\ref{sec:trackres}. % and the pointing resolution for different telescope configurations at various beam momenta is shown. 
 The measured data is complemented by analytic predictions using the formalism of General Broken Lines (GBL)~\cite{Blobel20111760,Kleinwort-2012}.
 Section~\ref{sec:dutintegration} discusses the integration of DUTs into the beam telescope. 
 %With these GBL predictions at hand, the optimal telescope geometry can be calculated for a given set-up (DUT, cooling, ...) prior to the test beam.

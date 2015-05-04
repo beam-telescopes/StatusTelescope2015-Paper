@@ -1,29 +1,30 @@
 
-The DESY-type beam telescope are tabletop tracking detectors featuring six pixelated silicon sensors, four scintillators with photo multiplier tubes (PMTs) for trigger purposes,
+The $\DESY$-type beam telescope are tabletop tracking detectors featuring six pixelated silicon sensors, four scintillators with photo multiplier tubes (PMTs) for trigger purposes,
  a Trigger Logic Unit (TLU) providing trigger logic and time stamp information on particle passage, and a data acquisition system for the data readout. 
-Figure\,\ref{fig:datura-tscope} shows the beam telescope with its sensor jigs, wherein the pixel sensors are embedded, with its auxiliary boards providing connections for power,
- sensor configuration, clock signals, and data transmission. 
+Figure\,\ref{fig:datura-tscope} shows the beam telescope with its rectangular aluminium sensor jigs, wherein the pixel sensors are embedded,
+ and its auxiliary boards providing connections for power, sensor configuration, clock signals, and data transmission. 
 The planes are organised in two telescope arms holding three sensors each. 
 A DUT can be inserted between the arms or at either end of the beam telescope. 
-In the Cartesian, right-handed coordinate system chosen, the $x$-direction points horizontally and the $z$-direction along the beam.
+In the Cartesian, right-handed coordinate system chosen, the $x$-direction points horizontally and the $z$-direction along the beam direction.
 
 \begin{figure}[tb]
 	\center
-	\includegraphics[width=.9\textwidth]{figures/DATURA.jpg}
-	\caption[The $\Datura$ telescope]{The $\Datura$ beam telescope with its sensor planes on aluminium rails.
-	The auxiliary boards with connections for clock signals, sensor configuration, and data lines are mounted at the top of the jigs.
-	Coolant is provided to the jigs via the tubes.}
+	%\includegraphics[width=.9\textwidth]{figures/DATURA.jpg}
+	\includegraphics[width=.9\textwidth]{figures/DATURA2.jpg}
+	\caption[The $\Datura$ telescope]{The $\Datura$ beam telescope with its sensor planes (green frame) on aluminium rails.
+	The auxiliary boards (turquoise frame) with connections for clock, sensor configuration, and data lines are mounted at the top of the planes.
+	Coolant is provided to the planes via tubes.}
 	\label{fig:datura-tscope}
 \end{figure}
  
 \subsection{Sensors and mechanics}
 \label{sec:sensors}
 
-The $\Mimosa$ sensors used for precise spacial measurements of particle trajectories are manufactured with the 350\,nm CMOS technology~\cite{HuGuo2010480}. 
-Each $\Mimosa$ sensor consists of pixels sized $\unit{18.4}{\upmu\meter} \times \unit{18.4}{\upmu\meter}$, which are arranged in 1152 columns and 576 rows.
-This adds to a total of about four million readout channels covering an active area of about $\unit{10.6}{\milli\meter} \times \unit{21.1}{\milli\meter}$. 
-The $\Mimosa$ sensors have been thinned down to $\unit{50}{\upmu\meter}$ and are protected on each side by a $\unit{25}{\upmu\meter}$ lightproof Kapton foil. 
-Free charge carriers produced in the underlying \unit{14}{\upmu\meter} epitaxial layer are mainly collected via diffusion. 
+The $\Mimosa$ sensors used for precise spacial measurements of particle trajectories are manufactured with the AMS 350\,nm CMOS technology~\cite{HuGuo2010480}. 
+Each $\Mimosa$ sensor consists of pixels sized $\unit{18.4}{\upmu\meter}\,\times\,\unit{18.4}{\upmu\meter}$, which are arranged in 1152 columns and 576 rows.
+This adds to a total of about four million readout channels covering an active area of about $\unit{10.6}{\milli\meter}\,\times\,\unit{21.1}{\milli\meter}$. 
+The $\Mimosa$ sensors have been thinned down to $\unit{50}{\upmu\meter}$. 
+Free charge carriers produced in the underlying \unit{14}{\upmu\meter} epitaxial layer are collected via drift (diffusion) in the depleted (undepleted) regions. 
 The binary resolution of $\unit{5.3}{\upmu\meter}$ can be improved by charge sharing, as will be shown in section~\ref{sec:trackres}.
 %With the rising industrial interest in high resistivity epitaxial silicon for CMOS detectors the production cost of improved noise and radiation hardness parameters
 % became already possible with ~400 Ohm·cm for 10 μm epitaxial layer for $\Mimosa$. 
@@ -39,17 +40,18 @@ At this threshold, the average noise occupancy is measured to be smaller than $2
 
 Every pixel sensor is mounted within an aluminium jig, three jigs are in turn mounted on each of the two aluminium arms. 
 The jigs feature a beam window around the position of the sensor location, minimising the material budget. 
+Lightproof, Kapton foils of $\unit{25}{\upmu\meter}$ thickness protect the sensors on each side.
 The overall material of the beam telescope thus amounts to $\unit{300}{\upmu\meter}$ of silicon and $\unit{300}{\upmu\meter}$ of Kapton. 
 The two telescope arms, usually one up- and one downstream of the DUT, is movable along the direction of the beam in order to allow for variably sized DUTs to be fitted into the set-up. 
 The minimal distance between two sensors is given by the jig thickness of 20\,mm, the maximal distance is restricted by the length of the aluminium arms to 150\,mm at equidistant spacing.
-Furthermore, the jigs are cooled keeping the $\Mimosa$ sensors at a constant temperature for stable operation.
+Furthermore, the jigs are cooled keeping the $\Mimosa$ sensors at a constant temperature of typically 18$\,\celsius$ for stable operation.
 The entire beam telescope is placed on a rotatable frame easing adjustment of its orientation parallel to the beam. 
 Additionally, this frame is mounted on a sturdy structure providing stability over time and wheels for easy transportation. 
 
 \begin{figure}[tb]
 	\center
 	\includegraphics[width=.9\textwidth]{figures/sketch_tscope4}
-	\caption[Sketch of the DESY-type telescope set-up]{Sketch of the DESY-type telescope set-up and its important parameters.
+	\caption[Sketch of the $\DESY$-type telescope set-up]{Sketch of the $\DESY$-type telescope set-up and its important parameters.
 	Planes 0 to 2 and planes 3 to 5 are referred to as upstream and downstream planes, respectively.}
 	\label{fig:datura_sketch}
 \end{figure}
@@ -65,7 +67,7 @@ Likewise, $\epsdut$ represents the DUT's material budget which includes the DUT 
 \label{sec:tdaq}
 
 Four Hamamatsu PMT assemblies with scintillators and lightguides, two in front and two in the back of the telescope, define the spatial acceptance for triggers. 
-The crossed scintillators on either side of the beam telescope define a rectangular acceptance window of $10\,\milli\meter \times 20\,\milli\meter$ matching the $\Mimosa$ acceptance area. 
+The crossed scintillators on either side of the beam telescope define a rectangular acceptance window of $10\,\milli\meter\,\times\,20\,\milli\meter$ matching the $\Mimosa$ acceptance area. 
 The TLU, based on a commercial Spartan\,3 board, features a coincidence unit with discriminator boards accepting up to four PMT inputs signals. 
 Additionally, it is equipped with several custom-made add-on PCBs allowing for an easy integration of user DAQ systems. 
 Providing a programmable logic, the TLU  takes a trigger decision based on its four input channels. 
