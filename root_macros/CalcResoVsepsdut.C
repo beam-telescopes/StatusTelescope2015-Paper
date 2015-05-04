@@ -5062,6 +5062,26 @@
   tex->SetTextSize(0.04);
   tex->SetLineWidth(2);
   tex->Draw();
+      tex = new TLatex(0.0007590689,2.837255,"#circ");
+   tex->SetTextSize(0.1);
+   tex->SetLineWidth(2);
+   tex->Draw();
+      tex = new TLatex(0.001131186,2.704172,"#circ");
+   tex->SetTextColor(4);
+   tex->SetTextSize(0.09);
+   tex->SetLineColor(4);
+   tex->SetLineWidth(2);
+   tex->Draw();
+      tex = new TLatex(0.001776941,2.45644,"#circ");
+   tex->SetTextColor(3);
+   tex->SetTextSize(0.1);
+   tex->SetLineWidth(2);
+   tex->Draw();
+      tex = new TLatex(0.003715635,2.231404,"#circ");
+   tex->SetTextColor(2);
+   tex->SetTextSize(0.1);
+   tex->SetLineWidth(2);
+   tex->Draw();
 
   Canvas_1->Modified();
   Canvas_1->cd();
