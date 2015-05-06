@@ -2,7 +2,7 @@
 %\documentclass[cits]{JINST}
 \documentclass[a4paper,10pt]{scrartcl}
 \usepackage{geometry}
-\geometry{a4paper,left=28mm,right=28mm, top=22mm, bottom=34mm}
+\geometry{a4paper,left=32mm,right=32mm, top=22mm, bottom=32mm}
 %\geometry{a4paper}
 \raggedbottom
 \widowpenalty=10000
@@ -61,7 +61,17 @@
 \setpagewiselinenumbers
 \modulolinenumbers[5]
 
-
+\makeatletter
+\renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
+\begin{flushleft}
+  \vspace*{10mm}
+  \textbf{\huge\sffamily\@title}
+  \vspace{5mm}
+   
+  \large \@author
+\end{flushleft}\egroup
+}
+\makeatother
 
 %\date{\vspace{-5ex}} %FIXME: remove for preprint
 
@@ -109,29 +119,61 @@
 %I. Rubinskiy,		CFEl/CUIigor	igor.rubinskiy@cfel.de
 
 \title{The EUDET-type Beam Telescopes}
-\author{H. Jansen${}^{\textrm{a,}}$\thanks{Corresponding author: hendrik.jansen@desy.de}\,\,, 
-A. Bulgheroni${}^{\textrm{b,}}$\thanks{Now at KIT, Karlsruhe, Germany}\,\,, G. Claus${}^{\textrm{c}}$,
- E. Corrin${}^{\textrm{d,}}$\thanks{Now at Swiftkey, London, UK}\,\,,\\
-D. G. Cussans${}^{\textrm{e}}$,
-D. Eckstein${}^{\textrm{a}}$, T. Eichhorn${}^{\textrm{a}}$, M. Goffe${}^{\textrm{c}}$,\\
- I. M. Gregor${}^{\textrm{a}}$, 
-D. Haas${}^{\textrm{d,}}$\thanks{Now at SRON, Utrecht, Netherlands}\,\,,
-%  A. Kravchenko${}^{\textrm{a,}}$\thanks{Now at }\,\,, C. Muhl${}^{\textrm{a}}$,
- H. Perrey${}^{\textrm{a,}}$\thanks{Now at ESS, Lund, Sweden}\,\,, R. Peschke${}^{\textrm{a}}$, \\
- P. Roloff${}^{\textrm{a,}}$\thanks{Now at CERN, Geneva Switzerland}\,\,, I. Rubinskiy${}^{\textrm{a,}}$\thanks{Now at CFEl, Hamburg, Germany}\,\,\,\,, S. Spannagel${}^{\textrm{a}}$, M. Winter${}^{\textrm{c}}$\\
-\normalsize
+\author{
+H.~Jansen${}^{\textrm{a,}}$\footnote{Corresponding author: hendrik.jansen@desy.de}, 
+A.~Bulgheroni${}^{\textrm{b,}}$\footnote{Now at KIT, Karlsruhe, Germany},
+G.~Claus${}^{\textrm{c}}$,
+E.~Corrin${}^{\textrm{d,}}$\footnote{Now at Swiftkey, London, UK},
+D.~G.~Cussans${}^{\textrm{e}}$,
+D.~Eckstein${}^{\textrm{a}}$, T. Eichhorn${}^{\textrm{a}}$, 
+M.~Goffe${}^{\textrm{c}}$,
+I.~M.~Gregor${}^{\textrm{a}}$, 
+D.~Haas${}^{\textrm{d,}}$\footnote{Now at SRON, Utrecht, Netherlands},
+H.~Perrey${}^{\textrm{a,}}$\footnote{Now at ESS, Lund, Sweden}, 
+R.~Peschke${}^{\textrm{a}}$, 
+P.~Roloff${}^{\textrm{a,}}$\footnote{Now at CERN, Geneva Switzerland}, 
+I.~Rubinskiy${}^{\textrm{a,}}$\footnote{Now at CFEL, Hamburg, Germany}, 
+S.~Spannagel${}^{\textrm{a}}$, 
+M. Winter${}^{\textrm{c}}$\\
+\vspace{3mm}
 ${}^{\textrm{a}}$ Deutsches Elektronen-Synchrotron DESY, Hamburg, Germany\\
-\normalsize
 ${}^{\textrm{b}}$ INFN Como, Italy\\
-\normalsize
 ${}^{\textrm{c}}$ IPHC, Strasbourg, France\\
-\normalsize
 %${}^{\textrm{c}}$ D\'epartement de physique nucl\'eaire et corpusculaire, University of Geneva, Switzerland\\
 ${}^{\textrm{d}}$ DPNC, University of Geneva, Switzerland\\
-\normalsize
-${}^{\textrm{e}}$ University of Bristol, UK\\
+${}^{\textrm{e}}$ University of Bristol, UK
 }
 \maketitle
+
+
+%-------------------
+% \title{The EUDET-type Beam Telescopes}
+% \author{
+% H.~Jansen${}^{\textrm{a,}}$\thanks{Corresponding author: hendrik.jansen@desy.de}\,\,, 
+% A.~Bulgheroni${}^{\textrm{b,}}$\thanks{Now at KIT, Karlsruhe, Germany},
+% G.~Claus${}^{\textrm{c}}$,
+% E.~Corrin${}^{\textrm{d,}}$\thanks{Now at Swiftkey, London, UK}\,\,,
+% D.~G.~Cussans${}^{\textrm{e}}$,
+% D.~Eckstein${}^{\textrm{a}}$, T. Eichhorn${}^{\textrm{a}}$, M. Goffe${}^{\textrm{c}}$,
+% I.~M.~Gregor${}^{\textrm{a}}$, 
+% D.~Haas${}^{\textrm{d,}}$\thanks{Now at SRON, Utrecht, Netherlands}\,\,,
+% %  A. Kravchenko${}^{\textrm{a,}}$\thanks{Now at }\,\,, C. Muhl${}^{\textrm{a}}$,
+% H.~Perrey${}^{\textrm{a,}}$\thanks{Now at ESS, Lund, Sweden}\,\,, 
+% R.~Peschke${}^{\textrm{a}}$, 
+% P.~Roloff${}^{\textrm{a,}}$\thanks{Now at CERN, Geneva Switzerland}\,\,, 
+% I.~Rubinskiy${}^{\textrm{a,}}$\thanks{Now at CFEl, Hamburg, Germany}\,\,\,\,, 
+% S.~Spannagel${}^{\textrm{a}}$, 
+% M. Winter${}^{\textrm{c}}$\\
+% \vspace{3mm}
+% ${}^{\textrm{a}}$ Deutsches Elektronen-Synchrotron DESY, Hamburg, Germany\\
+% ${}^{\textrm{b}}$ INFN Como, Italy\\
+% ${}^{\textrm{c}}$ IPHC, Strasbourg, France\\
+% %${}^{\textrm{c}}$ D\'epartement de physique nucl\'eaire et corpusculaire, University of Geneva, Switzerland\\
+% ${}^{\textrm{d}}$ DPNC, University of Geneva, Switzerland\\
+% ${}^{\textrm{e}}$ University of Bristol, UK
+% }
+% \maketitle
+%----------------
 
 \begin{abstract}
 %\abstract{
@@ -153,7 +195,7 @@ Calculations using the formalism of General Broken Lines are compared to the mea
 \end{abstract}
 
 
-%\tableofcontents
+\tableofcontents
 %\newpage
 
 
@@ -194,7 +236,7 @@ Calculations using the formalism of General Broken Lines are compared to the mea
 The authors would like to thank Ulrich K\"otz and Jan Dreyling-Eschweiler for helpful discussions. 
 The test beam support at DESY, SLAC, and CERN is highly appreciated. 
 This work was supported by the Commission of the European Communities under the 6th Framework Programme “Structuring the European Research Area”, contract number RII3-026126 (EUDET),
- and the 7th Framework Programme ``Research Infrastructures project AID''A, grant agreement no.\,262025. 
+ and the 7th Framework Programme ``Research Infrastructures project AIDA'', grant agreement no.\,262025. 
 Furthermore, strong support from the Helmholtz Association and the BMBF is acknowledged.
 %contract number RII3-CT-2006-026126.
 %Funding agencies AIDA, EUDET
