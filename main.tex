@@ -71,6 +71,9 @@
   \large \@author
 \end{flushleft}\egroup
 }
+\def\@xfootnote[#1]{%
+  \protected@xdef\@thefnmark{#1}%
+  \@footnotemark\@footnotetext}
 \makeatother
 
 %\date{\vspace{-5ex}} %FIXME: remove for preprint
@@ -118,7 +121,7 @@
 
 \title{The EUDET-type Beam Telescopes}
 \author{
-H.~Jansen${}^{\textrm{a,}}$\footnote{Corresponding author: hendrik.jansen@desy.de}, 
+H.~Jansen${}^{\textrm{a,}}$\footnote[*]{Corresponding author: hendrik.jansen@desy.de},
 A.~Bulgheroni${}^{\textrm{b,}}$\footnote{Now at KIT, Karlsruhe, Germany},
 G.~Claus${}^{\textrm{c}}$,
 E.~Corrin${}^{\textrm{d,}}$\footnote{Now at Swiftkey, London, UK},
