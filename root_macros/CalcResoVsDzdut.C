@@ -69,7 +69,7 @@
   gre->SetPointError(24,0,0);
   gre->SetPoint(25,26,3.979798);
   gre->SetPointError(25,0,0);
-  gre->SetPoint(26,26.98393,4.059398);
+  gre->SetPoint(26,27,4.059398);
   gre->SetPointError(26,0,0);
   gre->SetPoint(27,28,4.139249);
   gre->SetPointError(27,0,0);
@@ -185,7 +185,7 @@
   gre->SetPointError(82,0,0);
   gre->SetPoint(83,84,8.829962);
   gre->SetPointError(83,0,0);
-  gre->SetPoint(84,84.87694,8.925);
+  gre->SetPoint(84,85,8.925);
   gre->SetPointError(84,0,0);
   gre->SetPoint(85,86,9.001495);
   gre->SetPointError(85,0,0);
@@ -199,7 +199,7 @@
   gre->SetPointError(89,0,0);
   gre->SetPoint(90,91,9.43099);
   gre->SetPointError(90,0,0);
-  gre->SetPoint(91,91.93454,9.525);
+  gre->SetPoint(91,92,9.525);
   gre->SetPointError(91,0,0);
   gre->SetPoint(92,93,9.603038);
   gre->SetPointError(92,0,0);
@@ -217,7 +217,7 @@
   gre->SetPointError(98,0,0);
   gre->SetPoint(99,100,10.20626);
   gre->SetPointError(99,0,0);
-  gre->SetPoint(100,100.9362,10.29568);
+  gre->SetPoint(100,101,10.29568);
   gre->SetPointError(100,0,0);
   gre->SetPoint(101,102,10.37889);
   gre->SetPointError(101,0,0);
@@ -478,7 +478,7 @@
   gre2->SetPointError(23,0,0);
   gre2->SetPoint(24,25,3.389643);
   gre2->SetPointError(24,0,0);
-  gre2->SetPoint(25,25.96918,3.455887);
+  gre2->SetPoint(25,26,3.455887);
   gre2->SetPointError(25,0,0);
   gre2->SetPoint(26,27,3.519189);
   gre2->SetPointError(26,0,0);
@@ -592,7 +592,7 @@
   gre2->SetPointError(80,0,0);
   gre2->SetPoint(81,82,7.327909);
   gre2->SetPointError(81,0,0);
-  gre2->SetPoint(82,82.83395,7.4);
+  gre2->SetPoint(82,83,7.4);
   gre2->SetPointError(82,0,0);
   gre2->SetPoint(83,84,7.470716);
   gre2->SetPointError(83,0,0);
@@ -616,7 +616,7 @@
   gre2->SetPointError(92,0,0);
   gre2->SetPoint(93,94,8.186946);
   gre2->SetPointError(93,0,0);
-  gre2->SetPoint(94,94.90617,8.275);
+  gre2->SetPoint(94,95,8.275);
   gre2->SetPointError(94,0,0);
   gre2->SetPoint(95,96,8.33059);
   gre2->SetPointError(95,0,0);
@@ -638,7 +638,7 @@
   gre2->SetPointError(103,0,0);
   gre2->SetPoint(104,105,8.978427);
   gre2->SetPointError(104,0,0);
-  gre2->SetPoint(105,105.9542,9.063513);
+  gre2->SetPoint(105,106,9.063513);
   gre2->SetPointError(105,0,0);
   gre2->SetPoint(106,107,9.122686);
   gre2->SetPointError(106,0,0);
@@ -913,7 +913,7 @@
   gre3->SetPointError(35,0,0);
   gre3->SetPoint(36,37,3.090319);
   gre3->SetPointError(36,0,0);
-  gre3->SetPoint(37,37.97708,3.154131);
+  gre3->SetPoint(37,38,3.154131);
   gre3->SetPointError(37,0,0);
   gre3->SetPoint(38,39,3.177435);
   gre3->SetPointError(38,0,0);
@@ -921,7 +921,7 @@
   gre3->SetPointError(39,0,0);
   gre3->SetPoint(40,41,3.265376);
   gre3->SetPointError(40,0,0);
-  gre3->SetPoint(41,41.95152,3.330155);
+  gre3->SetPoint(41,42,3.330155);
   gre3->SetPointError(41,0,0);
   gre3->SetPoint(42,43,3.354083);
   gre3->SetPointError(42,0,0);
@@ -1019,7 +1019,7 @@
   gre3->SetPointError(88,0,0);
   gre3->SetPoint(89,90,5.574729);
   gre3->SetPointError(89,0,0);
-  gre3->SetPoint(90,90.82019,5.625);
+  gre3->SetPoint(90,91,5.625);
   gre3->SetPointError(90,0,0);
   gre3->SetPoint(91,92,5.672918);
   gre3->SetPointError(91,0,0);
@@ -1075,7 +1075,7 @@
   gre3->SetPointError(116,0,0);
   gre3->SetPoint(117,118,6.965715);
   gre3->SetPointError(117,0,0);
-  gre3->SetPoint(118,118.9638,7.026663);
+  gre3->SetPoint(118,119,7.026663);
   gre3->SetPointError(118,0,0);
   gre3->SetPoint(119,120,7.066252);
   gre3->SetPointError(119,0,0);
@@ -1323,7 +1323,7 @@
   gre4->SetPointError(35,0,0);
   gre4->SetPoint(36,37,2.282344);
   gre4->SetPointError(36,0,0);
-  gre4->SetPoint(37,37.97708,2.324303);
+  gre4->SetPoint(37,38,2.310303);
   gre4->SetPointError(37,0,0);
   gre4->SetPoint(38,39,2.329792);
   gre4->SetPointError(38,0,0);
@@ -1519,7 +1519,7 @@
   gre4->SetPointError(133,0,0);
   gre4->SetPoint(134,135,5.264256);
   gre4->SetPointError(134,0,0);
-  gre4->SetPoint(135,135.8763,5.316714);
+  gre4->SetPoint(135,136,5.316714);
   gre4->SetPointError(135,0,0);
   gre4->SetPoint(136,137,5.333797);
   gre4->SetPointError(136,0,0);
@@ -1922,7 +1922,7 @@
   gre5->SetPointError(130,0,0);
   gre5->SetPoint(131,132,6.908089);
   gre5->SetPointError(131,0,0);
-  gre5->SetPoint(132,132.9027,6.97637);
+  gre5->SetPoint(132,133,6.97637);
   gre5->SetPointError(132,0,0);
   gre5->SetPoint(133,134,6.997276);
   gre5->SetPointError(133,0,0);
@@ -2225,7 +2225,7 @@
   gre6->SetPointError(77,0,0);
   gre6->SetPoint(78,79,4.485087);
   gre6->SetPointError(78,0,0);
-  gre6->SetPoint(79,79.86233,4.525);
+  gre6->SetPoint(79,80,4.525);
   gre6->SetPointError(79,0,0);
   gre6->SetPoint(80,81,4.558872);
   gre6->SetPointError(80,0,0);
@@ -2323,7 +2323,7 @@
   gre6->SetPointError(126,0,0);
   gre6->SetPoint(127,128,6.404288);
   gre6->SetPointError(127,0,0);
-  gre6->SetPoint(128,128.9998,6.448297);
+  gre6->SetPoint(128,129,6.448297);
   gre6->SetPointError(128,0,0);
   gre6->SetPoint(129,130,6.486617);
   gre6->SetPointError(129,0,0);
@@ -2759,7 +2759,7 @@
   gre7->SetPointError(139,0,0);
   gre7->SetPoint(140,141,6.000085);
   gre7->SetPointError(140,0,0);
-  gre7->SetPoint(141,141.8236,6.045957);
+  gre7->SetPoint(141,142,6.045957);
   gre7->SetPointError(141,0,0);
   gre7->SetPoint(142,143,6.068573);
   gre7->SetPointError(142,0,0);
@@ -3157,7 +3157,7 @@
   gre8->SetPointError(134,0,0);
   gre8->SetPoint(135,136,4.666619);
   gre8->SetPointError(135,0,0);
-  gre8->SetPoint(136,136.9915,4.713202);
+  gre8->SetPoint(136,137,4.713202);
   gre8->SetPointError(136,0,0);
   gre8->SetPoint(137,138,4.717163);
   gre8->SetPointError(137,0,0);

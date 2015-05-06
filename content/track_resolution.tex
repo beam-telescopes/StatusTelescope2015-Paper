@@ -31,8 +31,7 @@ The expression
 
 \begin{equation}
 \label{eq:telescoperesolutionequation}
-\sigma_{\textrm{meas}}^2 = \sigma_{\textrm{DUT}}^2 + \sigma_{\textrm{Tel}}^2 +
-\sigma_{\textrm{MS}}^2
+\sigma_{\textrm{meas}}^2 = \sigma_{\textrm{DUT}}^2 + \sigma_{\textrm{Tel}}^2 + \sigma_{\textrm{MS}}^2
 \end{equation}
 
 \noindent shows the contributing terms to be considered~\cite{ref:eudetreport200902}. 
@@ -298,8 +297,15 @@ Measurements by Behr~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ show
 
 
 
-\subsection{Resolution predictions using General Broken Lines}
+\subsection{Pointing resolution predictions using General Broken Lines}
 
+The pointing resolution of a beam telescope represents the accuracy with which a track can be pointed on a DUT. 
+In case multiple scattering cannot be neglected, it can be expressed as
+\begin{equation}
+ \sigmap^2 = \sigma_{\textrm{Tel}}^2 + \sigma_{\textrm{MS}}^2
+\end{equation}
+
+\noindent
 Using the measured intrinsic resolution, the known material budget $\epsmimo = 7.1\cdot 10^{-4}$ of the sensor planes, and the material budget of the DUT $\epsdut$,
  predictions of the expected pointing resolution at the actual DUT position can be made. 
 Therefore, it is possible to perform an a priori calculation of the optimal telescope geometry for a certain measurement set-up. 
@@ -308,11 +314,11 @@ This is referred to as \textit{user configuration}, also shown in figure~\ref{fi
 
 Using the GBL~\cite{Blobel20111760,Kleinwort-2012} formalism, the pointing resolution is analytically calculated at desired points of interest along the particle trajectory. 
 The pointing resolution at the DUT for four different DUT material budgets $\epsdut$ is plotted as a function of the spacing $\dzdut$ in figure~\ref{fig:CalcResos_dzdut}.
-Exemplified are two values of $\dz = 20\,\milli\meter$ and $\dz = 50\,\milli\meter$. 
+Exemplified are two values of $\dz = 20\,\milli\meter$ and $\dz = 150\,\milli\meter$. 
 Plots are provided for DESY-II beam energies (A) and SPS energies (B). 
 All plotted resolution functions monotonically increase with increasing $\dzdut$. 
 To achieve the best possible resolution, the inner $\Mimosa$ planes should be positioned as close as possible to the DUT, i.e.~$\dzdut$ is to be minimised. 
-In addition, figure~\ref{fig:CalcResos_dzdut} shows, that the optimal plane spacing $\dz$ depends on the actual DUT material budget.
+In addition, figure~\ref{fig:CalcResos_dzdut} shows, that the optimal plane spacing $\dz$ depends on the actual DUT size along the beam direction and its material budget.
 For instance for a DUT with a material budget of $\epsdut = 0.001$ (black and red solid lines) at 5\,GeV, a narrow configuration shows a higher resolution for $\dzdut < 70\,\milli\meter$,
  while a wide configuration is best for $\dzdut > 70\,\milli\meter$.
 The position of the intersection of the the lines depends on the material budget of the DUT $\epsdut$ and decreases with increasing material budget. 
@@ -323,8 +329,8 @@ However, the difference is less than $0.5\,\micro\meter$ for $\dzdut = 100\,\mil
 
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy}\put(-165,35){(A)}
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern}\put(-165,35){(B)}
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy2}\put(-165,35){(A)}
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern2}\put(-165,35){(B)}
   %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy_loglog_2}
   %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern_loglog_2}
   \caption[Pointing resolution for various material budgets as a function of the distance between DUT and neighbouring planes]{
