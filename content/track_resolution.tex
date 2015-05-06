@@ -2,7 +2,7 @@ Data was taken in $2012$ using the $\DESY$-type beam telescopes, cf.~section~3, 
 The results presented in this section have been obtained using the EUTelescope software described in section~\ref{sec:offline}.
 The set-up does not include any additional DUT, only six $\Mimosa$ telescope planes are used and unbiased track residuals for each telescope plane are calculated.
 
-\subsection{Data Analysis Flow}
+\subsection{Data analysis flow}
 \label{sec:datura-nodut}
 
 After conversion from raw $\Mimosa$ data, a hot pixel search is performed excluding pixels with firing frequencies above a certain threshold from the subsequent analysis.
@@ -103,17 +103,18 @@ By considering one telescope plane as a DUT, equation~(\ref{eq:telescoperesoluti
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5x.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5y.pdf}
   \caption[Residual examples to determine the $\Datura$ telescope's resolution~\cite{ref:thomas}]{
-  Unbiased residual distributions measured with the $\Datura$ telescope.
+  Unbiased residual distributions measured with the $\Datura$ telescope at 5\,GeV. 
   The measured residuals in the $x$-direction for plane $0$ (A) and plane $3$ (B) are shown.
-  According results in the $y$-direction and further planes are omitted. (reproduced from~\cite{ref:thomas})}
+  (reproduced from~\cite{ref:thomas})}
   \label{fig:residualexample1}
 \end{figure}
 
 \noindent
-with $k_5$ being the geometrical scaling factor for a telescope consisting of five planes. 
+with $k_5$ being the geometric scaling factor for a telescope consisting of five planes. 
 The value of $k_5$ depends on the geometry itself and on which telescope plane is considered as DUT. 
 Figure~\ref{fig:residualexample1} shows an example of unbiased residual distributions for a telescope sensor spacing of $\dz = 20\,\milli\meter$,
- a beam energy of $5\,\giga\electronvolt$, and a sensor threshold setting of $\noise = 6$.
+ a beam energy of $5\,\giga\electronvolt$, and a sensor threshold setting of $\noise = 6$. 
+According results in the $y$-direction and further planes are omitted. 
 The distributions are fitted with a Gaussian, from which the residual width $\sigma_{\textrm{meas}}$ is determined. 
 For plane $3$, the residual width averaged over the $x$- and $y$-direction is $\left( 3.96\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$. 
 It is noted, that the residuals feature non-Gaussian tails, as is expected from the underlying physics of the scattering mechanism~\cite{ref:PDG-2014}. 
@@ -161,6 +162,20 @@ If the beam axis is denoted by $z$, then $\theta_i$ can be expressed as
 \theta_i = \frac{p_{i+1} - p_i}{z_{i+1} - z_i} \,.
 \end{equation}
 
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=0.49\textwidth]{figures/20}  \put(-50,40){(A)} % was thin_smiley.pdf
+  \includegraphics[width=0.49\textwidth]{figures/150} \put(-50,40){(B)} % was wide_smiley.pdf
+  %\caption[Intrinsic telescope sensor resolution at $20\,\milli\meter$ and $150\,\milli\meter$ plane spacing~\cite{ref:thomas}]{Intrinsic telescope sensor resolution at $20\,\milli\meter$ (top)
+  % and $150\,\milli\meter$ (bottom) plane spacing.
+  \caption[The measured residual widths of each telescope plane.]{
+  The measured residual widths of each telescope plane are shown in both the $x$- and $y$-direction for a plane spacing of $\dz = 20\,\milli\meter$ (A) and $\dz = 150\,\milli\meter$ (B).
+  The black line shows the predicted residual width at $\sigmam = 3.43\,\upmu\meter$, the green band the measurement standard deviation.
+  Dotted and dashed lines indicate the predicted residual widths, in case differing intrinsic resolutions are assumed.
+  Data was taken at a sensor threshold of $\noise = 6$ and using $5\,\giga\electronvolt$ electrons at DESY-II.
+  (reproduced from~\cite{ref:thomas})}
+  \label{fig:smiley}
+\end{figure}
 
 In equation~(\ref{eq:chi2contrib}) the first term, resulting from the hit measurement, is excluded in the $\chi^2$ calculation if the considered plane is the DUT.
 Similarly, for the first and last planes the second term in equation~(\ref{eq:chi2contrib}) is omitted, since the scattering angle can not be determined.
@@ -183,25 +198,13 @@ with coefficients $\alpha_i$ and $\beta_i$ defined as~\cite{ref:eudetmemo_2007_0
   \end{array} \right. \quad \text{and} \quad \beta_i = \frac{1}{z_{i + 1} - z_i} \,.
 \end{equation}
 
-\begin{figure}[tbp]
-  \centering
-  \includegraphics[width=0.49\textwidth]{figures/20}  \put(-50,40){(A)} % was thin_smiley.pdf
-  \includegraphics[width=0.49\textwidth]{figures/150} \put(-50,40){(B)} % was wide_smiley.pdf
-  %\caption[Intrinsic telescope sensor resolution at $20\,\milli\meter$ and $150\,\milli\meter$ plane spacing~\cite{ref:thomas}]{Intrinsic telescope sensor resolution at $20\,\milli\meter$ (top)
-  % and $150\,\milli\meter$ (bottom) plane spacing.
-  \caption[The measured residual widths of each telescope plane.]{
-  The measured residual widths of each telescope plane are shown in both the $x$- and $y$-direction for a plane spacing of $\dz = 20\,\milli\meter$ (A) and $\dz = 150\,\milli\meter$ (B).
-  The black line shows the predicted residual width at $\sigmames = 3.43\,\upmu\meter$, the green band the measurement standard deviation.
-  Dotted and dashed lines indicate the predicted residuals width, in case differing intrinsic resolutions are assumed.
-  Data was taken at a sensor threshold of $\noise = 6$ and using $5\,\giga\electronvolt$ electrons at DESY-II.
-  (reproduced from~\cite{ref:thomas})}
-  \label{fig:smiley}
-\end{figure}
-
 \noindent
-The minimum of equation~(\ref{eq:globalchi2}) is then calculated to find the intrinsic sensor resolution $\sigmai$.
-The results for both a tighter plane spacing of $\dz = 20\,\milli\meter$ and a wider spacing of $dz = 150\,\milli\meter$ are shown in figure~\ref{fig:smiley}.
+The minimum of equation~(\ref{eq:globalchi2}) is then calculated to determine the intrinsic sensor resolution $\sigmai$.
+The results for both the narrow plane spacing of $\dz = 20\,\milli\meter$ and the wide spacing of $\dz = 150\,\milli\meter$ are shown in figure~\ref{fig:smiley}.
 In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed.
+The measured residual widths are larger at every telescope plane for the wide configuration in comparison to the narrow one and also towards lower beam energies (not shown here). 
+These effects are described in equation~(\ref{eq:telescoperesolutionequation}) by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$, respectively.
+In the former case, the geometric scaling factor is larger in the wide configuration, in the ladder case $\sigma_{\textrm{MS}}$ increases with decreasing beam energy. 
 The calculated intrinsic resolution $\sigma_{\textrm{M26}} = \sigmai$ of the $\Mimosa$ sensors is \allowbreak$\left( 3.42\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$
  for a plane spacing of $\textrm{d}z =  20\,\milli\meter$ and $\left( 3.44\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$ for $\textrm{d}z = 150\,\milli\meter$. 
 The average over the two configurations results in $\sigma_{\textrm{M26}} = \left( 3.43\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$. 
@@ -225,13 +228,45 @@ As the discriminator thresholds are set for subframes of each plane individually
 %Inclined tracks, or a deflection of tracks in planes or scattering material, are not taken into account.
 %However, as shown in~\cite{ref:lutzpaper}, angular deflections are then considered for the later $\chi^2$ minimisation.
 
-Furthermore, the above described method has been repeated for various sensor thresholds, each resulting in an estimate for $\sigmai$ as a function of the set threshold $\noise$. 
-Figure~\ref{fig:resivsenergy_thresh} (A) shows the intrinsic sensor resolutions $\sigmai$ derived from the measurements for different beam energies and plane distances as a function of the applied sensor threshold.
-The minimum of $\sigmai$ is reached for a threshold setting of $\noise = 6$.
-The measured residual width for the wider sensor spacing or lower beam energies is higher as can be seen in figure~\ref{fig:smiley}.
-These effects are described in equation~(\ref{eq:telescoperesolutionequation}) by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$.
-Previous measurements~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$.
-%Measurements by Behr~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$.
+Furthermore, the above described method has been repeated for various sensor thresholds.
+The threshold applied to each telescope sensor is a critical parameter for the telescope performance.
+A higher threshold cuts into the signal, reducing the amount of clusters found on each plane and thus limiting the number of reconstructible tracks.
+This reduces the sensor efficiency, which is defined as the ratio of reconstructed tracks that have at least one hit on the DUT within $100\,\micro\meter$ to the overall number of tracks.
+In figure~\ref{fig:resivsenergy_thresh}~(A) the efficiency dependence on the sensor threshold is shown for various beam energies and sensor spacings.
+Efficiencies are averaged over all six sensor planes and both spatial coordinates, resulting in negligible statistical errors. 
+In all cases, the efficiency is above $98\,\%$ for thresholds $\noise < 7$.
+With increasing threshold, the efficiency declines until a level of $86\,\%$ at $\noise = 12$ is reached.
+The difference in efficiency for different energies and for different plane spacings is about 1\,\%. % and stems from multiple scattering and different extrapolation lengths due to differing $\dz$.
+
+\begin{figure}[tbp]
+  \centering
+  \includegraphics[width=0.49\textwidth]{figures/effi_thresh.eps}	\put(-155,35){(A)}
+  \includegraphics[width=0.49\textwidth]{figures/resi_vs_thresh}	\put(-40,35){(B)} % was resi_thresh_errors
+  \caption[Telescope intrinsic sensor resolution for different threshold settings, beam energies and geometries~\cite{ref:thomas}]{
+(A) Average efficiency of all telescope sensors for different beam energies and sensor spacing vs.~applied threshold.
+%An efficiency decline with increasing threshold can be observed.
+(B) The measured intrinsic resolution of the $\sigma_{\textrm{M26}}$ for different beam energies $p$ and sensor spacing $\textrm{d}z$ as a function of the applied sensor threshold $\noise$.
+In both images values are shifted on the $x$-axis for improved legibility.
+(reproduced from~\cite{ref:thomas})}
+  \label{fig:resivsenergy_thresh}
+\end{figure}
+
+The threshold level affects not only the efficiency, but also the intrinsic resolution. 
+With an increased threshold, a hit is formed from smaller clusters which worsens its position estimate. 
+A lower threshold allows for an increasing number of noise induced signals to pass the zero-suppression on the chip.
+This also leads to a deterioration of the position estimate of the hit and hence a worse intrinsic resolution. 
+%Figure~\ref{fig:effi} shows the efficiency distribution over a sensor plane.
+%As maximum distance $100\,\micro\meter$ is considered.
+%A noisy pixel column at $Y \approx -8\,\milli\meter$ can be observed.
+%This column was masked during the converter step in the \texttt{datura-noDUT} example and subsequently is not used during the analysis. 
+%\\{comment hj: datura-noDUT is jargon}
+%Disregarding this area, an overall average efficiency over $98\,\%$ is observed.
+%each resulting in an estimate for $\sigmai$ as a function of the set threshold $\noise$. 
+Figure~\ref{fig:resivsenergy_thresh} (B) shows the intrinsic sensor resolutions $\sigmai$ derived from the measurements for different beam energies and plane distances as a function of the applied sensor threshold.
+The minimum of $\sigmai$ is reached for a sensor threshold setting of $\noise = 5$~to~6.
+The difference in intrinsic resolution for different energies and for different plane spacings is less than $0.15\,\upmu\meter$ for thresholds $\noise > 3$.
+%Previous measurements~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$. %w/ Joerg
+Measurements by Behr~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$. %w/o Joerg
 % If Joerg is on the author list, rephrase the citation...
 
 % Thomas: sigma tel is different from the pointing resolution.
@@ -239,37 +274,6 @@ Previous measurements~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ sho
 %From equation~(\ref{eq:telescopepointing}) the optimal track pointing resolution $\sigma_{\textrm{Tel}}$ of the $\Datura$ telescope without multiple scattering
 % can therefore be given as $\left( 1.40 \pm 0.05 \right)\,\micro\meter$.
 
-
-\begin{figure}[tbp]
-  \centering
-  \includegraphics[width=0.49\textwidth]{figures/resi_vs_thresh}	\put(-40,35){(A)} % was resi_thresh_errors
-  \includegraphics[width=0.49\textwidth]{figures/effi_thresh.eps}	\put(-175,35){(B)}
-  \caption[Telescope intrinsic sensor resolution for different threshold settings, beam energies and geometries~\cite{ref:thomas}]{
-(A) The measured intrinsic resolution of the $\sigma_{\textrm{M26}}$ for different beam energies $p$ and sensor spacing $\textrm{d}z$ as a function of the applied sensor threshold $\noise$.
-(B) Average efficiency of all telescope sensors for different beam energies and sensor spacing vs.~applied threshold.
-An efficiency decline with increasing threshold can be observed.
-In both images values are shifted on the $x$-axis for improved legibility.
-(reproduced from~\cite{ref:thomas})}
-  \label{fig:resivsenergy_thresh}
-\end{figure}
-
-The threshold applied to each telescope sensor is a critical parameter for the telescope performance.
-A higher threshold cuts into the signal, reducing the amount of clusters found on each plane and thus limiting the number of reconstructible tracks.
-This reduces the sensor efficiency.
-A lower threshold allows for an increasing number of noise induced signals to pass the zero-supression on the chip.
-This leads to a broadening of the residual distributions and hence a worse resolution. 
-%Figure~\ref{fig:effi} shows the efficiency distribution over a sensor plane.
-The efficiency is defined as the ratio of reconstructed tracks that have at least one hit on the DUT within $100\,\micro\meter$ to the overall number of tracks.
-%As maximum distance $100\,\micro\meter$ is considered.
-%A noisy pixel column at $Y \approx -8\,\milli\meter$ can be observed.
-%This column was masked during the converter step in the \texttt{datura-noDUT} example and subsequently is not used during the analysis. 
-%\\{comment hj: datura-noDUT is jargon}
-%Disregarding this area, an overall average efficiency over $98\,\%$ is observed.
-In figure~\ref{fig:resivsenergy_thresh}~(B) the efficiency dependence on the sensor threshold is shown for various beam energies and sensor spacings.
-Efficiencies are averaged over all six sensor planes and both spatial coordinates, resulting in negligible statistical errors. 
-In all cases, the efficiency is above $98\,\%$ up to a threshold of $7$.
-With increasing threshold, the efficiency declines until a level of $86\,\%$ at $\noise = 12$ is reached.
-The difference in efficiency for different energies and for different plane spacings stems from multiple scattering and different extrapolation lengths due to differing $\dz$.
 
 %\begin{figure}[tbp]
 %  \centering
@@ -319,8 +323,8 @@ However, the difference is less than $500\,\nano\meter$ for $\dzdut = 100\,\mill
 
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy}\put(-185,35){(A)}
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern}\put(-185,35){(B)}
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy}\put(-165,35){(A)}
+  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern}\put(-165,35){(B)}
   %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy_loglog_2}
   %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern_loglog_2}
   \caption[Pointing resolution for various material budgets as a function of the distance between DUT and neighbouring planes]{
