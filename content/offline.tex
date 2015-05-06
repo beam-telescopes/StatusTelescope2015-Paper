@@ -10,6 +10,14 @@ Marlin allows for a modular composition of analysis chains for various applicati
 Each processor exposes a set of parameters to the user which can be configured and loaded at runtime via so-called steering files in XML format.
 This way the Marlin/Processor architecture gives maximum flexibility to the user.
 
+\begin{figure}[tbp]
+  \center
+  \includegraphics[width=.9\textwidth]{figures/eutel-strategy}
+  \caption[The EUTelescope data analysis strategy]{Schematic of the overall telescope data reconstruction and analysis strategy of the EUTelescope framework.
+EUTelescope provides processors for all steps, except for the conversion of the DUT raw data, marked with a dashed outline.}
+  \label{fig:offline:strategy}
+\end{figure}
+
 EUTelescope provides several processors for Marlin, implementing algorithms necessary for a full track reconstruction and data analysis of test beam experiments. 
 Figure~\ref{fig:offline:strategy} shows the analysis strategy of the framework starting from the recorded detector response to the final reconstructed particle tracks. 
 %An overview of the processor range provided by EUTelescope is given in \cite{EUDET-2007-20}.
@@ -23,13 +31,3 @@ In addition, precise offline detector alignment can be performed by minimising t
 EUTelescope comes with its own job submission framework jobsub that allows to run analysis jobs on local machines or to submit them to larger computing clusters such as NAF for bulk reconstruction.
 Using its flexible configuration file concept and the global run database storing user defined variables,
  jobsub eases the implementation of per-run variables for reconstruction such as beam energy or detector alignment.
-
-\begin{figure}[tbp]
-  \center
-  \includegraphics[width=.9\textwidth]{figures/eutel-strategy}
-  \caption[The EUTelescope data analysis strategy]{Schematic of the overall telescope data reconstruction and analysis strategy of the EUTelescope framework.
-EUTelescope provides processors for all steps, except for the conversion of the DUT raw data, marked with a dashed outline.}
-  \label{fig:offline:strategy}
-\end{figure}
-
-
