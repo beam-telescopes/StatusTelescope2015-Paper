@@ -1,6 +1,7 @@
 \pdfoutput=1 % only if pdf/png/jpg images are used
 %\documentclass[cits]{JINST}
-\documentclass[a4paper,10pt]{scrartcl}
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
 \usepackage{geometry}
 \geometry{a4paper,left=32mm,right=32mm, top=22mm, bottom=32mm}
 %\geometry{a4paper}
@@ -18,12 +19,14 @@
 \usepackage{lineno}
 \usepackage{epstopdf}
 \usepackage{stfloats}
-\usepackage{upgreek}
+%\usepackage{upgreek}
 \usepackage{verbatim}
 \usepackage{url}
 \usepackage{xcolor}
 \usepackage{draftwatermark}
 \SetWatermarkScale{5}
+%\usepackage{setspace}
+%\doublespacing
 
 %general stuff 
 \newcommand{\e}{\ensuremath{\mathnormal{e}}}
@@ -131,9 +134,10 @@ T. Eichhorn${}^{\textrm{a}}$,
 M.~Goffe${}^{\textrm{c}}$,
 I.~M.~Gregor${}^{\textrm{a}}$, 
 D.~Haas${}^{\textrm{d,}}$\footnote{Now at SRON, Utrecht, Netherlands},
+C.~Muhl${}^{\textrm{a}}$,
 H.~Perrey${}^{\textrm{a,}}$\footnote{Now at Lund University, Sweden}, 
 R.~Peschke${}^{\textrm{a}}$, 
-P.~Roloff${}^{\textrm{a,}}$\footnote{Now at CERN, Geneva Switzerland}, 
+P.~Roloff${}^{\textrm{a,}}$\footnote{Now at CERN, Geneva, Switzerland}, 
 I.~Rubinskiy${}^{\textrm{a,}}$\footnote{Now at CFEL, Hamburg, Germany}, 
 S.~Spannagel${}^{\textrm{a}}$, 
 M. Winter${}^{\textrm{c}}$\\
@@ -159,7 +163,7 @@ ${}^{\textrm{e}}$ University of Bristol, UK
 % D.~Eckstein${}^{\textrm{a}}$, T. Eichhorn${}^{\textrm{a}}$, M. Goffe${}^{\textrm{c}}$,
 % I.~M.~Gregor${}^{\textrm{a}}$, 
 % D.~Haas${}^{\textrm{d,}}$\thanks{Now at SRON, Utrecht, Netherlands}\,\,,
-% %  A. Kravchenko${}^{\textrm{a,}}$\thanks{Now at }\,\,, C. Muhl${}^{\textrm{a}}$,
+% %  A. Kravchenko${}^{\textrm{a,}}$\thanks{Now at }\,\,, 
 % H.~Perrey${}^{\textrm{a,}}$\thanks{Now at ESS, Lund, Sweden}\,\,, 
 % R.~Peschke${}^{\textrm{a}}$, 
 % P.~Roloff${}^{\textrm{a,}}$\thanks{Now at CERN, Geneva Switzerland}\,\,, 
@@ -178,22 +182,20 @@ ${}^{\textrm{e}}$ University of Bristol, UK
 %----------------
 
 \begin{abstract}
-%\abstract{
 \noindent
-Test beam measurements at various test beam facilities have been used to characterise the performance of the $\DESY$-type beam telescopes originally developed within the $\eudet$ project. % using the example of $\Datura$. 
+Test beam measurements at various test beam facilities have been used to characterise the performance of the $\DESY$-type beam telescopes originally developed within the $\eudet$ project. 
 The beam telescope is equipped with six sensor planes using $\Mimosa$ monolithic active pixel devices. 
 A programmable Trigger Logic Unit provides trigger logic and time stamp information on particle passage. 
 Both data acquisition framework and offline reconstruction software packages are available. 
 User devices are easily integrable into the common data acquisition framework via predefined interfaces.
  
 The unbiased residual distribution is studied as a function of various parameters such as the beam energy and plane spacing.
-Its width at the third pixel plane using three up- and two downstream planes for tracking in a 5\,GeV electron/positron-beam is measured to be $(3.96\,\pm\,0.03)\,\upmu\meter$. % FIXME: Cut this sentence if abstract too long
+Its width at the third pixel plane using three up- and two downstream planes for tracking in a 5\,GeV electron/positron-beam is measured to be $(3.96\,\pm\,0.03)\,\upmu\meter$.
 Using the residuals at each plane in each direction, the intrinsic resolution of the sensors is extracted via a $\chi^2$-minimisation to be $(3.43\,\pm\,0.03)\,\upmu\meter$. 
 The pointing resolution is derived to be $(1.94\,\pm\,0.08)\,\upmu\meter$.
 With higher beam energies, the pointing resolution decreases due to diminishing multiple scattering. 
 Additionally, threshold studies show an optimal working point of the $\Mimosa$ sensors at a sensor threshold of six times its RMS noise. 
 Calculations using the formalism of General Broken Lines are compared to the measurements and are found to agree well within the statistical uncertainties.
-%} 
 \end{abstract}
 
 
@@ -237,8 +239,8 @@ Calculations using the formalism of General Broken Lines are compared to the mea
 \section*{Acknowledgements}
 The authors would like to thank Ulrich K\"otz and Jan Dreyling-Eschweiler for helpful discussions. 
 The test beam support at DESY, SLAC, and CERN is highly appreciated. 
-This work was supported by the Commission of the European Communities under the 6th Framework Programme “Structuring the European Research Area”, contract number RII3-026126 (EUDET),
- and the 7th Framework Programme ``Research Infrastructures project AIDA'', grant agreement no.\,262025. 
+This work was supported by the Commission of the European Communities under the FP7 Structuring the European Research Area, contract number RII3-026126 (EUDET),
+ and the FP7 Research Infrastructures project AIDA, grant agreement no.\,262025. 
 Furthermore, strong support from the Helmholtz Association and the BMBF is acknowledged.
 %contract number RII3-CT-2006-026126.
 %Funding agencies AIDA, EUDET

@@ -11,7 +11,8 @@ For offline alignment the tracks found by the DAF processor are passed to Millep
 
 %Finally the unbiased residual distributions for every telescope plane are calculated from the precisely aligned telescope hits.
 In a separate iteration for every telescope plane a track fit is performed using the precisely aligned telescope hits, excluding the plane under investigation.
-The tracks are extrapolated to the plane under investigation, and the residual distance between track extrapolation and plane hits as well as its tracking efficiency are calculated.
+Each track is extrapolated to the plane under investigation, and the unbiased residual distance between track extrapolation and plane hit is calculated.
+Additionally, the tracking efficiency for each plane is determined. 
 
 \subsection{Geometry and multiple scattering}
 \label{sec:multiplescattering}
@@ -77,7 +78,7 @@ At high-energy hadron beams, the contribution from multiple scattering can in ge
 \label{sec:measurements}
 
 Measurements of the achievable resolution were performed to verify the performance of the $\Datura$ telescope at various beam energies, sensor thresholds, and sensor spacings~\cite{ref:thomas}.
-The track residual distributions have been reconstructed as described in section~\ref{sec:datura-nodut}.
+The unbiased track residual distributions have been reconstructed as described in section~\ref{sec:datura-nodut}.
 By considering one telescope plane as a DUT, equation~(\ref{eq:telescoperesolutionequation}) is modified under the assumption that $\sigmai = \sigma_{\textrm{DUT}} = \sigma_{\textrm{M26}}$,
  leading to
 
@@ -111,6 +112,7 @@ By considering one telescope plane as a DUT, equation~(\ref{eq:telescoperesoluti
 \noindent
 with $k_5$ being the geometric scaling factor for a telescope consisting of five planes. 
 The value of $k_5$ depends on the geometry itself and on which telescope plane is considered as DUT. 
+This configuration with five planes used as beam telescope and one plane as DUT is referred to as \textit{gauge configuration}. 
 Figure~\ref{fig:residualexample1} shows an example of unbiased residual distributions for a telescope sensor spacing of $\dz = 20\,\milli\meter$,
  a beam energy of $5\,\giga\electronvolt$, and a sensor threshold setting of $\noise = 6$. 
 According results in the $y$-direction and further planes are omitted. 
