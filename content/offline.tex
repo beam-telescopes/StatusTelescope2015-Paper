@@ -2,7 +2,7 @@
 
 For offline analysis and reconstruction of telescope test beam data the EUTelescope software package~\cite{ref:eutelwebsite}
  is available and features a close integration of the EUDAQ software framework described in section~\ref{sec:eudaq}.
-EUTelescope builds on the ILCSoft framework~\cite{ref:eudetmemo_2009_12} which provides the basic building blocks for offline analysis such as a generic data model (Linear Collider I/O, LCIO),
+EUTelescope is based on the ILCSoft framework~\cite{ref:eudetmemo_2009_12} which provides the basic building blocks for offline analysis such as a generic data model (Linear Collider I/O, LCIO),
 a geometry description language (GEAR) and the central event processor (Marlin).
 
 %\cite{EUDET-2008-48}.
@@ -25,9 +25,9 @@ At low-energy beam lines such as the DESY-II test beam facility, multiple scatte
  especially in measurements with non-negligible DUT material budget, cf.\ section~\ref{sec:multiplescattering}.
 Therefore, EUTelescope provides processors implementing advanced algorithms for tracking such as Deterministic Annealing Filter (DAF)~\cite{ref:daffitter}
  or GBL which account for scattering in all material present in the beam.
-For high-energy beam lines a simple straight line fit provides maximum performance.
-In addition, precise offline detector alignment can be performed by minimising track residuals using the EUTelescope alignment processor which implements the Millepede-II algorithm~\cite{Blobel-2006}.
+For high-energy beam lines a simple straight line fit provides sufficient precision and a maximum of computational performance.
+In addition, precise offline detector alignment can be performed by minimising track residuals using the EUTelescope alignment processor which utilises the Millepede-II algorithm~\cite{Blobel-2006}.
 
-EUTelescope comes with its own job submission framework jobsub that allows to run analysis jobs on local machines or to submit them to larger computing clusters such as NAF for bulk reconstruction.
+EUTelescope comes with its own job submission framework Jobsub that allows to run analysis jobs on local machines or to submit them to larger computing clusters such as NAF for bulk reconstruction.
 Using its flexible configuration file concept and the global run database storing user defined variables,
  jobsub eases the implementation of per-run variables for reconstruction such as beam energy or detector alignment.
