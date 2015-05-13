@@ -90,7 +90,8 @@ After the trigger has been de-asserted, the trigger number is clocked out.
 
 The $\Mimosa$ sensors provide zero-suppressed hit data over a ribbon cable to the auxiliary boards, which provide RJ45 connectors to connect with the
  data concentrator board collecting the data from all six sensors and the trigger/busy lines from the TLU. 
-A 52-pin cable then transports the data and the TLU trigger/busy lines in parallel into a FlexRIO board, which is equipped with analogue-to-digital converters and an FPGA. 
+A 52-pin cable then transports the data and the TLU trigger/busy lines in parallel for the six $\Mimosa$ sensors into a FlexRIO board, which is equipped with a LVDS digital interface module
+  and an FPGA handling the $\Mimosa$ serial protocol. 
 The $\Mimosa$ data from the rolling-shutter readout is written continuously to RAM without taking into account the trigger information. 
 The data is then available via direct memory access to the DAQ software framework and an event is written to disk in normal handshake mode, only if a trigger has been raised for a certain telescope readout frame. 
 
