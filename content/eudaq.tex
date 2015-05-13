@@ -1,5 +1,5 @@
 
-The modular cross platform data acquisition framework $\eudaq$~\cite{ref:eudaqwebsite} has been designed and developed to serve as flexible and simple to use data taking software for the $\DESY$-type beam telescopes,
+The modular cross-platform data acquisition framework $\eudaq$~\cite{ref:eudaqwebsite} has been designed and developed to serve as flexible and simple-to-use data taking software for the $\DESY$-type beam telescopes,
  allowing for easy integration of other devices. 
 It consists of completely independent modules communicating via TCP/IP enabling a distributed data acquisition with modules running on separate machines. 
 Currently, $\eudaq$ is designed for synchronous DAQ systems requiring one event per trigger per attached subdetector system before building the global event. 
@@ -17,12 +17,12 @@ They interface with the EUDAQ library and provide a set of commands to be called
 This simple interface scheme eases the integration of user DAQ systems into the software framework.
 The data read out from the detectors by the individual producers is sent to the so-called Data Collector. 
 This Data Collector is responsible for the event building, i.e.\ the correlation of events from all subdetector systems to single global events comprising all data belonging to one trigger. 
-Basic sanity checks such as the event numbers from the individual subdetectors are executed.
+Basic sanity checks such as testing the consistency of event numbers reported by the individual subdetectors are executed.
 
 To ensure data quality during data acquisition the Online Monitor tool is available. 
 It connects to the Data Collector requesting a fixed fraction of the recorded events (e.g.\ one out of a hundred) to fully decode all subdetector data
  and build basic plots such as hit maps or correlation plots.
-Thereby, data quality monitoring verifying that the different devices are synchronized in time and all within the geometrical trigger acceptance, is rendered possible.
+Thereby, data quality monitoring verifying that the different devices are synchronized in time and all within the geometrical trigger acceptance, is possible during data taking.
 
 The data decoding is done using Data Converter plug-ins for every detector type attached to the Run Control. 
 The plug-in to be called for a specific subevent is deducted from the event type transmitted by the Producer and written to the data stream by the Data Collector. 
