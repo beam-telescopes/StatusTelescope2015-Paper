@@ -22,7 +22,7 @@ In the Cartesian, right-handed coordinate system chosen, the $x$-direction point
 
 The $\Mimosa$ sensors used for precise spacial measurements of particle trajectories are manufactured with the AMS 350\,nm CMOS technology~\cite{HuGuo2010480}. 
 Each $\Mimosa$ sensor consists of pixels sized $\unit{18.4}{\upmu\meter}\,\times\,\unit{18.4}{\upmu\meter}$, which are arranged in 1152 columns and 576 rows.
-This adds to a total of about four million readout channels covering an active area of about $\unit{10.6}{\milli\meter}\,\times\,\unit{21.1}{\milli\meter}$. 
+This adds up to a total of about four million readout channels covering an active area of about $\unit{10.6}{\milli\meter}\,\times\,\unit{21.1}{\milli\meter}$. 
 The $\Mimosa$ sensors have been thinned down to $\unit{50}{\upmu\meter}$. 
 Free charge carriers produced in the underlying \unit{14}{\upmu\meter} epitaxial layer are collected via drift (diffusion) in the depleted (undepleted) regions. 
 The binary resolution of $\unit{5.3}{\upmu\meter}$ can be improved by charge sharing, as will be shown in section~\ref{sec:trackres}.
@@ -31,8 +31,8 @@ The binary resolution of $\unit{5.3}{\upmu\meter}$ can be improved by charge sha
 
 The $\Mimosa$ sensors are read out with a rolling-shutter, taking 16\,cycles of an 80\,MHz clock per row, with all columns being read out in parallel. 
 This allows for correlated double sampling and zero suppression on-chip with the digital circuitry placed outside the active pixel array. 
-At this clock frequency, the $\Mimosa$ integration time equals $\unit{115.2}{\upmu\second}$ and allowing for about 8680 frames to be read out per second. 
-The expected maximum rate of detectable particles through the active area estimates to be about $\unit{1}{\mega\hertz/\centi\meter^2}$ due to the limited on-chip buffer size. 
+At this clock frequency, the $\Mimosa$ integration time equals $\unit{115.2}{\upmu\second}$, allowing for about 8680 frames to be read out per second. 
+The expected maximum rate of detectable particles through the active area is estimated to be about $\unit{1}{\mega\hertz/\centi\meter^2}$ due to the limited on-chip buffer size. 
 The detection threshold is programmable via so-called JTAG files. 
 These provide configurations with different threshold levels in integer multiples $\noise$ of the RMS noise of the individual planes. 
 A sensor threshold setting of $\noise = 6$ therefore corresponds to a collected charge in a single pixel of at least six times the noise. 
@@ -40,9 +40,9 @@ At this threshold, the average noise occupancy is measured to be about $6\cdot10
 
 Every pixel sensor is mounted within an aluminium jig, three jigs are in turn mounted on each of the two aluminium arms. 
 The jigs feature a beam window around the position of the sensor location, minimising the material budget. 
-Lightproof, Kapton foils of $\unit{25}{\upmu\meter}$ thickness protect the sensors on each side.
+Lightproof Kapton foils of $\unit{25}{\upmu\meter}$ thickness protect the sensors on each side.
 The overall material of the beam telescope thus amounts to $\unit{300}{\upmu\meter}$ of silicon and $\unit{300}{\upmu\meter}$ of Kapton. 
-The two telescope arms, usually one up- and one downstream of the DUT, is movable along the direction of the beam in order to allow for variably sized DUTs to be fitted into the set-up. 
+The two telescope arms, usually one up- and one downstream of the DUT, are movable along the direction of the beam in order to allow for variably sized DUTs to be fitted into the set-up. 
 The minimal distance between two sensors is given by the jig thickness of 20\,mm, the maximal distance is restricted by the length of the aluminium arms to 150\,mm at equidistant spacing.
 Furthermore, the jigs are cooled keeping the $\Mimosa$ sensors at a constant temperature of typically 18$\,\celsius$ for stable operation.
 The entire beam telescope is placed on a rotatable frame easing adjustment of its orientation parallel to the beam. 
@@ -68,7 +68,7 @@ Likewise, $\epsdut$ represents the DUT's material budget which includes the DUT 
 
 Four Hamamatsu PMT assemblies with scintillators and lightguides, two in front and two in the back of the telescope, define the spatial acceptance for triggers. 
 The crossed scintillators on either side of the beam telescope define a rectangular acceptance window of $10\,\milli\meter\,\times\,20\,\milli\meter$ matching the $\Mimosa$ acceptance area. 
-The TLU, based on a commercial Spartan\,3 board, features a coincidence unit with discriminator boards accepting up to four PMT inputs signals. 
+The TLU, based on a commercial Spartan\,3 board, features a coincidence unit with discriminator boards accepting up to four PMT input signals. 
 Additionally, it is equipped with several custom-made add-on PCBs allowing for an easy integration of user DAQ systems. 
 Providing a programmable logic, the TLU  takes a trigger decision based on its four input channels. 
 As interface to the beam telescope DAQ and other user DAQs, the TLU provides RJ45 connectors with four LVDS pairs carrying the trigger clock, busy line, reset line, and trigger line. 
@@ -85,7 +85,7 @@ Three different handshake modes handling the trigger/busy signals are available,
 In \textit{simple handshake mode}, the assertion of a trigger is replied by the integrated DAQ systems by asserting a signal on the busy line. 
 The TLU then de-asserts the trigger and waits for the busy line going low.
 The \textit{normal handshake mode} uses the same scheme as in the \textit{simple handshake mode}, but additionally the current trigger data is transferred on the trigger line:
-After the trigger has been de-asserted, the trigger number is clocked out. 
+after the trigger has been de-asserted, the trigger number is clocked out. 
 
 
 The $\Mimosa$ sensors provide zero-suppressed hit data over a ribbon cable to the auxiliary boards, which provide RJ45 connectors to connect with the
