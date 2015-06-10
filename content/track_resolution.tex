@@ -103,7 +103,7 @@ By considering one telescope plane as a DUT, equation~(\ref{eq:telescoperesoluti
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5x.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5y.pdf}
   \caption[Residual examples to determine the $\Datura$ telescope's resolution~\cite{ref:thomas}]{
-  Unbiased residual distributions measured with the $\Datura$ telescope at 5\,GeV. 
+  Unbiased residual distributions measured with the $\Datura$ telescope at 6\,GeV. 
   The measured residuals in the $x$-direction for plane $0$ (A) and plane $3$ (B) are shown.
   Modified from~\cite{ref:thomas}.}
   \label{fig:residualexample1}
@@ -114,7 +114,7 @@ with $k_5$ being the geometric scaling factor for a telescope consisting of five
 The value of $k_5$ depends on the geometry itself and on which telescope plane is considered as DUT. 
 This configuration with five planes used as beam telescope and one plane as DUT is referred to as \textit{gauge configuration}. 
 Figure~\ref{fig:residualexample1} shows an example of unbiased residual distributions for a telescope sensor spacing of $\dz = 20\,\milli\meter$,
- a beam energy of $5\,\giga\electronvolt$, and a sensor threshold setting of $\noise = 6$. 
+ a beam energy of 6\,GeV, and a sensor threshold setting of $\noise = 6$. 
 According results in the $y$-direction and further planes are omitted. 
 The distributions are fitted with a Gaussian, from which the residual width $\sigma_{\textrm{meas}}$ is determined. 
 For plane $3$, the residual width averaged over the $x$- and $y$-direction is $\left( 3.96\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$. 
@@ -173,7 +173,7 @@ If the beam axis is denoted by $z$, then $\theta_i$ can be expressed as
   The measured residual widths of each telescope plane are shown in both the $x$- and $y$-direction for a plane spacing of $\dz = 20\,\milli\meter$ (A) and $\dz = 150\,\milli\meter$ (B).
   The black line shows the predicted residual width at $\sigmam = 3.43\,\upmu\meter$, the green band the measurement standard deviation.
   Dotted and dashed lines indicate the predicted residual widths, in case differing intrinsic resolutions are assumed.
-  Data was taken at a sensor threshold of $\noise = 6$ and using $5\,\giga\electronvolt$ electrons at DESY-II.
+  Data was taken at a sensor threshold of $\noise = 6$ and using 6\,GeV electrons at DESY-II.
   Modified from~\cite{ref:thomas}.}
   \label{fig:smiley}
 \end{figure}
@@ -194,7 +194,7 @@ with coefficients $\alpha_i$ and $\beta_i$ defined as~\cite{ref:eudetmemo_2007_0
 \begin{equation}
 \alpha_i = \left\{
   \begin{array}{l l}
-    \sigma_{i}^{-2} & \quad \text{for $i \neq i_{\textrm{DUT}}$}\\
+    \sigmai^{-2} & \quad \text{for $i \neq i_{\textrm{DUT}}$}\\
     0 & \quad \text{for $i = i_{\textrm{DUT}}$}
   \end{array} \right. \quad \text{and} \quad \beta_i = \frac{1}{z_{i + 1} - z_i} \,.
 \end{equation}
@@ -241,8 +241,8 @@ The difference in efficiency for different energies and for different plane spac
 
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/effi_thresh.eps}	\put(-155,35){(A)}
-  \includegraphics[width=0.49\textwidth]{figures/resi_vs_thresh}	\put(-40,35){(B)} % was resi_thresh_errors
+  \includegraphics[width=0.49\textwidth]{figures/effi_thresh}		\put(-155,35){(A)}
+  \includegraphics[width=0.49\textwidth]{figures/resi_vs_thresh}	\put( -40,35){(B)} % was resi_thresh_errors
   \caption[Telescope intrinsic sensor resolution for different threshold settings, beam energies and geometries~\cite{ref:thomas}]{
 (A) Average efficiency of all telescope sensors for different beam energies and sensor spacing vs.~applied threshold.
 %An efficiency decline with increasing threshold can be observed.
@@ -279,7 +279,7 @@ Measurements by Behr~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ show
 %\begin{figure}[tbp]
 %  \centering
 %  \includegraphics[width=\textwidth]{figures/plane3_effi_run37.pdf}
-%  \caption[Telescope sensor efficiency~\cite{ref:thomas}]{Efficiency of telescope sensor plane $3$ at a threshold of $7$ and $5\,\giga\electronvolt$ beam momentum.
+%  \caption[Telescope sensor efficiency~\cite{ref:thomas}]{Efficiency of telescope sensor plane $3$ at a threshold of $7$ and 6\,GeV beam momentum.
 %Image from~\cite{ref:thomas}.}
 %\label{fig:effi}
 %\end{figure}
