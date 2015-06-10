@@ -8,7 +8,7 @@
   m26fitter->SetBorderMode(0);
   m26fitter->SetBorderSize(2);
   m26fitter->SetFrameBorderMode(0);
-
+  //gStyle->SetOptFit(1111);
 
   TH1D *DUTshiftX__7 = new TH1D("DUTshiftX__7"," Measured - fitted X",400,-600,600);
   DUTshiftX__7->SetTitle("");
@@ -144,6 +144,7 @@
   entry=leg->AddEntry(f2,"fit","l");
   //entry=leg->AddEntry("NULL","mean = -0.0160 #pm 0.0356","h");
   entry=leg->AddEntry("NULL","#sigma = 3.99 #pm 0.04","h");
+  entry=leg->AddEntry("NULL","#chi^{2} /ndf = 0.3","h");
 
   leg->Draw();
 
