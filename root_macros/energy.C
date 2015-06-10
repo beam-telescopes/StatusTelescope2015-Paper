@@ -12,6 +12,8 @@
    //c1->SetGridy();
    c1->SetFrameBorderMode(0);
    c1->SetFrameBorderMode(0);
+   c1->SetTicky(1);
+
    
    /*TH1F *hframe__1__1 = new TH1F("hframe__1__1","Track Pointing Resolution on Plane 3",1000,1,140);
    hframe__1__1->SetMinimum(1);
@@ -3199,18 +3201,22 @@
    gre5->SetMarkerColor(2);
    gre5->SetMarkerStyle(22);
    gre5->SetMarkerSize(3);
-   gre5->SetPoint(0,2.35,8.140047);
-   gre5->SetPointError(0,0.235,0.026404);
-   gre5->SetPoint(1,3.42,6.005437);
-   gre5->SetPointError(1,0.342,0.0270614);
-   gre5->SetPoint(2,4.75,4.810361);
-   gre5->SetPointError(2,0.475,0.0300892);
-   gre5->SetPoint(3,5.4,4.659115);
-   gre5->SetPointError(3,0.54,0.0359651);
-   gre5->SetPoint(4,120,1.81681);
-   gre5->SetPointError(4,12,0.0674329);
-   gre5->SetPoint(5,12.5,3.33284);
-   gre5->SetPointError(5,1.25,0.0434314);
+   //gre5->SetPoint(0,2.35,8.140047);
+   gre5->SetPoint(0,2.4,8.140047);
+   gre5->SetPointError(0,0.245,0.026404);
+   //gre5->SetPoint(1,3.42,6.005437);
+   gre5->SetPoint(1,3.6,6.005437);
+   gre5->SetPointError(1,0.362,0.0270614);
+   //gre5->SetPoint(2,4.75,4.810361);
+   gre5->SetPoint(2,5.3,4.810361);
+   gre5->SetPointError(2,0.535,0.0300892);
+   //gre5->SetPoint(3,5.4,4.659115);
+   gre5->SetPoint(3,6.0,4.659115);
+   gre5->SetPointError(3,0.6,0.0359651);
+   gre5->SetPoint(4,12.5,3.33284);
+   gre5->SetPointError(4,1.25,0.0434314);
+   gre5->SetPoint(5,120,1.81681);
+   gre5->SetPointError(5,12,0.0674329);
   //   gre->Draw("p");
    mg->Add(gre5,"p");
    
@@ -3220,12 +3226,15 @@
    gre6->SetMarkerColor(1);
    gre6->SetMarkerStyle(22);
    gre6->SetMarkerSize(3);
-   gre6->SetPoint(0,2.03,2.728459);
-   gre6->SetPointError(0,0.203,0.0645689);
-   gre6->SetPoint(1,2.66,2.3086);
-   gre6->SetPointError(1,0.266,0.0651704);
-   gre6->SetPoint(2,5.1,1.937211);
-   gre6->SetPointError(2,0.51,0.0773311);
+   //gre6->SetPoint(0,2.03,2.728459);
+   gre6->SetPoint(0,2.4,2.728459);
+   gre6->SetPointError(0,0.243,0.0645689);
+   //gre6->SetPoint(1,2.66,2.3086);
+   gre6->SetPoint(1,3.6,2.3086);
+   gre6->SetPointError(1,0.366,0.0651704);
+   //gre6->SetPoint(2,5.1,1.937211);
+   gre6->SetPoint(2,6.0,1.937211);
+   gre6->SetPointError(2,0.61,0.0773311);
    
    
    //gre->Draw("p");

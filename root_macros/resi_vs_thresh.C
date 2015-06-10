@@ -9,6 +9,7 @@
   threshold->SetFrameBorderMode(0);
   threshold->SetRightMargin(0.05);
   threshold->SetLeftMargin(0.15);
+  threshold->SetTicky(1);
 
 
   TMultiGraph *mg = new TMultiGraph();
@@ -251,15 +252,15 @@
   leg->SetLineColor(0);
   leg->SetFillColor(kWhite);
   entry=leg->AddEntry("NULL","dz = 20 mm","h");
-  entry=leg->AddEntry(gre5,"p =    2 GeV","p");
-  entry=leg->AddEntry(gre6,"p =    3 GeV","p");
-  entry=leg->AddEntry(gre7,"p =    5 GeV","p");
+  entry=leg->AddEntry(gre5,"p =  2.4 GeV","p");
+  entry=leg->AddEntry(gre6,"p =  3.6 GeV","p");
+  entry=leg->AddEntry(gre7,"p =  6.0 GeV","p");
   entry=leg->AddEntry("NULL","","");
   entry=leg->AddEntry("NULL","dz = 150 mm","h");
-  entry=leg->AddEntry(gre ,"p =    2 GeV","p");
-  entry=leg->AddEntry(gre2,"p =    3 GeV","p");
-  entry=leg->AddEntry(gre3,"p =  4.4 GeV","p");
-  entry=leg->AddEntry(gre4,"p =    5 GeV","p");
+  entry=leg->AddEntry(gre ,"p =  2.4 GeV","p");
+  entry=leg->AddEntry(gre2,"p =  3.6 GeV","p");
+  entry=leg->AddEntry(gre3,"p =  5.3 GeV","p");
+  entry=leg->AddEntry(gre4,"p =  6.0 GeV","p");
   leg->Draw();
 
 

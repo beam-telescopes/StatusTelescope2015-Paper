@@ -9,7 +9,8 @@
    //smilie->SetRightMargin(0.3);
    smilie->SetFrameBorderMode(0);
    smilie->SetFrameBorderMode(0);
-   
+   smilie->SetTicky(1);
+
    //TH1D *h_axis__1 = new TH1D("h_axis__1","h_axis__1");
    //h_axis__1->SetMinimum(0);
    //h_axis__1->SetMaximum(10);
@@ -438,7 +439,7 @@
    leg2->SetLineWidth(1);
    leg2->SetFillColor(0);
    leg2->SetFillStyle(0);
-   entry=leg2->AddEntry("NULL","DESY 5 GeV e^{-}","");
+   entry=leg2->AddEntry("NULL","DESY 6 GeV e^{-}","");
 
    entry=leg2->AddEntry("NULL","M26 threshold: 6","");
    entry=leg2->AddEntry(gre3,"x direction","p");
