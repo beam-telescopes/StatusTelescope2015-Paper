@@ -141,28 +141,6 @@ This is expected due to the fact that the track extrapolation to the inner senso
 % \label{fig:residualexample2}
 % \end{figure}
 
-By employing a $\chi^{2}$-minimisation method~\cite{ref:eudetmemo_2007_01,ref:lutzpaper}, the intrinsic resolution of the $\Mimosa$ sensors is calculated from the unbiased residual widths.
-For each telescope sensor dimension ($x$- and $y$), the individual contribution $\Delta \chi^2_{i}$ from plane $i$ is defined as
-
-\begin{equation}
-\label{eq:chi2contrib}
-\Delta \chi^2_{i} = \left( \frac{r - p_{i}}{\sigmai} \right)^2 \Bigg|_{i \ne i_{\textrm{DUT}}} +
-\left( \frac{\theta_{\textrm{i}} - \theta_{i-1}}{\Theta_{0}} \right)^2 \Bigg|_{i \ne 0,N-1} \,,
-\end{equation}
-
-\noindent
-with the telescope plane numbering beginning at zero.
-The measured hit position on one dimension is denoted by $r$, the position extrapolated from the track in the same dimension by $p_{i}$.
-The angles between the nominal beam direction and the track direction are $\theta_{i-1}$ and $\theta_{i}$.
-The former is the track angle entering plane $i$, the latter the angle of the outbound track segment.
-$\sigmai$ and $\Theta_{0}$ are the intrinsic resolution of sensor plane $i$ and the width of the multiple scattering distribution, according to equation~(\ref{eq:multiplescattering}), respectively.
-It is assumed that $\sigmai$ and $\Theta_{0}$ do not differ between planes and that $\sigmai$ is also equal for both measurement dimensions.
-If the beam axis is denoted by $z$, then $\theta_i$ can be expressed as
-
-\begin{equation}
-\theta_i = \frac{p_{i+1} - p_i}{z_{i+1} - z_i} \,.
-\end{equation}
-
 \begin{figure}[tbp]
   \centering
   \includegraphics[width=0.49\textwidth]{figures/20}  \put(-50,40){(A)} % was thin_smiley.pdf
@@ -178,33 +156,14 @@ If the beam axis is denoted by $z$, then $\theta_i$ can be expressed as
   \label{fig:smiley}
 \end{figure}
 
-In equation~(\ref{eq:chi2contrib}) the first term, resulting from the hit measurement, is excluded in the $\chi^2$ calculation if the considered plane is the DUT.
-Similarly, for the first and last planes the second term in equation~(\ref{eq:chi2contrib}) is omitted, since the scattering angle can not be determined.
-This results in the global $\chi^2$ expression:
-
-\begin{equation}
-\label{eq:globalchi2}
-\chi^2 = \sum_{i=0}^{N} \alpha_i \left( r - p_i \right)^2 + \sum_{i=1}^{N-1}
-\left( \frac{p_{i + 1} \beta_i + p_{i-1} \beta_{i-1} - p_i \left( \beta_i + \beta_{i-1} \right)}{\Theta_0} \right)^2 \,,
-\end{equation}
-
-\noindent
-with coefficients $\alpha_i$ and $\beta_i$ defined as~\cite{ref:eudetmemo_2007_01}
-
-\begin{equation}
-\alpha_i = \left\{
-  \begin{array}{l l}
-    \sigmai^{-2} & \quad \text{for $i \neq i_{\textrm{DUT}}$}\\
-    0 & \quad \text{for $i = i_{\textrm{DUT}}$}
-  \end{array} \right. \quad \text{and} \quad \beta_i = \frac{1}{z_{i + 1} - z_i} \,.
-\end{equation}
+Add new chi2 here for sigmai determination. !!
 
 \noindent
 The measured residual widths for both the narrow plane spacing of $\dz = 20\,\milli\meter$ and the wide spacing of $\dz = 150\,\milli\meter$ are shown in figure~\ref{fig:smiley} (A) and (B), respectively. 
 They are larger at every telescope plane for the wide configuration in comparison to the narrow one and also increase towards lower beam energies (latter not shown here). 
 These effects are described in equation~(\ref{eq:telescoperesolutionequation}) by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$, respectively.
 In the former term, the geometric scaling factor is larger in the wide configuration, in the latter $\sigma_{\textrm{MS}}$ increases with decreasing beam energy. 
-The minimum of equation~(\ref{eq:globalchi2}) is then calculated with the measured residual widths substituting the $(r-p_i)$ term, in order to determine the intrinsic sensor resolution $\sigmai$.
+The minimum of equation~(\ref{eq:globalchi3}) is then calculated in order to determine the intrinsic sensor resolution $\sigmai$.
 In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed.
 The calculated intrinsic resolution $\sigma_{\textrm{M26}} = \sigmai$ of the $\Mimosa$ sensors is \allowbreak$\left( 3.42\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$
  for a plane spacing of $\textrm{d}z =  20\,\milli\meter$ and $\left( 3.44\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$ for $\textrm{d}z = 150\,\milli\meter$. 
@@ -234,9 +193,10 @@ The threshold applied to each telescope sensor is a critical parameter for the t
 A higher threshold cuts into the signal, reducing the amount of clusters found on each plane and thus limiting the number of reconstructible tracks.
 This reduces the sensor efficiency, which is defined as the ratio of reconstructed tracks that have at least one hit on the DUT within $100\,\micro\meter$ to the overall number of tracks.
 In figure~\ref{fig:resivsenergy_thresh}~(A) the efficiency dependence on the sensor threshold is shown for various beam energies and sensor spacings.
-Efficiencies are averaged over all six sensor planes and both spatial coordinates, resulting in negligible statistical errors. 
-In all cases, the efficiency is above $98\,\%$ for thresholds $\noise < 7$.
-With increasing threshold, the efficiency declines until a level of $86\,\%$ at $\noise = 12$ is reached.
+Efficiencies are shown for plane 3 and are averaged over both spatial coordinates. 
+The statistical errors are smaller than the markers.
+For thresholds $\noise < 7$ the efficiency is above $98\,\%$.
+With increasing threshold, the efficiency declines until a level of $82\,\%$ at $\noise = 12$ is reached.
 The difference in efficiency for different energies and for different plane spacings is about 1\,\%. % and stems from multiple scattering and different extrapolation lengths due to differing $\dz$.
 
 \begin{figure}[tbp]
