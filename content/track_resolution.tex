@@ -1,4 +1,4 @@
-Data was taken in $2012$ using the $\DESY$-type beam telescopes, cf.~section~3, which were operated with EUDAQ, cf.~section~4. 
+Data was taken in $2012$ and $2013$ using the $\DESY$-type beam telescopes, cf.~section~3, which were operated with EUDAQ, cf.~section~4. 
 The results presented in this section have been obtained using the EUTelescope software described in section~\ref{sec:offline}.
 The set-up does not include any additional DUT, only six $\Mimosa$ telescope planes are used and unbiased track residuals for each telescope plane are calculated.
 
@@ -32,11 +32,11 @@ The expression
 
 \begin{equation}
 \label{eq:telescoperesolutionequation}
-\sigma_{\textrm{meas}}^2 = \sigma_{\textrm{DUT}}^2 + \sigma_{\textrm{Tel}}^2 + \sigma_{\textrm{MS}}^2
+\sigmameas^2 = \sigma_{\textrm{DUT}}^2 + \sigma_{\textrm{Tel}}^2 + \sigma_{\textrm{MS}}^2
 \end{equation}
 
 \noindent shows the contributing terms to be considered~\cite{ref:eudetreport200902}. 
-The measured residual width on a DUT sensor plane is expressed by $\sigma_{\textrm{meas}}$, $\sigma_{\textrm{DUT}}$ is the intrinsic resolution of the DUT itself,
+The measured residual width on a DUT sensor plane is expressed by $\sigmameas$, $\sigma_{\textrm{DUT}}$ is the intrinsic resolution of the DUT itself,
  $\sigma_{\textrm{Tel}}$ is the resolution of the telescope, and $\sigma_{\textrm{MS}}$ represents the contribution from multiple scattering.
 The resolution of a telescope $\sigma_{\textrm{Tel}}$ can be expressed by
 
@@ -84,7 +84,7 @@ By considering one telescope plane as a DUT, equation~(\ref{eq:telescoperesoluti
 
 \begin{equation}
 \label{eq:telescoperesolutionequation_2}
-\sigma_{\textrm{meas}}^2 = \sigma_{\textrm{M26}}^2 \cdot \left( 1 + k_5 \right) +
+\sigmameas^2 = \sigma_{\textrm{M26}}^2 \cdot \left( 1 + k_5 \right) +
 \sigma_{\textrm{MS}}^2\,,
 \end{equation}
 
@@ -116,18 +116,13 @@ This configuration with five planes used as beam telescope and one plane as DUT 
 Figure~\ref{fig:residualexample1} shows an example of unbiased residual distributions for a telescope sensor spacing of $\dz = 20\,\milli\meter$,
  a beam energy of 6\,GeV, and a sensor threshold setting of $\noise = 6$. 
 According results in the $y$-direction and further planes are omitted. 
-The distributions are fitted with a Gaussian, from which the residual width $\sigma_{\textrm{meas}}$ is determined. 
+The distributions are fitted with a Gaussian, from which the residual width $\sigmameas$ is determined. 
 For plane $3$, the residual width averaged over the $x$- and $y$-direction is $\left( 3.96\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$. 
 It is noted, that the residuals feature non-Gaussian tails, as is expected from the underlying physics of the scattering mechanism~\cite{ref:PDG-2014}. 
 The measured resolution used in this work is defined as the width of a Gaussian fit on the centre $90\,\%$ of the residuals. 
 The residual width for the outer plane $0$ is larger than the width obtained from plane $3$.
 This is expected due to the fact that the track extrapolation to the inner sensors is done from both sides, hence is comparatively more precise than for the outer sensors,
  where the extrapolation can only be performed from one direction. 
-
-
-
-
-
 
 % \begin{figure}[hbtp]
 % \centering
@@ -156,16 +151,26 @@ This is expected due to the fact that the track extrapolation to the inner senso
   \label{fig:smiley}
 \end{figure}
 
-Add new chi2 here for sigmai determination. !!
 
-\noindent
-The measured residual widths for both the narrow plane spacing of $\dz = 20\,\milli\meter$ and the wide spacing of $\dz = 150\,\milli\meter$ are shown in figure~\ref{fig:smiley} (A) and (B), respectively. 
+The twelve measured residual widths for both the narrow plane spacing of $\dz = 20\,\milli\meter$ and the wide spacing of $\dz = 150\,\milli\meter$ are shown in figure~\ref{fig:smiley} (A) and (B), respectively. 
 They are larger at every telescope plane for the wide configuration in comparison to the narrow one and also increase towards lower beam energies (latter not shown here). 
 These effects are described in equation~(\ref{eq:telescoperesolutionequation}) by the terms $\sigma_{\textrm{Tel}}^2$ and $\sigma_{\textrm{MS}}^2$, respectively.
 In the former term, the geometric scaling factor is larger in the wide configuration, in the latter $\sigma_{\textrm{MS}}$ increases with decreasing beam energy. 
-The minimum of equation~(\ref{eq:globalchi3}) is then calculated in order to determine the intrinsic sensor resolution $\sigmai$.
-In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed.
-The calculated intrinsic resolution $\sigma_{\textrm{M26}} = \sigmai$ of the $\Mimosa$ sensors is \allowbreak$\left( 3.42\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$
+
+In order to find the best estimate of the intrinsic sensor resolution, a $\chi^2$ minimisation is performed. 
+Inputs to this minimisation are the twelve measured residuals widths $\sigmameas$ at a sensor threshold of $\noise = 6$ and a beam energy of 6\,GeV. 
+These are compared to analytical estimates of the residuals $\sigmahat$, which depend on the known geometry of the set-up, its material budget, the beam energy,
+ and the intrinsic sensor resolution, cf.~equation~(\ref{eq:telescoperesolutionequation}). 
+The $\chi^2$ is calculated over all planes as
+
+\begin{equation}
+\label{eq:chi2_sigmai}
+\chi^2 = \sum_{i = 0}^{N-1} \left( \frac{\sigmahat_{i,x} - \sigma_{\textrm{meas},i,x}}{\sigma_{\sigmameas}} \right)^2 + 
+				    \left( \frac{\sigmahat_{i,y} - \sigma_{\textrm{meas},i,y}}{\sigma_{\sigmameas}} \right)^2.
+\end{equation}
+The minimum of equation~(\ref{eq:chi2_sigmai}) with respect to $\sigmai$ is calculated in order to determine the intrinsic sensor resolution $\sigmai$.
+%In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed. % This assumption is done for track fitting. Plane position is fixed in chi2 minimisation for \sigmai
+The calculated intrinsic resolution of the $\Mimosa$ sensors is \allowbreak$\sigma_{\textrm{M26}} = \left( 3.42\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$
  for a plane spacing of $\textrm{d}z =  20\,\milli\meter$ and $\left( 3.44\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$ for $\textrm{d}z = 150\,\milli\meter$. 
 The average over the two configurations results in $\sigma_{\textrm{M26}} = \left( 3.43\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$. 
 The stated uncertainty is the error on the mean, the standard deviation is $0.10\,\micro\meter$.
@@ -304,7 +309,7 @@ Using the \textit{gauge configuration}, a comparison between the GBL calculation
 For this, the measured resolution has to be converted to the pointing resolution $\sigmap$ by correcting for the intrinsic resolution of the DUT $\sigmadut = \sigmam$
 
 \begin{equation}
- \sigmap = \sqrt{\sigmames^2 - \sigmadut^2}.
+ \sigmap = \sqrt{\sigmameas^2 - \sigmadut^2}.
  \label{eq:sigmap}
 \end{equation}
 
