@@ -166,8 +166,11 @@ The $\chi^2$ is calculated over all planes as
 \begin{equation}
 \label{eq:chi2_sigmai}
 \chi^2 = \sum_{i = 0}^{N-1} \left( \frac{\sigmahat_{i,x} - \sigma_{\textrm{meas},i,x}}{\sigma_{\sigmameas}} \right)^2 + 
-				    \left( \frac{\sigmahat_{i,y} - \sigma_{\textrm{meas},i,y}}{\sigma_{\sigmameas}} \right)^2.
+				    \left( \frac{\sigmahat_{i,y} - \sigma_{\textrm{meas},i,y}}{\sigma_{\sigmameas}} \right)^2,
 \end{equation}
+
+\noindent
+with the uncertainty of the measured residuals $\sigma_{\sigmameas}$.
 The minimum of equation~(\ref{eq:chi2_sigmai}) with respect to $\sigmai$ is calculated in order to determine the intrinsic sensor resolution $\sigmai$.
 %In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed. % This assumption is done for track fitting. Plane position is fixed in chi2 minimisation for \sigmai
 The calculated intrinsic resolution of the $\Mimosa$ sensors is \allowbreak$\sigma_{\textrm{M26}} = \left( 3.42\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$
