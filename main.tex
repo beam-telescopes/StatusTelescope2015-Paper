@@ -23,8 +23,8 @@
 \usepackage{verbatim}
 \usepackage{url}
 \usepackage{xcolor}
-\usepackage{draftwatermark}
-\SetWatermarkScale{5}
+%\usepackage{draftwatermark}
+%\SetWatermarkScale{5}
 %\usepackage{setspace}
 %\doublespacing
 
@@ -123,7 +123,7 @@
 %Philipp Roloff,	CERN 		philipp.roloff@cern.ch
 %I. Rubinskiy,		CFEl/CUIigor	igor.rubinskiy@cfel.de
 
-\title{The EUDET-type Beam Telescopes}
+\title{The EUDET-type beam telescopes}
 \author{
 H.~Jansen${}^{\textrm{a,}}$\footnote[*]{Corresponding author: hendrik.jansen@desy.de},
 A.~Bulgheroni${}^{\textrm{b,}}$\footnote{Now at KIT, Karlsruhe, Germany},
@@ -184,19 +184,24 @@ ${}^{\textrm{e}}$ University of Bristol, UK
 
 \begin{abstract}
 \noindent
-Test beam measurements at various test beam facilities have been used to characterise the performance of the $\DESY$-type beam telescopes originally developed within the $\eudet$ project. 
+Test beam measurements at the test beam facilities of DESY have been used to characterise the performance of the $\DESY$-type beam telescopes originally developed within the $\eudet$ project. 
 The beam telescope is equipped with six sensor planes using $\Mimosa$ monolithic active pixel devices. 
 A programmable Trigger Logic Unit provides trigger logic and time stamp information on particle passage. 
 Both data acquisition framework and offline reconstruction software packages are available. 
-User devices are easily integrable into the common data acquisition framework via predefined interfaces.
+User devices are easily integrable into the data acquisition framework via predefined interfaces.
  
-The unbiased residual distribution is studied as a function of various parameters such as the beam energy and plane spacing.
-Its width at the third pixel plane using three up- and two downstream planes for tracking in a 6\,GeV electron/positron-beam is measured to be $(3.96\,\pm\,0.03)\,\upmu\meter$.
-Using the residuals at each plane in each direction, the intrinsic resolution of the sensors is extracted via a $\chi^2$-minimisation to be $(3.43\,\pm\,0.03)\,\upmu\meter$. 
-The pointing resolution is derived to be $(1.94\,\pm\,0.08)\,\upmu\meter$.
-With higher beam energies, the pointing resolution decreases due to diminishing multiple scattering. 
-Additionally, threshold studies show an optimal working point of the $\Mimosa$ sensors at a sensor threshold of six times its RMS noise. 
-Calculations using the formalism of General Broken Lines are compared to the measurements and are found to agree well within the statistical uncertainties.
+The biased residual distribution is studied as a function of the beam energy, plane spacing and sensor threshold. 
+Its width at the two centre pixel planes using three upstream and three downstream planes for tracking in a 6\,GeV electron/positron-beam is measured to be $(.\,\pm\,.)\,\upmu\meter$. ??
+%Using the residuals at each plane in each direction, the intrinsic resolution of the sensors is extracted via a $\chi^2$-minimisation to be $(3.43\,\pm\,0.03)\,\upmu\meter$. 
+Iterative track fits using the formalism of General Broken Lines are performed to yield in estimates for the intrinsic resolution of the individual pixel planes. 
+The mean intrinsic resolution over the six sensors used is found to be $(.\,\pm\,.)\,\upmu\meter$. ??
+With a 6\,GeV electron/positron beam, the pointing resolution in the middle of the two inner pixel planes using an equidistant plane spacing of 20\,mm is derived to be $(.\,\pm\,.)\,\upmu\meter$
+ assuming the measured intrinsic resolution. 
+Towards lower beam energies the pointing resolution deteriorates due to increasing multiple scattering. 
+Threshold studies show an optimal working point of the $\Mimosa$ sensors at a sensor threshold of between five and six times their RMS noise. 
+%Calculations using the formalism of General Broken Lines are compared to the measurements and are found to agree well within the statistical uncertainties.
+Measurements at different plane spacings are used to calibrate the amount of multiple scattering in the material. 
+Energy dependent corrections to the Highland formula -- when applied to electrons -- are derived. 
 \end{abstract}
 
 
