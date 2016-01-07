@@ -2,7 +2,7 @@
 The $\DESY$-type beam telescope are tabletop tracking detectors featuring six pixelated silicon sensors, four scintillators with photo multiplier tubes (PMTs) for trigger purposes,
  a Trigger Logic Unit (TLU) providing trigger logic and time stamp information on particle passage, and a data acquisition system for the data readout. 
 Figure\,\ref{fig:datura-tscope} shows the beam telescope with its rectangular aluminium sensor jigs, wherein the pixel sensors are embedded,
- and its auxiliary boards providing connections for power, sensor configuration, clock signals, and data transmission. 
+ and its auxiliary boards providing connections for power, sensor configuration, clock signals and data transmission. 
 The planes are organised in two telescope arms holding three sensors each. 
 A DUT can be inserted between the arms or at either end of the beam telescope. 
 In the Cartesian, right-handed coordinate system chosen, the $x$-direction points horizontally and the $z$-direction along the beam direction.
@@ -23,10 +23,12 @@ In the Cartesian, right-handed coordinate system chosen, the $x$-direction point
 The $\Mimosa$ sensors used for precise spacial measurements of particle trajectories are manufactured with the AMS 350\,nm CMOS technology~\cite{HuGuo2010480}. 
 Each $\Mimosa$ sensor consists of pixels sized $\unit{18.4}{\upmu\meter}\,\times\,\unit{18.4}{\upmu\meter}$, which are arranged in 1152 columns and 576 rows.
 This adds up to a total of about four million readout channels covering an active area of about $\unit{10.6}{\milli\meter}\,\times\,\unit{21.1}{\milli\meter}$. 
-The $\Mimosa$ sensors have been thinned down to $\unit{50}{\upmu\meter}$. 
-Free charge carriers produced in the underlying \unit{20}{\upmu\meter} epitaxial layer\footnote{This is the case for DATURA and ACONITE}. %Other beam telescopes are equipped with sensors differing slightly in epitaxial thickness.
- are collected via drift (diffusion) in the depleted (undepleted) regions. 
-The binary resolution of $\unit{5.3}{\upmu\meter}$ can be improved by charge sharing, as will be shown in section~\ref{sec:trackres}.
+The specifications of the $\Mimosa$ sensors quote a thickness of $\unit{50}{\upmu\meter}$. 
+Measurements with a digital microscope reveal an average thickness over the six sensors used of $(54.5\,\pm\,3.6)\,\upmu\meter$. 
+Free charge carriers produced in the underlying \unit{10}{\upmu\meter} high resistivity epitaxial layer\footnote{This is the case for DATURA and ACONITE.} %Other beam telescopes are equipped with sensors differing slightly in epitaxial thickness.
+ are collected via drift (diffusion) in depleted (undepleted) regions. 
+The binary resolution of $\unit{5.3}{\upmu\meter}$ is improved by charge sharing, i.e.\ the collection of charge at adjacent pixels and subsequent calculation of the centre of gravity,
+ as is shown in section~\ref{sec:trackres}.
 %With the rising industrial interest in high resistivity epitaxial silicon for CMOS detectors the production cost of improved noise and radiation hardness parameters
 % became already possible with ~400 Ohm·cm for 10 μm epitaxial layer for $\Mimosa$. 
 
@@ -51,7 +53,7 @@ Additionally, this frame is mounted on a sturdy structure providing stability ov
 
 \begin{figure}[tb]
 	\center
-	\includegraphics[width=.9\textwidth]{figures/sketch_tscope4}
+	\includegraphics[width=.9\textwidth]{figures/sketch_tscope6}
 	\caption[Sketch of the $\DESY$-type telescope set-up]{Sketch of the $\DESY$-type telescope set-up and its important parameters.
 	Planes 0 to 2 and planes 3 to 5 are referred to as upstream and downstream planes, respectively.}
 	\label{fig:datura_sketch}
@@ -59,9 +61,11 @@ Additionally, this frame is mounted on a sturdy structure providing stability ov
 
 Important parameters are compiled in figure~\ref{fig:datura_sketch}. 
 The distance between $\Mimosa$ planes is denoted as $\dz$, the distance between the DUT and its nearest neighbouring $\Mimosa$ planes $\dzdut$. 
-The expression $\epsilon = \sum_i x_{i}/X_{0,i}$ defines the material budget of the scattering medium as the material thicknesses $x_i$ normalised to their radiation lengths,
+The $z$-positions of the pixel planes are denoted $z_0$ to $z_5$ and the DUT is placed at $z_{\textrm{DUT}}$. 
+The expression $\epsilon = \sum_i x_{i}/X_{0,i}$ defines the material budget of the scattering medium as the physical material thicknesses $x_i$ normalised to their radiation lengths,
  with values of $X_0 = 93.65\,\milli\meter$ for silicon, $X_0 = 3.042\cdot 10^{5}\,\milli\meter$ for dry air, and $X_0 = 285.6\,\milli\meter$ for Kapton, cf.~reference \cite{ref:x0values}.
-The material budget of a $\Mimosa$ plane including a protecting Kapton foil on each side is $\epsmimo = 7.1\cdot10^{-4}$. 
+The material budget of a $\Mimosa$ plane including a protecting Kapton foil on each side is $\epsmimo = 7.5\cdot10^{-4}$ at an assumed sensor thickness of $\unit{54}{\upmu\meter}$. 
+At a spacing of $\dz = \unit{20}{\milli\meter}$ ($\dz = \unit{150}{\milli\meter}$) the total material budget amounts to $4.8\cdot10^{-3}$ ($7.0\cdot10^{-3}$).
 Likewise, $\epsdut$ represents the DUT's material budget which includes the DUT itself and other material such as PCBs and cooling boxes.
 
 \subsection{Trigger and DAQ system}
@@ -85,7 +89,7 @@ Three different handshake modes handling the trigger/busy signals are available,
  in which the TLU issues a fixed-length pulse on the trigger line with the busy line being disregarded. 
 In \textit{simple handshake mode}, the assertion of a trigger is replied by the integrated DAQ systems by asserting a signal on the busy line. 
 The TLU then de-asserts the trigger and waits for the busy line going low.
-The \textit{normal handshake mode} uses the same scheme as in the \textit{simple handshake mode}, but additionally the current trigger data is transferred on the trigger line:
+The \textit{trigger data handshake mode} uses the same scheme as in the \textit{simple handshake mode}, but additionally the current trigger data is transferred on the trigger line:
 after the trigger has been de-asserted, the trigger number is clocked out. 
 %
 %The $\Mimosa$ sensors provide zero-suppressed hit data over a ribbon cable to the auxiliary boards,
