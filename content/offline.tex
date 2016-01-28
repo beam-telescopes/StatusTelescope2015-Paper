@@ -1,5 +1,4 @@
 
-
 For offline analysis and reconstruction of telescope test beam data the EUTelescope software package~\cite{ref:eudetmemo_2010_12,ref:eutelwebsite}
  is available and features a close integration of the EUDAQ software framework described in section~\ref{sec:eudaq}.
 EUTelescope is based on the ILCSoft framework~\cite{ref:eudetmemo_2009_12} which provides the basic building blocks for offline analysis such as a generic data model (Linear Collider I/O, LCIO),
@@ -22,7 +21,7 @@ EUTelescope provides several processors for Marlin, implementing algorithms nece
 Figure~\ref{fig:offline:strategy} shows the analysis strategy of the framework starting from the recorded detector response to the final reconstructed particle tracks. 
 %An overview of the processor range provided by EUTelescope is given in \cite{EUDET-2007-20}.
 At low-energy beam lines such as the DESY-II test beam facility, multiple scattering is an important contribution to the overall track resolution uncertainty,
- especially in measurements with non-negligible DUT material budget, cf.\ section~\ref{sec:multiplescattering}.
+ especially in measurements with non-negligible DUT material budget, cf.\ section~\ref{sec:resmultiple}.
 Therefore, EUTelescope provides processors implementing advanced algorithms for tracking such as Deterministic Annealing Filter (DAF)~\cite{ref:daffitter}
  or General Broken Line (GBL)~\cite{Blobel20111760,Kleinwort-2012}, which account for scattering in all material present in the beam.
 For high-energy beam lines a simple straight line fit provides sufficient precision and a maximum of computational performance by employing a $\chi^{2}$-minimisation method~\cite{ref:eudetmemo_2007_01,ref:lutzpaper} to calculate the track parameters.
