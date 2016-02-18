@@ -2,7 +2,7 @@
 The data presented were taken in $2015$ using $\Datura$, a $\eudet$-type beam telescopes, which was operated with EUDAQ, cf.~section~3 and~4. 
 The results presented in this section have been obtained using the EUTelescope software described in section~\ref{sec:offline}.
 The set-up does not include any additional DUT, only six $\Mimosa$ telescope planes. 
-Track fits are formed using the GBL formalism and biased track residuals, i.e.\ the distance between the track fit and the measured hit,
+Track fits are performed using the GBL formalism and track residuals, i.e.\ the distance between the track fit and the measured hit,
  are calculated for each telescope plane. 
  
 
@@ -23,7 +23,7 @@ These tracks can be formed in a \textrm{biased} or in an \textrm{unbiased} form,
  that omit the hit information of the plane under investigation. 
 Additionally, the tracking efficiency for the $\Mimosa$ sensors is calculated. 
 
-\subsection{Residuals and multiple scattering}
+\subsection{Multiple scattering and residuals}
 \label{sec:resmultiple}
 
 The figure of merit for a beam telescope is its track resolution\footnote{also called pointing resolution} $\sigmatb$ ($\sigmatu$),
@@ -32,42 +32,6 @@ This quantity is a function of the track path, i.e.\ it is not constant along th
 %The timing resolution is largely dependent on the readout speed of the used sensors, their buffer sizes and the data acquisition system. 
 It depends on the intrinsic resolution $\sigmai$ of the sensors, that have been used to measure the hits belonging to the track, the number of hit measurements and their positions
  as well as the multiple scattering of the beam particles.
-The biased (unbiased) residual defined as a quantity per track is the spacing between the measured hit and the biased (unbiased) track fit. 
-With a known or estimated biased track resolution, i.e.\ all $\sigmai(z_i)$ are known or estimates exist,
- the width of the distribution of the residuals for a set of tracks can be expressed for all positions $z = z_i$ as
-
-\begin{equation}
- \label{eq:telescoperesolutionequation1}
- \rbiased^2(z) = \sigmai^2(z) - \sigmatb^2(z).
-\end{equation}
-
-\noindent
-If the intrinsic resolution of a DUT at $\zdut$ or a telescope plane at a position $z_i$ is not known or not included in the fit,
- the width of the distribution of the unbiased residuals for a set of tracks at these positions reads~\cite{ref:eudetreport200902}
- 
-\begin{equation}
-\runbiased^2(z) = \sigmai^2(z) + \sigmatu^2(z).
-\label{eq:telescoperesolutionequation2} 
-\end{equation}
-
-\noindent
-These distributions are a function of the track resolution and therefore have the same dependencies.
-It should be noted that the unbiased track resolution at a sensor plane can be larger than the intrinsic resolution. 
-On the contrary, the biased track resolution is always smaller than or equal to the intrinsic resolution at the sensor planes. 
-
-The pull of a track is defined as the ratio of the biased residual over the predicted residual uncertainty
-
-\begin{equation}
- \textrm{pull}_{\textrm{b}} \equiv p_{\textrm{b}} = \frac{\rbiased}{\sqrt{\sigmai^2 - \sigmatb^2}}.
- \label{eq:pull}
-\end{equation}
-
-\noindent
-The biased pull distributions are normally distributed and centred at 0 with a width of 1, if the material and the scattering therein is known and correctly described. 
-A width larger than one results from an underestimated residual prediction $\sqrt{\sigmai^2 - \sigmatb^2}$, which in turn stems from either an underestimated intrinsic resolution
- or an overestimated track resolution. 
-The latter is caused by either overestimated material budget or overestimated deflection angles from multiple scattering. 
- 
 Various methods exist to perform the calculation of the track resolution. 
 In the formalism of GBL,
  the track resolution results from a single global fit to all measured hits including their measurement uncertainties (intrinsic resolution) and scattering angle uncertainties along the trajectory. 
@@ -105,30 +69,86 @@ An approximation for high energy protons, that is accurate to 11\,\% for all ato
 
 \noindent with the velocity $\beta c$, the momentum $p$ and the charge number $z$ of the traversing particle. 
 The expression $\epsilon = x \per X_0$ is the material budget, as defined in section~\ref{sec:sensors}.
-
+%
 Equation~(\ref{eq:multiplescattering}) shows the advantage of using thin sensors, since the angular deflection due to multiple scattering increases with material budget.
 This is especially important at low-energy beams, such as the DESY-II test beam, as the distortion increases towards lower energies.
 As the beam particles interact with the sensors and the air, contributions to the amount of multiple scattering from both have to be considered,
  with a dependence of the air contribution on the distance $\dz$. 
-At high-energy hadron beams, the contribution from multiple scattering can in general be neglected.
+At high-energy hadron beams, the contribution from multiple scattering can in general be neglected. 
+ 
+The biased (unbiased) residual defined as a quantity per track is the spacing between the measured hit and the biased (unbiased) track fit. 
+With a known or estimated biased track resolution, i.e.\ all $\sigmai(z_i)$ are known or estimates exist,
+ the width of the distribution of the residuals for a set of tracks can be expressed for all positions $z = z_i$ as
+
+\begin{equation}
+ \label{eq:telescoperesolutionequation1}
+ \rbiased^2(z) = \sigmai^2(z) - \sigmatb^2(z).
+\end{equation}
+
+\noindent
+If the hit measurement of a DUT at $\zdut$ or of a telescope plane at position $z_i$ is not included in the fit,
+ the width of the distribution of the unbiased residuals at these positions reads~\cite{ref:eudetreport200902}
+ 
+\begin{equation}
+\runbiased^2(z) = \sigmai^2(z) + \sigmatu^2(z).
+\label{eq:telescoperesolutionequation2} 
+\end{equation}
+
+\noindent
+Both the biased and the unbiased residual distributions are a function of the track resolution and therefore have the same dependencies.
+It should be noted that the unbiased track resolution at a sensor plane can be larger than the intrinsic resolution. 
+On the contrary, the biased track resolution is always smaller than or equal to the intrinsic resolution at the sensor planes. 
+
+The biased pull of a track is defined as the ratio of the biased residual over the predicted biased residual width
+
+\begin{equation}
+ \textrm{pull}_{\textrm{b}} \equiv \pb = \frac{\rbiased}{\sqrt{\sigmai^2 - \sigmatb^2}}.
+ \label{eq:pull}
+\end{equation}
+
+\noindent
+The biased pull distributions are normally distributed and centred at 0 with a width of 1, if the material and the scattering therein is known and correctly described. 
+A width larger than one results from an underestimated residual prediction $\sqrt{\sigmai^2 - \sigmatb^2}$, which in turn stems from either an underestimated intrinsic resolution
+ or an overestimated track resolution. 
+The latter is caused by either overestimated material budget or overestimated deflection angles from multiple scattering. 
+
 
 A critical aspect of this analysis is the choice between biased and unbiased residuals. 
 In principal, both choices lead to compatible results if the material in the beam and the deflection due to multiple scattering therein is correctly described. 
 %With biased residuals, only one fit has to be performed, whereas for unbiased residuals, a new fit has to be formed for every plane under investigation. 
 The impact of systematic uncertainties on the result, however, is different, as more information is used in the biased track fits. 
-In reality, the material thicknesses and the amount of multiple scattering therein are only known with a certain accuracy affecting the predicted residual uncertainty. 
+The material thicknesses and the amount of multiple scattering therein are only known with a certain accuracy affecting the predicted residual width and the track resolution
+ and thereby the derived intrinsic resolution. 
 %Especially the Highland formula is only accurate to about 11\,\%. 
+If the pulls distribution resembles $N(0,1)$, equations~(\ref{eq:telescoperesolutionequation1}) and~(\ref{eq:telescoperesolutionequation2}) hold and the systematic uncertainties of the intrinsic resolution
+ are estimated by calculating the effect of uncertain beam energy and uncertain deflection angle using the GBL formalism. 
+Firstly, the residuals have been obtained from data assuming an intrinsic resolution of $\sigmai = \unit{3.3}{\micro\meter}$ and secondly the track resolution is calculated. 
+Finally, the intrinsic resolution is calculated as $\sigmai = \sqrt{\rbiased^2 + \sigmatb^2}$ or $\sigmai = \sqrt{\runbiased^2 - \sigmatu^2}$ for biased and unbiased track fits, respectively. 
+The beam energy is varied by 5\,\% and the deflection angle by 10\,\%. 
+All systematic uncertainty contributions for the two set-ups are listed in table~\ref{tab:uncerts}. 
+It shows, that the choice of biased track fits results in smaller systematic uncertainties compared to unbiased track fits. 
+Additionally, there is a systematic uncertainty of the method itself, as it predicts slightly different intrinsic resolutions for each plane, which changes between geometries,
+ i.e.\ it is not dominantly caused by an actual difference in intrinsic resolution. 
+The spread in intrinsic resolution over all planes is 1\,\% and 2\,\% for the wide and the narrow geometry, respectively. 
 
-- Calculate sqrt(...) for biased and unbiased for the following sys uncerts separately
-
--- Beam +- 5\%
-
--- MB +- 10\%
-
--- HL +- 10\%
+\begin{table}[tbp]
+ \begin{center}
+  \begin{tabular}{r|r|c|c|c|c}
+  $\sigma_{\sigmai}$ in \% & × & $E\pm5\,\%$ & $\Theta\pm10\,\%$ & fit range & $\sum$\\ \hline
+  biased   &  20 mm & 0.3 & 1.1  & 0.3 & 1.7 \\
+  ×        & 150 mm & 0.10 & 0.13 & 0.05 & 0.28\\
+  unbiased &  20 mm &   3 & 6    & 4  & 13\\
+  ×        & 150 mm & n/a & n/a  & n/a & \\
+  %× & × & × & ×
+  \end{tabular}
+    \caption[Systematic uncertainties for plane\,0]{Systematic uncertainties in determination of the intrinsic resolution for plane\,0, are listed for biased and unbiased track fits and the two geometries.
+  For unbiased tracks in the wide geometry, the uncertainty of the intrinsic resolution could not be calculated as the measured residual is smaller than the calculated track resolution.}
+  \label{tab:uncerts}
+ \end{center}
+\end{table}
 
 The rather large uncertainty of the Highland formula and hence significant impact on the final results can be diminished: 
-In case the Highland formula underestimates the actual straggling of beam particles in the given material, the predicted tracking resolution is systematically affected, and therefore the pull distribution. 
+In case the Highland formula underestimates the actual straggling of beam particles in the given material, the predicted track resolution is systematically affected, and therefore the pull distribution. 
 Hence, the estimator $\sigmahat$ does not converge towards the true $\sigmai$, but towards a larger value and vice versa. 
 Since the intrinsic resolution is independent of the plane spacing $\dz$, a comparison at two precisely measured spacings allows for a calibration of $\Theta_0$ at a given beam energy. 
 To this end, a global energy dependent factor $\kappa$ is introduced that is constant as a function of sensor threshold and geometry
@@ -139,8 +159,9 @@ To this end, a global energy dependent factor $\kappa$ is introduced that is con
 \end{equation}
 
 \noindent
-The value $\kappa$ is found when the set of intrinsic resolutions for the two plane spacing match within the uncertainties from the material budget and the beam energy. 
-Practically, an agreement of better than 2\,\% is accepted herein. 
+The value $\kappa$ is found when the average of the intrinsic resolution over the six planes for one plane spacing matches the average of the intrinsic resolution for the other configuration. 
+The uncertainty of $\kappa$ is defined as the range for which the average intrinsic resolution of one configuration equals the central value plus/minus one standard deviation of the other. 
+If $\kappa$ is significantly different from one is to be determined with data. 
 
 
 \subsection{Performance measurements with DATURA}
@@ -159,7 +180,9 @@ The biased track residual distributions have been obtained as described in secti
 Additionally, the biased pull distributions are calculated for every sensor plane. 
 Since the intrinsic resolution is not a priori known, an initial estimate of the intrinsic resolution $\sigmahat$ is used as an input to the GBL track fitting. 
 The width of the pull distributions therefore differs from 1 and is iteratively used to update the estimate $\sigmahat$.
-This procedure converges towards the true intrinsic resolution and yields compatible results for the two different geometries for an appropriate choice of $\kappa$. 
+This procedure converges towards the true intrinsic resolution within the uncertainties and yields compatible results for the two different geometries for an appropriate choice of $\kappa$. 
+It should be noted that the systematic uncertainty of the converged estimate is independent of the iteration process.
+\footnote{I.e., an initial estimate close to the converged value does not yield smaller uncertainties on the converged value compared to a bad initial estimate.}
 %A mismatch in intrinsic resolution for the two cases is corrected by varying $\kappa$, cf.~equation~(\ref{eq:thetacorr}) and repeating the iterative method until the intrinsic resolutions equal
 
 
@@ -177,8 +200,8 @@ This procedure converges towards the true intrinsic resolution and yields compat
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/4y.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5x.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5y.pdf}
-  \caption[Residual examples to determine the $\Datura$ telescope's resolution~\cite{ref:thomas}]{
-  Biased residual distributions measured with the $\Datura$ telescope at 6\,GeV. 
+  \caption[Residual examples to determine the $\Datura$ telescope's resolution]{
+  Biased residual distributions measured with the $\Datura$ telescope at 6\,GeV with a plane spacing of $\dz = 20\,\milli\meter$. 
   The measured residuals in the $x$-direction for plane $0$ (A) and plane $3$ (B) are shown.}
   \label{fig:residualexample1}
 \end{figure}
@@ -241,7 +264,7 @@ The residuals at a considered plane $i$ are always smaller for the wide configur
 Also, the residuals decrease towards lower beam energies. 
 These effects stem from the term $\sigmatb$ in equation~(\ref{eq:telescoperesolutionequation1}): 
 (1) Qualitatively, the spatial uncertainty of the extrapolation to the next plane increases with larger lever arms $\dz$. 
-(2) The biased tracking resolution tends towards the intrinsic resolution for increased scattering. 
+(2) The biased track resolution tends towards the intrinsic resolution for increased scattering. 
 
 %The energy dependent width of the scattering angle distribution increase the uncertainty with decreasing energy, c.f.\.equation~\ref{eq:multiplescattering}. 
 %In the former term, the geometric scaling factor is larger in the wide configuration, in the latter $\sigma_{\textrm{MS}}$ increases with decreasing beam energy. 
