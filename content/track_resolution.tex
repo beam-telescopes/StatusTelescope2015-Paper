@@ -159,8 +159,8 @@ To this end, a global energy dependent factor $\kappa$ is introduced that is con
 \end{equation}
 
 \noindent
-The value $\kappa$ is found when the average of the intrinsic resolution over the six planes for one plane spacing matches the average of the intrinsic resolution for the other configuration. 
-The uncertainty of $\kappa$ is defined as the range for which the average intrinsic resolution of one configuration equals the central value plus/minus one standard deviation of the other. 
+The value $\kappa$ is found when the average of the intrinsic resolution over the six planes for $\dz = 150\,\milli\meter$ matches the average of the intrinsic resolution for $\dz = 20\,\milli\meter$. 
+The uncertainty of $\kappa$ is defined as the range for which the average intrinsic resolution of the wide configuration equals the central value plus/minus one standard deviation of the narrow one. 
 If $\kappa$ differs significantly from one and/or depends on the beam energy is to be determined with data. 
 
 
@@ -168,7 +168,7 @@ If $\kappa$ differs significantly from one and/or depends on the beam energy is 
 \label{sec:measurements}
 
 Measurements of particle trajectories were performed to verify the performance of the $\Datura$ telescope at various beam energies, sensor thresholds, and sensor spacings. %~\cite{ref:thomas}.
-The biased track residual distributions have been obtained as described in sections~\ref{sec:datura-nodut} and~\ref{sec:resmultiple}. 
+The biased residual and biased pull distributions have been obtained for every sensor plane as described in sections~\ref{sec:datura-nodut} and~\ref{sec:resmultiple}. 
 % By considering one telescope plane as a DUT, equation~(\ref{eq:telescoperesolutionequation}) is modified under the assumption that $\sigmai = \sigma_{\textrm{DUT}} = \sigma_{\textrm{M26}}$,
 %  leading to
 % 
@@ -177,7 +177,6 @@ The biased track residual distributions have been obtained as described in secti
 % \sigmameas^2 = \sigma_{\textrm{M26}}^2 \cdot \left( 1 + k_5 \right) +
 % \sigma_{\textrm{MS}}^2\,,
 % \end{equation}
-Additionally, the biased pull distributions are calculated for every sensor plane. 
 Since the intrinsic resolution is not a priori known, an initial estimate of the intrinsic resolution $\sigmahat$ is used as an input to the GBL track fitting. 
 The width of the pull distributions therefore differs from 1 and is iteratively used to update the estimate $\sigmahat$.
 This procedure converges towards the true intrinsic resolution within the uncertainties and yields compatible results for the two different geometries for an appropriate choice of $\kappa$. 
@@ -215,7 +214,7 @@ Figure~\ref{fig:residualexample1} shows an example of converged biased residual 
  a beam energy of 6\,GeV, and a sensor threshold setting of $\noise = 6$. 
 According results for the $y$-direction, further planes and the wide geometry are omitted. 
 The distributions are fitted with a Gaussian, from which the residual width $\rbiased$ is determined. 
-For plane\,3, the biased residual width averaged over the $x$- and $y$-direction is 
+For plane\,3, the biased residual width in te $x$-direction is 
 
 \begin{equation}
 \left( .\,\pm\, \allowbreak . \right)\,\micro\meter. ?? 
@@ -223,8 +222,8 @@ For plane\,3, the biased residual width averaged over the $x$- and $y$-direction
 
 \noindent
 It should be noted, that the residuals feature non-Gaussian tails, as is expected from the underlying physics of the scattering mechanism~\cite{ref:PDG-2014}. 
-The measured resolution used in this work is defined as the width of a Gaussian fit on the centre $98.8\,\%$ (2.5 standard deviations) of the residual distribution.
-The residual width for the outer plane\,0 is smaller than the width obtained from plane\,3.
+The measured resolution used in this work is defined as the width of a Gaussian fit on the centre $95.5\,\%$ (2.0 standard deviations) of the residual distribution.
+The biased residual width for the outer plane\,0 is smaller than the width obtained from plane\,3.
 This is expected due to the fact that the track extrapolation to the inner sensors is done from both sides, and hence is comparatively more precise than for the outer sensors,
  where the extrapolation can only be performed from one direction. 
 Therefore, in equation~(\ref{eq:telescoperesolutionequation1}) the difference between $\sigmai$ and $\sigmatb$ decreases from the centre sensor planes to the outer ones. 
@@ -243,8 +242,8 @@ Therefore, in equation~(\ref{eq:telescoperesolutionequation1}) the difference be
 
 \begin{figure}[btp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/20}  \put(-50,40){(A)} % was thin_smiley.pdf
-  \includegraphics[width=0.49\textwidth]{figures/150} \put(-50,40){(B)} % was wide_smiley.pdf
+  \includegraphics[width=0.49\textwidth]{figures/res_vs_z_20}  \put(-50,40){(A)} % was thin_smiley.pdf
+  \includegraphics[width=0.49\textwidth]{figures/res_vs_z_150} \put(-50,40){(B)} % was wide_smiley.pdf
   %\caption[Intrinsic telescope sensor resolution at $20\,\milli\meter$ and $150\,\milli\meter$ plane spacing~\cite{ref:thomas}]{Intrinsic telescope sensor resolution at $20\,\milli\meter$ (top)
   % and $150\,\milli\meter$ (bottom) plane spacing.
   \caption[The measured residual widths of each telescope plane.]{
@@ -258,13 +257,14 @@ Therefore, in equation~(\ref{eq:telescoperesolutionequation1}) the difference be
 \end{figure}
 
 
-The twelve measured residual widths for both the narrow plane spacing of $\dz = 20\,\milli\meter$ and the wide spacing of $\dz = 150\,\milli\meter$ are shown in figure~\ref{fig:smiley} (A) and (B)
+The six measured residual widths in the $x$-direction for both the narrow plane spacing of $\dz = 20\,\milli\meter$ and the wide spacing of $\dz = 150\,\milli\meter$ are shown in figure~\ref{fig:smiley} (A) and (B)
  at a beam energy of 6\,GeV and a sensor threshold $\noise = 6$, respectively. 
 The residuals at a considered plane $i$ are always smaller for the wide configuration in comparison to the narrow one. 
 Also, the residuals decrease towards lower beam energies. 
 These effects stem from the term $\sigmatb$ in equation~(\ref{eq:telescoperesolutionequation1}): 
 (1) Qualitatively, the spatial uncertainty of the extrapolation to the next plane increases with larger lever arms $\dz$. 
 (2) The biased track resolution tends towards the intrinsic resolution for increased scattering. 
+Hence, the difference between $\sigmai$ and $\sigmatb$ decreases. 
 
 %The energy dependent width of the scattering angle distribution increase the uncertainty with decreasing energy, c.f.\.equation~\ref{eq:multiplescattering}. 
 %In the former term, the geometric scaling factor is larger in the wide configuration, in the latter $\sigma_{\textrm{MS}}$ increases with decreasing beam energy. 
@@ -295,14 +295,15 @@ The average intrinsic resolution of the $\Mimosa$ sensors at 6\,GeV and threshol
 This average is taken over all twelve measured dimensions of the telescope and measurements at plane distances $\dz =  20\,\milli\meter$ and $\dz =  150\,\milli\meter$. 
 %The average over the two configurations results in $\sigma_{\textrm{M26}} = \left( 3.43\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$. 
 %The stated uncertainty is the error on the mean, the standard deviation is $0.10\,\micro\meter$.
-For both geometries, the expected resolution of $\sigmai \approx\,3.5\,\micro\meter$~\cite{ref:mimosa26} can be confirmed.
-The following two assumptions have been made: 
+For both geometries, the result is consistent with an earlier analysis that yielded an intrinsic resolution of $\sigmai \approx\,3.5\,\micro\meter$~\cite{ref:mimosa26}.
+The following assumptions have been made: 
 Firstly, the multiple scattering terms described in equation~(\ref{eq:multiplescattering}) are calculated considering the measured sensor thicknesses, the air between sensor planes, and a $25\,\micro\meter$
 thick Kapton foil on either side of each sensor.
 %In equation~(\ref{eq:multiplescattering}), the nominal beam energy is used. 
-Secondly, the intrinsic resolution $\sigmai$ of every sensor plane is assumed to be equal over the area of the sensor. 
+Secondly, the intrinsic resolution $\sigmai$ is assumed to be equal over the area of the sensor. 
 %As the discriminator thresholds are set for a total of four subframes per plane individually, this is not necessarily true.
 %Figure~\ref{fig:resivsenergy_thresh} shows the dependence of $\sigmai$ on the applied SNR threshold
+Additionally, the results are averaged over all cluster sizes. 
 
 %\item Residual widths are calculated using straight line tracks only.
 %Inclined tracks, or a deflection of tracks in planes or scattering material, are not taken into account.
@@ -311,7 +312,7 @@ Secondly, the intrinsic resolution $\sigmai$ of every sensor plane is assumed to
 The above method is repeated for different beam energies at a fixed threshold $\noise = 6$. 
 This allows for the determination of $\kappa$ as a function of the beam energy. 
 The correlation is shown in Figure~\ref{fig:HL_factor}. 
-In the energy range covered, $\kappa$ is found to increase monotonically up to a value of 1.2 at 6\,GeV, which translates to a correction by 20\,\% in comparison to the Highland formula. 
+In the energy range covered, $\kappa$ is found to be constant at a value $\kappa = 0.85$ within the uncertainties, which translates to a correction by 15\,\% in comparison to the Highland formula. 
 
 \begin{figure}[ht!]
   \centering
@@ -322,7 +323,7 @@ In the energy range covered, $\kappa$ is found to increase monotonically up to a
   \label{fig:HL_factor}
 \end{figure}
 
-Furthermore, the above described method has been repeated for various sensor thresholds.
+Furthermore, the method has been repeated for various sensor thresholds.
 The threshold applied to each telescope sensor is a critical parameter for the telescope performance.
 A higher threshold reduces the amount of fired pixels which results in fewer clusters found on average on a plane and thus limiting the number of reconstructible tracks.
 This reduces the sensor efficiency, which is defined as the ratio of reconstructed tracks that have at least one hit on the investigated plane within $d = 100\,\micro\meter$ to the overall number of tracks.
@@ -333,7 +334,7 @@ Statistical errors are negligible due to the large amount of tracks recorded.
 Also, systematic uncertainties are insignificant due to precise alignment and sufficiently large margin $d$.  
 For thresholds $\noise < 7$ the efficiency is above $98\,\%$. ??
 With increasing threshold, the efficiency decreases until a level of $82\,\%$ at $\noise = 12$ is reached. ??
-The efficiency varies by maximal 1\,\% between different set-ups and measurements. 
+The efficiency varies by maximal 1\,\% between different set-ups and measurements at a given threshold. 
 
 \begin{figure}[tbp]
   \centering
@@ -360,43 +361,14 @@ A deterioration also occurs towards lower thresholds allowing for an increased n
 %each resulting in an estimate for $\sigmai$ as a function of the set threshold $\noise$. 
 Figure~\ref{fig:resivsenergy_thresh} (B) shows the intrinsic sensor resolutions $\sigmai$ derived from the measurements for different beam energies and plane distances as a function of the applied sensor threshold.
 The minimum of $\sigmai$ is reached for a sensor threshold setting of $\noise = 5$~to~6.
-The difference in intrinsic resolution for different energies and for different plane spacings is less than $0.15\,\upmu\meter$ for thresholds $\noise > $ ??, which is below the systematic uncertainties. 
-%Previous measurements~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ show comparable results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$. %w/ Joerg
-Previous measurements by Behr~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ show compatible results of $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$. %w/o Joerg
-% If Joerg is on the author list, rephrase the citation...
-
-% Thomas: sigma tel is different from the pointing resolution.
-% leave this out as to not confuse reader.
-%From equation~(\ref{eq:telescopepointing}) the optimal track pointing resolution $\sigma_{\textrm{Tel}}$ of the $\Datura$ telescope without multiple scattering
-% can therefore be given as $\left( 1.40 \pm 0.05 \right)\,\micro\meter$.
-
-
-%\begin{figure}[tbp]
-%  \centering
-%  \includegraphics[width=\textwidth]{figures/plane3_effi_run37.pdf}
-%  \caption[Telescope sensor efficiency~\cite{ref:thomas}]{Efficiency of telescope sensor plane $3$ at a threshold of $7$ and 6\,GeV beam momentum.
-%Image from~\cite{ref:thomas}.}
-%\label{fig:effi}
-%\end{figure}
+The difference in intrinsic resolution for different energies and for different plane spacings is less than $.\,\upmu\meter$ ?? for thresholds $\noise > $ ??. 
+A previous measurement and analysis by Behr~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ yielded $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$, which overestimates the the intrinsic resolution. 
 
 
 
-%\begin{figure}[tbp]
-%  \centering
-%  \includegraphics[width=\textwidth]{figures/effi_thresh.pdf}
-%  \caption[Overall telescope sensor efficiency vs. threshold for different beam momenta and sensor spacings~\cite{ref:thomas}]{
-%Average efficiency of all telescope sensors in both dimensions for different beam momenta and sensor spacing vs. applied threshold.
-%An efficiency decline with increasing threshold can be observed.
-%Some values are shifted on the $x$ axis for improved legibility.
-%Image from~\cite{ref:thomas}.}
-%\label{fig:effi_thresh}
-%\end{figure}
+\subsection{Track resolution predictions using General Broken Lines}
 
-
-
-\subsection{Pointing resolution predictions using General Broken Lines}
-
-%The pointing resolution of a beam telescope represents the accuracy with which a track can be pointed on a DUT. 
+%The track resolution of a beam telescope represents the accuracy with which a track can be pointed on a DUT. 
 % In case multiple scattering cannot be neglected, it can be expressed as
 % \begin{equation}
 %  \sigmap^2 = \sigma_{\textrm{Tel}}^2 + \sigma_{\textrm{MS}}^2
@@ -404,35 +376,35 @@ Previous measurements by Behr~\cite{ref:j.behrmeasurements} taken at $\noise\,>\
 % 
 % \noindent
 Using the measured intrinsic resolution, the known material budget $\epsmimo = 7.6\cdot 10^{-4}$ of the sensor planes including the Kapton protection and the material budget of a DUT $\epsdut$,
- predictions of the expected pointing resolution at the actual DUT position $\zdut$ can be made. 
+ predictions of the expected track resolution at the actual DUT position $\zdut$, c.f.\ figure~\ref{fig:datura_sketch}, can be made.
 Therefore, it is possible to perform an a priori calculation of the optimal telescope geometry for a certain measurement set-up. 
 In this section, $\zdut$ is assumed to be in the centre between plane\,2 and plane\,3.
 
-%Pointing resolutions in this section refer to the achievable pointing resolution using a \textit{symmetric six M26 planes plus DUT} configuration. 
+%Track resolutions in this section refer to the achievable track resolution using a \textit{symmetric six M26 planes plus DUT} configuration. 
 %This is referred to as \textit{user configuration}, also shown in figure~\ref{fig:datura_sketch}, while the set-up used in section~\ref{sec:measurements} is referred to as \textit{gauge configuration}. 
 
-Using the GBL formalism, the pointing resolution is analytically calculated at desired points of interest along the particle trajectory. 
-The pointing resolution at the DUT for four different DUT material budgets $\epsdut$ is depicted as a function of the spacing $\dzdut$ in figure~\ref{fig:CalcResos_dzdut}.
-Exemplified are two values of $\dz = 20\,\milli\meter$ and $\dz = 150\,\milli\meter$. 
-Plots are provided for (A) DESY-II and (B) SPS beam energies. 
-For $\dz = \dzdut = 20\,\milli\meter$ at 5\,GeV beam energy the pointing resolution on the DUT is about 
+Using the GBL formalism, the track resolution is analytically calculated at points of interest along the particle trajectory. 
+The track resolution at the DUT for four different DUT material budgets $\epsdut$ is depicted as a function of the spacing $\dzdut$ in figure~\ref{fig:CalcResos_dzdut}.
+Exemplified are two configurations with $\dz = 20\,\milli\meter$ and $\dz = 150\,\milli\meter$ at (A) DESY-II and (B) SPS beam energies. 
+For $\dz = \dzdut = 20\,\milli\meter$ at 5\,GeV beam energy the track resolution at the DUT is 
 \begin{equation}
- \sigmatb(\zdut) = (1.9\,\pm .)\,\upmu\meter
+ \sigmatb(\zdut) = 1.9\,\upmu\meter
 \end{equation}
 
 \noindent
-for $\epsdut = 0.001$. ?? Need error estimate here ?? !!
-The uncertainty originates from an assumed uncertainties of 5\,\% on the beam energy and 10\,\% on the material budget. 
-For SPS energies, a pointing resolution of $(1.4\pm . )\,\upmu\meter$ is predicted. ??
-All shown resolution functions monotonically increase with increasing $\dzdut$. 
-To achieve the best possible resolution, the inner $\Mimosa$ planes should be positioned as close as possible to the DUT, i.e.~$\dzdut$ is to be minimised. 
+for $\epsdut = 0.001$.
+This analytical prediction has no uncertainty. 
+%The uncertainty originates from an assumed uncertainties of 5\,\% on the beam energy and 10\,\% on the material budget. 
+For SPS energies, a track resolution of $1.4\,\upmu\meter$ is predicted. ??
+The shown resolution functions monotonically increase with increasing $\dzdut$. 
+In order to achieve the best possible resolution, the inner $\Mimosa$ planes should, therefore, be positioned as close as possible to the DUT, i.e.~$\dzdut$ is to be minimised. 
 In addition, figure~\ref{fig:CalcResos_dzdut} shows, that the optimal plane spacing $\dz$ depends on the actual DUT size along the beam direction and its material budget.
 For instance for a DUT with a material budget of $\epsdut = 0.001$ (solid lines) at 5\,GeV, a narrow configuration shows a higher resolution for $\dzdut < 70\,\milli\meter$,
  while a wide configuration is best for $\dzdut > 70\,\milli\meter$.
 The intersection is marked with an arrow in figure~\ref{fig:CalcResos_dzdut}. 
-The position of the intersection of the two lines depends on the material budget of the DUT $\epsdut$ and shifts with increasing material budget. 
+The position of the intersection of the two lines depends on the material budget of the DUT $\epsdut$ and shifts to smaller $\dzdut$ with increasing material budget. 
 %A DUT with a material budget of $\eps$
-In the wide (narrow) configuration, the predicted pointing resolution on the DUT is about $2.4\,\upmu\meter$ ($1.9\,\upmu\meter$) at $\dzdut = 20\,\milli\meter$ for DUTs with $\epsdut = 0.001$.
+%In the wide (narrow) configuration, the predicted track resolution on the DUT is about $2.4\,\upmu\meter$ ($1.9\,\upmu\meter$) at $\dzdut = 20\,\milli\meter$ for DUTs with $\epsdut = 0.001$.
 At SPS energies, the resolution functions for the wide and the narrow configuration do not intersect, with the narrow configuration showing a slightly better
 However, the difference is less than $0.5\,\micro\meter$ for $\zdut = 100\,\milli\meter$ even for $\epsdut = 0.03$. 
 
@@ -442,14 +414,14 @@ However, the difference is less than $0.5\,\micro\meter$ for $\zdut = 100\,\mill
   \includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern2}\put(-165,35){(B)}
   %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy_loglog_2}
   %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern_loglog_2}
-  \caption[Pointing resolution for various material budgets as a function of the distance between DUT and neighbouring planes]{
-  The pointing resolution for various material budgets is shown as a function of the equidistant spacing between DUT and neighbouring planes at 5\,GeV (A), and 120\,GeV (B)
+  \caption[Track resolution for various material budgets as a function of the distance between DUT and neighbouring planes]{
+  The track resolution for various material budgets is shown as a function of the equidistant spacing between DUT and neighbouring planes at 5\,GeV (A), and 120\,GeV (B)
   at the centre of the beam telescope ($\zdut$).}
-\label{fig:CalcResos_dzdut}
+  \label{fig:CalcResos_dzdut}
 \end{figure}
 
 % Using the \textit{gauge configuration}, a comparison between the GBL calculations and the measurements can be performed.
-% For this, the measured resolution has to be converted to the pointing resolution $\sigmap$ by correcting for the intrinsic resolution of the DUT $\sigmadut = \sigmam$
+% For this, the measured resolution has to be converted to the track resolution $\sigmap$ by correcting for the intrinsic resolution of the DUT $\sigmadut = \sigmam$
 % 
 % \begin{equation}
 %  \sigmap = \sqrt{\sigmameas^2 - \sigmadut^2}.
@@ -459,14 +431,15 @@ However, the difference is less than $0.5\,\micro\meter$ for $\zdut = 100\,\mill
 % \noindent
 % This is shown in figure~\ref{fig:CalcResoP_DUT} (A) as a function of the beam energy. 
 % The solid lines represent GBL calculations, while the triangles show the derived $\sigmap$ obtained from equation~(\ref{eq:sigmap}). 
-% The hatched bands represent the calculated pointing resolution assuming $\sigmam = 3.43\,\upmu\meter$ with a standard deviation of $0.10\,\upmu\meter$ for the wide and the narrow configuration. 
+% The hatched bands represent the calculated track resolution assuming $\sigmam = 3.43\,\upmu\meter$ with a standard deviation of $0.10\,\upmu\meter$ for the wide and the narrow configuration. 
 % An excellent agreement between GBL calculations and the measurements is found. 
-% For the limit towards high energies, or negligible multiple scattering, a pointing resolution of $1.6\,\upmu\meter$ is predicted. 
+% For the limit towards high energies, or negligible multiple scattering, a track resolution of $1.6\,\upmu\meter$ is predicted. 
 % The measurement at 120\,GeV confirms the prediction, 
 
-In figure~\ref{fig:CalcResoP_DUT} the achievable pointing resolution at $\zdut$ as a function of the material budget is shown at 5\,GeV.
+In figure~\ref{fig:CalcResoP_DUT} the achievable track resolution at $\zdut$ as a function of the material budget is shown at 5\,GeV.
 %Again, a minimal $\dzdut$ allows for the best possible resolution. 
 Dashed and solid lines represent calculations for $\dz = 20\,\milli\meter$ and $\dz = 150\,\milli\meter$, respectively. 
+The track resolution deteriorates with increasing $\epsdut$. 
 The optimal plane spacing $\dz$ depends on the actual size requirements for the DUT along the beam direction and its material budget.
 For instance, for a DUT with a material budget of $\epsdut = 0.002$, a plane spacing of $\dz = 20\,\milli\meter$ should be used, if $\dzdut$ is as small as 20\,mm. 
 However, a plane spacing of $\dz = 150\,\milli\meter$ is preferred, if $\dzdut$ is 60\,mm or larger. 
@@ -483,13 +456,13 @@ The position of the intersection shifts to smaller material budgets with increas
 %  \color{green}\put(-143,96.5){$\bigcirc$}
 %  \color{red}  \put(-113,90){$\bigcirc$}
 %  \color{black}
-   \caption[Pointing resolution as a function of the beam energy]{
-   %(A) The measured (triangles) and calculated (lines) pointing resolution at plane $3$
+   \caption[Track resolution as a function of the beam energy]{
+   %(A) The measured (triangles) and calculated (lines) track resolution at plane $3$
    % for the wide (red) and the narrow (black) set-up is shown as a function of the beam energy for the \textit{gauge configuration}~\cite{ref:thomas}. 
    %The solid lines form bands representing the standard deviation of $0.10\,\upmu\meter$ of the intrinsic resolution.
    %The theoretical limit of about $1.6\,\upmu\meter$ for plane\,3 is indicated as a dashed line.
-   %Pointing resolutions derived from the measured resolutions at plane 3 for various energies and plane spacings are shown as crosses.
-   The calculated pointing resolutions at the DUT for two geometries are shown as a function of $\epsdut$ at $\zdut$ at a beam energy of 5\,GeV. 
+   %Track resolutions derived from the measured resolutions at plane 3 for various energies and plane spacings are shown as crosses.
+   The calculated track resolutions at the DUT for two geometries are shown as a function of $\epsdut$ at $\zdut$ at a beam energy of 5\,GeV. 
    Note the double logarithmic scales. 
    }
  \label{fig:CalcResoP_DUT}
