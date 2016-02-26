@@ -20,18 +20,18 @@
   gre->SetName("Graph");
   gre->SetTitle("");
   gre->SetMarkerStyle(20);
-  gre->SetMarkerSize(2.);
+  gre->SetMarkerSize(1.3);
 
   gre->SetPoint(0, 2, 0.86);
-  gre->SetPointError(0, 2*0.05, 0.05);
+  gre->SetPointError(0, 2*0.05, 0.012);
   gre->SetPoint(1, 3, 0.875);
-  gre->SetPointError(1, 3*0.05, 0.05);
+  gre->SetPointError(1, 3*0.05, 0.012);
   gre->SetPoint(2, 4, 0.865);
-  gre->SetPointError(2, 4*0.05, 0.05);
+  gre->SetPointError(2, 4*0.05, 0.012);
   gre->SetPoint(3, 5, 0.865);
-  gre->SetPointError(3, 5*0.05, 0.05);
+  gre->SetPointError(3, 5*0.05, 0.012);
   gre->SetPoint(4, 6, 0.855);
-  gre->SetPointError(4, 6*0.05, 0.05);
+  gre->SetPointError(4, 6*0.05, 0.012);
 
   mg->Add(gre,"p");
 
@@ -41,7 +41,7 @@
   gre2->SetMarkerStyle(20);
   gre2->SetMarkerSize(2.);
   gre2->SetLineWidth(2);
-  gre2->SetLineStyle(9);
+  gre2->SetLineStyle(1);
   
   mg->Draw("ap");
   mg->SetMinimum(0.);
@@ -54,9 +54,14 @@
   mg->GetXaxis()->SetTitleOffset(1.14);
   mg->GetYaxis()->SetTitleOffset(1.34);
 
+  TF1* f1 = new TF1("f1","[0]", 1.65, 6.35);
+  f1->SetParameter(0,0.86);
+  f1->SetLineStyle(2);
+  f1->SetLineWidth(2);
 
+  f1->Draw("same");
 
-  TLegend *leg = new TLegend(0.25,0.29,0.55,0.39,NULL,"brNDC");
+  TLegend *leg = new TLegend(0.25,0.29,0.55,0.42,NULL,"brNDC");
   leg->SetBorderSize(0);
   leg->SetTextSize(0.03);
   leg->SetFillStyle(1001);
@@ -65,11 +70,12 @@
   leg->SetFillColor(kWhite);
   leg->AddEntry(gre,"#kappa for #sigma_{int} (150 mm) = #sigma_{int} (20 mm)","p");
   leg->AddEntry(gre2,"Highland","l");
+  leg->AddEntry(f1,"const. fit","l");
   leg->Draw();
   
- TLine *line = new TLine(0.6,1,6.35,1);
+ TLine *line = new TLine(0.6,1,6.4,1);
    line->SetLineWidth(2);
-   line->SetLineStyle(9);
+   line->SetLineStyle(1);
    line->Draw();
   
 
