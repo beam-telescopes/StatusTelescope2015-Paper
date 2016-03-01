@@ -325,16 +325,16 @@ In the energy range covered, $\kappa$ is found to be constant at a value $\kappa
 
 Furthermore, the method has been repeated for various sensor thresholds.
 The threshold applied to each telescope sensor is a critical parameter for the telescope performance.
-A higher threshold reduces the amount of fired pixels which results in fewer clusters found on average on a plane and thus limiting the number of reconstructible tracks.
-This reduces the sensor efficiency, which is defined as the ratio of reconstructed tracks that have at least one hit on the investigated plane within $d = 100\,\micro\meter$ to the overall number of tracks.
-The margin $d$ is additionally scaled with the inverse energy and the plane distance $\dz$. 
-In figure~\ref{fig:resivsenergy_thresh}~(A) the efficiency dependence on the sensor threshold is shown for various beam energies and sensor spacings.
-Efficiencies are shown exemplary for plane 3. 
+A higher threshold reduces the amount of fired pixels which results in smaller and fewer clusters found on average on a plane and thus limiting the number of reconstructible tracks.
+This reduces the telescope triplet efficiency, which is defined as the ratio of isolated, upstream triplets with a corresponding hit on plane\,3 within an acceptance range $d$
+ around the triplet extrapolation to the overall number of isolated, upstream triplets.
+A margin $d = 50\,\micro\meter$ is chosen for 6\,GeV and $\dz = 20\,\milli\meter$ and is additionally scaled with the inverse energy and the plane distance $\dz$ between measurements. 
+In figure~\ref{fig:resivsenergy_thresh}~(A) the telescope triplet efficiency dependence on the sensor threshold is shown for various beam energies and sensor spacings.
 Statistical errors are negligible due to the large amount of tracks recorded.
 Also, systematic uncertainties are insignificant due to precise alignment and sufficiently large margin $d$.  
-For thresholds $\noise < 7$ the efficiency is above $98\,\%$. ??
-With increasing threshold, the efficiency decreases until a level of $82\,\%$ at $\noise = 12$ is reached. ??
-The efficiency varies by maximal 1\,\% between different set-ups and measurements at a given threshold. 
+For thresholds $\noise = 5$ and $\noise = 6$ the efficiency is measured to $99.6\,\%$ and $99.4\,\%$.
+With increasing threshold, the efficiency decreases down to $82\,\%$ at $\noise = 12$. 
+The efficiency varies by less than 0.1\,\% between different geometries and energy settings at thresholds $\noise = 5$ and $\noise = 6$. 
 
 \begin{figure}[tbp]
   \centering
@@ -360,9 +360,10 @@ A deterioration also occurs towards lower thresholds allowing for an increased n
 %Disregarding this area, an overall average efficiency over $98\,\%$ is observed.
 %each resulting in an estimate for $\sigmai$ as a function of the set threshold $\noise$. 
 Figure~\ref{fig:resivsenergy_thresh} (B) shows the intrinsic sensor resolutions $\sigmai$ derived from the measurements for different beam energies and plane distances as a function of the applied sensor threshold.
-The minimum of $\sigmai$ is reached for a sensor threshold setting of $\noise = 5$~to~6.
-The difference in intrinsic resolution for different energies and for different plane spacings is less than $.\,\upmu\meter$ ?? for thresholds $\noise > $ ??. 
-A previous measurement and analysis by Behr~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ yielded $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$, which overestimates the the intrinsic resolution. 
+The minimum of $\sigmai$ is reached for a sensor threshold setting of $\noise = 5$.
+The spread in intrinsic resolution for different energies is less than $0.1\,\upmu\meter$ for thresholds $\noise = 5$ and $\noise = 6$. 
+A previous measurement and analysis by Behr~\cite{ref:j.behrmeasurements} taken at $\noise\,>\,10$ yielded $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$,
+ which seems to overestimates the intrinsic resolution. 
 
 
 
