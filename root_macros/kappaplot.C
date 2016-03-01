@@ -1,7 +1,7 @@
 {
   //=========Macro generated from canvas: kappa/kappa
   //=========  (Wed Apr  8 19:34:32 2015) by ROOT version5.34/01
-  TCanvas *kappa = new TCanvas("kappa", "kappa",1100,1100);
+  TCanvas *kappa = new TCanvas("kappa", "kappa",800,800);
   /*kappa->Range(0,0,1,1);
   kappa->SetFillColor(0);
   kappa->SetBorderMode(0);
@@ -12,6 +12,7 @@
   kappa->SetTickx(1);
   kappa->SetTicky(1);
 
+  gROOT->SetStyle("Plain");
 
   TMultiGraph *mg = new TMultiGraph();
 
@@ -55,7 +56,7 @@
   mg->GetYaxis()->SetTitleOffset(1.34);
 
   TF1* f1 = new TF1("f1","[0]", 1.65, 6.35);
-  f1->SetParameter(0,0.86);
+  f1->SetParameter(0,0.864);
   f1->SetLineStyle(2);
   f1->SetLineWidth(2);
 
@@ -68,8 +69,8 @@
   leg->SetShadowColor(0);
   leg->SetLineColor(0);
   leg->SetFillColor(kWhite);
-  leg->AddEntry(gre,"#kappa for #sigma_{int} (150 mm) = #sigma_{int} (20 mm)","p");
   leg->AddEntry(gre2,"Highland","l");
+  leg->AddEntry(gre,"#kappa for #sigma_{int} (150 mm) = #sigma_{int} (20 mm)","p");
   leg->AddEntry(f1,"const. fit","l");
   leg->Draw();
   

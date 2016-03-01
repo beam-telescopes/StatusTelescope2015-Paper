@@ -9,6 +9,8 @@
   m26fitter->SetBorderSize(2);
   m26fitter->SetFrameBorderMode(0);
   //gStyle->SetOptFit(1111);
+  m26fitter->SetRightMargin(0.05);
+  m26fitter->SetLeftMargin(0.15);
 
   TH1D *gblrx0 = new TH1D("gblrx0","GBL x resid at plane 0",125,-25,25);
    gblrx0->SetBinContent(41,1);
@@ -129,10 +131,10 @@
   gblrx0->Draw("");
 
 
-  TLegend *leg = new TLegend(0.15,0.65,0.45,0.87,NULL,"brNDC");
+  TLegend *leg = new TLegend(0.22,0.65,0.52,0.87,NULL,"brNDC");
   leg->SetBorderSize(0);
   leg->SetTextSize(0.03);
-  leg->SetFillStyle(1001);
+  leg->SetFillStyle(0);
   leg->SetShadowColor(0);
   leg->SetLineColor(0);
   leg->SetFillColor(kWhite);
