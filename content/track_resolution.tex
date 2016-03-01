@@ -214,7 +214,7 @@ Figure~\ref{fig:residualexample1} shows an example of converged biased residual 
  a beam energy of 6\,GeV, and a sensor threshold setting of $\noise = 6$. 
 According results for the $y$-direction, further planes and the wide geometry are omitted. 
 The distributions are fitted with a Gaussian, from which the residual width $\rbiased$ is determined. 
-For plane\,3, the biased residual width in te $x$-direction is 
+For plane\,3, the biased residual width in the $x$-direction is 
 
 \begin{equation}
 \left( 2.88\,\pm\, 0.01 \right)\,\micro\meter. 
@@ -389,24 +389,24 @@ The track resolution at the DUT for four different DUT material budgets $\epsdut
 Exemplified are two configurations with $\dz = 20\,\milli\meter$ and $\dz = 150\,\milli\meter$ at (A) DESY-II and (B) SPS beam energies. 
 For $\dz = \dzdut = 20\,\milli\meter$ at 5\,GeV beam energy the track resolution at the DUT is 
 \begin{equation}
- \sigmatb(\zdut) = 1.9\,\upmu\meter
+ \sigmat(\zdut) = 1.75\,\upmu\meter
 \end{equation}
 
 \noindent
 for $\epsdut = 0.001$.
 This analytical prediction has no uncertainty. 
 %The uncertainty originates from an assumed uncertainties of 5\,\% on the beam energy and 10\,\% on the material budget. 
-For SPS energies, a track resolution of $1.4\,\upmu\meter$ is predicted. ??
+For SPS energies, a track resolution of $1.33\,\upmu\meter$ is predicted.
 The shown resolution functions monotonically increase with increasing $\dzdut$. 
 In order to achieve the best possible resolution, the inner $\Mimosa$ planes should, therefore, be positioned as close as possible to the DUT, i.e.~$\dzdut$ is to be minimised. 
 In addition, figure~\ref{fig:CalcResos_dzdut} shows, that the optimal plane spacing $\dz$ depends on the actual DUT size along the beam direction and its material budget.
-For instance for a DUT with a material budget of $\epsdut = 0.001$ (solid lines) at 5\,GeV, a narrow configuration shows a higher resolution for $\dzdut < 70\,\milli\meter$,
- while a wide configuration is best for $\dzdut > 70\,\milli\meter$.
+For instance for a DUT with a material budget of $\epsdut = 0.001$ (solid lines) at 5\,GeV, a narrow configuration shows a higher track resolution for $\dzdut < 83\,\milli\meter$,
+ while a wide configuration is best for $\dzdut > 83\,\milli\meter$.
 The intersection is marked with a black circle in figure~\ref{fig:CalcResos_dzdut}. 
-The position of the intersection of the two lines depends on the material budget of the DUT $\epsdut$ and shifts to smaller $\dzdut$ with increasing material budget. 
+The position of the intersection depends on the material budget of the DUT $\epsdut$ and shifts to smaller $\dzdut$ with increasing material budget. 
 %A DUT with a material budget of $\eps$
 %In the wide (narrow) configuration, the predicted track resolution on the DUT is about $2.4\,\upmu\meter$ ($1.9\,\upmu\meter$) at $\dzdut = 20\,\milli\meter$ for DUTs with $\epsdut = 0.001$.
-At SPS energies, the resolution functions for the wide and the narrow configuration do not intersect, with the narrow configuration showing a slightly better
+At SPS energies, the resolution functions for the wide and the narrow configuration do not intersect, with the narrow configuration showing a slightly better track resolution at the DUT. 
 However, the difference is less than $0.5\,\micro\meter$ for $\zdut = 100\,\milli\meter$ even for $\epsdut = 0.03$. 
 
 \begin{figure}[tbp]
@@ -451,7 +451,7 @@ The position of the intersection shifts to smaller material budgets with increas
 \begin{figure}[tbp]
   \centering
   %\includegraphics[width=0.49\textwidth]{figures/energy_plot}     \put(-175,40){(A)} % was CalcResoVsP
-  \includegraphics[width=0.49\textwidth]{figures/CalcResoVsEpsdut} %\put(-155,40){(B)}
+  \includegraphics[width=0.49\textwidth]{figures/trackres_vs_epsdut_DESY} %\put(-155,40){(B)}
 %               \put(-175,107.5){$\bigcirc$}
 %  \color{blue} \put(-161,102.5){$\bigcirc$}
 %  \color{green}\put(-143,96.5){$\bigcirc$}
