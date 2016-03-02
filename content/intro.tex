@@ -8,14 +8,14 @@ Complementary to sensor simulations using finite element analysis tools, test be
 % experiments\,\cite{Nurnberg:2014aya, Garcia-Argos:2015zda} to high resolution and low mass at the International Linear Collider (ILC)\,\cite{ILC} or at the Compact Linear Collider (CLIC)\,\cite{CLIC}. 
 Such test beam studies are well suited and often used for the evaluation of the performance of a detector prototype. % developed within the various R\&D projects. 
 
-Within the Integrated Infrastructure Initiative, that was funded by the EU in the 6th framework programme,
+Within the Integrated Infrastructure Initiative funded by the EU in the 6th framework programme,
  the EUDET project aimed at providing a high-resolution pixel beam telescope for test beam studies~\cite{ref:eudetreport200902}.
 %In order to carry out these measurements a high-resolution pixel beam telescope was developed within the $\eudet$ project~\cite{ref:eudetreport200902},
-The guidelines for the development were to allow for an easy integration of proprietary data acquisition systems covering a wide range of readout schemes, latencies, and acquisition rates.
+The guidelines for the development were to allow for an easy integration of custom data acquisition systems covering a wide range of readout schemes, latencies, and acquisition rates.
 This is achieved by well defined interfaces on both the hardware and the software level. 
 Fast LHC-type tracking devices are integrable in the same manner as slow rolling-shutter readout devices. 
 
-The $\DESY$-type beam telescopes consist of six pixel detector planes equipped with fine-pitch $\Mimosa$ sensors~\cite{HuGuo2010480},
+The EUDET-type beam telescopes consist of six pixel detector planes equipped with fine-pitch $\Mimosa$ sensors~\cite{HuGuo2010480},
  the mechanics for precise positioning of the device under test (DUT) and the telescope planes in the beam, a Trigger Logic Unit (TLU) providing trigger capabilities and a data acquisition system.
 The chosen design meets most user requirements in terms of easy integration capabilities, spatial resolution, and trigger rates. 
 The telescope planes are designed and built to keep the material budget as low as possible in order to achieve an excellent pointing resolution
@@ -30,14 +30,14 @@ All replicas are based on the $\Mimosa$ sensors and are equipped with the same d
 The EUDET telescope has been used since 2007 in various stages of development by hundreds of users and played an important role in sensor studies employed by a wide community. 
 From January 2013 until March 2014 alone, about 300 users utilised a $\eudet$-type beam telescope at DESY for a total of 80 user weeks. 
 The results reported here are based on data taken with $\Datura$ at test beam area~21 at {DESY-II} and are comparable to other beam telescope copies with
-the a similar thickness of the epitaxial layer~\cite{desy-tscopes-main}. 
+a similar thickness of the epitaxial layer~\cite{desy-tscopes-main}. 
 
-The paper is organised as follows: 
-The DESY beamline is introduced in section~\ref{sec:beamlines}, followed by the description of the beam telescope
+This paper is organised as follows: 
+The DESY beamlines are introduced in section~\ref{sec:beamlines}, followed by the description of the beam telescope
  and the data acquisition framework in sections~\ref{sec:tscope} and~\ref{sec:eudaq}, respectively.
 Section~\ref{sec:offline} details the offline analysis and reconstruction software. 
-Results of the $\DESY$-type beam telescope performance and pointing resolution predictions for different telescope configurations and beam momenta are presented in section~\ref{sec:trackres}. 
-Additionally, the predictions of the Highland formula is compared to measurements with an electron beam. 
+Results of the EUDET-type beam telescope performance and pointing resolution predictions for different telescope configurations and beam momenta are presented in section~\ref{sec:trackres}. 
+Additionally, the predictions of the Highland formula are compared to measurements with an electron beam. 
 %The measured data is complemented by analytic predictions using the formalism of General Broken Lines (GBL)~\cite{Blobel20111760,Kleinwort-2012}.
 Section~\ref{sec:dutintegration} discusses the integration of DUTs into a $\eudet$-type beam telescope. 
 %With these GBL predictions at hand, the optimal telescope geometry can be calculated for a given set-up (DUT, cooling, ...) prior to the test beam.

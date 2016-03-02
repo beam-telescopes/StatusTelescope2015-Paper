@@ -1,6 +1,6 @@
 
-The $\DESY$-type beam telescope are tabletop tracking detectors featuring six pixelated silicon sensors, four scintillators with photo multiplier tubes (PMTs) for trigger purposes,
- a Trigger Logic Unit (TLU) providing trigger logic and time stamp information on particle passage, and a data acquisition system for the data readout. 
+The EUDET-type beam telescope are tabletop tracking detectors featuring six pixelated silicon sensors, four scintillators with photo multiplier tubes (PMTs) for trigger purposes,
+ a Trigger Logic Unit (TLU) providing trigger logic and time stamp information on particle passage, and a data acquisition system for the readout. 
 Figure\,\ref{fig:datura-tscope} shows the beam telescope with its rectangular aluminium sensor jigs, wherein the pixel sensors are embedded,
  and its auxiliary boards providing connections for power, sensor configuration, clock signals and data transmission. 
 The planes are organised in two telescope arms holding three sensors each. 
@@ -22,7 +22,7 @@ In the Cartesian, right-handed coordinate system chosen, the $x$-direction point
 
 The $\Mimosa$ sensors used for precise spacial measurements of particle trajectories are manufactured with the AMS 350\,nm CMOS technology~\cite{HuGuo2010480}. 
 Each $\Mimosa$ sensor consists of pixels sized $\unit{18.4}{\upmu\meter}\,\times\,\unit{18.4}{\upmu\meter}$, which are arranged in 1152 columns and 576 rows.
-This adds up to a total of about four million readout channels covering an active area of about $\unit{10.6}{\milli\meter}\,\times\,\unit{21.1}{\milli\meter}$. 
+This adds up to a total of about six hundred thousand readout channels per sensor, covering an active area of about $\unit{10.6}{\milli\meter}\,\times\,\unit{21.1}{\milli\meter}$. 
 The specifications of the $\Mimosa$ sensors quote a thickness of $\unit{50}{\upmu\meter}$. 
 Measurements with a digital microscope reveal an average thickness over the six sensors used of $(54.5\,\pm\,3.6)\,\upmu\meter$. 
 Free charge carriers produced in the underlying \unit{10}{\upmu\meter} high resistivity epitaxial layer\footnote{This is the case for DATURA and ACONITE.} %Other beam telescopes are equipped with sensors differing slightly in epitaxial thickness.
@@ -72,18 +72,18 @@ Likewise, $\epsdut$ represents the DUT's material budget which includes the DUT 
 \label{sec:tdaq}
 
 Four Hamamatsu PMT assemblies with scintillators and lightguides, two in front and two in the back of the telescope, define the spatial acceptance for triggers. 
-The crossed scintillators on either side of the beam telescope define a rectangular acceptance window of $10\,\milli\meter\,\times\,20\,\milli\meter$ matching the $\Mimosa$ acceptance area. 
-The TLU, based on a commercial Spartan\,3 board, features a coincidence unit with discriminator boards accepting up to four PMT input signals. 
+The crossed scintillators on either side of the beam telescope define a rectangular acceptance window of $10\,\milli\meter\,\times\,20\,\milli\meter$ matching the $\Mimosa$ sensor area. 
+The TLU is based on a commercial Spartan\,3 board and features a coincidence unit with discriminator boards accepting up to four PMT input signals. 
 Additionally, it is equipped with several custom-made add-on PCBs allowing for an easy integration of user DAQ systems. 
 Providing a programmable logic, the TLU  takes a trigger decision based on its four input channels. 
-As interface to the beam telescope DAQ and other user DAQs, the TLU provides RJ45 connectors with four LVDS pairs carrying the trigger clock, busy line, reset line, and trigger line. 
+As interface to the beam telescope DAQ and other user DAQs, the TLU provides RJ45 connectors with four LVDS pairs carrying the trigger clock, busy, reset, and trigger signals. 
 The trigger clock and the busy line are inputs to the TLU, whereas the reset and the trigger line are signals produced by the TLU. 
 The trigger signal is distributed to all DAQ systems on the trigger line. 
 A busy signal is accepted by the TLU from each integrated DAQ individually vetoing subsequent triggers as long as the busy signal is high. 
-More details are available in Ref.~\cite{EUDET-2009-04,ref:TLUproc}.
+More details are available in~\cite{EUDET-2009-04,ref:TLUproc}.
 %The reset line transmits the signal to reset the timestamp counter.
 %The rising edges of the trigger clock are used as clock enable for the shift register holding the trigger data. 
-In addition, a LEMO interface is available providing trigger and reset outputs and an inputs for the busy signal.
+In addition, a LEMO interface is available providing trigger and reset outputs and inputs for the busy signal.
 
 Three different handshake modes handling the trigger/busy signals are available, one of them being the \textit{no-handshake mode},
  in which the TLU issues a fixed-length pulse on the trigger line with the busy line being disregarded. 
@@ -99,14 +99,14 @@ after the trigger has been de-asserted, the trigger number is clocked out.
 %The $\Mimosa$ data from the rolling-shutter readout is written continuously to RAM without taking into account the trigger information. 
 %The data is then available via direct memory access to the DAQ software framework and an event is written to disk in normal handshake mode, only if a trigger has been raised for a certain telescope readout frame. 
 
-Zero-suppressed hit data generated by the $\Mimosa$ sensors is transmitted over a ribbon cable to the auxiliary boards,
- which provide RJ45 connectors to connect with the data concentrator board collecting the data from all six sensors and the trigger/busy lines from the TLU.
+The zero-suppressed hit data generated by the $\Mimosa$ sensors are transmitted over a ribbon cable to the auxiliary boards,
+ which establish the connection to the data concentrator board collecting the data from all six sensors and the trigger/busy lines from the TLU.
 The signals from the concentrator board are acquired by a COTS\footnote{commercial off-the-shelf} DAQ system built around the National Instrument (NI) PXIe crate architecture. 
 A custom-made firmware running on a Virtex 5 FPGA embeded in a FlexRIO board (PXIe 7962R) acquires and deserialises the 12 serial links --- two per sensor --- at 80\,Mb/s,
  detects triggers on the trigger line, and reads the trigger data. 
 The resulting data stream of 960 Mb/s is read by the CPU (PXIe 8130) from the PXIe bus via a DMA channel and processed on-line by software. 
 Data packets on which the TLU has triggered are selected, demultiplexed and actual frames built. 
-The data is then available to the $\eudaq$ framework, and an event is written to disk in normal handshake mode, only if a trigger has been raised for a certain telescope readout frame. 
+The data is then available to the $\eudaq$ framework (cf.\ section~\ref{sec:eudaq}), and an event is written to disk in normal handshake mode, only if a trigger has been raised for a certain telescope readout frame. 
 This co-development, i.e.\ sharing processing tasks between firmware and software, allows for high flexibility for system upgrades. 
 The presented DAQ architecture is able to read six $\Mimosa$ sensors without any dead-time at up to 8680 frames/s.
 More details are available in Refs.~\cite{EUDET-2010-25,Claus}.
