@@ -1,7 +1,7 @@
 %mechanic
-A DUT can be mechanically integrated into the $\eudet$-type beam telescopes at two positions: behind the last telescope plane, or between the two telescope arms.
+A DUT can be mechanically integrated into the $\eudet$-type beam telescopes at three positions: upstream or downstream of the telescope, or between the two telescope arms.
 If placed between the arms, micrometer precision $xy\phi$-stages are available for translation scans and rotation of the DUT~\cite{Mimosa-twiki}.
-At this position, the maximum DUT width is 500\,mm.
+At this position, the maximum width of the DUT set-up is 500\,mm.
 DUTs with larger spatial dimensions are therefore placed at the rear end of the beam telescope. 
 
 %trigger and daq sw
@@ -11,11 +11,11 @@ For the integration of the DUT data stream with EUDAQ, a producer capable of rec
  as described in section~\ref{sec:eudaq}.
 
 %eutelescope
-A dedicated alignment run prior with no DUT in the beam allows for precise alignment of the telescope planes, especially for larger $\epsdut$. 
+A dedicated alignment run prior to data taking with no DUT in the beam allows for precise alignment of the telescope planes, especially for larger $\epsdut$. 
 With a proper alignment at hand, runs including a DUT are to be analysed subsequently in order to align the DUT with respect to the beam telescope. 
 The reconstructed tracks can then be used to characterise the DUT, i.e.~to measure its intrinsic resolution or efficiency. 
 
-With increasing $\epsdut$, and thus multiple scattering within the DUT, the choice of the tracking processor needs further consideration. 
+With increasing $\epsdut$, and thus multiple scattering within the DUT, the choice of the tracking algorithm needs further consideration. 
 In general, a GBL fit produces tracks with a lower $\chi^2$ compared to straight line fits,
  as kinks at the possibly thick DUT and also at the $\Mimosa$ planes themselves are allowed for.
 Therefore, using GBL for track fitting is recommended. 
@@ -23,7 +23,7 @@ Therefore, using GBL for track fitting is recommended.
 If straight line fitting is used nevertheless, a fit using only the upstream planes might result in a narrower unbiased residual width, compared to a fit that includes the downstream planes. 
 This is due to a bias of the extrapolated tracks at the DUT by the downstream planes after traversing material. 
 For comparison, in a narrow configuration using a 6\,GeV electron/positron beam,
- the pointing resolution of the $\DESY$-type beam telescope at the DUT using GBL is $1.83\,\upmu\meter$ making use of all six planes. 
+ the pointing resolution of the EUDET-type beam telescope at the DUT using GBL is $1.83\,\upmu\meter$ making use of all six planes. 
 The optimal configuration using only the upstream planes is a wide configuration with $\dz = 150\,\milli\meter$,
  and the achievable pointing resolution is at best $3.9\,\upmu\meter$. 
 Hence, using only the upstream planes deteriorates the resolution by more than $2\,\upmu\meter$.
