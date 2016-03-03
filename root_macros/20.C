@@ -1,7 +1,7 @@
 {
 //=========Macro generated from canvas: smilie/smilie
 //=========  (Thu Apr  9 14:26:03 2015) by ROOT version5.34/01
-   TCanvas *smilie = new TCanvas("smilie", "smilie",1100,1100);
+   TCanvas *smilie = new TCanvas("smilie", "smilie",20, 1920, 1100,1100);
    smilie->Range(-30,1.25,170,8.75);
    smilie->SetFillColor(0);
    smilie->SetBorderMode(0);
