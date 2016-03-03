@@ -1,17 +1,17 @@
 
 %Test beam measurements with high precision pixel beam telescopes have proven to be a versatile tool for a wide range of semiconductor sensor studies. 
-%Among other beam telescopes, also the $\DESY$-type beam telescopes are used as a key ingredient for many sensors R\&D projects. 
+%Among other beam telescopes, also the $\eudet$-type beam telescopes are used as a key ingredient for many sensors R\&D projects. 
 
-In this work the $\DESY$-type beam telescopes have been described and their performance has been investigated. 
-The highly flexible and versatile $\DESY$-type beam telescopes come with a Trigger Logic Unit with time stamping capabilities and a clearly defined interface for an integration of user data acquisition systems.
-It is complemented by a data acquisition system for the telescope planes, and the powerful software packages $\eudaq$ and $\EUTelescope$
+In this work the $\eudet$-type beam telescopes have been described and their performance has been investigated. 
+The highly flexible and versatile $\eudet$-type beam telescopes come with a Trigger Logic Unit with time stamping capabilities and a clearly defined interface for an integration of user data acquisition systems.
+It is complemented by a data acquisition system for the telescope sensors, and the powerful software packages $\eudaq$ and $\EUTelescope$
  ---  a modular data acquisition framework and an offline reconstruction software, respectively. 
-The intrinsic resolution of the $\Mimosa$ sensors have been measured to be $(3.25 \pm 0.01)\,\upmu\meter$.
-General Broken Lines calculations predict a pointing resolution of $1.75\,\upmu\meter$ on the DUT with 20\,mm plane spacing for very thin sensors with $\epsdut = 0.001$.
+The intrinsic resolution of the $\Mimosa$ sensors have been measured to be $(3.25 \pm 0.03)\,\upmu\meter$.
+General Broken Lines calculations predict a pointing resolution of $1.75\,\upmu\meter$ on the DUT with 20\,mm plane spacing for thin sensors with $\epsdut = 0.001$.
 
 Continuous development efforts are ongoing to upgrade and enhance the Trigger Logic Unit, the data acquisition system, and offline reconstruction framework~\cite{ref:tipp2014_eudaq}.  
 The maximum achievable rate will be increased by the successor of the TLU. 
-A quad plane comprising four Mimosa\,28 planes has been built for the AIDA telescope, covering a detection area of $16\,\centi\meter^2$, and an appropriate DAQ has been developed to cope with the higher data rates. 
+A new plane comprising four Mimosa\,28 planes has been built for the AIDA telescope, covering a detection area of $16\,\centi\meter^2$, and an appropriate DAQ has been developed to cope with the higher data rates. 
 %This is only possible with the implementation of parallel data streams for the telescope planes and the DUT, which will be available with \eudaq\,{2.0},
 % which will incorporate a new event format supporting multiple triggers per $\Mimosa$ read-out frame. 
 Future versions of \eudaq\ will provide support for asynchronous data streams allowing to operate certain devices at a much higher trigger frequency than others
