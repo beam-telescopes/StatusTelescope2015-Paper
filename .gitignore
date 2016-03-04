@@ -4,6 +4,7 @@
 *.blg
 *.log
 *.toc
+*.dvi
 *.pdf
 *.tex.backup
 *bib.backup
@@ -41,3 +42,6 @@
 # ignore OS files
 Thumbs.db
 *.lnk
+
+# ignore allfigs directory
+allfigs
