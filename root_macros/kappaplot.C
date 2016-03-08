@@ -23,16 +23,16 @@
   gre->SetMarkerStyle(20);
   gre->SetMarkerSize(1.3);
 
-  gre->SetPoint(0, 2, 0.86);
-  gre->SetPointError(0, 2*0.05, 0.012);
-  gre->SetPoint(1, 3, 0.875);
-  gre->SetPointError(1, 3*0.05, 0.012);
-  gre->SetPoint(2, 4, 0.865);
-  gre->SetPointError(2, 4*0.05, 0.012);
-  gre->SetPoint(3, 5, 0.865);
-  gre->SetPointError(3, 5*0.05, 0.012);
-  gre->SetPoint(4, 6, 0.855);
-  gre->SetPointError(4, 6*0.05, 0.012);
+  gre->SetPoint(0, 6, 0.860);
+  gre->SetPointError(0, 6*0.05, 0.0324);
+  gre->SetPoint(1, 5, 0.854);
+  gre->SetPointError(1, 5*0.05, 0.0335);
+  gre->SetPoint(2, 4, 0.851);
+  gre->SetPointError(2, 4*0.05, 0.0319);
+  gre->SetPoint(3, 3, 0.857);
+  gre->SetPointError(3, 3*0.05, 0.0259);
+  gre->SetPoint(4, 2, 0.851);
+  gre->SetPointError(4, 2*0.05, 0.0197);
 
   mg->Add(gre,"p");
 
@@ -56,7 +56,7 @@
   mg->GetYaxis()->SetTitleOffset(1.34);
 
   TF1* f1 = new TF1("f1","[0]", 1.65, 6.35);
-  f1->SetParameter(0,0.864);
+  f1->SetParameter(0,0.854);
   f1->SetLineStyle(2);
   f1->SetLineWidth(2);
 
@@ -69,7 +69,7 @@
   leg->SetShadowColor(0);
   leg->SetLineColor(0);
   leg->SetFillColor(kWhite);
-  leg->AddEntry(gre2,"Highland","l");
+  leg->AddEntry(gre2,"no correction","l");
   leg->AddEntry(gre,"#kappa for #sigma_{int} (150 mm) = #sigma_{int} (20 mm)","p");
   leg->AddEntry(f1,"const. fit","l");
   leg->Draw();
