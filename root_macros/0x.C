@@ -98,7 +98,7 @@
    f2->SetParameter(1,-0.00787172);
    f2->SetParError(1,0.006969583);
    f2->SetParLimits(1,0,0);
-   f2->SetParameter(2,2.174964);
+   f2->SetParameter(2,2.177);
    f2->SetParError(2,0.006492782);
    f2->SetParLimits(2,0,21.7189);
   //f2->SetParLimits(2,0,0.05097552);
@@ -143,8 +143,8 @@
   entry=leg->AddEntry( gblrx0,"residual in x","f");
   entry=leg->AddEntry(f2,"fit","l");
   //entry=leg->AddEntry("NULL","mean = -0.0160 #pm 0.0356","h");
-  entry=leg->AddEntry("NULL","#sigma = 2.17 #pm 0.01","h");
-  entry=leg->AddEntry("NULL","#chi^{2} /ndf = 7.0","h");
+  entry=leg->AddEntry("NULL","#sigma = 2.18 #pm 0.01","h");
+  entry=leg->AddEntry("NULL","#chi^{2} /ndf = 7.3","h");
 
   leg->Draw();
 
