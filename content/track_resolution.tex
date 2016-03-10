@@ -12,7 +12,7 @@ Track fits are performed using the GBL formalism and track residuals, i.e.\ the 
 After conversion from raw $\Mimosa$ data, a hot pixel search is performed marking pixels with firing frequencies above a certain threshold.
 Clusters are formed from fired, adjacent pixels and translated from two-dimensional entities on the individual telescope planes into hits in a global three-dimensional reference frame.
 Clusters containing at least one hot pixel are removed from the analysis. 
-Track triplets are built from hits in the three upstream and three downstream planes separately: 
+Triplets are built from hits in the three upstream and three downstream planes separately: 
 First, doublets are defined by straight lines from all hits in plane\,0 to all hits in plane\,2. 
 A valid triplet is found, if a matching hit in plane\,1 is present, non-valid triplets are discarded.  
 Triplet isolation is ensured by rejecting all triplets whose extrapolation at a chosen $z$-coordinate approaches other triplet extrapolations closer than $\unit{300}{\upmu\meter}$,
@@ -25,7 +25,7 @@ After applying the alignment corrections, the above track finding is repeated, a
 These tracks can be formed in a \textrm{biased} or in an \textrm{unbiased} way, where biased tracks include the measured hit information of every plane in contrast to unbiased tracks,
  that omit the hit information of the plane under investigation. 
 
-\subsection{Multiple scattering and residuals}
+\subsection{Multiple scattering, track fits and residuals}
 \label{sec:resmultiple}
 
 The figure of merit for a beam telescope is its track resolution\footnote{also called pointing resolution} $\sigmatb$ ($\sigmatu$).
@@ -71,12 +71,13 @@ An approximation for high energy protons, that is accurate to 11\,\% for all ato
 
 \noindent with the velocity $\beta c$, the momentum $p$ and the charge number $z$ of the traversing particle. 
 The expression $\epsilon = x \per X_0$ is the material budget, as defined in section~\ref{sec:sensors}.
-%
 Equation~(\ref{eq:multiplescattering}) demonstrates the advantage of using thin sensors, since the angular deflection due to multiple scattering increases with the material budget.
 This is especially important at low-energy beams, such as the DESY-II test beam, as the distortion increases towards lower energies.
 As the beam particles interact with both the sensors and the air, contributions to the amount of multiple scattering from either source have to be considered.
-At high-energy hadron beams, the contribution from multiple scattering can in general be neglected. 
- 
+At high-energy hadron beams, the contribution from multiple scattering can in general be neglected. \\
+
+ADD HERE PARAGRAPH ABOUYT GBL AND ITS ASSUMPTIONS\\
+
 The biased (unbiased) residual defined as a quantity per track is the distance between the measured hit and the biased (unbiased) track fit. 
 With a known or estimated biased track resolution, i.e.\ all $\sigmai(z_i)$ are known or estimates exist,
  the width of the distribution of the biased residuals for a set of tracks can be expressed for all positions $z = z_i$ as
@@ -119,6 +120,10 @@ A width larger than one originates from an underestimated residual prediction $\
  or an overestimated track resolution. 
 The latter is caused by either an overestimated material budget or overestimated deflection angles. 
 
+
+\subsection{Methodology and systematics}
+\label{sec:meth}
+
 \begin{table}[tbp]
  \begin{center}
   \begin{tabular}{r|r|r|c|c|c|c||c}
@@ -149,6 +154,14 @@ The latter is caused by either an overestimated material budget or overestimated
   \label{tab:uncerts}
  \end{center}
 \end{table}
+
+METHODS YEILD SIMILAR RESULTS, also in uncerts
+
+kappa is not meant as correction to the physical width of the angular distribution, but corrects for assumptions made by GBL ...
+
+Since the intrinsic resolution is not a priori known, an initial estimate of the intrinsic resolution $\sigmahat$ is used as an input to the GBL track fitting. 
+The width of the pull distributions is iteratively used to update the estimate $\sigmahat$.
+It should be noted that an initial estimate close to the converged value does not yield smaller uncertainties on the converged value compared to a bad initial estimate.
 
 A critical aspect of this analysis is the choice between biased and unbiased residuals. 
 In principal, both choices lead to compatible results if the material in the beam and the deflection due to multiple scattering therein is correctly described. 
@@ -189,7 +202,7 @@ If $\kappa$ differs significantly from one and/or depends on the beam energy is 
 \label{sec:measurements}
 
 Measurements of particle trajectories were performed to verify the performance of the $\Datura$ telescope at various beam energies, sensor thresholds, and sensor spacings. %~\cite{ref:thomas}.
-The biased residual and biased pull distributions have been obtained for every sensor plane as described in sections~\ref{sec:datura-nodut} and~\ref{sec:resmultiple}. 
+The biased residual and biased pull distributions have been obtained for every sensor plane as described in sections~\ref{sec:datura-nodut}, \ref{sec:meth}, and~\ref{sec:resmultiple}. 
 % By considering one telescope plane as a DUT, equation~(\ref{eq:telescoperesolutionequation}) is modified under the assumption that $\sigmai = \sigma_{\textrm{DUT}} = \sigma_{\textrm{M26}}$,
 %  leading to
 % 
@@ -198,10 +211,7 @@ The biased residual and biased pull distributions have been obtained for every s
 % \sigmameas^2 = \sigma_{\textrm{M26}}^2 \cdot \left( 1 + k_5 \right) +
 % \sigma_{\textrm{MS}}^2\,,
 % \end{equation}
-Since the intrinsic resolution is not a priori known, an initial estimate of the intrinsic resolution $\sigmahat$ is used as an input to the GBL track fitting. 
-The width of the pull distributions is iteratively used to update the estimate $\sigmahat$.
-This procedure converges towards the true intrinsic resolution within the uncertainties and yields compatible results for the two different geometries for an appropriate choice of $\kappa$. 
-It should be noted that an initial estimate close to the converged value does not yield smaller uncertainties on the converged value compared to a bad initial estimate.
+
 %The systematic uncertainty of the converged estimate is independent of the iteration process.
 %A mismatch in intrinsic resolution for the two cases is corrected by varying $\kappa$, cf.~equation~(\ref{eq:thetacorr}) and repeating the iterative method until the intrinsic resolutions equal
 
@@ -308,6 +318,7 @@ As expected, the residuals at a considered plane $i$ are always smaller for the 
 %In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed. % This assumption is done for track fitting. Plane position is fixed in chi2 minimisation for \sigmai
 
 As described in section~\ref{sec:resmultiple}, the amount of multiple scattering is determined by varying $\kappa$ iteratively, until the resulting resolution for the two considered geometries agree. 
+This procedure results in an estimate of the true intrinsic resolution and yields compatible results for the two different geometries for an appropriate choice of $\kappa$. 
 A value of $\kappa = 0.860 \pm 0.032$ is found at 6\,GeV. 
 Then, whe average intrinsic resolution of the $\Mimosa$ sensors at 6\,GeV and threshold $\noise = 6$ results to
 \begin{equation}
@@ -330,9 +341,10 @@ This allows for the determination of $\kappa$ as a function of the beam energy.
 The correlation is shown in Figure~\ref{fig:HL_factor}. 
 In the energy range covered $\kappa$ is found to be constant at a value $\kappa = 0.854 \pm 0.012$, which translates to a correction of $\sim15\,\%$ with respect to equation~(\ref{eq:multiplescattering}).
 
-\begin{figure}[t]
+\begin{figure}[b!]
   \centering
   \includegraphics[width=0.49\textwidth]{figures/kappa}
+  \includegraphics[width=0.49\textwidth]{allfigs/dummy}
   \caption[HL Factor]{
   The global factor $\kappa$ to equation~(\ref{eq:multiplescattering}) is plotted against beam energy.
   }
@@ -352,7 +364,7 @@ For thresholds $\noise = 5$ and $\noise = 6$ the efficiency is measured to $99.6
 With increasing threshold, the efficiency decreases to $82\,\%$ at $\noise = 12$. 
 The efficiency varies by less than 0.1\,\% between different geometries and energy settings at thresholds $\noise = 5$ and $\noise = 6$. 
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.49\textwidth]{figures/effi_vs_thres}	\put( -30,158){(A)}
   \includegraphics[width=0.49\textwidth]{figures/reso_vs_thres}	\put( -30,158){(B)} % was resi_thresh_errors
@@ -435,8 +447,6 @@ The position of the intersection depends on the material budget of the DUT $\eps
 At SPS energies, the resolution functions for the wide and the narrow configuration do not intersect, with the narrow configuration showing a slightly better track resolution at the DUT. 
 However, the difference is less than $0.5\,\micro\meter$ for $\zdut = 100\,\milli\meter$ even at $\epsdut = 0.03$. 
 
-
-
 % Using the \textit{gauge configuration}, a comparison between the GBL calculations and the measurements can be performed.
 % For this, the measured resolution has to be converted to the track resolution $\sigmap$ by correcting for the intrinsic resolution of the DUT $\sigmadut = \sigmam$
 % 
@@ -453,18 +463,7 @@ However, the difference is less than $0.5\,\micro\meter$ for $\zdut = 100\,\mill
 % For the limit towards high energies, or negligible multiple scattering, a track resolution of $1.6\,\upmu\meter$ is predicted. 
 % The measurement at 120\,GeV confirms the prediction, 
 
-In figure~\ref{fig:CalcResoP_DUT} the achievable track resolution at $\zdut$ as a function of the material budget is shown for a beam energy of 5\,GeV.
-%Again, a minimal $\dzdut$ allows for the best possible resolution. 
-Dashed and solid lines represent calculations for $\dz = 20\,\milli\meter$ and $\dz = 150\,\milli\meter$, respectively. 
-The track resolution deteriorates with increasing $\epsdut$. 
-The optimal plane spacing $\dz$ depends on the actual size requirements for the DUT along the beam direction and its material budget.
-For instance, for a DUT with a material budget of $\epsdut = 0.002$, a plane spacing of $\dz = 20\,\milli\meter$ should be used, if $\dzdut$ is as small as 20\,mm. 
-However, a plane spacing of $\dz = 150\,\milli\meter$ is preferred, if $\dzdut$ is 60\,mm or larger. 
-Intersections are marked with open circles. 
-For $\epsdut$ below (above) the intersection, a narrow (wide) configuration is preferable. 
-The position of the intersection shifts to smaller material budgets with increasing $\dzdut$. 
-
-\begin{figure}[tbp]
+\begin{figure}[b!]
   \centering
   %\includegraphics[width=0.49\textwidth]{figures/energy_plot}     \put(-175,40){(A)} % was CalcResoVsP
   \includegraphics[width=0.49\textwidth]{figures/trackres_vs_epsdut_DESY} %\put(-155,40){(B)}
@@ -484,6 +483,17 @@ The position of the intersection shifts to smaller material budgets with increas
    }
  \label{fig:CalcResoP_DUT}
 \end{figure}
+
+In figure~\ref{fig:CalcResoP_DUT} the achievable track resolution at $\zdut$ as a function of the material budget is shown for a beam energy of 5\,GeV.
+%Again, a minimal $\dzdut$ allows for the best possible resolution. 
+Dashed and solid lines represent calculations for $\dz = 20\,\milli\meter$ and $\dz = 150\,\milli\meter$, respectively. 
+The track resolution deteriorates with increasing $\epsdut$. 
+The optimal plane spacing $\dz$ depends on the actual size requirements for the DUT along the beam direction and its material budget.
+For instance, for a DUT with a material budget of $\epsdut = 0.002$, a plane spacing of $\dz = 20\,\milli\meter$ should be used, if $\dzdut$ is as small as 20\,mm. 
+However, a plane spacing of $\dz = 150\,\milli\meter$ is preferred, if $\dzdut$ is 60\,mm or larger. 
+Intersections are marked with open circles. 
+For $\epsdut$ below (above) the intersection, a narrow (wide) configuration is preferable. 
+The position of the intersection shifts to smaller material budgets with increasing $\dzdut$. 
 
 A web tool yielding compatible results in comparison with the GBL calculations is available~\cite{webtool}. 
 The tool calculates track resolutions for a fixed set-up with six planes and one DUT in the centre. 
