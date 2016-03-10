@@ -123,18 +123,26 @@ The latter is caused by either an overestimated material budget or overestimated
  \begin{center}
   \begin{tabular}{r|r|r|c|c|c|c||c}
   \multicolumn{3}{c|}{} & \multicolumn{5}{c}{$\sigma_{\sigmai}$ in \%}\\
-  \multicolumn{3}{c|}{} & \multicolumn{3}{c|}{per plane} & all planes& $\sqrt{\sum (\max(x_i))^2}$\\
-  \multicolumn{3}{c|}{} &$E\pm5\,\%$ & $\Theta\pm X\,\%$ & fit range    & rms &  \\ 
-  \multicolumn{3}{c|}{} & &                              & $\pm 1\,$std.&               &  \\ \hline
-  6\,GeV & 20 mm   &  biased  &  ${}^{-0.34}_{+0.21}$ &  & ${}^{+1.76}_{-1.27}$ &  &    \\
-         & ×       & unbiased &  ${}^{}_{}$ &  &  &  &    \\
-	 & 150 mm  &  biased  &  ${}^{-3.5}_{+2.9}$ &  & ${}^{+6.4}_{-5.4}$ &  &    \\
-	 & ×       & unbiased &  ${}^{}_{}$ &  &  &  &    \\ \hline
-  2\,GeV & 20 mm   &  biased  &  ${}^{-1.56}_{+1.13}$ &  & ${}^{+0.23}_{+0.33}$ &  &    \\
-         & ×       & unbiased &  ${}^{}_{}$ &  &  &  &    \\
-	 & 150 mm  &  biased  &  ${}^{-10.5}_{+15.7}$ &  & ${}^{+8.0}_{+0.83}$ &  &    \\
-	 & ×       & unbiased &  ${}^{}_{}$ &  &  &  &    \\ 
+  \multicolumn{3}{c|}{} & \multicolumn{3}{c|}{per plane} & all planes& $\sqrt{\sum (x_i)^2}$\\
+  \multicolumn{3}{c|}{} &$E$         & $\Theta_0$      & fit range    & rms &  \\ 
+  \multicolumn{3}{c|}{} & $\pm5\,\%$ &  $\pm 3.5\,\%$  & $\pm 1\,$std.&               &  \\ \hline
+  6\,GeV & 20 mm   &  biased  &  ${}^{-0.34}_{+0.21}$ & ${}^{+0.08}_{-0.28}$ & ${}^{+1.76}_{-1.27}$ & 1.75 &  2.6  \\
+         & ×       & unbiased &  ${}^{-0.36}_{}$ &  &  & 1.37 &    \\
+	 & 150 mm  &  biased  &  ${}^{-3.5}_{+2.9}$   & ${}^{+1.95}_{-2.60}$ & ${}^{+6.4}_{-5.4}$ & 1.68 &  8.0  \\
+	 & ×       & unbiased &  ${}^{-4.81}_{}$ &  &  & 0.83 &    \\ \hline
+  2\,GeV & 20 mm   &  biased  &  ${}^{-1.56}_{+1.13}$ & ${}^{+0.65}_{-1.22}$ & ${}^{+0.23}_{+0.33}$ & 3.4 &  4.0  \\
+         & ×       & unbiased &  ${}^{-1.47}_{}$ &  &  & 2.15 &    \\
+	 & 150 mm  &  biased  &  ${}^{-10.5}_{+15.7}$ & ${}^{+10.2}_{-6.59}$ & ${}^{+8.0}_{+0.8}$ & 0.92 &  16.7 \\
+	 & ×       & unbiased &  ${}^{-17.20}_{}$ &  &  & 1.15 &    \\ 
   %× & × & × & ×
+%  6\,GeV & 20 mm   &  biased  &  ${}^{-0.34}_{+0.21}$ &  & ${}^{+1.76}_{-1.27}$ & 1.75 &  2.5 (ohne theta)  \\
+%        & ×       & unbiased &  ${}^{}_{}$ &  &  &  &    \\
+%	 & 150 mm  &  biased  &  ${}^{-3.5}_{+2.9}$ &  & ${}^{+6.4}_{-5.4}$ & 1.7 &  7.5  \\
+%	 & ×       & unbiased &  ${}^{}_{}$ &  &  &  &    \\ \hline
+%  2\,GeV & 20 mm   &  biased  &  ${}^{-1.56}_{+1.13}$ &  & ${}^{+0.23}_{+0.33}$ & 3.4 &  3.8   \\
+%         & ×       & unbiased &  ${}^{}_{}$ &  &  &  &    \\
+%	 & 150 mm  &  biased  &  ${}^{-10.5}_{+15.7}$ &  & ${}^{+8.0}_{+0.83}$ & 0.9 &  17.6  \\
+%	 & ×       & unbiased &  ${}^{}_{}$ &  &  &  &    \\ 
   \end{tabular}
     \caption[Systematic uncertainties]{Systematic uncertainties in determination of the intrinsic resolution per plane and over all planes listed for biased and unbiased track fits and the two geometries.
   For unbiased tracks in the wide geometry, the uncertainty of the intrinsic resolution could not be calculated as the measured residual is smaller than the calculated track resolution.}
@@ -157,7 +165,7 @@ All systematic uncertainty contributions for the two set-ups are listed in table
 It shows, that the choice of biased track fits results in smaller systematic uncertainties compared to unbiased track fits. 
 Additionally, there is a systematic uncertainty of the method itself, as it predicts slightly different intrinsic resolutions for each plane, which changes between geometries,
  i.e.\ it is not dominantly caused by an actual difference in intrinsic resolution. 
-The spread in intrinsic resolution over all planes is 1\,\% and 2\,\% for the wide and the narrow geometry, respectively, for both biased and unbiased track fits. 
+The spread in intrinsic resolution over all planes is 1.8\,\% and 1.7\,\% for the narrow and the wide geometry, respectively, for both biased and unbiased track fits. 
 
 The rather large uncertainty of the scattering distribution width given in equation~(\ref{eq:multiplescattering}) and hence significant impact on the final results can be diminished: 
 In case the formula's estimate differs from the actual straggling of beam particles in the given material, the predicted track resolution is systematically affected, and therefore the pull distribution. 
@@ -172,7 +180,8 @@ Thereto, a global energy dependent factor $\kappa$ is introduced that is constan
 
 \noindent
 The value $\kappa$ is determined iteratively under the constraint that the resulting intrinsic resolution for the two geometries agree within 10\,nm.
-The uncertainty of $\kappa$ is defined as the range for which the intrinsic resolution of the wide geometry equals the central value plus/minus one standard deviation of the narrow geometry. 
+The uncertainty of $\kappa$ is defined as the range for which the intrinsic resolution of the wide geometry equals the central value plus/minus one standard deviation of the narrow geometry
+ excluding the uncertainty on $\Theta_0$. 
 If $\kappa$ differs significantly from one and/or depends on the beam energy is to be determined with data in section~\ref{sec:measurements}. 
 
 
@@ -199,8 +208,8 @@ It should be noted that an initial estimate close to the converged value does no
 
 \begin{figure}[tbp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/0x} \put(-50,155){(A)}
-  \includegraphics[width=0.49\textwidth]{figures/3x} \put(-50,155){(B)}\\
+  \includegraphics[width=0.49\textwidth]{figures/0x} \put(-30,158){(A)}
+  \includegraphics[width=0.49\textwidth]{figures/3x} \put(-30,158){(B)}\\
   %\includegraphics[width=0.45\textwidth]{figures/resis_upstream/1x.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_upstream/1y.pdf}
   %\includegraphics[width=0.45\textwidth]{figures/resis_upstream/2x.pdf}
@@ -229,7 +238,7 @@ The distributions are fitted with a Gaussian, from which the residual width $\rb
 For plane\,3, the biased residual width in the $x$-direction is 
 
 \begin{equation}
-\left( 2.88\,\pm\, 0.009\,\textrm{(stat.)}\,\pm\, 0.06\, \textrm{(sys.)}\right)\,\micro\meter. 
+\left( 2.88\,\pm\, 0.01\,\textrm{(stat.)}\,\pm\, x.xx\, \textrm{(sys.)}\right)\,\micro\meter. ??
 \end{equation}
 
 \noindent
@@ -255,13 +264,13 @@ Therefore, in equation~(\ref{eq:telescoperesolutionequation1}) the difference be
 
 \begin{figure}[btp]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/res_vs_z_20}  \put(-36,160){(A)} % was thin_smiley.pdf
-  \includegraphics[width=0.49\textwidth]{figures/res_vs_z_150} \put(-36,160){(B)} % was wide_smiley.pdf
+  \includegraphics[width=0.49\textwidth]{figures/res_vs_z_20}  \put(-30,158){(A)} % was thin_smiley.pdf
+  \includegraphics[width=0.49\textwidth]{figures/res_vs_z_150} \put(-30,158){(B)} % was wide_smiley.pdf
   %\caption[Intrinsic telescope sensor resolution at $20\,\milli\meter$ and $150\,\milli\meter$ plane spacing~\cite{ref:thomas}]{Intrinsic telescope sensor resolution at $20\,\milli\meter$ (top)
   % and $150\,\milli\meter$ (bottom) plane spacing.
   \caption[The measured residual widths of each telescope plane.]{
   The measured residual widths of each telescope plane are shown in the $x$-direction for a plane spacing of $\dz = 20\,\milli\meter$ (A) and $\dz = 150\,\milli\meter$ (B).
-  The black line shows the predicted residual width at $\sigmam = 3.25\,\upmu\meter$, the green band the measurement standard deviation.
+  The black line shows the predicted residual width at $\sigmam = 3.24\,\upmu\meter$, the green band the measurement standard deviation.
   %Dotted and dashed lines indicate the predicted residual widths, in case differing intrinsic resolutions are assumed.
   %Data was taken at a sensor threshold of $\noise = 6$ and using 6\,GeV electrons at DESY-II.
   }
@@ -299,35 +308,27 @@ As expected, the residuals at a considered plane $i$ are always smaller for the 
 %In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed. % This assumption is done for track fitting. Plane position is fixed in chi2 minimisation for \sigmai
 
 As described in section~\ref{sec:resmultiple}, the amount of multiple scattering is determined by varying $\kappa$ iteratively, until the resulting resolution for the two considered geometries agree. 
-A value of $\kappa = 0.864 \pm 0.008$ is found at 6\,GeV. 
+A value of $\kappa = 0.860 \pm 0.032$ is found at 6\,GeV. 
 Then, whe average intrinsic resolution of the $\Mimosa$ sensors at 6\,GeV and threshold $\noise = 6$ results to
 \begin{equation}
- \sigma_{\textrm{M26}} = \left( 3.25\,\pm\, \allowbreak 0.03 \right)\,\micro\meter.  
+ \sigma_{\textrm{M26}} = \left( 3.24\,\pm\, \allowbreak x.xx \right)\,\micro\meter.  
 \end{equation}
 
 \noindent
 This average is taken over all twelve measurements of the telescope (two dimensions per plane). 
-%The average over the two configurations results in $\sigma_{\textrm{M26}} = \left( 3.43\,\pm\, \allowbreak 0.03 \right)\,\micro\meter$. 
-%The stated uncertainty is the error on the mean, the standard deviation is $0.10\,\micro\meter$.
 The result is consistent with earlier analyses, which yielded intrinsic resolutions of $\sigmai \approx\,3.4\,\micro\meter$ and $\sigmai \approx\,3.5\,\micro\meter$~\cite{ref:thomas,ref:mimosa26}.
 The following assumptions are made: 
 The multiple scattering terms described in equation~(\ref{eq:multiplescattering}) are calculated per sensor considering the measured sensor thicknesses
  and a $25\,\micro\meter$ thick Kapton foil on either side of each sensor.
 Multiple scattering is also allowed for within the air between sensor planes. 
-%In equation~(\ref{eq:multiplescattering}), the nominal beam energy is used. 
 The intrinsic resolution $\sigmai$ is assumed to be constant over the active area of the sensor. 
 %As the discriminator thresholds are set for a total of four subframes per plane individually, this is not necessarily true.
-%Figure~\ref{fig:resivsenergy_thresh} shows the dependence of $\sigmai$ on the applied SNR threshold
 Additionally, the results are averaged over all cluster sizes. 
-
-%\item Residual widths are calculated using straight line tracks only.
-%Inclined tracks, or a deflection of tracks in planes or scattering material, are not taken into account.
-%However, as shown in~\cite{ref:lutzpaper}, angular deflections are then considered for the later $\chi^2$ minimisation.
 
 The above method is repeated for different beam energies at a fixed threshold $\noise = 6$. 
 This allows for the determination of $\kappa$ as a function of the beam energy. 
 The correlation is shown in Figure~\ref{fig:HL_factor}. 
-In the energy range covered $\kappa$ is found to be constant at a value $\kappa = 0.864 \pm 0.005$, which translates to a correction of 14\,\% with respect to equation~)\ref{eq:multiplescattering}).
+In the energy range covered $\kappa$ is found to be constant at a value $\kappa = 0.854 \pm 0.012$, which translates to a correction of $\sim15\,\%$ with respect to equation~(\ref{eq:multiplescattering}).
 
 \begin{figure}[t]
   \centering
@@ -353,8 +354,8 @@ The efficiency varies by less than 0.1\,\% between different geometries and ener
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.49\textwidth]{figures/effi_vs_thres}	\put( -36,160){(A)}
-  \includegraphics[width=0.49\textwidth]{figures/reso_vs_thres}	\put( -36,160){(B)} % was resi_thresh_errors
+  \includegraphics[width=0.49\textwidth]{figures/effi_vs_thres}	\put( -30,158){(A)}
+  \includegraphics[width=0.49\textwidth]{figures/reso_vs_thres}	\put( -30,158){(B)} % was resi_thresh_errors
   \caption[Telescope intrinsic sensor resolution for different threshold settings, beam energies and geometries~\cite{ref:thomas}]{
 (A) Average efficiency of all telescope sensors for different beam energies and sensor spacing vs.~applied threshold.
 %An efficiency decline with increasing threshold can be observed.
