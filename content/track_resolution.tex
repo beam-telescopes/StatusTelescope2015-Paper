@@ -1,15 +1,16 @@
 
-The data presented were taken in $2015$ using $\Datura$, a $\eudet$-type beam telescopes, which was operated with EUDAQ, cf.~section~3 and~4. 
+The data presented were taken in $2015$ using $\Datura$, a $\eudet$-type beam telescope, which was operated with EUDAQ, cf.~section~3 and~4. 
 Results shown in this section have been obtained using the EUTelescope software described in section~\ref{sec:offline}. 
 The set-up does not include any additional DUT, only six $\Mimosa$ telescope planes. 
 Track fits are performed using the GBL formalism and track residuals, i.e.\ the distance between the track fit and the measured hit,
  are calculated for each telescope plane. 
+The intrinsic resolution of the sensor planes is derived from data and used as input for track resolution predictions. 
  
 
 \subsection{Data analysis flow and pattern recognition}
 \label{sec:datura-nodut}
 
-After conversion from raw $\Mimosa$ data, a hot pixel search is performed marking pixels with firing frequencies above a certain threshold.
+After conversion from raw $\Mimosa$ data to the LCIO data format, a hot pixel search is performed marking pixels with firing frequencies above a certain threshold.
 Clusters are formed from fired, adjacent pixels and translated from two-dimensional entities on the individual telescope planes into hits in a global three-dimensional reference frame.
 Clusters containing at least one hot pixel are removed from the analysis. 
 Triplets are built from hits in the three upstream and three downstream planes separately: 
@@ -20,8 +21,8 @@ Triplet isolation is ensured by rejecting all triplets whose extrapolation at a 
 The procedure is repeated for the downstream planes. 
 Matching triplets from the up- and downstream planes are identified by isolated triplets that intersect within a radius of $\unit{100}{\upmu\meter}$, again at the centre between plane\,2 and plane\,3. 
 In turn, GBL tracks are formed by the six hits belonging to the matched triplets. 
-For offline alignment, the GBL tracks are passed to Millepede-II in order to determine shift and rotation alignment constants for every telescope plane.
-Alignment constants are determined to sub micron precision and are hence much smaller than the intrinsic resolution of the detectors used. 
+For offline alignment, the GBL tracks are passed to \mbox{Millepede-II} in order to determine shift and rotation alignment constants for every telescope plane.
+Alignment constants are determined to submicron precision and are hence much smaller than the intrinsic resolution of the detectors used. 
 After applying the alignment corrections, the above track finding is repeated, and GBL tracks are calculated based on the corrected hits. 
 These tracks can be formed in a \textrm{biased} or in an \textrm{unbiased} way, where biased tracks include the measured hit information of every plane in contrast to unbiased tracks,
  that omit the hit information of the plane under investigation. 
@@ -34,21 +35,19 @@ It defines the precision with which a particle trajectory can be determined for 
 This quantity is a function of the track path, i.e.\ it is not constant along the trajectory. 
 %The timing resolution is largely dependent on the readout speed of the used sensors, their buffer sizes and the data acquisition system. 
 It depends on the intrinsic resolution $\sigmai$ of the sensors, that have been used to measure the hits belonging to the track, the number of measurements and their positions
- as well as the multiple scattering of the beam particles.
+ as well as the amount of multiple scattering of the beam particles.
 Various methods exist to perform the calculation of the track resolution. 
-In the formalism of GBL, a track refit is performed to an initial trajectory and the covariance matrix of each track parameter is determined. 
+In the formalism of GBL, a track is formed of broken lines allowing for kinks at the defined scatterers and straight lines between scatterers. 
+A track refit is performed to an initial trajectory and the covariance matrix of each track parameter is determined~\cite{Blobel20111760,Kleinwort-2012}. 
 The track resolution results from a single, global $\chi^2$-fit of a track model to all measured hits including their measurement uncertainties (intrinsic resolution)
  and scattering angle uncertainties along the trajectory. 
 The GBL method makes various assumptions and simplifications:
-%(1)~Scatterers, the origin of kinks in the trajectory, are thin, i.e.\ no spatial offsets within the scatterer are taken into account. 
-%(2)~A thick scatterer, like the air between the planes, is modelled by two thin scatterers. 
-%(3)~The offsets of the local track parameters are small and propagate linearly. 
-%(4)~Uncertainties are Gaussian distributed, i.e.\ residual and kink distributions.
+
 \begin{itemize}
- \item Scatterers, the origin of kinks in the trajectory, are thin, i.e.\ no spatial offsets within the scatterer are taken into account. 
- \item A thick scatterer, like the air between the planes, is modelled by two thin scatterers. 
- \item The offsets of the local track parameters are small and propagate linearly. 
- \item Uncertainties are Gaussian distributed, i.e.\ residual and kink distributions.
+ \item Scatterers, the origin of kinks in the trajectory, are thin, i.e.\ no spatial offsets within a scatterer are taken into account. 
+ \item A thick scatterer, like the air between two planes, is modelled by two thin scatterers. 
+ \item The offsets of the local track parameters are small and are propagated linearly. 
+ \item Uncertainties are Gaussian distributed, i.e.\ residual and kink distributions. \\(Claus: ist das richtig so?)
 \end{itemize}
  
 % 
@@ -86,15 +85,15 @@ An approximation for high energy protons, that is accurate to 11\,\% for all ato
 \noindent with the velocity $\beta c$, the momentum $p$ and the charge number $z$ of the traversing particle. 
 The expression $\epsilon = x \per X_0$ is the material budget, as defined in section~\ref{sec:sensors}.
 The amount of multiple scattering is calculated per sensor considering the measured sensor thickness and a $25\,\micro\meter$ thick Kapton foil on either side of each sensor.
-Additionally, the contribution of air is accounted for as two scatterers. 
-Equation~(\ref{eq:multiplescattering}) demonstrates the advantage of using thin sensors, since the angular deflection due to multiple scattering increases with the material budget.
-This is especially important at low-energy beams, such as the DESY-II test beam, as the distortion increases towards lower energies.
-As the beam particles interact with both the sensors and the air, contributions to the amount of multiple scattering from either source have to be considered.
-At high-energy hadron beams, the contribution from multiple scattering can in general be neglected.
+The contribution of air between adjacent planes is accounted for as additional scatterers. 
+Equation~(\ref{eq:multiplescattering}) demonstrates the advantage of using thin sensors, since the width of the angular distribution due to multiple scattering increases with the material budget.
+This is especially important at low-energy beams, such as the DESY-II test beam, as the width increases towards lower beam energies.
+%As the beam particles interact with both the sensors and the air, contributions to the amount of multiple scattering from either source have to be considered.
+%At high-energy hadron beams, the contribution from multiple scattering can in general be neglected.
 
 The biased (unbiased) residual defined as a quantity per track is the distance between the measured hit and the biased (unbiased) track fit. 
 With a known or estimated biased track resolution, i.e.\ all $\sigmai(z_i)$ are known or estimates exist,
- the width of the distribution of the biased residuals for a set of tracks can be expressed for all positions $z = z_i$ as
+ the width of the distribution of the \textrm{biased} residuals for a set of tracks can be expressed for all positions $z = z_i$ as
 
 \begin{equation}
  \label{eq:telescoperesolutionequation1}
@@ -102,14 +101,16 @@ With a known or estimated biased track resolution, i.e.\ all $\sigmai(z_i)$ are 
 \end{equation}
 
 \noindent
-The biased residuals at a considered plane $i$ are always smaller for the wide configuration in comparison to the narrow one and decrease towards lower beam energies. 
+The biased residual width at a considered plane $i$ is always smaller for the wide configuration in comparison to the narrow one and decreases towards lower beam energies. 
 These effects stem from the term $\sigmatb$: 
-Qualitatively, the biased track resolution increases with larger lever arms $\dz$, as an uncertainty in the deflection angle is boosted with larger distance,
- and converges towards the intrinsic resolution in the limit of large deflection. 
+Qualitatively, the biased track resolution increases with larger lever arms $\dz$, as an uncertainty in the deflection angle is boosted with larger distance. 
+It converges towards the intrinsic resolution in the limit of large $\Theta_0$. 
 Hence, the difference between $\sigmai$ and $\sigmatb$ decreases. 
+This is also true when comparing residuals of the inner planes to those from the outer planes:
+An increasing tack resolution towards the outer planes decreases the residual width. 
 
 If the hit measurement of a DUT at $\zdut$ or of a telescope plane at position $z_i$ is not included in the fit,
- the width of the distribution of the unbiased residuals at these positions reads~\cite{ref:eudetreport200902}
+ the width of the distribution of the \textrm{unbiased} residuals at these positions reads~\cite{ref:eudetreport200902}
  
 \begin{equation}
 \runbiased^2(z) = \sigmai^2(z) + \sigmatu^2(z).
@@ -117,9 +118,12 @@ If the hit measurement of a DUT at $\zdut$ or of a telescope plane at position $
 \end{equation}
 
 \noindent
-Both the biased and the unbiased residual distributions are a function of the track resolution and therefore exhibit the same dependencies.
-It should be noted that the unbiased track resolution at a sensor plane can be larger than the intrinsic resolution. 
-On the contrary, the biased track resolution is always smaller than or equal to the intrinsic resolution of the sensor planes. 
+Contrary to a biased residual, the unbiased residual at a considered plane $i$ is always larger for the wide configuration in comparison to the narrow one and increases towards lower beam energies. 
+The unbiased track resolution also increases with larger lever arms $\dz$, but is not limited by the intrinsic resolution. 
+Hence, the sum of $\sigmai$ and $\sigmatu$ increases. 
+Both the biased and the unbiased residual distributions are a function of the track resolution and therefore feature the same dependencies.
+%It should be noted that the unbiased track resolution at a sensor plane can be larger than the intrinsic resolution. 
+%On the contrary, the biased track resolution is always smaller than or equal to the intrinsic resolution of the sensor planes. 
 
 The biased pull of a track is defined as the ratio of the biased residual over the predicted biased residual width
 
@@ -131,8 +135,8 @@ The biased pull of a track is defined as the ratio of the biased residual over t
 \noindent
 The biased pull distributions are normally distributed and centred at zero with a width of one, $N(0,1)$, if the material and the scattering therein is known and correctly described. 
 A width differing from one originates from an under- or overestimated residual prediction $\sqrt{\sigmai^2 - \sigmatb^2}$, which in turn stems from an inaccurate estimate of either the intrinsic resolution
- or the rack resolution. 
-The latter can be a cause of an inaccurate inputs like the material budget or the assumed deflection angles variance. 
+ or the track resolution. 
+The latter is a consequence of inaccurate inputs for the assumed angular distribution width $\Theta_0$ or again for the intrinsic resolution. 
 
 
 \subsection{Methodology and systematics}
@@ -146,13 +150,13 @@ The latter can be a cause of an inaccurate inputs like the material budget or th
   \multicolumn{3}{c|}{} &$E$         & $\Theta_0$      & fit range    & pull rms &  \\ 
   \multicolumn{3}{c|}{} & $\pm5\,\%$ &  $\pm 3.5\,\%$  & $\pm 1\,$std.&               &  \\ \hline
   6\,GeV & 20 mm   &  biased  &  ${}^{-0.34}_{+0.21}$ & ${}^{+0.08}_{-0.28}$ & ${}^{+1.76}_{-1.27}$ & 1.75 &  2.6  \\
-         & ×       & unbiased &  ${}^{-0.36}_{}$ &  &  & 1.37 &    \\
+         & ×       & unbiased &  ${}^{-0.36}_{+0.78}$ &  &  & 1.37 &    \\
 	 & 150 mm  &  biased  &  ${}^{-3.5}_{+2.9}$   & ${}^{+1.95}_{-2.60}$ & ${}^{+6.4}_{-5.4}$ & 1.68 &  8.0  \\
-	 & ×       & unbiased &  ${}^{-4.81}_{}$ &  &  & 0.83 &    \\ \hline
+	 & ×       & unbiased &  ${}^{-4.81}_{+5.41}$ &  &  & 0.83 &    \\ \hline
   2\,GeV & 20 mm   &  biased  &  ${}^{-1.56}_{+1.13}$ & ${}^{+0.65}_{-1.22}$ & ${}^{+0.23}_{+0.33}$ & 3.4 &  4.0  \\
-         & ×       & unbiased &  ${}^{-1.47}_{}$ &  &  & 2.15 &    \\
+         & ×       & unbiased &  ${}^{-1.47}_{+1.41}$ &  &  & 2.15 &    \\
 	 & 150 mm  &  biased  &  ${}^{-10.5}_{+15.7}$ & ${}^{+10.2}_{-6.59}$ & ${}^{+8.0}_{+0.8}$ & 0.92 &  16.7 \\
-	 & ×       & unbiased &  ${}^{-17.20}_{}$ &  &  & 1.15 &    \\ 
+	 & ×       & unbiased &  ${}^{-17.2}_{+25.0}$ &  &  & 1.15 &    \\ 
   %× & × & × & ×
 %  6\,GeV & 20 mm   &  biased  &  ${}^{-0.34}_{+0.21}$ &  & ${}^{+1.76}_{-1.27}$ & 1.75 &  2.5 (ohne theta)  \\
 %        & ×       & unbiased &  ${}^{}_{}$ &  &  &  &    \\
@@ -169,38 +173,37 @@ The latter can be a cause of an inaccurate inputs like the material budget or th
  \end{center}
 \end{table}
 
-% METHODS YEILD SIMILAR RESULTS, also in uncerts
-%kappa is not meant as correction to the physical width of the angular distribution, but corrects for assumptions made by GBL ...
-
-As the intrinsic resolution is not a priori known, an initial estimate of the intrinsic resolution $\sigmahat$ is used as an input to the GBL track fitting. 
+As the intrinsic resolution is not known a priori, an initial estimate of the intrinsic resolution $\sigmahat$ is used as an input to the GBL track fitting. 
 The intrinsic resolution $\sigmai$ is assumed to be constant over the active area of the sensor and is averaged over all cluster sizes. 
 %As the discriminator thresholds are set for a total of four subframes per plane individually, this is not necessarily true.
-The width of the pull distributions is iteratively used to update the estimate $\sigmahat$, which is used equally for all six planes. 
+The width of the pull distributions is iteratively used to update the estimate $\sigmahat$. 
+The same estimate is used for all six planes. 
 %The converged value of $\sigmai$ is found once the iteration yields updated values that differ by less then $0.5\,\%$ in comparison to the input value. ??
 %It should be noted that an initial estimate close to the converged value does not yield smaller uncertainties on the converged value compared to a bad initial estimate.
 
 This analysis compares results between biased and unbiased track fits. 
 In principal, both choices lead to compatible results if the material in the beam and the deflection due to multiple scattering therein is correctly described. 
 %With biased residuals, only one fit has to be performed, whereas for unbiased residuals, a new fit has to be formed for every plane under investigation. 
-Systematic uncertainties effect the track resolution, the predicted residual width, and finally the derived intrinsic resolution. 
+Systematic uncertainties affect the track resolution, the predicted residual width, and finally the derived intrinsic resolution. 
 The impact of systematic uncertainties on the result is similar between the biased and the unbiased methodology. 
 If the pulls distribution resembles $N(0,1)$, equations~(\ref{eq:telescoperesolutionequation1}) and~(\ref{eq:telescoperesolutionequation2}) hold and the systematic uncertainties of the intrinsic resolution
- are estimated based on uncertain beam energy, uncertain deflection angle variance and variation in fit range. 
+ are estimated based on uncertain beam energy, uncertain angular distribution width and variation in fit range. 
 %Firstly, the residuals have been obtained from data assuming an intrinsic resolution of $\sigmai = \unit{3.3}{\micro\meter}$ and secondly the track resolution is calculated. 
 %Finally, the intrinsic resolution is calculated as $\sigmai = \sqrt{\rbiased^2 + \sigmatb^2}$ or $\sigmai = \sqrt{\runbiased^2 - \sigmatu^2}$ for biased and unbiased track fits, respectively. 
 The beam energy is varied by 5\,\%. 
-The original systematic uncertainty of the scattering distribution width $\Theta_{0}$ of $11\,\%$ is experimentally constrained to 3.5\,\%, as is shown in section~\ref{sec:measurements}. 
-All systematic uncertainty contributions for the two set-ups are listed in table~\ref{tab:uncerts} as per plane and the RMS over all planes. 
-It shows, that the choice of biased track fits results in similar systematic uncertainties compared to unbiased track fits. 
-Additionally, there is a systematic uncertainty of the method itself, as it predicts slightly different intrinsic resolutions for each plane, which changes between geometries,
+The original systematic uncertainty of the width $\Theta_{0}$ of $11\,\%$ is experimentally constrained to 3.5\,\%, as is shown in section~\ref{sec:measurements}. 
+All systematic uncertainty contributions for the two set-ups are listed in table~\ref{tab:uncerts}. 
+Additional to the above mentioned contributions per plane,
+ there is a systematic uncertainty of the method itself, as it predicts slightly different intrinsic resolutions for each plane, which changes between geometries,
  i.e.\ it is not dominantly caused by an actual difference in intrinsic resolution. 
-The root mean square of the width of the pull distributions over all planes is 1.8\,\% and 1.7\,\% for the narrow and the wide geometry, respectively, for biased track fits using beam particles with 6\,GeV. 
+The root mean square of the width of the pull distributions is therefore included in the table. %over all planes is 1.8\,\% and 1.7\,\% for the narrow and the wide geometry, respectively, for biased track fits using beam particles with 6\,GeV. 
+The table shows that the choice of biased track fits yields similar systematic uncertainties compared to unbiased track fits. 
 
 The assumptions made in the GBL formalism might be less valid for measurements towards lower energies and larger plane spacings, i.e.\ measurements with a large amount of multiple scattering. 
 Therefore, the predicted track resolution is systematically affected, and hence the pull distributions. 
 Consequently, the estimator $\sigmahat$ does not converge towards the true $\sigmai$. 
 Therefore, a global energy dependent tuning parameter $\kappa$ is introduced,
- that allows for a tuned amount of scattering used as input to GBL.
+ that allows for a tuned amount of scattering used as input to GBL,
 
 \begin{equation}
  \Theta_{\textrm{corr}} = \kappa(E) \cdot \Theta_0.
@@ -208,9 +211,9 @@ Therefore, a global energy dependent tuning parameter $\kappa$ is introduced,
 \end{equation}
 
 \noindent
-This parameter is assumed constant as a function of sensor threshold and geometry. 
+This parameter is assumed to be constant as a function of the sensor threshold and chosen geometry. 
 Since the intrinsic resolution is a priori independent of the plane spacing $\dz$,
- a comparison at two precisely measured spacings allows for a calibration of the amount of scattering at a given beam energy used as input to GBL. 
+ a comparison at two precisely measured spacings allows for a calibration of the amount of scattering used as input to GBL at a given beam energy. 
 The value $\kappa$ is determined iteratively under the constraint that the resulting intrinsic resolution for the two geometries agree within 10\,nm.
 The uncertainty of $\kappa$ is defined as the range for which the intrinsic resolution of the wide geometry equals the central value plus/minus one standard deviation of the narrow geometry
  excluding the uncertainty on $\Theta_0$. 
@@ -261,24 +264,24 @@ The biased residual and biased pull distributions have been obtained for every s
 %The value of $k_5$ depends on the geometry itself and on which telescope plane is considered as DUT. 
 %This configuration with five planes used as beam telescope and one plane as DUT is referred to as \textit{gauge configuration}. 
 
-Figure~\ref{fig:residualexample1} shows an example of biased residual distributions in $x$ for a telescope sensor spacing of $\dz = 20\,\milli\meter$,
- a beam energy of 6\,GeV, and a sensor threshold setting of $\noise = 6$. 
+Figure~\ref{fig:residualexample1} shows the biased residual distribution in $x$ for plane\,0 and plane\,3 for a telescope sensor spacing of $\dz = 20\,\milli\meter$,
+ a beam energy of 6\,GeV and a sensor threshold setting of $\noise = 6$. 
 According results for the $y$-direction, further planes and the wide geometry are omitted. 
 The distributions are fitted with a Gaussian, from which the residual width $\rbiased$ is determined. 
 For plane\,3, the biased residual width in the $x$-direction is 
 
 \begin{equation}
-\left( 2.88\,\pm\, 0.01\,\textrm{(stat.)}\,\pm\, x.xx\, \textrm{(sys.)}\right)\,\micro\meter. ??
+\left( 2.88\,\pm\, 0.009\,\textrm{(stat.)}\,\pm\, 0.08\, \textrm{(sys.)}\right)\,\micro\meter.
 \end{equation}
 
 \noindent
-As the systematic uncertainty is the dominant uncertainty, the statistical one is not neglected for the further analysis. 
+As expected, cf.\ section~\ref{sec:resmultiple}, the biased residual width for the outer plane\,0 is smaller than the width obtained from plane\,3.
+Since the systematic uncertainty dominates the total uncertainty, the statistical contribution is neglected for the further analysis. 
 It should be noted that the residuals feature non-Gaussian tails, as is expected from the underlying physics of the scattering mechanism~\cite{ref:PDG-2014}. 
 The measured residual width used in this work is defined as the width of a Gaussian fit on the centre $95.5\,\%$ (2.0 standard deviations) of the residual distribution.
-The biased residual width for the outer plane\,0 is smaller than the width obtained from plane\,3.
-This is expected due to the fact that the track extrapolation to the inner sensors is performed from both sides, and hence is comparatively more precise than for the outer sensors,
- where the extrapolation can only be performed from one direction. 
-Therefore, in equation~(\ref{eq:telescoperesolutionequation1}) the difference between $\sigmai$ and $\sigmatb$ decreases from the centre sensor planes to the outer ones. 
+%This is expected due to the fact that the track extrapolation to the inner sensors is performed from both sides, and hence is comparatively more precise than for the outer sensors,
+% where the extrapolation can only be performed from one direction. 
+%Therefore, in equation~(\ref{eq:telescoperesolutionequation1}) the difference between $\sigmai$ and $\sigmatb$ decreases from the centre sensor planes to the outer ones. 
 
 % \begin{figure}[hbtp]
 % \centering
@@ -310,7 +313,8 @@ Therefore, in equation~(\ref{eq:telescoperesolutionequation1}) the difference be
 
 The six measured residual widths in the $x$-direction at a beam energy of 6\,GeV and a sensor threshold $\noise = 6$ for both the narrow plane spacing of $\dz = 20\,\milli\meter$
  and the wide spacing of $\dz = 150\,\milli\meter$ are shown in figure~\ref{fig:smiley} (A) and (B), respectively. 
-As expected, the residuals at a considered plane $i$ are always smaller for the wide configuration in comparison to the narrow one, cf.~section~\ref{sec:resmultiple}.
+Both distributions show a global maximum in the centre with decreasing residual widths towards the ends. 
+The residuals at a considered plane $i$ are always smaller for the wide configuration in comparison to the narrow one, cf.~section~\ref{sec:resmultiple}.
 %Also, the residuals decrease towards lower beam energies. 
 %These effects stem from the term $\sigmatb$ in equation~(\ref{eq:telescoperesolutionequation1}): 
 %(1) Qualitatively, the spatial uncertainty of the extrapolation to the next plane increases with larger lever arms $\dz$. 
@@ -337,12 +341,12 @@ As expected, the residuals at a considered plane $i$ are always smaller for the 
 %The minimum of equation~(\ref{eq:chi2_sigmai}) with respect to $\sigmai$ is calculated in order to determine the intrinsic sensor resolution $\sigmai$.
 %In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed. % This assumption is done for track fitting. Plane position is fixed in chi2 minimisation for \sigmai
 
-As described in section~\ref{sec:resmultiple}, the amount of multiple scattering is determined by varying $\kappa$ iteratively, until the resulting resolution for the two considered geometries agree. 
-This procedure results in an estimate of the true intrinsic resolution and yields compatible results for the two different geometries for an appropriate choice of $\kappa$. 
-A value of $\kappa = 0.860 \pm 0.032$ is found at 6\,GeV. 
-Then, whe average intrinsic resolution of the $\Mimosa$ sensors at 6\,GeV and threshold $\noise = 6$ results to
+As described in section~\ref{sec:meth}, the amount of multiple scattering is determined by varying $\kappa$ iteratively until the resulting resolution for the two considered geometries agree. 
+This procedure results in an estimate of both $\kappa$ and the true intrinsic resolution. 
+At 6\,GeV, a value of $\kappa = 0.86 \pm 0.03$ is found, corresponding to a relative uncertainty of $3.5\,\%$, which is used as the uncertainty on $\Theta_0$. 
+Additionally, the average intrinsic resolution of the $\Mimosa$ sensors at 6\,GeV and threshold $\noise = 6$ results to
 \begin{equation}
- \sigma_{\textrm{M26}} = \left( 3.24\,\pm\, \allowbreak x.xx \right)\,\micro\meter.  
+ \sigma_{\textrm{M26}} = \left( 3.24\,\pm\, 0.09 \right)\,\micro\meter.  
 \end{equation}
 
 \noindent
@@ -351,10 +355,13 @@ The result is consistent with earlier analyses, which yielded intrinsic resoluti
 
 The above method is repeated for different beam energies at a fixed threshold $\noise = 6$. 
 This allows for the determination of $\kappa$ as a function of the beam energy. 
-The correlation is shown in Figure~\ref{fig:HL_factor}. 
-In the energy range covered $\kappa$ is found to be constant at a value $\kappa = 0.854 \pm 0.012$, which translates to a correction of $\sim15\,\%$ with respect to equation~(\ref{eq:multiplescattering}).
+The correlation is shown in figure~\ref{fig:HL_factor}~(A) for both biased and unbiased track fits. 
+For biased track fits, $\kappa$ is found to be constant at a value of $\kappa = 0.854 \pm 0.012$ in the energy range covered,
+ which translates to a tuned input of $\sim15\,\%$ with respect to equation~(\ref{eq:multiplescattering}). 
+For unbiased track fits, $\kappa$ slightly increases from 0.99 at 2\,GeV to 1.06 at 6\,GeV, again with a precision of a single measurement of about $3\,\%$.
+Figure~\ref{fig:HL_factor}~(B) shows the measured intrinsic resolution for both methodologies as a function of the beam energy. 
 
-\begin{figure}[b!]
+\begin{figure}[tb!]
   \centering
   \includegraphics[width=0.49\textwidth]{figures/kappa}\put( -35,35){(A)}
   \includegraphics[width=0.49\textwidth]{figures/sigmaint_ub}\put( -35,35){(B)}
@@ -377,7 +384,7 @@ For thresholds $\noise = 5$ and $\noise = 6$ the efficiency is measured to $99.6
 With increasing threshold, the efficiency decreases to $82\,\%$ at $\noise = 12$. 
 The efficiency varies by less than 0.1\,\% between different geometries and energy settings at thresholds $\noise = 5$ and $\noise = 6$. 
 
-\begin{figure}[t]
+\begin{figure}[b!]
   \centering
   \includegraphics[width=0.49\textwidth]{figures/effi_vs_thres}	\put( -30,158){(A)}
   \includegraphics[width=0.49\textwidth]{figures/reso_vs_thres}	\put( -30,158){(B)} % was resi_thresh_errors
@@ -476,7 +483,7 @@ However, the difference is less than $0.5\,\micro\meter$ for $\zdut = 100\,\mill
 % For the limit towards high energies, or negligible multiple scattering, a track resolution of $1.6\,\upmu\meter$ is predicted. 
 % The measurement at 120\,GeV confirms the prediction, 
 
-\begin{figure}[b!]
+\begin{figure}[t]
   \centering
   %\includegraphics[width=0.49\textwidth]{figures/energy_plot}     \put(-175,40){(A)} % was CalcResoVsP
   \includegraphics[width=0.49\textwidth]{figures/trackres_vs_epsdut_DESY} %\put(-155,40){(B)}

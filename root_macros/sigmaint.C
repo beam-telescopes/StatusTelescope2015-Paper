@@ -20,7 +20,7 @@
   TGraphErrors *gre = new TGraphErrors(5);
   gre->SetName("Graph");
   gre->SetTitle("");
-  gre->SetMarkerStyle(24);
+  gre->SetMarkerStyle(20);
   gre->SetMarkerSize(1.3);
 
   gre->SetPoint(0, 6, 3.263);
@@ -39,7 +39,7 @@
   TGraphErrors *gre2 = new TGraphErrors(5);
   gre2->SetName("Graph");
   gre2->SetTitle("");
-  gre2->SetMarkerStyle(20);
+  gre2->SetMarkerStyle(24);
   gre2->SetMarkerSize(1.3);
 
   gre2->SetPoint(0, 6, 3.236);
@@ -75,8 +75,8 @@
   leg->SetLineColor(0);
   leg->SetFillColor(kWhite);
   leg->SetHeader("#sigma_{int} for");
-  leg->AddEntry(gre2,"unbiased tracks","p");
-  leg->AddEntry(gre, "biased tracks","p");
+  leg->AddEntry(gre, "unbiased tracks","p");
+  leg->AddEntry(gre2,"biased tracks","p");
   leg->Draw();
   
 
