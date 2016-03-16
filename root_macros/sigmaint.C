@@ -62,7 +62,7 @@
 
   mg->GetXaxis()->SetTitle("beam momentum [GeV]");
   //mg->GetXaxis()->SetNoExponent();
-  mg->GetYaxis()->SetTitle("#sigma_{int}");
+  mg->GetYaxis()->SetTitle("#sigma_{M26} [#mum]");
   mg->GetXaxis()->SetTitleOffset(1.14);
   mg->GetYaxis()->SetTitleOffset(1.34);
 
