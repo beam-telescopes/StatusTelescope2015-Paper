@@ -143,7 +143,7 @@
   entry=leg->AddEntry( gblrx0,"residual in x","f");
   entry=leg->AddEntry(f2,"fit","l");
   //entry=leg->AddEntry("NULL","mean = -0.0160 #pm 0.0356","h");
-  entry=leg->AddEntry("NULL","#sigma = 2.18 #pm 0.01","h");
+  entry=leg->AddEntry("NULL","#sigma = 2.18 #pm 0.01 (stat.)","h");
   entry=leg->AddEntry("NULL","#chi^{2} /ndf = 7.3","h");
 
   leg->Draw();
