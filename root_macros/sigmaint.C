@@ -28,11 +28,11 @@
   gre->SetPoint(2, 4, 3.306);
   gre->SetPoint(3, 3, 3.313);
   gre->SetPoint(4, 2, 3.357);
-  gre->SetPointError(0, 6*0.05, 0.03);
-  gre->SetPointError(1, 5*0.05, 0.0375);
-  gre->SetPointError(2, 4*0.05, 0.045);
-  gre->SetPointError(3, 3*0.05, 0.0525);
-  gre->SetPointError(4, 2*0.05, 0.06);
+  gre->SetPointError(0, 6*0.05, 0.059);
+  gre->SetPointError(1, 5*0.05, 0.071);
+  gre->SetPointError(2, 4*0.05, 0.083);
+  gre->SetPointError(3, 3*0.05, 0.093);
+  gre->SetPointError(4, 2*0.05, 0.104);
 
   mg->Add(gre,"p");
 
@@ -47,17 +47,17 @@
   gre2->SetPoint(2, 4, 3.291);
   gre2->SetPoint(3, 3, 3.325);
   gre2->SetPoint(4, 2, 3.395);
-  gre2->SetPointError(0, 6*0.05, 0.03);
-  gre2->SetPointError(1, 5*0.05, 0.0375);
-  gre2->SetPointError(2, 4*0.05, 0.045);
-  gre2->SetPointError(3, 3*0.05, 0.0525);
-  gre2->SetPointError(4, 2*0.05, 0.06);
+  gre2->SetPointError(0, 6*0.05, 0.084);
+  gre2->SetPointError(1, 5*0.05, 0.093);
+  gre2->SetPointError(2, 4*0.05, 0.102);
+  gre2->SetPointError(3, 3*0.05, 0.112);
+  gre2->SetPointError(4, 2*0.05, 0.126);
 
   mg->Add(gre2,"p");
 
   mg->Draw("ap");
   mg->SetMinimum(3.0);
-  mg->SetMaximum(3.5);
+  mg->SetMaximum(4.);
   mg->GetXaxis()->SetLimits(0,7);
 
   mg->GetXaxis()->SetTitle("beam momentum [GeV]");
@@ -67,14 +67,14 @@
   mg->GetYaxis()->SetTitleOffset(1.34);
 
 
-  TLegend *leg = new TLegend(0.25,0.25,0.55,0.42,NULL,"brNDC");
+  TLegend *leg = new TLegend(0.25,0.65,0.55,0.82,NULL,"brNDC");
   leg->SetBorderSize(0);
   leg->SetTextSize(0.03);
   leg->SetFillStyle(1001);
   leg->SetShadowColor(0);
   leg->SetLineColor(0);
   leg->SetFillColor(kWhite);
-  leg->SetHeader("#sigma_{int} for");
+  leg->SetHeader("#sigma_{int} for #xi_{n} = 6");
   leg->AddEntry(gre, "unbiased tracks","p");
   leg->AddEntry(gre2,"biased tracks","p");
   leg->Draw();

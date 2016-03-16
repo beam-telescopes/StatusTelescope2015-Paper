@@ -80,10 +80,10 @@
   leg->SetShadowColor(0);
   leg->SetLineColor(0);
   leg->SetFillColor(kWhite);
-  leg->SetHeader("#kappa for #sigma_{int} (150 mm) = #sigma_{int} (20 mm)");
+  leg->SetHeader("#kappa for #xi_{n} = 6");
   leg->AddEntry(gre2,"unbiased tracks","p");
   leg->AddEntry(gre, "biased tracks","p");
-  leg->AddEntry(f1,"const. fit","l");
+  leg->AddEntry(f1,"const. fit: c = 0.854 #pm 0.012","l");
   leg->Draw();
   
 
