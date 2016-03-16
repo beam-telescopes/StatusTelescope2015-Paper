@@ -1,12 +1,12 @@
 %mechanic
-A DUT can be mechanically integrated into the $\eudet$-type beam telescopes at three positions: upstream or downstream of the telescope, or between the two telescope arms.
+DUTs can be mechanically integrated into a $\eudet$-type beam telescope at three positions: upstream or downstream of the telescope, or between the two telescope arms.
 If placed between the arms, micrometer precision $xy\phi$-stages are available for translation scans and rotation of the DUT~\cite{Mimosa-twiki}.
 At this position, the maximum width of the DUT set-up is 500\,mm.
-DUTs with larger spatial dimensions are therefore placed at the rear end of the beam telescope. 
+DUTs with larger spatial dimensions are therefore placed at the downstream end of the beam telescope. 
 
 %trigger and daq sw
 User DAQ systems are integrated to the TLU the same way as the beam telescope DAQ itself using either the RJ45 or the LEMO interface, cf.~section~\ref{sec:tdaq}.
-The handshake mode is configurable for each integrated systems individually. 
+The handshake mode is configurable for each integrated system individually. 
 For the integration of the DUT data stream with EUDAQ, a producer capable of receiving commands by the Run Control and sending data to the $\eudaq$ Data Collector is necessary
  as described in section~\ref{sec:eudaq}.
 
@@ -24,7 +24,7 @@ Therefore, using GBL for track fitting is recommended.
 %This is due to a bias of the extrapolated tracks at the DUT by the downstream planes after traversing material. 
 
 For comparison, in a narrow configuration using a 6\,GeV electron/positron beam,
- the track resolution of the EUDET-type beam telescope at the DUT using GBL is $1.83\,\upmu\meter$ making use of all six planes. 
+ the track resolution of a EUDET-type beam telescope at the DUT using GBL is $1.83\,\upmu\meter$ making use of all six planes. 
 The optimal configuration using only the upstream planes is a wide configuration with $\dz = 150\,\milli\meter$,
  and the achievable track resolution is at best $3.9\,\upmu\meter$. 
 Hence, using only the upstream planes deteriorates the resolution by more than $2\,\upmu\meter$.
