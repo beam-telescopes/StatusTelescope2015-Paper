@@ -43,15 +43,15 @@
   gre2->SetMarkerSize(1.3);
 
   gre2->SetPoint(0, 6, 1.064);
-  gre2->SetPointError(0, 6*0.05, 0.01);
+  gre2->SetPointError(0, 6*0.05, 0.0235);
   gre2->SetPoint(1, 5, 1.034);
-  gre2->SetPointError(1, 5*0.05, 0.01);
+  gre2->SetPointError(1, 5*0.05, 0.0206);
   gre2->SetPoint(2, 4, 1.023);
-  gre2->SetPointError(2, 4*0.05, 0.01);
+  gre2->SetPointError(2, 4*0.05, 0.0156);
   gre2->SetPoint(3, 3, 1.016);
-  gre2->SetPointError(3, 3*0.05, 0.01);
+  gre2->SetPointError(3, 3*0.05, 0.0141);
   gre2->SetPoint(4, 2, 0.991);
-  gre2->SetPointError(4, 2*0.05, 0.01);
+  gre2->SetPointError(4, 2*0.05, 0.0119);
 
   mg->Add(gre2,"p");
 
