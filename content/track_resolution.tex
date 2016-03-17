@@ -39,7 +39,7 @@ It depends on the intrinsic resolution $\sigmai$ of the sensors, that have been 
  as well as the amount of multiple scattering of the beam particles.
 Various methods exist to perform the calculation of the track resolution. 
 In the formalism of GBL, a track is formed of straight lines between defined scatterers allowing for kinks only at the scatterers themselves. 
-A track refit is performed to an initial trajectory and the covariance matrix of each track parameter is determined~\cite{Blobel20111760,Kleinwort-2012}. 
+A track re-fit is performed to an initial trajectory and the covariance matrix of each track parameter is determined~\cite{Blobel20111760,Kleinwort-2012}. 
 The track resolution results from a single, global $\chi^2$-fit of a track model to all measured hits including their measurement uncertainties (intrinsic resolution)
  and scattering angle uncertainties along the trajectory. 
 The method of GBL makes various assumptions and simplifications:
@@ -174,7 +174,7 @@ The latter is a consequence of inaccurate inputs for the assumed angular distrib
  \end{center}
 \end{table}
 
-As the intrinsic resolution is not known a priori, an initial estimate of the intrinsic resolution $\sigmahat$ is used as an input to the GBL track fitting. 
+As the intrinsic resolution is not known a priori, an initial estimate, $\sigmahat$, is used as an input to the GBL track fitting. 
 The intrinsic resolution $\sigmai$ is assumed to be constant over the active area of the sensor and is averaged over all cluster sizes. 
 %As the discriminator thresholds are set for a total of four subframes per plane individually, this is not necessarily true.
 The width of the pull distributions is iteratively used to update the estimate $\sigmahat$. 
@@ -189,18 +189,18 @@ In principal, both choices lead to compatible results if the material in the bea
 %With biased residuals, only one fit has to be performed, whereas for unbiased residuals, a new fit has to be formed for every plane under investigation. 
 Systematic uncertainties affect the track resolution, the predicted residual width, and finally the derived intrinsic resolution. 
 The systematic uncertainties of the intrinsic resolution are calculated using the same iterative method used for the central value and
- are estimated based on uncertain beam energy, uncertain angular distribution width and variation in fit range. 
+ are estimated based on uncertain beam energy, uncertain angular distribution width and variations in the fit range. 
 %Firstly, the residuals have been obtained from data assuming an intrinsic resolution of $\sigmai = \unit{3.3}{\micro\meter}$ and secondly the track resolution is calculated. 
 %Finally, the intrinsic resolution is calculated as $\sigmai = \sqrt{\rbiased^2 + \sigmatb^2}$ or $\sigmai = \sqrt{\runbiased^2 - \sigmatu^2}$ for biased and unbiased track fits, respectively. 
 The beam energy is varied by 5\,\%. 
 The original systematic uncertainty of the width $\Theta_{0}$ of $11\,\%$ is experimentally constrained to 3.5\,\%, as is shown in section~\ref{sec:measurements}. 
 All systematic uncertainty contributions for the two set-ups are listed in table~\ref{tab:uncerts}. 
 The impact of systematic uncertainties on the result is similar between the biased and the unbiased methodology. 
-Additional to the above mentioned contributions per plane,
+In addition to the above mentioned contributions per plane,
  there is a systematic uncertainty of the method itself, as it predicts slightly different intrinsic resolutions for each plane, which changes between geometries,
  i.e.\ it is not dominantly caused by an actual difference in intrinsic resolution. 
 The impact of the root mean square of the width of the pull distributions on the intrinsic resolution is therefore included in the table. 
-The most accurate measurement of the intrinsic resolution is done at minimal multiple scattering, i.e.\ at 6\,GeV and $\dz = 20\,\milli\meter$,
+The most accurate measurement of the intrinsic resolution can be performed at minimal multiple scattering, i.e.\ at 6\,GeV and $\dz = 20\,\milli\meter$,
  featuring a total systematic uncertainty of $2.6\,\%$ and $1.8\,\%$ for biased and unbiased track fits, respectively. 
 Measurements at 2\,GeV and $\dz = 150\,\milli\meter$ yield an uncertainty of 20\,\% to 40\,\%. 
 
@@ -208,7 +208,7 @@ The assumptions made in the GBL formalism might be less valid for measurements t
 Therefore, the predicted track resolution is systematically affected, and hence the pull distributions. 
 Consequently, the estimator $\sigmahat$ does not converge towards the true $\sigmai$. 
 Therefore, a global energy dependent tuning parameter $\kappa$ is introduced,
- that allows for a tuned amount of scattering used as input to GBL,
+ that allows for an adapted amount of scattering used as input to GBL,
 
 \begin{equation}
  \Theta_{\textrm{corr}} = \kappa(E) \cdot \Theta_0.
@@ -426,7 +426,7 @@ An agreement of the various measurements is found within their uncertainties.
 The minimum of $\sigmai$ is reached for a sensor threshold setting of $\noise = 5$.
 %The spread in intrinsic resolution for different energies is less than $0.1\,\upmu\meter$ for thresholds $\noise = 5$ and $\noise = 6$. 
 A previous measurement and analysis~\cite{ref:j.behrmeasurements} taken at $\noise = 10$ yielded $\sigma_{\textrm{M26}} = (4.35\,\pm\,0.10)\,\micro\meter$,
- which seems to overestimates the intrinsic resolution. 
+ which seems to overestimate the intrinsic resolution. 
 
 
 
