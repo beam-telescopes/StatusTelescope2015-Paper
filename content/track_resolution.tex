@@ -89,9 +89,10 @@ In the transverse plane, the variance for a single scatterer $\varepsilon$ reads
 
 \noindent with the velocity $\beta c$, the momentum $p$ and the charge number $z$ of the traversing particle. 
 An accuracy of 11\,\% for all atomic numbers $Z$ is reported for the width of the angular distribution. 
-For a composition of scatterers $\varepsilon_i$, cf.\ section~\ref{sec:sensors}, the variance after the last scatterer involves the sum over the material budgets and hence $\varepsilon = \sum \varepsilon_i$. 
-For track fitting (with a Kalman filter or general broken lines (GBL)) the variance from all scatterers on the track has to be distributed over the individual scatterers. 
-Using the material fraction as relative weight results in a formula similar to equation~(\ref{eq:multiplescattering}) except for the logarithmic correction
+For a composition of scatterers $\varepsilon_i$, cf.\ section~\ref{sec:sensors}, the variance including all scatterers (i.e.\ after the last scatterer)
+ involves the sum over the material budgets and hence $\varepsilon = \sum \varepsilon_i$. 
+For track fitting (with a Kalman filter or GBL) the variance from all scatterers along the track has to be distributed over the individual scatterers. 
+Using the material fraction as relative weight results in a formula similar to equation~(\ref{eq:multiplescattering_a}) except for the logarithmic correction
 
 \begin{equation}
 \label{eq:multiplescattering}
@@ -100,7 +101,7 @@ Using the material fraction as relative weight results in a formula similar to e
 \cdot \left( 1 + 0.038 \cdot \ln{\left( \varepsilon \right) } \right)^2 \,.
 \end{equation}
 
-\noindent The amount of multiple scattering is calculated per sensor considering the measured sensor thickness and a $25\,\micro\meter$ thick Kapton foil on either side of each sensor.
+The amount of multiple scattering is calculated per sensor considering the measured sensor thickness and a $25\,\micro\meter$ thick Kapton foil on either side of each sensor.
 The contribution of air between adjacent planes is accounted for as additional scatterers. 
 Equation~(\ref{eq:multiplescattering}) demonstrates the advantage of using thin sensors, since the width of the angular distribution increases with the material budget.
 This is especially important at low-energy beams, such as the DESY-II test beam, as the width increases towards lower beam energies.
@@ -165,7 +166,7 @@ The latter is a consequence of inaccurate inputs for the assumed angular distrib
   \multicolumn{3}{c|}{} & \multicolumn{5}{c}{$\sigma_{\sigmai}$ in \%}\\
   \multicolumn{3}{c|}{} & \multicolumn{3}{c|}{per plane} & all planes& $\sqrt{\sum (x_i)^2}$\\
   \multicolumn{3}{c|}{} &$E$         & $\Theta_0$      & fit range    & rms($\pb$) &  \\ 
-  \multicolumn{3}{c|}{} & $\pm5\,\%$ &  $\pm 3.5\,\%$  & $\pm 1\,$std.&               &  \\ \hline
+  \multicolumn{3}{c|}{} & $\pm5\,\%$ &  $\pm 3\,\%$  & $\pm 1\,$std.&               &  \\ \hline
   6\,GeV & 20 mm   &  biased  &  ${}^{-0.34}_{+0.21}$ & ${}^{+0.08}_{-0.28}$ & ${}^{+1.76}_{-1.27}$ & 1.57 &  2.6  \\
          & ×       & unbiased &  ${}^{-0.43}_{+0.71}$ & ${}^{+0.44}_{-0.25}$ & ${}^{-0.93}_{-1.00}$ & 1.23 &  1.8  \\
 	 & 150 mm  &  biased  &  ${}^{-3.5}_{+2.9}$   & ${}^{+1.95}_{-2.60}$ & ${}^{+6.4}_{-5.4}$   & 1.51 &  7.9  \\
@@ -238,7 +239,7 @@ The value $\kappa$ is determined iteratively under the constraint that the resul
 The uncertainty of $\kappa$ is defined as the range for which the intrinsic resolution of the wide geometry equals the central value plus/minus one standard deviation of the narrow geometry
  excluding the uncertainty on $\Theta_0$. 
 If $\kappa$ differs significantly from one and/or depends on the beam energy is to be determined with data in section~\ref{sec:measurements}. 
-Also, a possible difference between the two fit methods used is investigated. 
+Also, a possible difference between the biased and the unbiased fit method is investigated. 
 
 
 \subsection{Performance measurements with DATURA}
@@ -362,9 +363,11 @@ At a considered plane $i$ the residuals are smaller for the wide configuration i
 %The minimum of equation~(\ref{eq:chi2_sigmai}) with respect to $\sigmai$ is calculated in order to determine the intrinsic sensor resolution $\sigmai$.
 %In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed. % This assumption is done for track fitting. Plane position is fixed in chi2 minimisation for \sigmai
 
-As described in section~\ref{sec:meth}, the amount of multiple scattering is determined by varying $\kappa$ iteratively until the resulting resolution for the two considered geometries agree. 
+As described in section~\ref{sec:meth}, the tuned amount of multiple scattering used as input to GBL
+ is determined by varying $\kappa$ iteratively until the resulting resolution for the two considered geometries agree. 
 This procedure results in an estimate of both $\kappa$ and the true intrinsic resolution. 
-At 6\,GeV, a value of $\kappa = 0.86 \pm 0.03$ is found, corresponding to a relative uncertainty of $3.5\,\%$, which is used as the uncertainty on $\Theta_0$. 
+At 6\,GeV and 2\,GeV, a value of $\kappa(6\,\textrm{GeV}) = 0.76 \pm 0.04$ and $\kappa(2\,\textrm{GeV}) = 0.75 \pm 0.02$ is found, the latter corresponding to a relative uncertainty of $3\,\%$,
+ which is used as the uncertainty on $\Theta_0$. 
 Additionally, the average intrinsic resolution of the $\Mimosa$ sensors at 6\,GeV and threshold $\noise = 6$ results to
 \begin{equation}
  \sigma_{\textrm{M26}} = \left( 3.24\,\pm\, 0.09 \right)\,\micro\meter.  
@@ -377,12 +380,12 @@ The result is consistent with earlier analyses, which yielded intrinsic resoluti
 The above method is repeated for different beam energies at a fixed threshold $\noise = 6$. 
 This allows for the determination of $\kappa$ as a function of the beam energy. 
 The correlation is shown in figure~\ref{fig:HL_factor}~(A) for both biased and unbiased track fits. 
-For biased track fits, $\kappa$ is found to be constant at a value of $\kappa = 0.854 \pm 0.012$ in the energy range covered,
- which translates to a tuned input of about $-15\,\%$ with respect to equation~(\ref{eq:multiplescattering}). 
-For unbiased track fits, $\kappa$ slightly increases from 0.99 at 2\,GeV to 1.06 at 6\,GeV, again with a precision of a single measurement of about $3\,\%$.
+For biased track fits, $\kappa$ is found to be constant at a value of $\kappa = 0.753 \pm 0.013$ in the energy range covered,
+ which translates to a tuned input of about $-25\,\%$ with respect to equation~(\ref{eq:multiplescattering}). 
+For unbiased track fits, $\kappa$ slightly increases from 0.87 at 2\,GeV to 0.94 at 6\,GeV with a precision of a single measurement of about $2\,\%$.
 Figure~\ref{fig:HL_factor}~(B) shows the measured intrinsic resolution for both methodologies as a function of the beam energy. 
 At each measured energy, they agree within less than one standard deviation over the entire energy range. 
-The averaged absolute values vary slightly with energy, from $3.25\,\micro\meter$ at 6\,GeV to $3.38\,\micro\meter$ at 2\,GeV. 
+The averaged absolute values vary slightly with energy, from $3.26\,\micro\meter$ at 6\,GeV to $3.40\,\micro\meter$ at 2\,GeV. 
 
 \begin{figure}[tb!]
   \centering
@@ -413,7 +416,7 @@ For thresholds $\noise = 5$ and $\noise = 6$ the efficiency is measured to $99.6
 With increasing threshold, the efficiency decreases to about $82\,\%$ at $\noise = 12$. 
 The efficiency varies by less than 0.1\,\% between different geometries and energy settings at thresholds $\noise = 5$ and $\noise = 6$. 
 
-\begin{figure}[b!]
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.49\textwidth]{figures/effi_vs_thres}	\put( -30,158){(A)}
   \includegraphics[width=0.49\textwidth]{figures/reso_vs_thres}	\put( -30,158){(B)} % was resi_thresh_errors
@@ -462,7 +465,7 @@ In this section, $\zdut$ is assumed to be in the centre between plane\,2 and pla
 %Track resolutions in this section refer to the achievable track resolution using a \textit{symmetric six M26 planes plus DUT} configuration. 
 %This is referred to as \textit{user configuration}, also shown in figure~\ref{fig:datura_sketch}, while the set-up used in section~\ref{sec:measurements} is referred to as \textit{gauge configuration}. 
 
-\begin{figure}[t]
+\begin{figure}[b!]
   \centering
   \includegraphics[width=0.49\textwidth]{figures/trackres_vs_dzdut_DESY}\put(-162,32){(A)}
   \includegraphics[width=0.49\textwidth]{figures/trackres_vs_dzdut_SPS} \put(-162,32){(B)}
@@ -489,8 +492,8 @@ For SPS energies, a track resolution of $(1.33\,\pm\,0.03)\,\upmu\meter$ is pred
 The shown resolutions monotonically increase with increasing $\dzdut$. 
 In order to achieve the best possible resolution, the inner $\Mimosa$ planes should therefore be positioned as close as possible to the DUT, i.e.~$\dzdut$ is to be minimised. 
 In addition, figure~\ref{fig:CalcResos_dzdut}~(A) shows, that the optimal plane spacing $\dz$ depends on the actual DUT size along the beam direction and its material budget.
-For instance for a DUT with a material budget of $\epsdut = 0.001$ (solid lines) at 5\,GeV, a narrow configuration shows a higher track resolution for $\dzdut < 82\,\milli\meter$,
- while a wide configuration is best for $\dzdut > 82\,\milli\meter$. %actually 82.something
+For instance for a DUT with a material budget of $\epsdut = 0.001$ (solid lines) at 5\,GeV, a narrow configuration shows a higher track resolution for $\dzdut < 74\,\milli\meter$,
+ while a wide configuration is best for $\dzdut > 74\,\milli\meter$. %actually 82.something
 The intersection is marked with a black circle in figure~\ref{fig:CalcResos_dzdut}~(A). 
 The position of the intersection depends on the material budget of the DUT $\epsdut$ and shifts to smaller $\dzdut$ with increasing material budget. 
 %A DUT with a material budget of $\eps$
@@ -517,7 +520,8 @@ However, the difference is less than $0.5\,\micro\meter$ for $\zdut = 100\,\mill
 \begin{figure}[t]
   \centering
   %\includegraphics[width=0.49\textwidth]{figures/energy_plot}     \put(-175,40){(A)} % was CalcResoVsP
-  \includegraphics[width=0.49\textwidth]{figures/trackres_vs_epsdut_DESY} %\put(-155,40){(B)}
+  \includegraphics[width=0.49\textwidth]{figures/trackres_vs_epsdut_DESY} \put(-142,32){(A)}%\put(-155,40){(B)}
+  \includegraphics[width=0.49\textwidth]{figures/trackres_vs_epsdut_SPS} \put(-142,32){(B)}%\put(-155,40){(B)}
 %               \put(-175,107.5){$\bigcirc$}
 %  \color{blue} \put(-161,102.5){$\bigcirc$}
 %  \color{green}\put(-143,96.5){$\bigcirc$}
@@ -529,20 +533,21 @@ However, the difference is less than $0.5\,\micro\meter$ for $\zdut = 100\,\mill
    %The solid lines form bands representing the standard deviation of $0.10\,\upmu\meter$ of the intrinsic resolution.
    %The theoretical limit of about $1.6\,\upmu\meter$ for plane\,3 is indicated as a dashed line.
    %Track resolutions derived from the measured resolutions at plane 3 for various energies and plane spacings are shown as crosses.
-   The calculated track resolutions at the DUT for two geometries are shown as a function of $\epsdut$ at $\zdut$ at a beam energy of 5\,GeV. 
-   Note the double logarithmic scales. 
+   The calculated track resolutions at the DUT for two geometries are shown as a function of $\epsdut$ at $\zdut$ at a beam energy of 5\,GeV (A) and 120\,GeV (B). 
+   Note the double logarithmic scale for figure (A). 
    }
  \label{fig:CalcResoP_DUT}
 \end{figure}
 
-In figure~\ref{fig:CalcResoP_DUT} the achievable track resolution at $\zdut$ as a function of the material budget is shown for a beam energy of 5\,GeV.
+In figure~\ref{fig:CalcResoP_DUT} the achievable track resolution at $\zdut$ as a function of the material budget is shown for a beam energy of 5\,GeV (A) and 120\,GeV (B).
 %Again, a minimal $\dzdut$ allows for the best possible resolution. 
 Dashed and solid lines represent calculations for $\dz = 20\,\milli\meter$ and $\dz = 150\,\milli\meter$, respectively. 
 The track resolution deteriorates with increasing $\epsdut$. 
 The optimal plane spacing $\dz$ depends on the actual size requirements for the DUT along the beam direction and its material budget.
-For instance, for a DUT with a material budget of $\epsdut = 0.002$, a plane spacing of $\dz = 20\,\milli\meter$ should be used, if $\dzdut$ is as small as 20\,mm. 
+For instance at 5\,GeV, for a DUT with a material budget of $\epsdut = 0.002$, a plane spacing of $\dz = 20\,\milli\meter$ should be used, if $\dzdut$ is as small as 20\,mm. 
 However, a plane spacing of $\dz = 150\,\milli\meter$ is preferred, if $\dzdut$ is 60\,mm or larger. 
 Intersections are marked with open circles. 
+At 120\,GeV, the intersection for $\dzdut = 100\,\milli\meter$ occurs at a DUT material budget of $\epsdut = 0.2$, which is considerably larger compared to the case of DESY beam energies.
 For $\epsdut$ below (above) the intersection, a narrow (wide) configuration is preferable. 
 The position of the intersection shifts to smaller material budgets with increasing $\dzdut$. 
 
