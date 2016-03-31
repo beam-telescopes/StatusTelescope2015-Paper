@@ -75,8 +75,8 @@
 \newcommand{\EUTelescope}{\ensuremath{\textrm{EUTelescope}}}
 
 %linenumbers
-\setpagewiselinenumbers
-\modulolinenumbers[5]
+%\setpagewiselinenumbers
+%\modulolinenumbers[5]
 
 \makeatletter
 \renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
@@ -106,7 +106,7 @@
 %\keywords{Pixel, CMOS, Beam telescope, resolution, tracker} % need to be specified during submission
 
 \begin{document}
-\linenumbers
+%\linenumbers
 
 
 %DESY 6
@@ -148,7 +148,7 @@ E.~Corrin${}^{\textrm{d,}}$\footnote{Now at SwiftKey, London, UK},
 D.~G.~Cussans${}^{\textrm{e}}$,
 J.~Dreyling-Eschweiler${}^{\textrm{a}}$, 
 D.~Eckstein${}^{\textrm{a}}$, 
-T. Eichhorn${}^{\textrm{a}}$, 
+T.~Eichhorn${}^{\textrm{a}}$, 
 M.~Goffe${}^{\textrm{c}}$,
 I.~M.~Gregor${}^{\textrm{a}}$, 
 D.~Haas${}^{\textrm{d,}}$\footnote{Now at SRON, Utrecht, Netherlands},
@@ -157,7 +157,7 @@ H.~Perrey${}^{\textrm{a,}}$\footnote{Now at Lund University, Sweden},
 R.~Peschke${}^{\textrm{a}}$, 
 P.~Roloff${}^{\textrm{a,}}$\footnote{Now at CERN, Geneva, Switzerland}, 
 I.~Rubinskiy${}^{\textrm{a,}}$\footnote{Now at CFEL, Hamburg, Germany}, 
-M. Winter${}^{\textrm{c}}$\\
+M.~Winter${}^{\textrm{c}}$\\
 \vspace{3mm}
 ${}^{\textrm{a}}$ Deutsches Elektronen-Synchrotron DESY, Hamburg, Germany\\
 ${}^{\textrm{b}}$ INFN Como, Italy\\
@@ -207,14 +207,15 @@ Both data acquisition framework and offline reconstruction software packages are
 User devices are easily integrable into the data acquisition framework via predefined interfaces.
  
 The biased residual distribution is studied as a function of the beam energy, plane spacing and sensor threshold. 
-Its width at the two centre pixel planes using all six planes for tracking in a 5\,GeV electron/positron-beam is measured to be $(2.88\,\pm\,0.08)\,\upmu\meter$.
+Its width at the two centre pixel planes using all six planes for tracking in a 6\,GeV electron/positron-beam is measured to be $(2.88\,\pm\,0.08)\,\upmu\meter$.
 Iterative track fits using the formalism of General Broken Lines are performed to estimate the intrinsic resolution of the individual pixel planes. 
 The mean intrinsic resolution over the six sensors used is found to be $(3.24\,\pm\,0.09)\,\upmu\meter$.
 With a 6\,GeV electron/positron beam, the track resolution halfway between the two inner pixel planes using an equidistant plane spacing of 20\,mm is estimated to $(1.78\,\pm\,0.03)\,\upmu\meter$
  assuming the measured intrinsic resolution. 
 Towards lower beam energies the track resolution deteriorates due to increasing multiple scattering. 
 Threshold studies show an optimal working point of the $\Mimosa$ sensors at a sensor threshold of between five and six times their RMS noise. 
-Measurements at different plane spacings are used to calibrate the amount of multiple scattering in the material and allow for corrections to the predicted angular scattering for electrons beams. 
+Measurements at different plane spacings are used to calibrate the amount of multiple scattering in the material traversed
+ and allow for corrections to the predicted angular scattering for electron beams. 
 \end{abstract}
 
 
