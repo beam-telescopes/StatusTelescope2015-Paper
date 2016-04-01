@@ -1,16 +1,19 @@
 
-The EUDET-type beam telescope are tabletop tracking detectors featuring six pixelated silicon sensors, four scintillators with photo multiplier tubes (PMTs) for trigger purposes,
+The EUDET-type beam telescopes are tabletop tracking detectors featuring six pixelated silicon sensors, four scintillators with photo multiplier tubes (PMTs) for trigger purposes,
  a Trigger Logic Unit (TLU) providing trigger logic and time stamp information on particle passage, and a data acquisition system for the readout. 
 Figure\,\ref{fig:datura-tscope} shows the beam telescope with its rectangular aluminium sensor jigs, wherein the pixel sensors are embedded,
  and its auxiliary boards providing connections for power, sensor configuration, clock signals and data transmission. 
 The planes are organised in two telescope arms holding three sensors each. 
 A DUT can be inserted between the arms or at either end of the beam telescope. 
-In the Cartesian, right-handed coordinate system chosen, the $x$-direction points horizontally and the $z$-direction along the beam direction.
+In the Cartesian, right-handed coordinate system chosen, the $y$-direction points vertically down and the $z$-direction along the beam direction.
 
 \begin{figure}[tb]
 	\center
-	%\includegraphics[width=.9\textwidth]{figures/DATURA.jpg}
+	\ifdefined\notFOREPJ
 	\includegraphics[width=.9\textwidth]{figures/DATURA2a.jpg}
+	\else
+	\includegraphics[width=.9\textwidth]{DATURA2a.jpg}
+	\fi
 	\caption[The $\Datura$ telescope]{The $\Datura$ beam telescope with its sensor planes (green frame) on aluminium rails.
 	The auxiliary boards (red frame) with connections for clock, sensor configuration, and data are mounted at the top of the planes.
 	Coolant is provided to the planes via tubes.}
@@ -53,7 +56,11 @@ Additionally, this frame is mounted on a sturdy structure providing stability ov
 
 \begin{figure}[tb]
 	\center
+	\ifdefined\notFOREPJ
 	\includegraphics[width=.9\textwidth]{figures/sketch_tscope6.eps}
+	\else
+	\includegraphics[width=.9\textwidth]{sketch_tscope6.eps}
+	\fi
 	\caption[Sketch of the $\DESY$-type telescope set-up]{Sketch of the $\DESY$-type telescope set-up and its important parameters.
 	Planes 0 to 2 and planes 3 to 5 are referred to as upstream and downstream planes, respectively.}
 	\label{fig:datura_sketch}

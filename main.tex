@@ -1,6 +1,7 @@
 \pdfoutput=1 % only if pdf/png/jpg images are used
-%\documentclass[a4paper,10pt]{article}
-\documentclass[a4paper,10pt]{scrartcl}
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+%\documentclass[smallcondensed,referee]{svjour3}
 \usepackage{geometry}
 \geometry{a4paper,left=34mm,right=34mm, top=24mm, bottom=32mm}
 %\geometry{a4paper}
@@ -24,7 +25,7 @@
 \usepackage{xcolor}
 %\usepackage{draftwatermark}
 %\SetWatermarkScale{5}
-%\usepackage{setspace}
+\usepackage{setspace}
 %\doublespacing
 
 %general stuff 
@@ -74,9 +75,12 @@
 \newcommand{\eudaq}{\ensuremath{\textrm{EUDAQ}}}
 \newcommand{\EUTelescope}{\ensuremath{\textrm{EUTelescope}}}
 
+%conditional compilation
+\newcommand*{\notFOREPJ}{}%
+
 %linenumbers
-%\setpagewiselinenumbers
-%\modulolinenumbers[5]
+\setpagewiselinenumbers
+\modulolinenumbers[5]
 
 \makeatletter
 \renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
@@ -106,7 +110,7 @@
 %\keywords{Pixel, CMOS, Beam telescope, resolution, tracker} % need to be specified during submission
 
 \begin{document}
-%\linenumbers
+\linenumbers
 
 
 %DESY 6
@@ -142,6 +146,7 @@
 \author{
 H.~Jansen${}^{\textrm{a,}}$\footnote[*]{Corresponding author: hendrik.jansen@desy.de},
 S.~Spannagel${}^{\textrm{a}}$, 
+J.~Behr${}^{\textrm{a,}}$\footnote{Now at ??},
 A.~Bulgheroni${}^{\textrm{b,}}$\footnote{Now at KIT, Karlsruhe, Germany},
 G.~Claus${}^{\textrm{c}}$,
 E.~Corrin${}^{\textrm{d,}}$\footnote{Now at SwiftKey, London, UK},
@@ -210,7 +215,7 @@ The biased residual distribution is studied as a function of the beam energy, pl
 Its width at the two centre pixel planes using all six planes for tracking in a 6\,GeV electron/positron-beam is measured to be $(2.88\,\pm\,0.08)\,\upmu\meter$.
 Iterative track fits using the formalism of General Broken Lines are performed to estimate the intrinsic resolution of the individual pixel planes. 
 The mean intrinsic resolution over the six sensors used is found to be $(3.24\,\pm\,0.09)\,\upmu\meter$.
-With a 6\,GeV electron/positron beam, the track resolution halfway between the two inner pixel planes using an equidistant plane spacing of 20\,mm is estimated to $(1.78\,\pm\,0.03)\,\upmu\meter$
+With a 5\,GeV electron/positron beam, the track resolution halfway between the two inner pixel planes using an equidistant plane spacing of 20\,mm is estimated to $(1.78\,\pm\,0.03)\,\upmu\meter$
  assuming the measured intrinsic resolution. 
 Towards lower beam energies the track resolution deteriorates due to increasing multiple scattering. 
 Threshold studies show an optimal working point of the $\Mimosa$ sensors at a sensor threshold of between five and six times their RMS noise. 
@@ -225,39 +230,70 @@ Measurements at different plane spacings are used to calibrate the amount of mul
 
 \section{Introduction}
 \label{sec:intro}
+\ifdefined\notFOREPJ
 \input{content/intro}
+\else
+\input{content/intro}
+\fi
 
 \section{Beamlines}
 \label{sec:beamlines}
+\ifdefined\notFOREPJ
 \input{content/beam_lines}
+\else
+\input{beam_lines}
+\fi
 
 \section{Components of the EUDET-type beam telescopes}
 \label{sec:tscope}
+\ifdefined\notFOREPJ
 \input{content/tscope}
+\else
+\input{tscope}
+\fi
 
 \section{The EUDAQ data acquisition framework}
 \label{sec:eudaq}
+\ifdefined\notFOREPJ
 \input{content/eudaq}
+\else
+\input{eudaq}
+\fi
 
 \section{Offline analysis and reconstruction using EUTelescope}
 \label{sec:offline}
+\ifdefined\notFOREPJ
 \input{content/offline}
+\else
+\input{offline}
+\fi
 
 \section{Track resolution studies}
 \label{sec:trackres}
+\ifdefined\notFOREPJ
 \input{content/track_resolution}
+\else
+\input{track_resolution}
+\fi
 
 \section{Considerations for DUT integrations}
 \label{sec:dutintegration}
+\ifdefined\notFOREPJ
 \input{content/dutintegration}
+\else
+\input{dutintegration}
+\fi
 
 \section{Conclusion}
 \label{sec:conclusion}
+\ifdefined\notFOREPJ
 \input{content/conclusion}
-
+\else
+\input{conclusion}
+\fi
 
 \section*{Acknowledgements}
-We, the authors, are indebted to Claus Kleinwort for his counsel and numerous discussions. 
+We are indebted to Claus Kleinwort for his counsel and numerous discussions. 
 Also, we would like to thank Ulrich K\"otz.
 The test beam support at DESY is highly appreciated. 
 This work was supported by the Commission of the European Communities under the FP7 Structuring the European Research Area, contract number RII3-026126 (EUDET). 

@@ -1,6 +1,6 @@
 
-The data presented were taken in $2015$ using $\Datura$, a $\eudet$-type beam telescope, which was operated with EUDAQ, cf.~section~3 and~4. 
-Results shown in this section have been obtained using the EUTelescope software described in section~\ref{sec:offline}. 
+The data presented were taken in $2015$ using $\Datura$, an $\eudet$-type beam telescope, which was operated with $\eudaq$, cf.~sections~3 and~4. 
+Results shown in this section have been obtained using the $\EUTelescope$ software described in section~\ref{sec:offline}. 
 The set-up does not include any additional DUT, only six $\Mimosa$ telescope planes. 
 Track fits are performed using the GBL formalism and track residuals, i.e.\ the distance between the track fit and the measured hit,
  are calculated for each telescope plane. 
@@ -120,7 +120,7 @@ With a known or estimated biased track resolution, i.e.\ all $\sigmai(z_i)$ are 
 \noindent
 The biased residual width at a considered plane $i$ decreases with increasing plane distance $\dz$ and towards lower beam energies. 
 These effects stem from the term $\sigmatb$: 
-Qualitatively, the biased track resolution increases, i.e.\ worsens, with larger lever arms $\dz$, as an uncertainty in the deflection angle is boosted with larger distances. 
+qualitatively, the biased track resolution increases, i.e.\ worsens, with larger lever arms $\dz$, as an uncertainty in the deflection angle is boosted with larger distances. 
 It converges towards the intrinsic resolution in the limit of large $\Theta_0$. 
 Hence, the difference between $\sigmai$ and $\sigmatb$ decreases. 
 This is also true when comparing residuals from the inner planes to those from the outer ones:
@@ -263,18 +263,13 @@ The residual and pull distributions have been obtained for every sensor plane as
 
 \begin{figure}[tbp]
   \centering
+  \ifdefined\notFOREPJ
   \includegraphics[width=0.49\textwidth]{figures/0x.eps} \put(-30,158){(A)}
   \includegraphics[width=0.49\textwidth]{figures/3x.eps} \put(-30,158){(B)}\\
-  %\includegraphics[width=0.45\textwidth]{figures/resis_upstream/1x.pdf}
-  %\includegraphics[width=0.45\textwidth]{figures/resis_upstream/1y.pdf}
-  %\includegraphics[width=0.45\textwidth]{figures/resis_upstream/2x.pdf}
-  %\includegraphics[width=0.45\textwidth]{figures/resis_upstream/2y.pdf}
-  %\includegraphics[width=0.49\textwidth]{figures/3x} \put(-50,155){(C)}
-  %\includegraphics[width=0.49\textwidth]{figures/3y} \put(-50,155){(D)}
-  %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/4x.pdf}
-  %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/4y.pdf}
-  %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5x.pdf}
-  %\includegraphics[width=0.45\textwidth]{figures/resis_downstream/5y.pdf}
+  \else
+  \includegraphics[width=0.49\textwidth]{0x.eps} \put(-30,158){(A)}
+  \includegraphics[width=0.49\textwidth]{3x.eps} \put(-30,158){(B)}\\
+  \fi
   \caption[Residual examples to determine the $\Datura$ telescope's resolution]{
   Biased residual distributions measured with the $\Datura$ telescope at 6\,GeV with a plane spacing of $\dz = 20\,\milli\meter$. 
   The measured residuals in the $x$-direction for plane $0$ (A) and plane $3$ (B) are shown.}
@@ -319,8 +314,13 @@ The measured residual width used in this work is defined as the width of a Gauss
 
 \begin{figure}[btp]
   \centering
+  \ifdefined\notFOREPJ
   \includegraphics[width=0.49\textwidth]{figures/res_vs_z_20.eps}  \put(-30,158){(A)} % was thin_smiley.pdf
   \includegraphics[width=0.49\textwidth]{figures/res_vs_z_150.eps} \put(-30,158){(B)} % was wide_smiley.pdf
+  \else
+  \includegraphics[width=0.49\textwidth]{res_vs_z_20.eps}  \put(-30,158){(A)} % was thin_smiley.pdf
+  \includegraphics[width=0.49\textwidth]{res_vs_z_150.eps} \put(-30,158){(B)} % was wide_smiley.pdf
+  \fi
   %\caption[Intrinsic telescope sensor resolution at $20\,\milli\meter$ and $150\,\milli\meter$ plane spacing~\cite{ref:thomas}]{Intrinsic telescope sensor resolution at $20\,\milli\meter$ (top)
   % and $150\,\milli\meter$ (bottom) plane spacing.
   \caption[The measured residual widths of each telescope plane.]{
@@ -343,7 +343,7 @@ At a considered plane $i$ the residuals are smaller for the wide configuration i
 %(2) The biased track resolution tends towards the intrinsic resolution for increased scattering. 
 %Hence, the difference between $\sigmai$ and $\sigmatb$ decreases. 
 
-%The energy dependent width of the scattering angle distribution increase the uncertainty with decreasing energy, c.f.\.equation~\ref{eq:multiplescattering}. 
+%The energy dependent width of the scattering angle distribution increase the uncertainty with decreasing energy, cf.\.equation~\ref{eq:multiplescattering}. 
 %In the former term, the geometric scaling factor is larger in the wide configuration, in the latter $\sigma_{\textrm{MS}}$ increases with decreasing beam energy. 
 
 %In order to find the best estimate of the intrinsic sensor resolution, a $\chi^2$ minimisation is performed. 
@@ -389,8 +389,13 @@ The averaged absolute values vary slightly with energy, from $3.26\,\micro\meter
 
 \begin{figure}[tb!]
   \centering
+  \ifdefined\notFOREPJ
   \includegraphics[width=0.49\textwidth]{figures/kappa.eps}\put( -35,32){(A)}
   \includegraphics[width=0.49\textwidth]{figures/sigmaint_ub.eps}\put( -35,32){(B)}
+  \else
+  \includegraphics[width=0.49\textwidth]{kappa.eps}\put( -35,32){(A)}
+  \includegraphics[width=0.49\textwidth]{sigmaint_ub.eps}\put( -35,32){(B)}
+  \fi
   \caption[HL Factor]{
   (A) The global tuning factor $\kappa$ is plotted against beam energy. (B) The derived intrinsic resolution for biased and unbiased track fits.
   }
@@ -418,8 +423,13 @@ The efficiency varies by less than 0.1\,\% between different geometries and ener
 
 \begin{figure}[t]
   \centering
+  \ifdefined\notFOREPJ
   \includegraphics[width=0.49\textwidth]{figures/effi_vs_thres.eps}	\put( -30,158){(A)}
   \includegraphics[width=0.49\textwidth]{figures/reso_vs_thres.eps}	\put( -30,158){(B)} % was resi_thresh_errors
+  \else
+  \includegraphics[width=0.49\textwidth]{effi_vs_thres.eps}	\put( -30,158){(A)}
+  \includegraphics[width=0.49\textwidth]{reso_vs_thres.eps}	\put( -30,158){(B)} % was resi_thresh_errors
+  \fi
   \caption[Telescope intrinsic sensor resolution for different threshold settings, beam energies and geometries~\cite{ref:thomas}]{
 (A) Average efficiency of all telescope sensors for different beam energies and sensor spacing vs.~applied threshold.
 %An efficiency decline with increasing threshold can be observed.
@@ -457,8 +467,8 @@ A previous measurement and analysis~\cite{ref:j.behrmeasurements} taken at $\noi
 % \end{equation}
 % 
 % \noindent
-Using the measured intrinsic resolution, the known telescope plane material budget $\epsmimo = 7.6\cdot 10^{-4}$ and the material budget of a DUT $\epsdut$,
- predictions of the expected track resolution at the actual DUT position $\zdut$, c.f.\ figure~\ref{fig:datura_sketch}, can be made.
+Using the measured intrinsic resolution and the material budget in the beam (telescope planes, air, DUT),
+ predictions of the track resolution at the actual DUT position $\zdut$ (cf.~figure~\ref{fig:datura_sketch}) are rendered possible.
 Therefore, it is possible to perform an a priori calculation of the optimal telescope geometry for a certain measurement set-up. 
 In this section, $\zdut$ is assumed to be in the centre between plane\,2 and plane\,3.
 
@@ -467,10 +477,13 @@ In this section, $\zdut$ is assumed to be in the centre between plane\,2 and pla
 
 \begin{figure}[b!]
   \centering
+  \ifdefined\notFOREPJ
   \includegraphics[width=0.49\textwidth]{figures/trackres_vs_dzdut_DESY.eps}\put(-162,32){(A)}
   \includegraphics[width=0.49\textwidth]{figures/trackres_vs_dzdut_SPS.eps} \put(-162,32){(B)}
-  %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Desy_loglog_2}
-  %\includegraphics[width=0.49\textwidth]{figures/CalcResoVsDzdut_Cern_loglog_2}
+  \else
+  \includegraphics[width=0.49\textwidth]{trackres_vs_dzdut_DESY.eps}\put(-162,32){(A)}
+  \includegraphics[width=0.49\textwidth]{trackres_vs_dzdut_SPS.eps} \put(-162,32){(B)}
+  \fi
   \caption[Track resolution for various material budgets as a function of the distance between DUT and neighbouring planes]{
   The track resolution for various material budgets is shown as a function of the equidistant spacing between DUT and neighbouring planes at 5\,GeV (A), and 120\,GeV (B)
   at the centre of the beam telescope ($\zdut$).}
@@ -519,9 +532,13 @@ However, the difference is less than $0.5\,\micro\meter$ for $\zdut = 100\,\mill
 
 \begin{figure}[t]
   \centering
-  %\includegraphics[width=0.49\textwidth]{figures/energy_plot}     \put(-175,40){(A)} % was CalcResoVsP
+  \ifdefined\notFOREPJ
   \includegraphics[width=0.49\textwidth]{figures/trackres_vs_epsdut_DESY.eps} \put(-142,32){(A)}%\put(-155,40){(B)}
   \includegraphics[width=0.49\textwidth]{figures/trackres_vs_epsdut_SPS.eps} \put(-142,32){(B)}%\put(-155,40){(B)}
+  \else
+  \includegraphics[width=0.49\textwidth]{trackres_vs_epsdut_DESY.eps} \put(-142,32){(A)}%\put(-155,40){(B)}
+  \includegraphics[width=0.49\textwidth]{trackres_vs_epsdut_SPS.eps} \put(-142,32){(B)}%\put(-155,40){(B)}
+  \fi
 %               \put(-175,107.5){$\bigcirc$}
 %  \color{blue} \put(-161,102.5){$\bigcirc$}
 %  \color{green}\put(-143,96.5){$\bigcirc$}
