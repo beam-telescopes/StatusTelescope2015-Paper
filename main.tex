@@ -26,7 +26,7 @@
 %\usepackage{draftwatermark}
 %\SetWatermarkScale{5}
 \usepackage{setspace}
-%\doublespacing
+
 
 %general stuff 
 \newcommand{\e}{\ensuremath{\mathnormal{e}}}
@@ -82,6 +82,11 @@
 \setpagewiselinenumbers
 \modulolinenumbers[5]
 
+\ifdefined\notFOREPJ
+\else
+\doublespacing
+\fi
+
 \makeatletter
 \renewcommand{\maketitle}{\bgroup\setlength{\parindent}{0pt}
 \begin{flushleft}
@@ -99,13 +104,7 @@
 
 %\setlength\extrarowheight{5pt}
 \renewcommand{\arraystretch}{1.25}
-%\date{\vspace{-5ex}} %FIXME: remove for preprint
 
-
-% \abstract{
-% The status of the $\Datura$ Telescope at DESY is summarised and the performance is shown with two example studies. 
-% The pointing resolution using a 6\,GeV $\e$-beam at the centre of the telescope is $\unit{5}{\upmu\meter}$.
-% }
 
 %\keywords{Pixel, CMOS, Beam telescope, resolution, tracker} % need to be specified during submission
 
@@ -223,9 +222,10 @@ Measurements at different plane spacings are used to calibrate the amount of mul
  and allow for corrections to the predicted angular scattering for electron beams. 
 \end{abstract}
 
-
+\ifdefined\notFOREPJ
 \tableofcontents
-%\newpage
+\else
+\fi
 
 
 \section{Introduction}
@@ -233,7 +233,7 @@ Measurements at different plane spacings are used to calibrate the amount of mul
 \ifdefined\notFOREPJ
 \input{content/intro}
 \else
-\input{content/intro}
+\input{intro}
 \fi
 
 \section{Beamlines}
@@ -292,6 +292,17 @@ Measurements at different plane spacings are used to calibrate the amount of mul
 \input{conclusion}
 \fi
 
+\ifdefined\notFOREPJ
+\else
+\section*{Data and materials}
+The datasets supporting the conclusions of this article are available in the ?? repository, http:// ftp:// ??.
+The software used is available in the github repository, https://github.com/simonspa/eutelescope/, branch \textit{scattering} and https://github.com/simonspa/resolution-simulator.
+For the analysis, these specific tags have been used: \cite{} and \cite{spannagel_2016_48795}.
+
+\section*{Competing interests}
+The authors declare that they have no competing interests.
+\fi
+
 \section*{Acknowledgements}
 We are indebted to Claus Kleinwort for his counsel and numerous discussions. 
 Also, we would like to thank Ulrich K\"otz.
@@ -303,7 +314,11 @@ Furthermore, strong support from the Helmholtz Association and the BMBF is ackno
 
 \small
 \bibliographystyle{IEEEtran}
+\ifdefined\notFOREPJ
 \bibliography{bibtex/refs}
+\else
+\bibliography{refs}
+\fi
 
 \end{document}
 

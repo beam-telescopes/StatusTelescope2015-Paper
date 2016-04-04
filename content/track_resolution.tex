@@ -161,6 +161,7 @@ The latter is a consequence of inaccurate inputs for the assumed angular distrib
 \label{sec:meth}
 
 \begin{table}[tbp]
+\caption[Systematic uncertainties]{Systematic uncertainties of the intrinsic resolution listed for biased and unbiased track fits and two geometries at 6\,GeV and 2\,GeV.}
  \begin{center}
   \begin{tabular}{r|r|r|c|c|c|c||c}
   \multicolumn{3}{c|}{} & \multicolumn{5}{c}{$\sigma_{\sigmai}$ in \%}\\
@@ -185,7 +186,6 @@ The latter is a consequence of inaccurate inputs for the assumed angular distrib
 %	 & 150 mm  &  biased  &  ${}^{-10.5}_{+15.7}$ &  & ${}^{+8.0}_{+0.83}$ & 0.9 &  17.6  \\
 %	 & ×       & unbiased &  ${}^{}_{}$ &  &  &  &    \\ 
   \end{tabular}
-    \caption[Systematic uncertainties]{Systematic uncertainties of the intrinsic resolution listed for biased and unbiased track fits and two geometries at 6\,GeV and 2\,GeV.}
   \label{tab:uncerts}
  \end{center}
 \end{table}
@@ -195,7 +195,6 @@ The intrinsic resolution $\sigmai$ is assumed to be constant over the active are
 %As the discriminator thresholds are set for a total of four subframes per plane individually, this is not necessarily true.
 The width of the pull distributions is iteratively used to update the estimate $\sigmahat$. 
 The same estimate is used for all six planes. 
-%The converged value of $\sigmai$ is found once the iteration yields updated values that differ by less then $0.5\,\%$ in comparison to the input value. ??
 %It should be noted that an initial estimate close to the converged value does not yield smaller uncertainties on the converged value compared to a bad initial estimate.
 The calculation is repeated for five beam energies between 6\,GeV and 2\,GeV, ten different sensor thresholds
  and two different geometries: the narrow geometry with $\dz = \dzdut = 20\,\milli\meter$ and the wide geometry with $\dz = \dzdut = 150\,\milli\meter$.
@@ -469,7 +468,7 @@ A previous measurement and analysis~\cite{ref:j.behrmeasurements} taken at $\noi
 % \noindent
 Using the measured intrinsic resolution and the material budget in the beam (telescope planes, air, DUT),
  predictions of the track resolution at the actual DUT position $\zdut$ (cf.~figure~\ref{fig:datura_sketch}) are rendered possible.
-Therefore, it is possible to perform an a priori calculation of the optimal telescope geometry for a certain measurement set-up. 
+Therefore, it is possible to perform an a priori calculation of the optimal telescope geometry for a certain measurement set-up~\cite{spannagel_2016_48795}. 
 In this section, $\zdut$ is assumed to be in the centre between plane\,2 and plane\,3.
 
 %Track resolutions in this section refer to the achievable track resolution using a \textit{symmetric six M26 planes plus DUT} configuration. 
