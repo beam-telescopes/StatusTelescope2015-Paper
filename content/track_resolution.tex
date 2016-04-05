@@ -110,8 +110,9 @@ This is especially important at low-energy beams, such as the DESY-II test beam,
 %At high-energy hadron beams, the contribution from multiple scattering can in general be neglected.
 
 The biased (unbiased) residual defined as a quantity per track is the distance between the measured hit and the biased (unbiased) track fit. 
+The standard deviation of the residual distribution is hereafter denoted as the \textit{residual width}. 
 With a known or estimated biased track resolution, i.e.\ all $\sigmai(z_i)$ are known or estimates exist,
- the standard deviation of the distribution of the \textrm{biased} residuals for a set of tracks can be expressed for all positions $z = z_i$ as
+ the \textrm{biased} residual width for a set of tracks can be expressed for all positions $z = z_i$ as
 
 \begin{equation}
  \label{eq:telescoperesolutionequation1}
@@ -119,16 +120,16 @@ With a known or estimated biased track resolution, i.e.\ all $\sigmai(z_i)$ are 
 \end{equation}
 
 \noindent
-The biased residual standard deviation at a considered plane $i$ decreases with increasing plane distance $\dz$ and towards lower beam energies. 
+The biased residual width at a considered plane $i$ decreases with increasing plane distance $\dz$ and towards lower beam energies. 
 These effects stem from the term $\sigmatb$: 
 qualitatively, the biased track resolution increases, i.e.\ worsens, with larger lever arms $\dz$, as an uncertainty in the deflection angle is boosted with larger distances. 
 It converges towards the intrinsic resolution in the limit of large $\Theta_0$. 
 Hence, the difference between $\sigmai$ and $\sigmatb$ decreases. 
 This is also true when comparing residuals from the inner planes to those from the outer ones:
-The worsening track resolution towards the outer planes decreases the difference with respect to $\sigmai$ and hence the residual standard deviation. 
+The worsening track resolution towards the outer planes decreases the difference with respect to $\sigmai$ and hence the residual width. 
 
 If the hit measurement of a telescope plane at position $z_i$ is not included in the fit,
- the standard deviation of the distribution of the \textrm{unbiased} residuals at these positions reads~\cite{ref:eudetreport200902}
+ the \textrm{unbiased} residual width at these positions reads~\cite{ref:eudetreport200902}
  
 \begin{equation}
 \runbiased^2(z) = \sigmai^2(z) + \sigmatu^2(z).
@@ -143,7 +144,7 @@ Both the biased and the unbiased residual distributions are a function of the tr
 %It should be noted that the unbiased track resolution at a sensor plane can be larger than the intrinsic resolution. 
 %On the contrary, the biased track resolution is smaller than or equal to the intrinsic resolution of the sensor planes. 
 
-The biased pull of a track is defined as the ratio of the biased residual over the predicted biased residual standard deviation
+The biased pull of a track is defined as the ratio of the biased residual over the predicted biased residual width
 
 \begin{equation}
  \textrm{pull}_{\textrm{b}} \equiv \pb = \frac{\rbiased}{\sqrt{\sigmai^2 - \sigmatb^2}}.
@@ -153,8 +154,8 @@ The biased pull of a track is defined as the ratio of the biased residual over t
 \noindent
 Assuming normally distributed residuals, the biased pull distributions are normally distributed and centred at zero with a standard deviation of one, $N(0,1)$,
  if the material and the scattering therein is known and correctly described. 
-A standard deviation differing from one originates from an under- or overestimated residual prediction $\sqrt{\sigmai^2 - \sigmatb^2}$, which in turn stems from an inaccurate estimate of either the intrinsic resolution
- or the track resolution. 
+A standard deviation differing from one originates from an under- or overestimated residual prediction $\sqrt{\sigmai^2 - \sigmatb^2}$,
+ which in turn stems from an inaccurate estimate of either the intrinsic resolution or the track resolution. 
 The latter is a consequence of inaccurate inputs for the standard deviation $\Theta_0$ of the assumed angular distribution or again for the intrinsic resolution. 
 
 
@@ -203,7 +204,7 @@ The calculation is repeated for five beam energies between 6\,GeV and 2\,GeV, te
 This analysis compares results between biased and unbiased track fits. 
 In principal, both choices lead to compatible results if the material in the beam and the deflection due to multiple scattering therein is correctly described. 
 %With biased residuals, only one fit has to be performed, whereas for unbiased residuals, a new fit has to be formed for every plane under investigation. 
-Systematic uncertainties affect the track resolution, the predicted residual standard deviation, and finally the derived intrinsic resolution. 
+Systematic uncertainties affect the track resolution, the predicted residual width, and finally the derived intrinsic resolution. 
 The systematic uncertainties of the intrinsic resolution are calculated using the same iterative method used for the central value and
  are estimated based on uncertain beam energy, uncertain standard deviation of the angular distribution and variations in the fit range. 
 %Firstly, the residuals have been obtained from data assuming an intrinsic resolution of $\sigmai = \unit{3.3}{\micro\meter}$ and secondly the track resolution is calculated. 
@@ -215,7 +216,7 @@ The impact of systematic uncertainties on the result is similar between the bias
 In addition to the above mentioned contributions per plane,
  there is a systematic uncertainty of the method itself, as it predicts slightly different intrinsic resolutions for each plane, which changes between geometries,
  i.e.\ it is not dominantly caused by an actual difference in intrinsic resolution. 
-The impact of the root mean square of the standard deviation of the pull distributions on the intrinsic resolution is therefore included in the table. 
+The impact of the variance between the width of the pull distributions for different sensors on the intrinsic resolution is therefore included in the table. 
 The most accurate measurement of the intrinsic resolution can be performed at minimal multiple scattering, i.e.\ at 6\,GeV and $\dz = 20\,\milli\meter$,
  featuring a total systematic uncertainty of $2.6\,\%$ and $1.8\,\%$ for biased and unbiased track fits, respectively. 
 Measurements at 2\,GeV and $\dz = 150\,\milli\meter$ yield an uncertainty of 20\,\% to 40\,\%. 
@@ -283,18 +284,18 @@ The residual and pull distributions have been obtained for every sensor plane as
 Figure~\ref{fig:residualexample1} shows the biased residual distribution in $x$ for plane\,0 and plane\,3 for a telescope sensor spacing of $\dz = 20\,\milli\meter$,
  a beam energy of 6\,GeV and a sensor threshold setting of $\noise = 6$. 
 According results for the $y$-direction, further planes, the wide geometry and the unbiased methodology are omitted. 
-The distributions are fitted with a Gaussian, from which the residual standard deviation $\rbiased$ is determined. 
-For plane\,3, the biased residual standard deviation in the $x$-direction is 
+The distributions are fitted with a Gaussian, from which the residual width $\rbiased$ is determined. 
+For plane\,3, the biased residual width in the $x$-direction is 
 
 \begin{equation}
 \left( 2.88\,\pm\, 0.01\,\textrm{(stat.)}\,\pm\, 0.08\, \textrm{(sys.)}\right)\,\micro\meter.
 \end{equation}
 
 \noindent
-As expected, cf.\ section~\ref{sec:resmultiple}, the biased residual standard deviation for the outer plane\,0 is smaller than the standard deviation obtained from plane\,3.
+As expected, cf.\ section~\ref{sec:resmultiple}, the biased residual width for the outer plane\,0 is smaller than the width obtained from plane\,3.
 Since the systematic uncertainty dominates the total uncertainty, the statistical contribution is neglected for the further analysis. 
 It should be noted that the residuals feature non-Gaussian tails, as is expected from the underlying physics of the scattering mechanism~\cite{ref:PDG-2014}. 
-The measured residual standard deviation used in this work is defined as the standard deviation of a Gaussian fit on the centre $95.5\,\%$ of the residual distribution.
+The measured residual width used in this work is defined as the standard deviation of a Gaussian fit on the centre $95.5\,\%$ of the residual distribution.
 %This is expected due to the fact that the track extrapolation to the inner sensors is performed from both sides, and hence is comparatively more precise than for the outer sensors,
 % where the extrapolation can only be performed from one direction. 
 %Therefore, in equation~(\ref{eq:telescoperesolutionequation1}) the difference between $\sigmai$ and $\sigmatb$ decreases from the centre sensor planes to the outer ones. 
@@ -323,18 +324,18 @@ The measured residual standard deviation used in this work is defined as the sta
   %\caption[Intrinsic telescope sensor resolution at $20\,\milli\meter$ and $150\,\milli\meter$ plane spacing~\cite{ref:thomas}]{Intrinsic telescope sensor resolution at $20\,\milli\meter$ (top)
   % and $150\,\milli\meter$ (bottom) plane spacing.
   \caption[The measured residual widths of each telescope plane.]{
-  The measured residual standard deviations of each telescope plane are shown in the $x$-direction for a plane spacing of $\dz = 20\,\milli\meter$ (A) and $\dz = 150\,\milli\meter$ (B).
-  The black line shows the predicted residual standard deviation at $\sigmam = 3.24\,\upmu\meter$, the green band the measurement standard deviation.
-  %Dotted and dashed lines indicate the predicted residual standard deviations, in case differing intrinsic resolutions are assumed.
+  The measured residual widths of each telescope plane are shown in the $x$-direction for a plane spacing of $\dz = 20\,\milli\meter$ (A) and $\dz = 150\,\milli\meter$ (B).
+  The black line shows the predicted residual width at $\sigmam = 3.24\,\upmu\meter$, the green band the measurement standard deviation.
+  %Dotted and dashed lines indicate the predicted residual widths, in case differing intrinsic resolutions are assumed.
   %Data was taken at a sensor threshold of $\noise = 6$ and using 6\,GeV electrons at DESY-II.
   }
   \label{fig:smiley}
 \end{figure}
 
 
-The six measured residual standard deviations in the $x$-direction at a beam energy of 6\,GeV and a sensor threshold $\noise = 6$ for both the narrow plane spacing of $\dz = 20\,\milli\meter$
+The six measured residual widths in the $x$-direction at a beam energy of 6\,GeV and a sensor threshold $\noise = 6$ for both the narrow plane spacing of $\dz = 20\,\milli\meter$
  and the wide spacing of $\dz = 150\,\milli\meter$ are shown in figure~\ref{fig:smiley} (A) and (B), respectively. 
-The two distributions show a global maximum in the centre with decreasing residual standard deviations towards both ends. 
+The two distributions show a global maximum in the centre with decreasing residual widths towards both ends. 
 At a considered plane $i$ the residuals are smaller for the wide configuration in comparison to the narrow one, cf.~section~\ref{sec:resmultiple}.
 %Also, the residuals decrease towards lower beam energies. 
 %These effects stem from the term $\sigmatb$ in equation~(\ref{eq:telescoperesolutionequation1}): 
@@ -342,11 +343,11 @@ At a considered plane $i$ the residuals are smaller for the wide configuration i
 %(2) The biased track resolution tends towards the intrinsic resolution for increased scattering. 
 %Hence, the difference between $\sigmai$ and $\sigmatb$ decreases. 
 
-%The energy dependent standard deviation of the scattering angle distribution increase the uncertainty with decreasing energy, cf.\.equation~\ref{eq:multiplescattering}. 
+%The energy dependent width of the scattering angle distribution increase the uncertainty with decreasing energy, cf.\.equation~\ref{eq:multiplescattering}. 
 %In the former term, the geometric scaling factor is larger in the wide configuration, in the latter $\sigma_{\textrm{MS}}$ increases with decreasing beam energy. 
 
 %In order to find the best estimate of the intrinsic sensor resolution, a $\chi^2$ minimisation is performed. 
-%Inputs to this minimisation are the twelve measured residuals standard deviations $\sigmameas$ at a sensor threshold of $\noise = 6$ and a beam energy of 6\,GeV. 
+%Inputs to this minimisation are the twelve measured residuals widths $\sigmameas$ at a sensor threshold of $\noise = 6$ and a beam energy of 6\,GeV. 
 %These are compared to analytical estimates of the residuals $\sigmahat$, which depend on the known geometry of the set-up, its material budget, the beam energy,
 % and the intrinsic sensor resolution, cf.~equation~(\ref{eq:telescoperesolutionequation}). 
 %The $\chi^2$ is calculated over all planes as
