@@ -22,11 +22,11 @@ The procedure is repeated for the downstream planes.
 Matching triplets from the up- and downstream planes are identified by isolated triplets that intersect within a radius of $\unit{100}{\upmu\meter}$, again at the centre between plane\,2 and plane\,3. 
 In turn, GBL tracks are formed by the six hits belonging to the matched triplets. 
 For offline alignment, the GBL tracks are passed to \mbox{Millepede-II} in order to determine shift and rotation alignment constants for every telescope plane.
-Alignment constants in the sensitive directions are determined to submicron precision and are hence much smaller than the intrinsic resolution of the detectors used. 
+Alignment constants of the sensitive coordinates are determined to submicron precision and are hence much smaller than the intrinsic resolution of the detectors used. 
 After applying the alignment corrections, the above track finding is repeated, and GBL tracks are calculated based on the corrected hits. 
 These tracks can be formed in a \textrm{biased} or in an \textrm{unbiased} way, where biased tracks include the measured hit information of every plane in contrast to unbiased tracks,
  that omit the hit information of the plane under investigation. 
-Finally, a fiducial cut discards tracks at the border of the sensors and a cut on $\textrm{prob}(\chi^2,\textrm{ndf})$ rejects track with outliers from the further analysis. 
+Finally, a fiducial cut discards tracks at the border of the sensors and a cut on the $\chi^2$-probability for the given number of degrees of freedom rejects track with outliers from the further analysis. 
 
 \subsection{GBL track fits, multiple scattering and residuals}
 \label{sec:resmultiple}
@@ -93,7 +93,7 @@ For a composition of scatterers $\varepsilon_i$, cf.\ section~\ref{sec:sensors},
  involves the sum over the material budgets and hence $\varepsilon$ in equation~(\ref{eq:multiplescattering_a}) is to be replaced by $\varepsilon = \sum \varepsilon_i$. 
 For track fitting (with a Kalman filter or GBL) the variance from all scatterers along the track has to be distributed over the individual scatterers. 
 Using the material fraction as relative weight results in a formula similar to equation~(\ref{eq:multiplescattering_a})
- with the sum of the material budget used in the logarithmic correction
+ with the total material budget used in the logarithmic correction
 
 \begin{equation}
 \label{eq:multiplescattering}

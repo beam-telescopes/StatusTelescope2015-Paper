@@ -31,6 +31,7 @@ Therefore, EUTelescope provides processors implementing advanced algorithms for 
 For high-energy beam lines a simple straight line fit provides sufficient precision and a maximum of computational performance by employing a $\chi^{2}$-minimisation method~\cite{ref:eudetmemo_2007_01,ref:lutzpaper} to calculate the track parameters.
 In addition, precise offline detector alignment can be performed by minimising track residuals using the EUTelescope alignment processor which utilises the Millepede-II algorithm~\cite{Blobel-2006}.
 
-EUTelescope comes with its own job submission framework Jobsub that allows for submission of analysis jobs on local machines or on larger batch computing clusters such as the NAF\footnote{National Analysis Facility. This is a German UNIX cluster.} or LXPLUS\footnote{LXPLUS is a CERN UNIX cluster} for bulk reconstruction.
+EUTelescope comes with its own job submission framework Jobsub that allows for submission of analysis jobs on local machines or on larger batch computing clusters such as the NAF\footnote{National Analysis Facility. This is a German UNIX cluster.}
+ or LXPLUS\footnote{LXPLUS is a CERN UNIX cluster.} for bulk reconstruction.
 Using its flexible configuration file concept and the global run database storing user defined variables,
  Jobsub eases the implementation of per-run variables for reconstruction such as beam energy or detector alignment.
