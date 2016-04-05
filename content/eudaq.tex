@@ -11,11 +11,11 @@ The GUI provides all controls necessary to the user on shift.
 Another important user interface is the Log Collector, gathering logging information from all modules and displaying them in one unified logging window. 
 Log files are stored along with the recorded data files for later reference.
 
-The actual detector data is delivered to the framework by so-called Producers.
+The actual detector data are delivered to the framework by so-called Producers.
 Producers are the links between the EUDAQ framework and the subdetector systems such as the beam telescope, the TLU, or user DAQ systems.
 They interface with the EUDAQ library and provide a set of commands to be called by the Run Control. 
 This simple interface scheme eases the integration of user DAQ systems into the software framework.
-The data read out from the detectors by the individual Producers is sent to the so-called Data Collector. 
+The data read out from the detectors by the individual Producers are sent to the so-called Data Collector. 
 This Data Collector is responsible for the event building, i.e.\ the correlation of events from all subdetector systems to single global events comprising all data belonging to one trigger. 
 Basic sanity checks such as testing the consistency of event numbers reported by the individual subdetectors are executed.
 
