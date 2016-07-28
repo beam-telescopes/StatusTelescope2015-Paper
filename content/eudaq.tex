@@ -31,6 +31,7 @@ Each Data Converter plug-in can implement several data format end points allowin
 
 Configuration of the data acquisition framework is performed via global configuration files. 
 The information for every individual module is parsed and distributed by the Run Control. 
-The configuration file is a plain text file divided into sections for the individual modules, which contain a list of parameter-value pairs defined by the module.
+The configuration file is a plain text file divided into sections for the individual modules. 
+Each section contains a list of possibly many (parameter,value)-pairs, which are defined and used by the modules.
 The full content of the configuration file including commented lines is stored in the so-called Begin-Of-Run Event (BORE) of every run and is thus available later for offline analysis and reference. 
 This greatly simplifies book keeping of detector parameters during test beam shifts since all settings are stored automatically.

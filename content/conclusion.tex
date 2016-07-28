@@ -14,7 +14,8 @@ The maximum achievable rate will be increased by the successor of the TLU.
 A new plane comprising four MIMOSA\,28 planes has been built for the AIDA telescope, covering a detection area of $16\,\centi\meter^2$, and an appropriate DAQ has been developed to cope with the higher data rates. 
 %This is only possible with the implementation of parallel data streams for the telescope planes and the DUT, which will be available with \eudaq\,{2.0},
 % which will incorporate a new event format supporting multiple triggers per $\Mimosa$ read-out frame. 
-Future versions of \eudaq\ will provide support for asynchronous data streams allowing to operate certain devices at a much higher trigger frequency than others
- and thus making full use of the the beams available in the various beam lines.
+Future versions of $\eudaq$ in combination with a TLU-successor will provide support for synchronous triggers and parallel data streams. 
+This allows for efficient employment of devices independent of their read-out cycle length and for multiple triggers per read-out cycle. 
+Self-triggered devices can then be included in the data taking alongside to trigger-based devices. 
 The development of the $\EUTelescope$ analysis software is driven by the large and diverse user community. 
 Features currently under development include tracking in magnetic fields and more accurate detector geometry descriptions. 

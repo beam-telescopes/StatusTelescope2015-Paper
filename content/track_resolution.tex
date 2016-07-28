@@ -15,7 +15,7 @@ Clusters are formed from fired, adjacent pixels and translated from two-dimensio
 Clusters containing at least one hot pixel are removed from the analysis. 
 Triplets are built from hits in the three upstream and three downstream planes separately: 
 First, doublets are defined by straight lines from all hits in plane\,0 to all hits in plane\,2. 
-A valid triplet is found, if a matching hit in plane\,1 is present, non-valid triplets are discarded.  
+A valid triplet is found, if a matching hit in plane\,1 is present within a matching distance of $\unit{100}{\upmu\meter}$, non-valid triplets are discarded.  
 Triplet isolation is ensured by rejecting all triplets whose extrapolation at a chosen $z$-coordinate approaches other triplet extrapolations closer than $\unit{300}{\upmu\meter}$,
  the $z$-coordinate being the centre between plane\,2 and plane\,3. 
 The procedure is repeated for the downstream planes. 
@@ -49,7 +49,8 @@ The method of GBL makes various assumptions and simplifications:
 \begin{itemize}
  \item Scatterers, the origin of kinks in the trajectory, are thin, i.e.\ no spatial offsets within a scatterer are taken into account. 
  \item A thick scatterer, like the air between two planes, is modelled by two thin scatterers. 
- \item The offsets of the local track parameters are small and are propagated linearly. 
+ \item Corrections, i.e.\ the offsets between the initial trajectory and the fitted trajectory, are small and the kink angles are to good approximation linear functions of the these corrections,
+  c.f.\ equation (3) in reference~\cite{Blobel20111760} and equation (4) in~\cite{Blobel-2006}.
  \item All random variables follow normal distributions.
  \item Bremsstrahlung effects are not taken into account in the track model. 
 \end{itemize}
@@ -364,7 +365,7 @@ At a considered plane $i$ the residuals are smaller for the wide configuration i
 %In both cases, an error of $0.5\,\milli\meter$ on the plane distance $\textrm{d}z$ is assumed. % This assumption is done for track fitting. Plane position is fixed in chi2 minimisation for \sigmai
 
 As described in section~\ref{sec:meth}, the tuned amount of multiple scattering used as input to GBL
- is determined by varying $\kappa$ iteratively until the resulting resolution for the two considered geometries agree. 
+ is determined by varying $\kappa$ iteratively until the resulting intrinsic resolution for the two considered geometries agree. 
 This procedure results in an estimate of both $\kappa$ and the true intrinsic resolution. 
 At 6\,GeV and 2\,GeV, a value of $\kappa(6\,\textrm{GeV}) = 0.76 \pm 0.04$ and $\kappa(2\,\textrm{GeV}) = 0.75 \pm 0.02$ is found, the latter corresponding to a relative uncertainty of $3\,\%$,
  which is used as the uncertainty on $\Theta_0$. 
@@ -375,6 +376,9 @@ Additionally, the average intrinsic resolution of the $\Mimosa$ sensors at 6\,Ge
 
 \noindent
 This average is taken over all twelve measurements of the telescope (two dimensions per plane). 
+The uncertainty is purely of systematic nature and is extracted using table~\ref{tab:uncerts}. 
+The result implies that the average cluster contains more than one pixel and that charge sharing is the underlying cause for an intrinsic resolution better than the binary one. 
+Indeed, the average clustersize at $\noise = 6$ is about 3.3\,pixel.
 The result is consistent with earlier analyses, which yielded intrinsic resolutions of $\sigmai \approx\,3.4\,\micro\meter$ \cite{ref:thomas} and $\sigmai \approx\,3.5\,\micro\meter$~\cite{ref:mimosa26}.
 
 The above method is repeated for different beam energies at a fixed threshold $\noise = 6$. 
@@ -382,6 +386,7 @@ This allows for the determination of $\kappa$ as a function of the beam energy.
 The correlation is shown in figure~\ref{fig:HL_factor}~(A) for both biased and unbiased track fits. 
 For biased track fits, $\kappa$ is found to be constant at a value of $\kappa = 0.753 \pm 0.013$ in the energy range covered,
  which translates to a tuned input of about $-25\,\%$ with respect to equation~(\ref{eq:multiplescattering}). 
+This value of $\kappa$ has also been used for the predictions in figures~\ref{fig:smiley} (A) and (B). 
 For unbiased track fits, $\kappa$ slightly increases from 0.87 at 2\,GeV to 0.94 at 6\,GeV with a precision of a single measurement of about $2\,\%$.
 Figure~\ref{fig:HL_factor}~(B) shows the measured intrinsic resolution for both methodologies as a function of the beam energy. 
 At each measured energy, they agree within less than one standard deviation over the entire energy range. 
@@ -417,9 +422,12 @@ A margin $d = 50\,\micro\meter$ is chosen for 6\,GeV and $\dz = 20\,\milli\meter
 In figure~\ref{fig:resivsenergy_thresh}~(A) the telescope triplet efficiency dependence on the sensor threshold is shown for various beam energies and sensor spacings.
 Statistical uncertainties are negligible.
 Systematic uncertainties are insignificant due to a precise alignment and the sufficiently large margin $d$.  
-For thresholds $\noise = 5$ and $\noise = 6$ the efficiency is measured to $99.6\,\%$ and $99.4\,\%$, respectively.
+For thresholds $\noise = 5$ and $\noise = 6$ the efficiency is measured to $99.6\,\%$ and $99.4\,\%$, respectively, and
+ the efficiency varies by less than 0.1\,\% between different geometries and energy settings. 
 With increasing threshold, the efficiency decreases to about $82\,\%$ at $\noise = 12$. 
-The efficiency varies by less than 0.1\,\% between different geometries and energy settings at thresholds $\noise = 5$ and $\noise = 6$. 
+Towards lower thresholds, the efficiency also decreases, which seems counter-intuitive, but is related to an increasing number of hot pixels. 
+An observed decrease in efficiency by 3.5\,\% from threshold $\noise = 5$ to $\noise = 3$ can be reasonably appointed to the about 1\,\% hot pixels in a plane at threshold $\noise = 3$,
+ since all clusters containing at least one hot pixel are removed from the analysis. 
 
 \begin{figure}[t]
   \centering
@@ -505,8 +513,8 @@ For SPS energies, a track resolution of $(1.33\,\pm\,0.03)\,\upmu\meter$ is pred
 The shown resolutions monotonically increase with increasing $\dzdut$. 
 In order to achieve the best possible resolution, the inner $\Mimosa$ planes should therefore be positioned as close as possible to the DUT, i.e.~$\dzdut$ is to be minimised. 
 In addition, figure~\ref{fig:CalcResos_dzdut}~(A) shows, that the optimal plane spacing $\dz$ depends on the actual DUT size along the beam direction and its material budget.
-For instance for a DUT with a material budget of $\epsdut = 0.001$ (solid lines) at 5\,GeV, a narrow configuration shows a higher track resolution for $\dzdut < 74\,\milli\meter$,
- while a wide configuration is best for $\dzdut > 74\,\milli\meter$. %actually 82.something
+For instance for a DUT with a material budget of $\epsdut = 0.001$ (solid lines) at 5\,GeV, a narrow configuration shows an better track resolution for $\dzdut < 74\,\milli\meter$,
+ while a wide configuration is favoured  for $\dzdut > 74\,\milli\meter$. %actually 82.something
 The intersection is marked with a black circle in figure~\ref{fig:CalcResos_dzdut}~(A). 
 The position of the intersection depends on the material budget of the DUT $\epsdut$ and shifts to smaller $\dzdut$ with increasing material budget. 
 %A DUT with a material budget of $\eps$
